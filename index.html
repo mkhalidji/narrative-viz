@@ -12,8 +12,15 @@
 </head>
 
 <body>
-    Welcome to Mojtaba's narrative visualiztion project for CS 416.
-    <i class="fa-solid fa-house"></i>
+    <div class="left">
+        <i id="left-nav" class="fa-solid fa-circle-left fa-2xl disabled" onclick="onNavClick(-1)"></i>
+    </div>
+    <div id="viz" class="viewport"></div>
+    <div class="right">
+        <i id="right-nav" class="fa-solid fa-circle-right fa-2xl disabled" onclick="onNavClick(+1)"></i>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

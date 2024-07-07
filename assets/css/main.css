@@ -2,8 +2,52 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    padding: 10px;
     overflow: hidden;
     background-image: linear-gradient(to bottom, black, lightgrey);
     color: antiquewhite;
+}
+div.left {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    background-color: black;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.left i,
+div.right i {
+    opacity: 0.2;
+}
+
+div.left i:not(.disabled),
+div.right i:not(.disabled) {
+    opacity: 0.6;
+}
+
+div.left i:not(.disabled):hover,
+div.right i:not(.disabled):hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+div.right {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    background-color: black;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.viewport {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 110px;
+    padding-right: 110px;
 }
