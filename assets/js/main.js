@@ -4,7 +4,7 @@ const pageState = {
 
 const pages = [
   {
-    content: "Welcome to Mojtaba's narrative visualiztion project for CS 416.",
+    content: "<svg></svg>",
   },
   { content: "This is the middle page." },
   { content: "This is the last page." },
@@ -48,4 +48,33 @@ function onNavClick(direction) {
 
 window.onload = function () {
   refreshPage();
+
+  const width = 200;
+  const height = 200;
+
+  const sy = d3.scaleLinear().domain([0, 50]).range([0, -height]);
+
+  const data = [10, 35, 5, 17, 29];
+
+  d3.select("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .on("click", function (ev, d) {
+      console.log(d);
+    })
+    .classed("bar", true)
+    .attr("width", 30)
+    .attr("height", function (d) {
+      return -sy(d);
+    })
+    .attr("x", function (d, i) {
+      return ((i + 1) * width) / 5 - 35;
+    })
+    .attr("y", function (d) {
+      return height + sy(d);
+    });
 };

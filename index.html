@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web/css/brands.css">
     <link rel="stylesheet" href="assets/fontawesome-free-6.5.2-web/css/solid.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <title>CS 416: Narrative Visualization Project</title>
 </head>
 
@@ -15,10 +16,13 @@
     <div class="left">
         <i id="left-nav" class="fa-solid fa-circle-left fa-2xl disabled" onclick="onNavClick(-1)"></i>
     </div>
-    <div id="viz" class="viewport"></div>
     <div class="right">
         <i id="right-nav" class="fa-solid fa-circle-right fa-2xl disabled" onclick="onNavClick(+1)"></i>
     </div>
+    <div id="viz" class="viewport">
+        <svg width="300" height="300"></svg>
+    </div>
+
     
     <script src="assets/js/main.js"></script>
 </body>

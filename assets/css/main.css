@@ -50,4 +50,14 @@ div.viewport {
     padding-bottom: 10px;
     padding-left: 110px;
     padding-right: 110px;
+    overflow: hidden;
+    }
+    
+    .bar {
+        fill: rgba(100, 0, 200, 1);
+    }
+    
+    .bar:hover {
+        fill: rgba(100, 0, 200, 0.6);
+        cursor: pointer;
 }
