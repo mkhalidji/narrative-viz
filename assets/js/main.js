@@ -46,35 +46,41 @@ function onNavClick(direction) {
   refreshPage();
 }
 
-window.onload = function () {
+window.onload = async function () {
   refreshPage();
 
-  const width = 200;
-  const height = 200;
+  const width = 975;
+  const height = 610;
 
-  const sy = d3.scaleLinear().domain([0, 50]).range([0, -height]);
+  const us = await d3.json("data/counties-albers-10m.json");
+  console.log(us);
 
-  const data = [10, 35, 5, 17, 29];
+  const zoom = d3.zoom().scaleExtent([1, 8]);
 
-  d3.select("svg")
+  const svg = d3
+    .select("svg")
+    .attr("viewBox", [0, 0, width, height])
     .attr("width", width)
-    .attr("height", height)
-    .selectAll("rect")
-    .data(data)
-    .enter()
-    .append("rect")
-    .on("click", function (ev, d) {
-      console.log(d);
-    })
-    .classed("bar", true)
-    .attr("width", 30)
-    .attr("height", function (d) {
-      return -sy(d);
-    })
-    .attr("x", function (d, i) {
-      return ((i + 1) * width) / 5 - 35;
-    })
-    .attr("y", function (d) {
-      return height + sy(d);
-    });
+    .attr("height", height);
+
+  const path = d3.geoPath();
+
+  const g = svg.append("g");
+
+  const states = g
+    .append("g")
+    .attr("fill", "#4453")
+    .attr("cursor", "pointer")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .join("path")
+    .attr("d", path);
+
+  states.append("title").text((d) => d.properties.name);
+
+  g.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "lightgrey")
+    .attr("stroke-linejoin", "round")
+    .attr("d", path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
 };
