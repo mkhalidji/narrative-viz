@@ -105,7 +105,7 @@ window.onload = async function () {
     .scaleDivergingPow([0.5, 1.0, 1.5], ["#22763f", "#f4cf64", "#be2a3e"])
     .clamp(true);
 
-  const zoom = d3.zoom().scaleExtent([1, 8]);
+  // const zoom = d3.zoom().scaleExtent([1, 8]);
 
   const svg = d3
     .select("svg")
