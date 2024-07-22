@@ -109,9 +109,7 @@ window.onload = async function () {
 
   const svg = d3
     .select("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .attr("width", "100%")
-    .attr("height", "auto");
+    .attr("viewBox", [0, 0, width, height]);
 
   const path = d3.geoPath();
 
