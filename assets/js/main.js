@@ -21,13 +21,13 @@ function refreshPage() {
   const leftNav = document.getElementById("left-nav");
   const rightNav = document.getElementById("right-nav");
 
-  if (currentPage == 0) {
+  if (currentPage === 0) {
     leftNav.classList.add("disabled");
   } else {
     leftNav.classList.remove("disabled");
   }
 
-  if (currentPage == pageCount - 1) {
+  if (currentPage === pageCount - 1) {
     rightNav.classList.add("disabled");
   } else {
     rightNav.classList.remove("disabled");
