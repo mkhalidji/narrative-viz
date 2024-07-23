@@ -52,6 +52,7 @@ window.onload = async function () {
   const width = 975;
   const height = 610;
 
+  const cities = await d3.json("data/us_cities.geojson");
   const us = await d3.json("data/counties-albers-10m.json");
   let covidData;
   try {
@@ -153,6 +154,30 @@ window.onload = async function () {
     .attr("fill", "none")
     .attr("stroke", "#a2a2a2")
     .attr("d", path(topojson.mesh(us, us.objects.nation)));
+
+  // const projection = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+  // const cityNodes = g
+  //   .selectAll("g")
+  //   .data(
+  //     cities.features.map(({ geometry: { coordinates }, properties }) => ({
+  //       coordinates: projection(coordinates),
+  //       properties,
+  //     }))
+  //   )
+  //   .join("g");
+
+  // console.log(cityNodes.data());
+
+  // cityNodes
+  //   .append("circle")
+  //   .attr("fill", "black")
+  //   .attr("r", 2)
+  //   .attr("cx", ({ coordinates }) => coordinates[0])
+  //   .attr("cy", ({ coordinates }) => coordinates[1])
+  //   .append("title")
+  //   .text(({ properties: { name } }) => name);
+
+  // cityNodes.append("title").text((d) => d.properties.name);
 
   let zoomedState = undefined;
 
