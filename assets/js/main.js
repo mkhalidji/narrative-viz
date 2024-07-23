@@ -152,8 +152,11 @@ window.onload = async function () {
     .attr("stroke", "#a2a2a2")
     .attr("d", path(topojson.mesh(us, us.objects.nation)));
 
+  let zoomedState = undefined;
+
   function reset() {
-    states.transition().style("fill", null);
+    console.log(this);
+    states.transition().style("opacity", null);
     svg
       .transition()
       .duration(750)
@@ -162,23 +165,20 @@ window.onload = async function () {
         d3.zoomIdentity,
         d3.zoomTransform(svg.node()).invert([width / 2, height / 2])
       );
-  }
 
-  for (const [key, value] of Object.entries(covidData)) {
-    value.zoomed = false;
+    zoomedState = undefined;
   }
-  console.log(covidData);
 
   function stateClicked(event, d) {
-    const stateDatum = covidData[d3.select(this).datum().properties.name];
-    stateDatum.zoomed = !stateDatum.zoomed;
-    if (!stateDatum.zoomed) {
-      return reset();
+    const stateName = covidData[d3.select(this).datum().properties.name];
+    if (zoomedState !== undefined && zoomedState === stateName) {
+      return reset.call(this);
     }
+    zoomedState = stateName;
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
     states.transition().style("fill", null);
-    d3.select(this).transition().style("fill", "red");
+    d3.select(this).transition().style("opacity", "0.8");
     svg
       .transition()
       .duration(750)
