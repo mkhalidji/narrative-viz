@@ -124,7 +124,7 @@ window.onload = async function () {
     .join("g")
     .on("click", stateClicked);
 
-  g.selectAll("g").attr("fill", ({ properties: { name: state } }) => {
+  states.attr("fill", ({ properties: { name: state } }) => {
     return casesColor(covidData[state].rate);
   });
 
@@ -155,8 +155,16 @@ window.onload = async function () {
   let zoomedState = undefined;
 
   function reset() {
-    console.log(this);
-    states.transition().style("opacity", null);
+    d3.select(this)
+      .selectChild("path")
+      .transition()
+      .duration(750)
+      .style("transform", null);
+    states
+      .transition()
+      .duration(750)
+      .style("opacity", null)
+      .style("z-index", 10, "important");
     svg
       .transition()
       .duration(750)
@@ -170,7 +178,8 @@ window.onload = async function () {
   }
 
   function stateClicked(event, d) {
-    const stateName = covidData[d3.select(this).datum().properties.name];
+    const { state: stateName } =
+      covidData[d3.select(this).datum().properties.name];
     if (zoomedState !== undefined && zoomedState === stateName) {
       return reset.call(this);
     }
@@ -178,7 +187,18 @@ window.onload = async function () {
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
     states.transition().style("fill", null);
-    d3.select(this).transition().style("opacity", "0.8");
+    d3.select(this)
+      .raise()
+      .selectChild("path")
+      .transition()
+      .duration(750)
+      .style("transform", "translate(-2px, -2px)");
+    states
+      .filter(({ properties: { name } }) => stateName !== name)
+      .transition()
+      .duration(750)
+      .style("opacity", "0.2")
+      .style("z-index", 10, "important");
     svg
       .transition()
       .duration(750)
