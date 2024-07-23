@@ -160,6 +160,11 @@ window.onload = async function () {
       .transition()
       .duration(750)
       .style("transform", null);
+    d3.select("#county-borders")
+      .transition()
+      .duration(750)
+      .style("opacity", 0)
+      .remove();
     states
       .transition()
       .duration(750)
@@ -184,15 +189,34 @@ window.onload = async function () {
       return reset.call(this);
     }
     zoomedState = stateName;
+    const { id: stateId } = d3.select(this).datum();
+    const { geometries } = us.objects.counties;
+    console.log(us.objects.counties);
+    const stateCounties = Object.assign({}, us.objects.counties, {
+      geometries: geometries.filter(({ id }) => id.startsWith(stateId)),
+    });
     const [[x0, y0], [x1, y1]] = path.bounds(d);
     event.stopPropagation();
     states.transition().style("fill", null);
+    d3.select(this)
+      .append("path")
+      .attr("id", "county-borders")
+      .attr("fill", "none")
+      .attr("stroke", "#a2a2a2")
+      .style("opacity", 0)
+      .attr("stroke-linejoin", "round")
+      .attr("d", path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
     d3.select(this)
       .raise()
       .selectChild("path")
       .transition()
       .duration(750)
       .style("transform", "translate(-1px, -1px)");
+    d3.select("#county-borders")
+      .transition()
+      .duration(750)
+      .style("transform", "translate(-1px, -1px)")
+      .style("opacity", 1, "important");
     states
       .filter(({ properties: { name } }) => stateName !== name)
       .transition()
