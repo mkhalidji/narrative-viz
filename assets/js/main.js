@@ -192,7 +192,7 @@ window.onload = async function () {
       .selectChild("path")
       .transition()
       .duration(750)
-      .style("transform", "translate(-2px, -2px)");
+      .style("transform", "translate(-1px, -1px)");
     states
       .filter(({ properties: { name } }) => stateName !== name)
       .transition()
