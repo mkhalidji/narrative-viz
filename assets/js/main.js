@@ -155,7 +155,10 @@ window.onload = async function () {
     .attr("stroke", "#a2a2a2")
     .attr("d", path(topojson.mesh(us, us.objects.nation)));
 
-  // const projection = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
+  // const projection = d3
+  //   .geoAlbersUsa()
+  //   .scale(1300)
+  //   .translate([width / 2, height / 2]);
   // const cityNodes = g
   //   .selectAll("g")
   //   .data(
