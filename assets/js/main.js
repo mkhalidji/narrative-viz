@@ -56,7 +56,7 @@ window.onload = async function () {
   let covidData;
   try {
     covidData = await d3.csv(
-      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
+      "https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv"
     );
   } catch (e) {
     console.log(e);
@@ -94,15 +94,17 @@ window.onload = async function () {
       return { [state]: { state, cases, deaths, rate } };
     })
   );
-  console.log(covidData);
 
   const upperLimit = Math.floor(
     Math.max(...Object.values(covidData).map(({ rate }) => rate))
   );
-  console.log(upperLimit);
 
   const casesColor = d3
     .scaleDivergingPow([0.5, 1.0, 1.5], ["#22763f", "#f4cf64", "#be2a3e"])
+    .clamp(true);
+
+  const borderColor = d3
+    .scaleDiverging([0.5, 1.0, 1.5], ["lightgrey", "#000", "lightgrey"])
     .clamp(true);
 
   const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
@@ -202,7 +204,7 @@ window.onload = async function () {
       .append("path")
       .attr("id", "county-borders")
       .attr("fill", "none")
-      .attr("stroke", "#a2a2a2")
+      .attr("stroke", () => borderColor(+covidData[stateName].rate))
       .style("opacity", 0)
       .attr("stroke-linejoin", "round")
       .attr("d", path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
