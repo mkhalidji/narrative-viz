@@ -1,12 +1,12 @@
 const pageState = {
-  currentPage: 0,
+  currentPage: 1,
 };
 
 const pages = [
   {
     content: "<svg></svg>",
   },
-  { content: "This is the middle page." },
+  { content: "<svg></svg>" },
   { content: "This is the last page." },
 ];
 
@@ -46,7 +46,7 @@ function onNavClick(direction) {
   refreshPage();
 }
 
-window.onload = async function () {
+async function showMap() {
   refreshPage();
 
   const width = 975;
@@ -273,4 +273,34 @@ window.onload = async function () {
     g.attr("transform", transform);
     g.attr("stroke-width", 1 / transform.k);
   }
-};
+}
+
+async function showMandates() {
+  const mandateData = await d3.csv(
+    "data/State-Level_Vaccine_Mandates_-_All_20240723.csv",
+    ({ state, effective_date }) => ({
+      state,
+      effective_date: new Date(effective_date),
+    })
+  );
+  console.log(mandateData);
+
+  const width = 975;
+  const height = 610;
+
+  const svg = d3
+    .select("svg")
+    .attr("viewBox", [0, 0, width, height])
+    .attr("width", width)
+    .attr("height", height);
+  svg
+    .selectAll("text")
+    .data(mandateData)
+    .join("svg:text")
+    .attr("x", "10")
+    .attr("y", (_, i) => 10 + 20 * i)
+    .attr("stroke", "whitesmoke")
+    .text(({ state, effective_date }) => `${state} on ${effective_date}`);
+}
+
+window.onload = showMandates;
