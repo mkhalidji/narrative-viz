@@ -60,3 +60,7 @@ div.viewport svg {
   max-width: 80%;
   height: auto;
 }
+
+.annotation-note-label {
+  fill: "white";
+}

@@ -300,14 +300,17 @@ async function showMandates() {
     .attr("viewBox", [0, 0, width, height])
     .attr("width", width)
     .attr("height", height);
-  svg
+
+  const dots = svg
     .selectAll("circle")
     .data(mandates)
     .join("circle")
     .attr("cx", ({ effective_date }) => xScale(effective_date))
     .attr("cy", height / 2)
     .attr("r", 2.5)
-    .attr("fill", "whitesmoke")
+    .attr("fill", "whitesmoke");
+
+  dots
     .append("title")
     .text(({ state, effective_date }) => `${state} on ${effective_date}`);
 
@@ -339,6 +342,40 @@ async function showMandates() {
           return monthName[month];
         })
     );
+
+  const parseTime = d3.timeParse("%d-%b-%y");
+  const timeFormat = d3.timeFormat("%d-%b-%y");
+
+  //Skipping setting domains for sake of example
+  const x = d3.scaleTime().range([0, 800]);
+  const y = d3.scaleLinear().range([300, 0]);
+  const type = d3.annotationCallout;
+  const makeAnnotations = d3
+    .annotation()
+    .type(type)
+    .accessors({
+      x: ({ effective_date }) => xScale(effective_date),
+      y: () => height / 2,
+    })
+    .accessorsInverse({
+      effective_date: (d) => timeFormat(x.invert(d.x)),
+    })
+    .annotations(
+      mandates.map((d) => ({
+        note: { label: d3.timeFormat("%m")(d.effective_date) },
+        data: d,
+        className: "show-bg",
+        dy: -50,
+        dx: 100,
+        // disable: ["note", "connector"],
+      }))
+    );
+
+  const annotations = svg
+    .append("g")
+    .attr("class", "annotation-group")
+    .attr("fill", "white")
+    .call(makeAnnotations);
 }
 
 window.onload = showMandates;
