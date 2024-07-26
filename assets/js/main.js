@@ -350,32 +350,45 @@ async function showMandates() {
   const x = d3.scaleTime().range([0, 800]);
   const y = d3.scaleLinear().range([300, 0]);
   const type = d3.annotationCallout;
-  const makeAnnotations = d3
-    .annotation()
-    .type(type)
-    .accessors({
-      x: ({ effective_date }) => xScale(effective_date),
-      y: () => height / 2,
-    })
-    .accessorsInverse({
-      effective_date: (d) => timeFormat(x.invert(d.x)),
-    })
-    .annotations(
-      mandates.map((d) => ({
-        note: { label: d3.timeFormat("%m")(d.effective_date) },
-        data: d,
-        className: "show-bg",
-        dy: -50,
-        dx: 100,
-        // disable: ["note", "connector"],
-      }))
-    );
 
-  const annotations = svg
+  const annotationGroup = svg
     .append("g")
     .attr("class", "annotation-group")
-    .attr("fill", "white")
-    .call(makeAnnotations);
+    .attr("fill", "white");
+
+  dots.each(function (d, i) {
+    d3.select(this)
+      .on("click", function () {})
+      .on("mouseover", function () {
+        const makeAnnotations = d3
+          .annotation()
+          .type(type)
+          .accessors({
+            x: ({ effective_date }) => xScale(effective_date),
+            y: () => height / 2,
+          })
+          .accessorsInverse({
+            effective_date: (d) => timeFormat(x.invert(d.x)),
+          })
+          .annotations([
+            {
+              note: {
+                title: `${d3.timeFormat("%B %Y")(d.effective_date)}`,
+                label: `${d.state}`,
+              },
+              data: d,
+              className: "show-bg",
+              dy: -50,
+              dx: 100,
+            },
+          ]);
+
+        annotationGroup.call(makeAnnotations);
+      })
+      .on("mouseout", function () {
+        annotationGroup.call(d3.annotation().annotations([]));
+      });
+  });
 }
 
 window.onload = showMandates;
