@@ -276,17 +276,24 @@ async function showMap() {
 }
 
 async function showMandates() {
-  const mandateData = await d3.csv(
+  const mandates = await d3.csv(
     "data/State-Level_Vaccine_Mandates_-_All_20240723.csv",
     ({ state, effective_date }) => ({
       state,
       effective_date: new Date(effective_date),
     })
   );
-  console.log(mandateData);
 
-  const width = 975;
-  const height = 610;
+  const dates = mandates.map((d) => d.effective_date);
+
+  const width = 975,
+    height = 610,
+    marginBottom = 100;
+  const xScale = d3
+    .scaleTime()
+    .domain([d3.min(dates), d3.max(dates)])
+    .nice()
+    .range([10, width - 10]);
 
   const svg = d3
     .select("svg")
@@ -294,13 +301,44 @@ async function showMandates() {
     .attr("width", width)
     .attr("height", height);
   svg
-    .selectAll("text")
-    .data(mandateData)
-    .join("svg:text")
-    .attr("x", "10")
-    .attr("y", (_, i) => 10 + 20 * i)
-    .attr("stroke", "whitesmoke")
+    .selectAll("circle")
+    .data(mandates)
+    .join("circle")
+    .attr("cx", ({ effective_date }) => xScale(effective_date))
+    .attr("cy", height / 2)
+    .attr("r", 2.5)
+    .attr("fill", "whitesmoke")
+    .append("title")
     .text(({ state, effective_date }) => `${state} on ${effective_date}`);
+
+  svg
+    .append("g")
+    .attr("transform", `translate(0,${height - marginBottom})`)
+    .call(
+      d3
+        .axisBottom(xScale)
+        .ticks(d3.timeMonth.every(1))
+        .tickFormat((date) => {
+          const month = date.getMonth(),
+            year = date.getFullYear();
+          const monthName = [
+            year,
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ];
+
+          return monthName[month];
+        })
+    );
 }
 
 window.onload = showMandates;
