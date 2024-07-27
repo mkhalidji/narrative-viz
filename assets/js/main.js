@@ -1,54 +1,8 @@
-const pageState = {
-  currentPage: 1,
+const state = {
+  zoomedState: undefined,
 };
 
-const pages = [
-  {
-    content: "<svg></svg>",
-  },
-  { content: "<svg></svg>" },
-  { content: "This is the last page." },
-];
-
-const pageCount = pages.length;
-
-function refreshPage() {
-  const { currentPage } = pageState;
-
-  const viz = document.getElementById("viz");
-  viz.innerHTML = pages[currentPage].content;
-
-  const leftNav = document.getElementById("left-nav");
-  const rightNav = document.getElementById("right-nav");
-
-  if (currentPage === 0) {
-    leftNav.classList.add("disabled");
-  } else {
-    leftNav.classList.remove("disabled");
-  }
-
-  if (currentPage === pageCount - 1) {
-    rightNav.classList.add("disabled");
-  } else {
-    rightNav.classList.remove("disabled");
-  }
-}
-
-function onNavClick(direction) {
-  const { currentPage } = pageState;
-
-  if (direction > 0 && currentPage + 1 < pageCount) {
-    Object.assign(pageState, { currentPage: currentPage + 1 });
-  } else if (direction < 0 && currentPage > 0) {
-    Object.assign(pageState, { currentPage: currentPage - 1 });
-  }
-
-  refreshPage();
-}
-
 async function showMap() {
-  refreshPage();
-
   const width = 975;
   const height = 610;
 
@@ -121,7 +75,8 @@ async function showMap() {
 
   const states = g
     .attr("cursor", "pointer")
-    .attr("fill", "#4453")
+    // .attr("fill", "#4453")
+    .attr("fill", "whitesmoke")
     .selectAll("g")
     .data(topojson.feature(us, us.objects.states).features)
     .join("g")
@@ -143,6 +98,7 @@ async function showMap() {
     });
 
   g.append("path")
+    .attr("id", "state-borders")
     .attr("fill", "none")
     .attr("stroke", "#a2a2a2")
     .attr("stroke-linejoin", "round")
@@ -151,36 +107,10 @@ async function showMap() {
   svg.call(zoom);
 
   g.append("path")
+    .attr("id", "us-border")
     .attr("fill", "none")
     .attr("stroke", "#a2a2a2")
     .attr("d", path(topojson.mesh(us, us.objects.nation)));
-
-  // const projection = d3
-  //   .geoAlbersUsa()
-  //   .scale(1300)
-  //   .translate([width / 2, height / 2]);
-  // const cityNodes = g
-  //   .selectAll("g")
-  //   .data(
-  //     cities.features.map(({ geometry: { coordinates }, properties }) => ({
-  //       coordinates: projection(coordinates),
-  //       properties,
-  //     }))
-  //   )
-  //   .join("g");
-
-  // console.log(cityNodes.data());
-
-  // cityNodes
-  //   .append("circle")
-  //   .attr("fill", "black")
-  //   .attr("r", 2)
-  //   .attr("cx", ({ coordinates }) => coordinates[0])
-  //   .attr("cy", ({ coordinates }) => coordinates[1])
-  //   .append("title")
-  //   .text(({ properties: { name } }) => name);
-
-  // cityNodes.append("title").text((d) => d.properties.name);
 
   let zoomedState = undefined;
 
@@ -213,6 +143,9 @@ async function showMap() {
   }
 
   function stateClicked(event, d) {
+    const marginWidth = width / 5;
+    const marginHeight = height / 5;
+
     const { state: stateName } =
       covidData[d3.select(this).datum().properties.name];
     if (zoomedState !== undefined && zoomedState === stateName) {
@@ -221,7 +154,6 @@ async function showMap() {
     zoomedState = stateName;
     const { id: stateId } = d3.select(this).datum();
     const { geometries } = us.objects.counties;
-    console.log(us.objects.counties);
     const stateCounties = Object.assign({}, us.objects.counties, {
       geometries: geometries.filter(({ id }) => id.startsWith(stateId)),
     });
@@ -237,34 +169,47 @@ async function showMap() {
       .attr("stroke-linejoin", "round")
       .attr("d", path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
     d3.select(this)
-      .raise()
-      .selectChild("path")
-      .transition()
-      .duration(750)
-      .style("transform", "translate(-1px, -1px)");
+      .append("path")
+      .attr("fill", "none")
+      .attr("stroke", () => borderColor(+covidData[stateName].rate))
+      .attr("stroke-linejoin", "round")
+      .attr(
+        "d",
+        path(
+          topojson.mesh(
+            us,
+            us.objects.states,
+            (a, b) =>
+              a.properties.name === stateName || b.properties.name === stateName
+          )
+        )
+      );
     d3.select("#county-borders")
       .transition()
       .duration(750)
-      .style("transform", "translate(-1px, -1px)")
       .style("opacity", 1, "important");
     states
       .filter(({ properties: { name } }) => stateName !== name)
       .transition()
       .duration(750)
-      .style("opacity", "0.2")
-      .style("z-index", 10, "important");
-    svg
+      .style("display", "none");
+    d3.selectAll("#state-borders, #us-border")
+      .transition()
+      .duration(750)
+      .style("display", "none");
+    d3.select(this)
       .transition()
       .duration(750)
       .call(
         zoom.transform,
         d3.zoomIdentity
-          .translate(width / 2, height / 2)
           .scale(
-            Math.min(8, 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height))
+            d3.min([
+              (marginWidth - 10) / (x1 - x0),
+              (marginHeight - 10) / (y1 - y0),
+            ])
           )
-          .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
-        d3.pointer(event, svg.node())
+          .translate(-x0 + 10, -y0 + 10)
       );
   }
 
@@ -391,4 +336,4 @@ async function showMandates() {
   });
 }
 
-window.onload = showMandates;
+window.onload = showMap;
