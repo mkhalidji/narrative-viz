@@ -62,7 +62,8 @@ async function showMap() {
     .scaleDiverging([0.5, 1.0, 1.5], ["lightgrey", "#000", "lightgrey"])
     .clamp(true);
 
-  const zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+  const newZoom = () => d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
+  const zoom = newZoom();
 
   const svg = d3
     .select("svg")
@@ -80,7 +81,8 @@ async function showMap() {
     .selectAll("g")
     .data(topojson.feature(us, us.objects.states).features)
     .join("g")
-    .on("click", stateClicked);
+    .on("click", stateClicked)
+    .call(zoom);
 
   states.attr("fill", ({ properties: { name: state } }) => {
     return casesColor(covidData[state].rate);
@@ -104,8 +106,6 @@ async function showMap() {
     .attr("stroke-linejoin", "round")
     .attr("d", path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
 
-  svg.call(zoom);
-
   g.append("path")
     .attr("id", "us-border")
     .attr("fill", "none")
@@ -114,42 +114,57 @@ async function showMap() {
 
   let zoomedState = undefined;
 
-  function reset() {
-    d3.select(this)
+  async function reset(event, d) {
+    const marginWidth = width / 5;
+    const marginHeight = height / 5;
+
+    const { state: stateName } =
+      covidData[d3.select(this).datum().properties.name];
+    const [[x0, y0], [x1, y1]] = path.bounds(d);
+
+    const selection = d3.select(this);
+    const transform = d3.zoomTransform(d3.select(this).node());
+
+    // d3.select("#left-pane").remove();
+
+    await selection
+      .transition()
+      .duration(750)
+      .call(zoom.transform, d3.zoomIdentity, transform.invert([x0, y0]))
+      .end();
+
+    selection
       .selectChild("path")
       .transition()
       .duration(750)
       .style("transform", null);
+
     d3.select("#county-borders")
       .transition()
       .duration(750)
       .style("opacity", 0)
       .remove();
-    states
-      .transition()
-      .duration(750)
-      .style("opacity", null)
-      .style("z-index", 10, "important");
-    svg
-      .transition()
-      .duration(750)
-      .call(
-        zoom.transform,
-        d3.zoomIdentity,
-        d3.zoomTransform(svg.node()).invert([width / 2, height / 2])
-      );
+
+    const otherStates = states.filter(
+      ({ properties: { name } }) => stateName !== name
+    );
+    otherStates.style("display", null).style("z-index", 10, "important");
+
+    d3.selectAll("#state-borders, #us-border").style("display", null);
 
     zoomedState = undefined;
   }
 
   function stateClicked(event, d) {
+    event.stopPropagation();
+
     const marginWidth = width / 5;
     const marginHeight = height / 5;
 
     const { state: stateName } =
       covidData[d3.select(this).datum().properties.name];
     if (zoomedState !== undefined && zoomedState === stateName) {
-      return reset.call(this);
+      return reset.call(this, event, d);
     }
     zoomedState = stateName;
     const { id: stateId } = d3.select(this).datum();
@@ -158,7 +173,20 @@ async function showMap() {
       geometries: geometries.filter(({ id }) => id.startsWith(stateId)),
     });
     const [[x0, y0], [x1, y1]] = path.bounds(d);
-    event.stopPropagation();
+
+    // svg
+    //   .append("rect")
+    //   .lower()
+    //   .attr("id", "left-pane")
+    //   .attr("x", 0)
+    //   .attr("y", 0)
+    //   .attr("width", marginWidth)
+    //   .attr("height", height)
+    //   .attr("fill", "whitesmoke")
+    //   .attr("opacity", 0)
+    //   .transition()
+    //   .duration(750)
+    //   .attr("opacity", 0.4);
     states.transition().style("fill", null);
     d3.select(this)
       .append("path")
@@ -193,30 +221,31 @@ async function showMap() {
       .transition()
       .duration(750)
       .style("display", "none");
+
     d3.selectAll("#state-borders, #us-border")
       .transition()
       .duration(750)
       .style("display", "none");
-    d3.select(this)
-      .transition()
-      .duration(750)
-      .call(
-        zoom.transform,
-        d3.zoomIdentity
-          .scale(
-            d3.min([
-              (marginWidth - 10) / (x1 - x0),
-              (marginHeight - 10) / (y1 - y0),
-            ])
-          )
-          .translate(-x0 + 10, -y0 + 10)
-      );
+
+    const scaleX = (marginWidth - 10) / (x1 - x0),
+      scaleY = (marginHeight - 10) / (y1 - y0);
+    const scale = d3.min([scaleX, scaleY]);
+
+    const transition = d3.select(this).transition().duration(750);
+    transition.call(
+      zoom.transform,
+      d3.zoomIdentity
+        .translate((-(x0 + x1) / 2) * scale, -y0 * scale)
+        .scale(scale)
+        .translate((marginWidth - 5) / 2 / scale, 5 / scale)
+    );
   }
 
   function zoomed(event) {
     const { transform } = event;
-    g.attr("transform", transform);
-    g.attr("stroke-width", 1 / transform.k);
+    d3.select(this)
+      .attr("transform", transform)
+      .attr("stroke-width", 1 / transform.k);
   }
 }
 
