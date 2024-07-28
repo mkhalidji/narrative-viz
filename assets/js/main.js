@@ -3,119 +3,104 @@ const state = {
 };
 
 async function showMap() {
-  const width = 975;
-  const height = 610;
+  const mapWidth = 975;
+  const mapHeight = 610;
+  const chartHeight = 120;
 
-  const us = await d3.json("data/counties-albers-10m.json");
-  let covidData;
-  try {
-    covidData = await d3.csv(
-      "https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv"
-    );
-  } catch (e) {
-    console.log(e);
-  }
+  const width = mapWidth;
+  const height = mapHeight + chartHeight;
 
-  const getCovidDataForDate = (data, targetDate) => {
-    return Object.assign(
-      {},
-      ...data
-        .filter(({ date }) => date === targetDate)
-        .map(({ state, cases, deaths }) => ({
-          state,
-          cases: parseInt(cases),
-          deaths: parseInt(deaths),
-        }))
-        .map((d) => ({ [d.state]: { ...d } }))
-    );
+  const { us, ...data } = await prepareGeoData();
+
+  const getDateBounds = (collection) => {
+    return [
+      d3.max(
+        Object.values(collection).map((series) =>
+          d3.min(series.map((d) => d.date))
+        )
+      ),
+      d3.min(
+        Object.values(collection).map((series) =>
+          d3.max(series.map((d) => d.date))
+        )
+      ),
+    ];
   };
 
-  const covidDataYesterday = getCovidDataForDate(covidData, "2020-04-15");
-  const covidDataToday = getCovidDataForDate(covidData, "2021-10-10");
-  covidData = Object.assign(
-    {},
-    ...Object.keys(covidDataToday).map((state) => {
-      if (!covidDataToday[state] || !covidDataYesterday[state]) {
-        return {};
-      }
-      const cases =
-        covidDataToday[state].cases - covidDataYesterday[state].cases;
-      const deaths =
-        covidDataToday[state].deaths - covidDataYesterday[state].deaths;
-      const rate = (
-        cases > 0 && deaths > 0 ? (deaths / cases) * 100.0 : 0.0
-      ).toFixed(2);
-      return { [state]: { state, cases, deaths, rate } };
-    })
-  );
-
-  const upperLimit = Math.floor(
-    Math.max(...Object.values(covidData).map(({ rate }) => rate))
+  const [startDate, endDate] = getDateBounds(
+    Object.values(data.states).map((c) => c.daily)
   );
 
   const casesColor = d3
-    .scaleDivergingPow([0.5, 1.0, 1.5], ["#22763f", "#f4cf64", "#be2a3e"])
+    .scaleDivergingPow([0, 50, 100], ['#22763f', '#f4cf64', '#be2a3e'])
     .clamp(true);
 
   const borderColor = d3
-    .scaleDiverging([0.5, 1.0, 1.5], ["lightgrey", "#000", "lightgrey"])
+    .scaleDiverging([0, 50, 100], ['lightgrey', '#000', 'lightgrey'])
     .clamp(true);
 
-  const newZoom = () => d3.zoom().scaleExtent([1, 8]).on("zoom", zoomed);
-  const zoom = newZoom();
+  const zoom = d3.zoom().scaleExtent([1, 8]).on('zoom', zoomed);
 
   const svg = d3
-    .select("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .on("click", reset);
+    .select('svg')
+    .attr('viewBox', [0, 0, width, height])
+    .on('click', reset);
 
   const path = d3.geoPath();
 
-  const g = svg.append("g");
+  const g = svg.append('g');
 
   const states = g
-    .attr("cursor", "pointer")
+    .attr('cursor', 'pointer')
     // .attr("fill", "#4453")
-    .attr("fill", "whitesmoke")
-    .selectAll("g")
+    .attr('fill', 'whitesmoke')
+    .selectAll('g')
     .data(topojson.feature(us, us.objects.states).features)
-    .join("g")
-    .on("click", stateClicked)
+    .join('g')
+    .on('click', stateClicked)
     .call(zoom);
 
-  states.attr("fill", ({ properties: { name: state } }) => {
-    return casesColor(covidData[state].rate);
+  const targetDate = new Date('09-25-2022');
+
+  states.attr('fill', ({ properties: { name: state } }) => {
+    return casesColor(
+      data.states[state].daily.find(
+        ({ date }) => date.toDateString() === targetDate.toDateString()
+      ).deaths
+    );
   });
 
   states
-    .append("path")
-    .attr("d", path)
-    .on("clicked", stateClicked)
-    .append("title")
+    .append('path')
+    .attr('d', path)
+    .on('clicked', stateClicked)
+    .append('title')
     .text(({ properties: { name: state } }) => {
-      const { cases, deaths, rate } = covidData[state];
+      const { cases, deaths } = data.states[state].daily.find(
+        ({ date }) => date.toDateString() === targetDate.toDateString()
+      );
 
-      return `${state}\nCases: ${cases}\nDeaths: ${deaths}\nRate: ${rate}%`;
+      return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
     });
 
-  g.append("path")
-    .attr("id", "state-borders")
-    .attr("fill", "none")
-    .attr("stroke", "#a2a2a2")
-    .attr("stroke-linejoin", "round")
-    .attr("d", path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
+  g.append('path')
+    .attr('id', 'state-borders')
+    .attr('fill', 'none')
+    .attr('stroke', '#a2a2a2')
+    .attr('stroke-linejoin', 'round')
+    .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
 
-  g.append("path")
-    .attr("id", "us-border")
-    .attr("fill", "none")
-    .attr("stroke", "#a2a2a2")
-    .attr("d", path(topojson.mesh(us, us.objects.nation)));
+  g.append('path')
+    .attr('id', 'us-border')
+    .attr('fill', 'none')
+    .attr('stroke', '#a2a2a2')
+    .attr('d', path(topojson.mesh(us, us.objects.nation)));
 
   let zoomedState = undefined;
 
   async function reset(event, d) {
-    const marginWidth = width / 5;
-    const marginHeight = height / 5;
+    const marginWidth = mapWidth / 5;
+    const marginHeight = mapHeight / 5;
 
     const { state: stateName } =
       covidData[d3.select(this).datum().properties.name];
@@ -133,23 +118,23 @@ async function showMap() {
       .end();
 
     selection
-      .selectChild("path")
+      .selectChild('path')
       .transition()
       .duration(750)
-      .style("transform", null);
+      .style('transform', null);
 
-    d3.select("#county-borders")
+    d3.select('#county-borders')
       .transition()
       .duration(750)
-      .style("opacity", 0)
+      .style('opacity', 0)
       .remove();
 
     const otherStates = states.filter(
       ({ properties: { name } }) => stateName !== name
     );
-    otherStates.style("display", null).style("z-index", 10, "important");
+    otherStates.style('display', null).style('z-index', 10, 'important');
 
-    d3.selectAll("#state-borders, #us-border").style("display", null);
+    d3.selectAll('#state-borders, #us-border').style('display', null);
 
     zoomedState = undefined;
   }
@@ -157,8 +142,8 @@ async function showMap() {
   function stateClicked(event, d) {
     event.stopPropagation();
 
-    const marginWidth = width / 5;
-    const marginHeight = height / 5;
+    const marginWidth = mapWidth / 5;
+    const marginHeight = mapHeight / 5;
 
     const { state: stateName } =
       covidData[d3.select(this).datum().properties.name];
@@ -186,22 +171,22 @@ async function showMap() {
     //   .transition()
     //   .duration(750)
     //   .attr("opacity", 0.4);
-    states.transition().style("fill", null);
+    states.transition().style('fill', null);
     d3.select(this)
-      .append("path")
-      .attr("id", "county-borders")
-      .attr("fill", "none")
-      .attr("stroke", () => borderColor(+covidData[stateName].rate))
-      .style("opacity", 0)
-      .attr("stroke-linejoin", "round")
-      .attr("d", path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
+      .append('path')
+      .attr('id', 'county-borders')
+      .attr('fill', 'none')
+      .attr('stroke', () => borderColor(+covidData[stateName].rate))
+      .style('opacity', 0)
+      .attr('stroke-linejoin', 'round')
+      .attr('d', path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
     d3.select(this)
-      .append("path")
-      .attr("fill", "none")
-      .attr("stroke", () => borderColor(+covidData[stateName].rate))
-      .attr("stroke-linejoin", "round")
+      .append('path')
+      .attr('fill', 'none')
+      .attr('stroke', () => borderColor(+covidData[stateName].rate))
+      .attr('stroke-linejoin', 'round')
       .attr(
-        "d",
+        'd',
         path(
           topojson.mesh(
             us,
@@ -211,20 +196,20 @@ async function showMap() {
           )
         )
       );
-    d3.select("#county-borders")
+    d3.select('#county-borders')
       .transition()
       .duration(750)
-      .style("opacity", 1, "important");
+      .style('opacity', 1, 'important');
     states
       .filter(({ properties: { name } }) => stateName !== name)
       .transition()
       .duration(750)
-      .style("display", "none");
+      .style('display', 'none');
 
-    d3.selectAll("#state-borders, #us-border")
+    d3.selectAll('#state-borders, #us-border')
       .transition()
       .duration(750)
-      .style("display", "none");
+      .style('display', 'none');
 
     const scaleX = (marginWidth - 10) / (x1 - x0),
       scaleY = (marginHeight - 10) / (y1 - y0);
@@ -243,14 +228,14 @@ async function showMap() {
   function zoomed(event) {
     const { transform } = event;
     d3.select(this)
-      .attr("transform", transform)
-      .attr("stroke-width", 1 / transform.k);
+      .attr('transform', transform)
+      .attr('stroke-width', 1 / transform.k);
   }
 }
 
 async function showMandates() {
   const mandates = await d3.csv(
-    "data/State-Level_Vaccine_Mandates_-_All_20240723.csv",
+    'data/State-Level_Vaccine_Mandates_-_All_20240723.csv',
     ({ state, effective_date }) => ({
       state,
       effective_date: new Date(effective_date),
@@ -269,27 +254,27 @@ async function showMandates() {
     .range([10, width - 10]);
 
   const svg = d3
-    .select("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .attr("width", width)
-    .attr("height", height);
+    .select('svg')
+    .attr('viewBox', [0, 0, width, height])
+    .attr('width', width)
+    .attr('height', height);
 
   const dots = svg
-    .selectAll("circle")
+    .selectAll('circle')
     .data(mandates)
-    .join("circle")
-    .attr("cx", ({ effective_date }) => xScale(effective_date))
-    .attr("cy", height / 2)
-    .attr("r", 2.5)
-    .attr("fill", "whitesmoke");
+    .join('circle')
+    .attr('cx', ({ effective_date }) => xScale(effective_date))
+    .attr('cy', height / 2)
+    .attr('r', 2.5)
+    .attr('fill', 'whitesmoke');
 
   dots
-    .append("title")
+    .append('title')
     .text(({ state, effective_date }) => `${state} on ${effective_date}`);
 
   svg
-    .append("g")
-    .attr("transform", `translate(0,${height - marginBottom})`)
+    .append('g')
+    .attr('transform', `translate(0,${height - marginBottom})`)
     .call(
       d3
         .axisBottom(xScale)
@@ -299,25 +284,25 @@ async function showMandates() {
             year = date.getFullYear();
           const monthName = [
             year,
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
           ];
 
           return monthName[month];
         })
     );
 
-  const parseTime = d3.timeParse("%d-%b-%y");
-  const timeFormat = d3.timeFormat("%d-%b-%y");
+  const parseTime = d3.timeParse('%d-%b-%y');
+  const timeFormat = d3.timeFormat('%d-%b-%y');
 
   //Skipping setting domains for sake of example
   const x = d3.scaleTime().range([0, 800]);
@@ -325,14 +310,14 @@ async function showMandates() {
   const type = d3.annotationCallout;
 
   const annotationGroup = svg
-    .append("g")
-    .attr("class", "annotation-group")
-    .attr("fill", "white");
+    .append('g')
+    .attr('class', 'annotation-group')
+    .attr('fill', 'white');
 
   dots.each(function (d, i) {
     d3.select(this)
-      .on("click", function () {})
-      .on("mouseover", function () {
+      .on('click', function () {})
+      .on('mouseover', function () {
         const makeAnnotations = d3
           .annotation()
           .type(type)
@@ -346,11 +331,11 @@ async function showMandates() {
           .annotations([
             {
               note: {
-                title: `${d3.timeFormat("%B %Y")(d.effective_date)}`,
+                title: `${d3.timeFormat('%B %Y')(d.effective_date)}`,
                 label: `${d.state}`,
               },
               data: d,
-              className: "show-bg",
+              className: 'show-bg',
               dy: -50,
               dx: 100,
             },
@@ -358,7 +343,7 @@ async function showMandates() {
 
         annotationGroup.call(makeAnnotations);
       })
-      .on("mouseout", function () {
+      .on('mouseout', function () {
         annotationGroup.call(d3.annotation().annotations([]));
       });
   });
@@ -370,7 +355,7 @@ async function showGraphs() {
 
   const covidData = Object.groupBy(
     await d3.csv(
-      "https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv",
+      'https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv',
       (d) => ({
         ...d,
         date: new Date(d.date),
@@ -382,7 +367,7 @@ async function showGraphs() {
     (d) => d.state
   );
 
-  const caCovidData = covidData["California"].map((d) => [d.date, d.rate]);
+  const caCovidData = covidData['California'].map((d) => [d.date, d.rate]);
 
   const [minDate, maxDate] = d3.extent(caCovidData.map((d) => d[0]));
 
@@ -402,37 +387,37 @@ async function showGraphs() {
   );
 
   const svg = d3
-    .select("svg")
-    .attr("viewBox", [0, 0, width, height])
-    .attr("width", width)
-    .attr("height", height);
+    .select('svg')
+    .attr('viewBox', [0, 0, width, height])
+    .attr('width', width)
+    .attr('height', height);
 
   svg
-    .append("path")
+    .append('path')
     .datum(caCovidData)
-    .attr("d", lineGraph)
-    .attr("fill", "none")
-    .attr("stroke", "whitesmoke")
-    .attr("stroke-width", 2);
+    .attr('d', lineGraph)
+    .attr('fill', 'none')
+    .attr('stroke', 'whitesmoke')
+    .attr('stroke-width', 2);
 
   const mouse_g = svg
-    .append("g")
-    .classed("mouse", true)
-    .style("display", "none");
+    .append('g')
+    .classed('mouse', true)
+    .style('display', 'none');
   mouse_g
-    .append("rect")
-    .attr("width", 2)
-    .attr("x", -1)
-    .attr("height", height - 20)
-    .attr("fill", "lightgray");
-  mouse_g.append("circle").attr("r", 5).attr("stroke", "whitesmoke");
-  mouse_g.append("text");
+    .append('rect')
+    .attr('width', 2)
+    .attr('x', -1)
+    .attr('height', height - 20)
+    .attr('fill', 'lightgray');
+  mouse_g.append('circle').attr('r', 5).attr('stroke', 'whitesmoke');
+  mouse_g.append('text');
 
-  svg.on("mouseover", function (mouse) {
-    mouse_g.style("display", "block");
+  svg.on('mouseover', function (mouse) {
+    mouse_g.style('display', 'block');
   });
 
-  svg.on("mousemove", function (mouse) {
+  svg.on('mousemove', function (mouse) {
     const [x_cord, y_cord] = d3.pointer(mouse);
     const ratio = x_cord / (width - 20);
     const now = new Date(
@@ -443,25 +428,25 @@ async function showGraphs() {
       caCovidData.map((d) => d[0].getTime()).filter((d) => d < now.getTime())
     );
     if (index < 0) {
-      mouse_g.style("display", "none");
+      mouse_g.style('display', 'none');
       return;
     }
     const datum = caCovidData[index];
     const rate = datum[1];
     mouse_g.attr(
-      "transform",
+      'transform',
       `translate(${xScale(datum[0])},${rateScale(10)})`
     );
     mouse_g
-      .select("text")
+      .select('text')
       .text(`${now.toDateString()}, Mortality: ${rate.toFixed(2)}%`)
-      .attr("stroke", "whitesmoke")
-      .attr("text-anchor", "middle");
+      .attr('stroke', 'whitesmoke')
+      .attr('text-anchor', 'middle');
 
-    mouse_g.select("circle").attr("cy", rateScale(rate) - 10);
+    mouse_g.select('circle').attr('cy', rateScale(rate) - 10);
   });
-  svg.on("mouseout", function (mouse) {
-    mouse_g.style("display", "none");
+  svg.on('mouseout', function (mouse) {
+    mouse_g.style('display', 'none');
   });
 }
 
@@ -482,7 +467,7 @@ const runningDiff = (series) => {
 async function fetchStateData() {
   const data = Object.groupBy(
     await d3.csv(
-      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv",
+      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv',
       (d) => ({
         ...d,
         date: new Date(d.date),
@@ -510,7 +495,7 @@ async function fetchStateData() {
 async function fetchCountyData() {
   const data = Object.groupBy(
     await d3.csv(
-      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
+      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
       (d) => ({
         ...d,
         date: new Date(d.date),
@@ -554,16 +539,16 @@ async function prepareCovidData() {
 async function prepareMandateData() {
   const [mandates, restrictions] = (
     await Promise.all([
-      d3.csv("data/State-Level_Vaccine_Mandates_-_All_20240723.csv", (d) => ({
-        type: "mandate",
+      d3.csv('data/State-Level_Vaccine_Mandates_-_All_20240723.csv', (d) => ({
+        type: 'mandate',
         ...d,
         date_signed: new Date(d.date_signed),
         effective_date: new Date(d.effective_date),
       })),
       d3.csv(
-        "data/State-Level_Restrictions_on_Vaccine_Mandates___All_20240723.csv",
+        'data/State-Level_Restrictions_on_Vaccine_Mandates___All_20240723.csv',
         (d) => ({
-          type: "restriction",
+          type: 'restriction',
           ...d,
           date_signed: new Date(d.date_signed),
           effective_date: new Date(d.effective_date),
@@ -577,7 +562,7 @@ async function prepareMandateData() {
 
 async function prepareGeoData() {
   const [us, states, { mandates, restrictions }] = await Promise.all([
-    d3.json("data/counties-albers-10m.json"),
+    d3.json('data/counties-albers-10m.json'),
     prepareCovidData(),
     prepareMandateData(),
   ]);
@@ -604,6 +589,7 @@ async function prepareGeoData() {
   });
 
   const nationalData = {
+    us,
     states,
     nation: { feature: topojson.feature(us, us.objects.nation).features[0] },
   };
@@ -611,4 +597,4 @@ async function prepareGeoData() {
   return nationalData;
 }
 
-window.onload = prepareGeoData;
+window.onload = showMap;
