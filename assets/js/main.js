@@ -6,7 +6,6 @@ async function showMap() {
   const width = 975;
   const height = 610;
 
-  const cities = await d3.json("data/us_cities.geojson");
   const us = await d3.json("data/counties-albers-10m.json");
   let covidData;
   try {
@@ -365,4 +364,223 @@ async function showMandates() {
   });
 }
 
-window.onload = showMap;
+async function showGraphs() {
+  const width = 975;
+  const height = 610;
+
+  const covidData = Object.groupBy(
+    await d3.csv(
+      "https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv",
+      (d) => ({
+        ...d,
+        date: new Date(d.date),
+        cases: +d.cases,
+        deaths: +d.deaths,
+        rate: +d.deaths === 0 ? 0 : (+d.deaths / +d.cases) * 100,
+      })
+    ),
+    (d) => d.state
+  );
+
+  const caCovidData = covidData["California"].map((d) => [d.date, d.rate]);
+
+  const [minDate, maxDate] = d3.extent(caCovidData.map((d) => d[0]));
+
+  const xScale = d3
+    .scaleTime()
+    .domain([minDate, maxDate])
+    .range([5, width - 5]);
+
+  const rateScale = d3
+    .scaleLinear()
+    .domain([0, 10])
+    .range([height - 10, 10]);
+
+  const lineGraph = d3.line(
+    (d) => xScale(d[0]),
+    (d) => rateScale(d[1])
+  );
+
+  const svg = d3
+    .select("svg")
+    .attr("viewBox", [0, 0, width, height])
+    .attr("width", width)
+    .attr("height", height);
+
+  svg
+    .append("path")
+    .datum(caCovidData)
+    .attr("d", lineGraph)
+    .attr("fill", "none")
+    .attr("stroke", "whitesmoke")
+    .attr("stroke-width", 2);
+
+  const mouse_g = svg
+    .append("g")
+    .classed("mouse", true)
+    .style("display", "none");
+  mouse_g
+    .append("rect")
+    .attr("width", 2)
+    .attr("x", -1)
+    .attr("height", height - 20)
+    .attr("fill", "lightgray");
+  mouse_g.append("circle").attr("r", 5).attr("stroke", "whitesmoke");
+  mouse_g.append("text");
+
+  svg.on("mouseover", function (mouse) {
+    mouse_g.style("display", "block");
+  });
+
+  svg.on("mousemove", function (mouse) {
+    const [x_cord, y_cord] = d3.pointer(mouse);
+    const ratio = x_cord / (width - 20);
+    const now = new Date(
+      minDate.getTime() +
+        Math.round(ratio * (maxDate.getTime() - minDate.getTime()))
+    );
+    const index = d3.maxIndex(
+      caCovidData.map((d) => d[0].getTime()).filter((d) => d < now.getTime())
+    );
+    if (index < 0) {
+      mouse_g.style("display", "none");
+      return;
+    }
+    const datum = caCovidData[index];
+    const rate = datum[1];
+    mouse_g.attr(
+      "transform",
+      `translate(${xScale(datum[0])},${rateScale(10)})`
+    );
+    mouse_g
+      .select("text")
+      .text(`${now.toDateString()}, Mortality: ${rate.toFixed(2)}%`)
+      .attr("stroke", "whitesmoke")
+      .attr("text-anchor", "middle");
+
+    mouse_g.select("circle").attr("cy", rateScale(rate) - 10);
+  });
+  svg.on("mouseout", function (mouse) {
+    mouse_g.style("display", "none");
+  });
+}
+
+const runningDiff = (series) => {
+  const daily = Array.from(series);
+
+  for (let i = 1; i < daily.length; i++) {
+    daily[i] = {
+      ...daily[i],
+      cases: series[i].cases - series[i - 1].cases,
+      deaths: series[i].deaths - series[i - 1].deaths,
+    };
+  }
+
+  return daily;
+};
+
+async function fetchStateData() {
+  const data = Object.groupBy(
+    await d3.csv(
+      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv",
+      (d) => ({
+        ...d,
+        date: new Date(d.date),
+        cases: +d.cases,
+        deaths: +d.deaths,
+      })
+    ),
+    (d) => d.state
+  );
+
+  for (const [state, series] of Object.entries(data)) {
+    const cumulative = series.sort(
+      (a, b) => a.date.getTime() - b.date.getTime()
+    );
+    const daily = runningDiff(cumulative);
+    data[state] = {
+      cumulative,
+      daily,
+    };
+  }
+
+  return data;
+}
+
+async function fetchCountyData() {
+  const data = Object.groupBy(
+    await d3.csv(
+      "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
+      (d) => ({
+        ...d,
+        date: new Date(d.date),
+        cases: +d.cases,
+        deaths: +d.deaths,
+      })
+    ),
+    (d) => d.state
+  );
+
+  for (const [state, series] of Object.entries(data)) {
+    data[state] = Object.groupBy(series, (d) => d.county);
+    for (const [county, countySeries] of Object.entries(data[state])) {
+      const cumulative = countySeries.sort(
+        (a, b) => a.date.getTime() - b.date.getTime()
+      );
+      const daily = runningDiff(cumulative);
+      data[state][county] = {
+        cumulative,
+        daily,
+      };
+    }
+  }
+
+  return data;
+}
+
+async function prepareCovidData() {
+  const [data, countyData] = await Promise.all([
+    fetchStateData(),
+    fetchCountyData(),
+  ]);
+
+  for (const state of Object.keys(data)) {
+    data[state].counties = countyData[state];
+  }
+
+  return data;
+}
+
+async function prepareGeoData() {
+  const [us, states] = await Promise.all([
+    d3.json("data/counties-albers-10m.json"),
+    prepareCovidData(),
+  ]);
+
+  const { features } = topojson.feature(us, us.objects.states);
+  const { features: countyFeatures } = topojson.feature(
+    us,
+    us.objects.counties
+  );
+  features.forEach((feature) => {
+    const { name: state } = feature.properties;
+
+    states[state].feature = feature;
+    for (const county of Object.keys(states[state].counties)) {
+      states[state].counties[county].feature = countyFeatures.find(
+        ({ properties: { name } }) => county === name
+      );
+    }
+  });
+
+  const nationalData = {
+    states,
+    nation: { feature: topojson.feature(us, us.objects.nation).features[0] },
+  };
+
+  console.log(nationalData);
+
+  return nationalData;
+}
+
+window.onload = prepareGeoData;
