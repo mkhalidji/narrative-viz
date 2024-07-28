@@ -551,10 +551,35 @@ async function prepareCovidData() {
   return data;
 }
 
+async function prepareMandateData() {
+  const [mandates, restrictions] = (
+    await Promise.all([
+      d3.csv("data/State-Level_Vaccine_Mandates_-_All_20240723.csv", (d) => ({
+        type: "mandate",
+        ...d,
+        date_signed: new Date(d.date_signed),
+        effective_date: new Date(d.effective_date),
+      })),
+      d3.csv(
+        "data/State-Level_Restrictions_on_Vaccine_Mandates___All_20240723.csv",
+        (d) => ({
+          type: "restriction",
+          ...d,
+          date_signed: new Date(d.date_signed),
+          effective_date: new Date(d.effective_date),
+        })
+      ),
+    ])
+  ).map((citations) => Object.groupBy(citations, (c) => c.state));
+
+  return { mandates, restrictions };
+}
+
 async function prepareGeoData() {
-  const [us, states] = await Promise.all([
+  const [us, states, { mandates, restrictions }] = await Promise.all([
     d3.json("data/counties-albers-10m.json"),
     prepareCovidData(),
+    prepareMandateData(),
   ]);
 
   const { features } = topojson.feature(us, us.objects.states);
@@ -571,14 +596,17 @@ async function prepareGeoData() {
         ({ properties: { name } }) => county === name
       );
     }
+
+    const regulations = (mandates[state] || []).concat(
+      restrictions[state] || []
+    );
+    states[state].regulations = regulations;
   });
 
   const nationalData = {
     states,
     nation: { feature: topojson.feature(us, us.objects.nation).features[0] },
   };
-
-  console.log(nationalData);
 
   return nationalData;
 }
