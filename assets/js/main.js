@@ -10,76 +10,107 @@ async function showMap() {
   const width = mapWidth;
   const height = mapHeight + chartHeight;
 
-  const { us, ...data } = await prepareGeoData();
+  const data = await prepareGeoData();
+  const { us, national, states, counties, mandates, restrictions } = data;
 
-  const getDateBounds = (collection) => {
-    return [
-      d3.max(
-        Object.values(collection).map((series) =>
-          d3.min(series.map((d) => d.date))
-        )
-      ),
-      d3.min(
-        Object.values(collection).map((series) =>
-          d3.max(series.map((d) => d.date))
-        )
-      ),
-    ];
+  const [startDate, endDate] = d3.extent(national, (d) => d.date);
+
+  const filterDataToInterval = (sd, ed) => {
+    const intervalStates = d3.filter(
+      states,
+      (d) => d.date >= sd && d.date <= ed
+    );
+
+    return topojson.feature(us, us.objects.states).features.map((feature) => {
+      const {
+        properties: { name: stateName },
+      } = feature;
+      const values = d3
+        .filter(intervalStates, (d) => d.state === stateName)
+        .sort((a, b) => a.date.getTime() - b.date.getTime());
+      const cases = values[values.length - 1].cases - values[0].cases;
+      const deaths = values[values.length - 1].deaths - values[0].deaths;
+      return {
+        ...feature,
+        cases,
+        deaths,
+      };
+    });
   };
 
-  const [startDate, endDate] = getDateBounds(
-    Object.values(data.states).map((c) => c.daily)
-  );
-
   const casesColor = d3
-    .scaleDivergingPow([0, 50, 100], ['#22763f', '#f4cf64', '#be2a3e'])
+    .scaleDivergingPow([0, 25000, 75000], ['#22763f', '#f4cf64', '#be2a3e'])
     .clamp(true);
 
   const borderColor = d3
-    .scaleDiverging([0, 50, 100], ['lightgrey', '#000', 'lightgrey'])
+    .scaleDiverging([0, 25000, 75000], ['lightgrey', '#000', 'lightgrey'])
     .clamp(true);
 
   const zoom = d3.zoom().scaleExtent([1, 8]).on('zoom', zoomed);
 
-  const svg = d3
-    .select('svg')
-    .attr('viewBox', [0, 0, width, height])
-    .on('click', reset);
+  const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
+
+  const xScale = d3
+    .scaleTime()
+    .domain([startDate, endDate])
+    .range([10, width - 10]);
+
+  const yScale = d3.scaleLinear().domain([0, d3.max(national, (d) => d.cases)]);
+
+  const line = (xs, ys) =>
+    d3
+      .line()
+      .x((d) => xs(d.date))
+      .y((d) => ys(d.cases));
+
+  const brush = d3
+    .brushX()
+    .extent([
+      [10, mapHeight - 1],
+      [width - 10, mapHeight + chartHeight - 20 + 1],
+    ])
+    .on('brush', brushed)
+    .on('end', brushended);
+
+  svg
+    .append('path')
+    .datum(national)
+    .attr('fill', 'none')
+    .attr('stroke', 'steelblue')
+    .attr(
+      'd',
+      line(
+        xScale,
+        yScale.copy().range([mapHeight + chartHeight - 20, mapHeight + 10])
+      )
+    );
+
+  svg.on('click', reset);
 
   const path = d3.geoPath();
 
   const g = svg.append('g');
 
-  const states = g
+  const states_g = g
     .attr('cursor', 'pointer')
     // .attr("fill", "#4453")
     .attr('fill', 'whitesmoke')
     .selectAll('g')
-    .data(topojson.feature(us, us.objects.states).features)
+    .data(filterDataToInterval(startDate, endDate))
     .join('g')
     .on('click', stateClicked)
     .call(zoom);
 
-  const targetDate = new Date('09-25-2022');
-
-  states.attr('fill', ({ properties: { name: state } }) => {
-    return casesColor(
-      data.states[state].daily.find(
-        ({ date }) => date.toDateString() === targetDate.toDateString()
-      ).deaths
-    );
+  states_g.attr('fill', ({ deaths }) => {
+    return casesColor(deaths);
   });
 
-  states
+  states_g
     .append('path')
     .attr('d', path)
     .on('clicked', stateClicked)
     .append('title')
-    .text(({ properties: { name: state } }) => {
-      const { cases, deaths } = data.states[state].daily.find(
-        ({ date }) => date.toDateString() === targetDate.toDateString()
-      );
-
+    .text(({ properties: { name: state }, cases, deaths }) => {
       return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
     });
 
@@ -95,6 +126,32 @@ async function showMap() {
     .attr('fill', 'none')
     .attr('stroke', '#a2a2a2')
     .attr('d', path(topojson.mesh(us, us.objects.nation)));
+
+  const defaultSelection = [xScale.range()[0], xScale.range()[1]];
+  const gb = svg.append('g').call(brush).call(brush.move, defaultSelection);
+  gb.on('dblclick', function () {
+    gb.call(brush.move, defaultSelection);
+  });
+
+  function brushed({ selection }) {
+    if (selection) {
+      states_g
+        .data(filterDataToInterval(...selection.map(xScale.invert)))
+        .attr('fill', ({ deaths }) => casesColor(deaths))
+        .selectChild('path')
+        .attr('d', path)
+        .selectChild('title')
+        .text(({ properties: { name: state }, cases, deaths }) => {
+          return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
+        });
+    }
+  }
+
+  function brushended({ selection }) {
+    if (!selection) {
+      gb.call(brush.move, defaultSelection);
+    }
+  }
 
   let zoomedState = undefined;
 
@@ -129,7 +186,7 @@ async function showMap() {
       .style('opacity', 0)
       .remove();
 
-    const otherStates = states.filter(
+    const otherStates = states_g.filter(
       ({ properties: { name } }) => stateName !== name
     );
     otherStates.style('display', null).style('z-index', 10, 'important');
@@ -171,7 +228,7 @@ async function showMap() {
     //   .transition()
     //   .duration(750)
     //   .attr("opacity", 0.4);
-    states.transition().style('fill', null);
+    states_g.transition().style('fill', null);
     d3.select(this)
       .append('path')
       .attr('id', 'county-borders')
@@ -200,7 +257,7 @@ async function showMap() {
       .transition()
       .duration(750)
       .style('opacity', 1, 'important');
-    states
+    states_g
       .filter(({ properties: { name } }) => stateName !== name)
       .transition()
       .duration(750)
@@ -464,137 +521,79 @@ const runningDiff = (series) => {
   return daily;
 };
 
-async function fetchStateData() {
-  const data = Object.groupBy(
-    await d3.csv(
-      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv',
-      (d) => ({
-        ...d,
-        date: new Date(d.date),
-        cases: +d.cases,
-        deaths: +d.deaths,
-      })
-    ),
-    (d) => d.state
+function fetchNationalData() {
+  return d3.csv(
+    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv',
+    (d) => ({
+      ...d,
+      date: new Date(d.date),
+      cases: +d.cases,
+      deaths: +d.deaths,
+    })
   );
-
-  for (const [state, series] of Object.entries(data)) {
-    const cumulative = series.sort(
-      (a, b) => a.date.getTime() - b.date.getTime()
-    );
-    const daily = runningDiff(cumulative);
-    data[state] = {
-      cumulative,
-      daily,
-    };
-  }
-
-  return data;
 }
 
-async function fetchCountyData() {
-  const data = Object.groupBy(
-    await d3.csv(
-      'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
-      (d) => ({
-        ...d,
-        date: new Date(d.date),
-        cases: +d.cases,
-        deaths: +d.deaths,
-      })
-    ),
-    (d) => d.state
+function fetchStateData() {
+  return d3.csv(
+    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv',
+    (d) => ({
+      ...d,
+      date: new Date(d.date),
+      cases: +d.cases,
+      deaths: +d.deaths,
+    })
   );
-
-  for (const [state, series] of Object.entries(data)) {
-    data[state] = Object.groupBy(series, (d) => d.county);
-    for (const [county, countySeries] of Object.entries(data[state])) {
-      const cumulative = countySeries.sort(
-        (a, b) => a.date.getTime() - b.date.getTime()
-      );
-      const daily = runningDiff(cumulative);
-      data[state][county] = {
-        cumulative,
-        daily,
-      };
-    }
-  }
-
-  return data;
 }
 
-async function prepareCovidData() {
-  const [data, countyData] = await Promise.all([
+function fetchCountyData() {
+  return d3.csv(
+    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
+    (d) => ({
+      ...d,
+      date: new Date(d.date),
+      cases: +d.cases,
+      deaths: +d.deaths,
+    })
+  );
+}
+
+function prepareCovidData() {
+  return Promise.all([
+    fetchNationalData(),
     fetchStateData(),
     fetchCountyData(),
   ]);
-
-  for (const state of Object.keys(data)) {
-    data[state].counties = countyData[state];
-  }
-
-  return data;
 }
 
-async function prepareMandateData() {
-  const [mandates, restrictions] = (
-    await Promise.all([
-      d3.csv('data/State-Level_Vaccine_Mandates_-_All_20240723.csv', (d) => ({
-        type: 'mandate',
+function prepareMandateData() {
+  return Promise.all([
+    d3.csv('data/State-Level_Vaccine_Mandates_-_All_20240723.csv', (d) => ({
+      type: 'mandate',
+      ...d,
+      date_signed: new Date(d.date_signed),
+      effective_date: new Date(d.effective_date),
+    })),
+    d3.csv(
+      'data/State-Level_Restrictions_on_Vaccine_Mandates___All_20240723.csv',
+      (d) => ({
+        type: 'restriction',
         ...d,
         date_signed: new Date(d.date_signed),
         effective_date: new Date(d.effective_date),
-      })),
-      d3.csv(
-        'data/State-Level_Restrictions_on_Vaccine_Mandates___All_20240723.csv',
-        (d) => ({
-          type: 'restriction',
-          ...d,
-          date_signed: new Date(d.date_signed),
-          effective_date: new Date(d.effective_date),
-        })
-      ),
-    ])
-  ).map((citations) => Object.groupBy(citations, (c) => c.state));
-
-  return { mandates, restrictions };
+      })
+    ),
+  ]);
 }
 
 async function prepareGeoData() {
-  const [us, states, { mandates, restrictions }] = await Promise.all([
-    d3.json('data/counties-albers-10m.json'),
-    prepareCovidData(),
-    prepareMandateData(),
-  ]);
+  const [us, [national, states, counties], [mandates, restrictions]] =
+    await Promise.all([
+      d3.json('data/counties-albers-10m.json'),
+      prepareCovidData(),
+      prepareMandateData(),
+    ]);
 
-  const { features } = topojson.feature(us, us.objects.states);
-  const { features: countyFeatures } = topojson.feature(
-    us,
-    us.objects.counties
-  );
-  features.forEach((feature) => {
-    const { name: state } = feature.properties;
-
-    states[state].feature = feature;
-    for (const county of Object.keys(states[state].counties)) {
-      states[state].counties[county].feature = countyFeatures.find(
-        ({ properties: { name } }) => county === name
-      );
-    }
-
-    const regulations = (mandates[state] || []).concat(
-      restrictions[state] || []
-    );
-    states[state].regulations = regulations;
-  });
-
-  const nationalData = {
-    us,
-    states,
-    nation: { feature: topojson.feature(us, us.objects.nation).features[0] },
-  };
-
-  return nationalData;
+  return { us, national, states, counties, mandates, restrictions };
 }
 
 window.onload = showMap;
