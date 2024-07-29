@@ -46,14 +46,31 @@ div.right {
 }
 
 div.viewport {
+  position: absolute;
+  left: 350px;
+  right: 100px;
   height: 100%;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-left: 110px;
-  padding-right: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+div.pane {
+  position: absolute;
+  box-sizing: content-box;
+  left: 100px;
+  width: 250px;
+  height: 100%;
+  padding: 10px;
+  background: darkgray;
+  color: #222222;
+}
+
+div.pane h1 {
+  width: 100%;
+  text-align: center;
 }
 
 div.viewport svg {
@@ -61,6 +78,10 @@ div.viewport svg {
   height: auto;
 }
 
+text {
+  background-color: aqua;
+}
+
 .annotation-note-label {
-  fill: "white";
+  fill: 'white';
 }

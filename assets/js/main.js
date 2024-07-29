@@ -5,10 +5,21 @@ const state = {
 async function showMap() {
   const mapWidth = 975;
   const mapHeight = 610;
+  const mapMargin = { bottom: 20 };
+  const chartMargin = { left: 100 };
   const chartHeight = 120;
 
   const width = mapWidth;
-  const height = mapHeight + chartHeight;
+  const height = mapHeight + mapMargin.bottom + chartHeight;
+
+  const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
+  svg
+    .append('text')
+    .attr('x', 20)
+    .attr('y', 20)
+    .attr('stroke', 'white')
+    .style('font-size', '14pt')
+    .text('Loading data... please wait');
 
   const data = await prepareGeoData();
   const { us, national, states, counties, mandates, restrictions } = data;
@@ -48,48 +59,58 @@ async function showMap() {
 
   const zoom = d3.zoom().scaleExtent([1, 8]).on('zoom', zoomed);
 
-  const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
-
   const xScale = d3
     .scaleTime()
     .domain([startDate, endDate])
-    .range([10, width - 10]);
+    .range([chartMargin.left, width - 10]);
 
-  const yScale = d3.scaleLinear().domain([0, d3.max(national, (d) => d.cases)]);
+  const yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(national, (d) => d.cases)])
+    .range([
+      mapHeight + mapMargin.bottom + chartHeight - 20,
+      mapHeight + mapMargin.bottom + 10,
+    ]);
 
-  const line = (xs, ys) =>
+  const area = (xs, ys) =>
     d3
-      .line()
+      .area()
       .x((d) => xs(d.date))
-      .y((d) => ys(d.cases));
+      .y0(yScale(0))
+      .y1((d) => ys(d.cases));
 
   const brush = d3
     .brushX()
     .extent([
-      [10, mapHeight - 1],
-      [width - 10, mapHeight + chartHeight - 20 + 1],
+      [chartMargin.left, mapHeight + mapMargin.bottom - 1],
+      [width - 10, mapHeight + mapMargin.bottom + chartHeight - 20 + 1],
     ])
     .on('brush', brushed)
     .on('end', brushended);
 
+  svg.selectAll('text').remove();
+
   svg
     .append('path')
     .datum(national)
-    .attr('fill', 'none')
-    .attr('stroke', 'steelblue')
-    .attr(
-      'd',
-      line(
-        xScale,
-        yScale.copy().range([mapHeight + chartHeight - 20, mapHeight + 10])
-      )
-    );
+    .attr('fill', 'steelblue')
+    .attr('stroke', 'whitesmoke')
+    .attr('d', area(xScale, yScale));
+
+  svg
+    .append('g')
+    .attr('transform', `translate(${chartMargin.left}, 0)`)
+    .call(d3.axisLeft(yScale).ticks(3));
+  svg
+    .append('g')
+    .attr('transform', `translate(0, ${height - 20})`)
+    .call(d3.axisBottom(xScale));
 
   svg.on('click', reset);
 
   const path = d3.geoPath();
 
-  const g = svg.append('g');
+  const g = svg.append('g').call(zoom);
 
   const states_g = g
     .attr('cursor', 'pointer')
@@ -98,8 +119,7 @@ async function showMap() {
     .selectAll('g')
     .data(filterDataToInterval(startDate, endDate))
     .join('g')
-    .on('click', stateClicked)
-    .call(zoom);
+    .on('click', stateClicked);
 
   states_g.attr('fill', ({ deaths }) => {
     return casesColor(deaths);
@@ -128,15 +148,66 @@ async function showMap() {
     .attr('d', path(topojson.mesh(us, us.objects.nation)));
 
   const defaultSelection = [xScale.range()[0], xScale.range()[1]];
-  const gb = svg.append('g').call(brush).call(brush.move, defaultSelection);
-  gb.on('dblclick', function () {
-    gb.call(brush.move, defaultSelection);
-  });
+  const gb = svg.append('g');
+
+  const tracker = svg
+    .append('g')
+    .classed('mouse', true)
+    .style('display', 'none');
+  tracker
+    .append('rect')
+    .attr('pointer-events', 'none')
+    .attr('width', 2)
+    .attr('x', -1)
+    .attr('y', mapHeight + mapMargin.bottom)
+    .attr('height', chartHeight - 20)
+    .attr('fill', 'lightgray');
+  tracker
+    .append('circle')
+    .attr('pointer-events', 'none')
+    .attr('r', 5)
+    .attr('stroke', 'steelblue');
+  tracker.append('text');
+
+  gb.call(brush)
+    .call(brush.move, defaultSelection)
+    .on('mouseover', function (event) {
+      tracker.style('display', 'block');
+    })
+    .on('mousemove', function (event) {
+      const x = d3.pointer(event, gb.node())[0];
+      const currentDate = xScale.invert(x);
+      const index = d3.minIndex(national, (d) =>
+        Math.abs(d.date.getTime() - currentDate.getTime())
+      );
+      const { date, cases, deaths } = national[index];
+      tracker.attr('transform', `translate(${xScale(date)}, ${0})`);
+      tracker
+        .select('text')
+        .attr('stroke', 'whitesmoke')
+        .attr('text-anchor', x > width - 150 ? 'end' : 'start')
+        .selectChildren('tspan')
+        .data([date.toDateString(), `Cases: ${cases}`, `Deaths: ${deaths}`])
+        .join('tspan')
+        .attr('stroke', 'whitesmoke')
+        .attr('pointer-events', 'none')
+        .attr('x', 5)
+        .attr('y', (_d, i) => yScale(cases) + 20 * i - 50)
+        .text((d) => d);
+      tracker.select('circle').attr('cy', yScale(cases));
+    })
+    .on('mouseout', (event) => {
+      tracker.style('display', 'none');
+    })
+    .on('dblclick', function () {
+      gb.call(brush.move, defaultSelection);
+    });
 
   function brushed({ selection }) {
     if (selection) {
+      const [startDate, endDate] = selection.map(xScale.invert);
       states_g
-        .data(filterDataToInterval(...selection.map(xScale.invert)))
+        .data(filterDataToInterval(startDate, endDate))
         .attr('fill', ({ deaths }) => casesColor(deaths))
         .selectChild('path')
         .attr('d', path)
@@ -144,6 +215,9 @@ async function showMap() {
         .text(({ properties: { name: state }, cases, deaths }) => {
           return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
         });
+      gb.select('title').text(
+        `${startDate.toDateString()}-${endDate.toDateString()}`
+      );
     }
   }
 
@@ -159,19 +233,24 @@ async function showMap() {
     const marginWidth = mapWidth / 5;
     const marginHeight = mapHeight / 5;
 
-    const { state: stateName } =
-      covidData[d3.select(this).datum().properties.name];
+    const {
+      properties: { name: stateName },
+    } = d;
+    console.log(stateName);
     const [[x0, y0], [x1, y1]] = path.bounds(d);
 
     const selection = d3.select(this);
     const transform = d3.zoomTransform(d3.select(this).node());
 
     // d3.select("#left-pane").remove();
-
-    await selection
+    await svg
       .transition()
       .duration(750)
-      .call(zoom.transform, d3.zoomIdentity, transform.invert([x0, y0]))
+      .call(
+        zoom.transform,
+        d3.zoomIdentity,
+        d3.zoomTransform(svg.node()).invert([width / 2, mapHeight / 2])
+      )
       .end();
 
     selection
@@ -202,45 +281,36 @@ async function showMap() {
     const marginWidth = mapWidth / 5;
     const marginHeight = mapHeight / 5;
 
-    const { state: stateName } =
-      covidData[d3.select(this).datum().properties.name];
+    const {
+      properties: { name: stateName },
+      id: stateId,
+      cases,
+      deaths,
+    } = d;
+    console.log(stateName);
     if (zoomedState !== undefined && zoomedState === stateName) {
       return reset.call(this, event, d);
     }
     zoomedState = stateName;
-    const { id: stateId } = d3.select(this).datum();
     const { geometries } = us.objects.counties;
     const stateCounties = Object.assign({}, us.objects.counties, {
       geometries: geometries.filter(({ id }) => id.startsWith(stateId)),
     });
     const [[x0, y0], [x1, y1]] = path.bounds(d);
 
-    // svg
-    //   .append("rect")
-    //   .lower()
-    //   .attr("id", "left-pane")
-    //   .attr("x", 0)
-    //   .attr("y", 0)
-    //   .attr("width", marginWidth)
-    //   .attr("height", height)
-    //   .attr("fill", "whitesmoke")
-    //   .attr("opacity", 0)
-    //   .transition()
-    //   .duration(750)
-    //   .attr("opacity", 0.4);
     states_g.transition().style('fill', null);
     d3.select(this)
       .append('path')
       .attr('id', 'county-borders')
       .attr('fill', 'none')
-      .attr('stroke', () => borderColor(+covidData[stateName].rate))
+      .attr('stroke', () => borderColor(cases))
       .style('opacity', 0)
       .attr('stroke-linejoin', 'round')
       .attr('d', path(topojson.mesh(us, stateCounties, (a, b) => a !== b)));
     d3.select(this)
       .append('path')
       .attr('fill', 'none')
-      .attr('stroke', () => borderColor(+covidData[stateName].rate))
+      .attr('stroke', () => borderColor(cases))
       .attr('stroke-linejoin', 'round')
       .attr(
         'd',
@@ -272,21 +342,22 @@ async function showMap() {
       scaleY = (marginHeight - 10) / (y1 - y0);
     const scale = d3.min([scaleX, scaleY]);
 
-    const transition = d3.select(this).transition().duration(750);
+    const transition = svg.transition().duration(750);
     transition.call(
       zoom.transform,
       d3.zoomIdentity
-        .translate((-(x0 + x1) / 2) * scale, -y0 * scale)
-        .scale(scale)
-        .translate((marginWidth - 5) / 2 / scale, 5 / scale)
+        .translate(width / 2, mapHeight / 2)
+        .scale(
+          d3.min([8, 0.9 / d3.max([(x1 - x0) / width, (y1 - y0) / mapHeight])])
+        )
+        .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
+      d3.pointer(event, svg.node())
     );
   }
 
   function zoomed(event) {
     const { transform } = event;
-    d3.select(this)
-      .attr('transform', transform)
-      .attr('stroke-width', 1 / transform.k);
+    g.attr('transform', transform).attr('stroke-width', 1 / transform.k);
   }
 }
 
