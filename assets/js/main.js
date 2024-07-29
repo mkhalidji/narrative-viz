@@ -1,5 +1,7 @@
-const state = {
+const pageState = {
   zoomedState: undefined,
+  counties_g: undefined,
+  dateRange: undefined,
 };
 
 async function showMap() {
@@ -24,7 +26,10 @@ async function showMap() {
   const data = await prepareGeoData();
   const { us, national, states, counties, mandates, restrictions } = data;
 
-  const [startDate, endDate] = d3.extent(national, (d) => d.date);
+  const [startDate, endDate] = (pageState.dateRange = d3.extent(
+    national,
+    (d) => d.date
+  ));
 
   const filterStateDataToInterval = (sd, ed) => {
     const intervalStates = d3.filter(
@@ -71,6 +76,9 @@ async function showMap() {
           allCountyValues.find(({ county }) => county.includes(countyName)),
           allCountyValues.findLast(({ county }) => county.includes(countyName)),
         ];
+        if (values[0] === undefined || values[1] === undefined) {
+          return undefined;
+        }
 
         const state = values[0].state;
         const cases = values[values.length - 1].cases - values[0].cases;
@@ -81,7 +89,8 @@ async function showMap() {
           cases,
           deaths,
         };
-      });
+      })
+      .filter((feature) => feature !== undefined);
   };
 
   const casesColor = d3
@@ -240,19 +249,39 @@ async function showMap() {
 
   function brushed({ selection }) {
     if (selection) {
-      const [startDate, endDate] = selection.map(xScale.invert);
-      states_g
-        .data(filterStateDataToInterval(startDate, endDate))
-        .attr('fill', ({ deaths }) => casesColor(deaths))
-        .selectChild('path')
-        .attr('d', path)
-        .selectChild('title')
-        .text(({ properties: { name: state }, cases, deaths }) => {
-          return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
-        });
-      gb.select('title').text(
-        `${startDate.toDateString()}-${endDate.toDateString()}`
-      );
+      const [startDate, endDate] = (pageState.dateRange = selection.map(
+        xScale.invert
+      ));
+      if (pageState.zoomedState === undefined) {
+        states_g
+          .data(filterStateDataToInterval(startDate, endDate))
+          .attr('fill', ({ deaths }) => casesColor(deaths))
+          .selectChild('path')
+          .attr('d', path)
+          .selectChild('title')
+          .text(({ properties: { name: state }, cases, deaths }) => {
+            return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
+          });
+        gb.select('title').text(
+          `${startDate.toDateString()}-${endDate.toDateString()}`
+        );
+      } else {
+        pageState.counties_g
+          .data(
+            filterCountyDataToInterval(
+              pageState.zoomedState,
+              startDate,
+              endDate
+            )
+          )
+          .attr('fill', ({ deaths }) => casesColor(deaths))
+          .selectChild('path')
+          .attr('d', path)
+          .select('title')
+          .text(({ properties: { name: county }, cases, deaths }) => {
+            return `${county}\nCases: ${cases}\nDeaths: ${deaths}`;
+          });
+      }
     }
   }
 
@@ -261,8 +290,6 @@ async function showMap() {
       gb.call(brush.move, defaultSelection);
     }
   }
-
-  let zoomedState = undefined;
 
   async function reset(event, d) {
     const marginWidth = mapWidth / 5;
@@ -314,7 +341,9 @@ async function showMap() {
 
     d3.selectAll('#state-borders, #us-border').style('display', null);
 
-    zoomedState = undefined;
+    pageState.zoomedState = undefined;
+
+    gb.call(brush.move, pageState.dateRange.map(xScale));
   }
 
   function stateClicked(event, d) {
@@ -330,10 +359,13 @@ async function showMap() {
       deaths,
     } = d;
     console.log(stateName);
-    if (zoomedState !== undefined && zoomedState === stateName) {
+    if (
+      pageState.zoomedState !== undefined &&
+      pageState.zoomedState === stateId
+    ) {
       return reset.call(this, event, d);
     }
-    zoomedState = stateName;
+    pageState.zoomedState = stateId;
     const { geometries } = us.objects.counties;
     const stateCounties = Object.assign({}, us.objects.counties, {
       geometries: geometries.filter(({ id }) => id.startsWith(stateId)),
@@ -341,15 +373,15 @@ async function showMap() {
     const [[x0, y0], [x1, y1]] = path.bounds(d);
 
     states_g.transition().style('fill', null);
-    const counties_g = d3
+    pageState.counties_g = d3
       .select(this)
       .selectAll('g')
       .data(filterCountyDataToInterval(stateId, startDate, endDate))
       .join('g')
       .attr('fill', ({ deaths }) => casesColor(deaths))
       .attr('opacity', 0);
-    counties_g.transition().duration(750).attr('opacity', 1);
-    counties_g
+    pageState.counties_g.transition().duration(750).attr('opacity', 1);
+    pageState.counties_g
       .append('path')
       .attr('d', path)
       .append('title')
