@@ -26,7 +26,7 @@ async function showMap() {
 
   const [startDate, endDate] = d3.extent(national, (d) => d.date);
 
-  const filterDataToInterval = (sd, ed) => {
+  const filterStateDataToInterval = (sd, ed) => {
     const intervalStates = d3.filter(
       states,
       (d) => d.date >= sd && d.date <= ed
@@ -47,6 +47,41 @@ async function showMap() {
         deaths,
       };
     });
+  };
+
+  const filterCountyDataToInterval = (stateId, sd, ed) => {
+    const intervalCounties = d3.filter(
+      counties,
+      (d) => d.fips.startsWith(stateId) && d.date >= sd && d.date <= ed
+    );
+
+    const allCountyValues = intervalCounties.sort(
+      (a, b) => a.date.getTime() - b.date.getTime()
+    );
+
+    return topojson
+      .feature(us, us.objects.counties)
+      .features.filter(({ id }) => id.startsWith(stateId))
+      .map((feature) => {
+        const {
+          properties: { name: countyName },
+        } = feature;
+        console.log(countyName);
+        const values = [
+          allCountyValues.find(({ county }) => county.includes(countyName)),
+          allCountyValues.findLast(({ county }) => county.includes(countyName)),
+        ];
+
+        const state = values[0].state;
+        const cases = values[values.length - 1].cases - values[0].cases;
+        const deaths = values[values.length - 1].deaths - values[0].deaths;
+        return {
+          ...feature,
+          state,
+          cases,
+          deaths,
+        };
+      });
   };
 
   const casesColor = d3
@@ -117,7 +152,7 @@ async function showMap() {
     // .attr("fill", "#4453")
     .attr('fill', 'whitesmoke')
     .selectAll('g')
-    .data(filterDataToInterval(startDate, endDate))
+    .data(filterStateDataToInterval(startDate, endDate))
     .join('g')
     .on('click', stateClicked);
 
@@ -207,7 +242,7 @@ async function showMap() {
     if (selection) {
       const [startDate, endDate] = selection.map(xScale.invert);
       states_g
-        .data(filterDataToInterval(startDate, endDate))
+        .data(filterStateDataToInterval(startDate, endDate))
         .attr('fill', ({ deaths }) => casesColor(deaths))
         .selectChild('path')
         .attr('d', path)
@@ -259,6 +294,13 @@ async function showMap() {
       .duration(750)
       .style('transform', null);
 
+    selection
+      .selectAll('g')
+      .transition()
+      .duration(750)
+      .style('opacity', 0)
+      .remove();
+
     d3.select('#county-borders')
       .transition()
       .duration(750)
@@ -299,6 +341,21 @@ async function showMap() {
     const [[x0, y0], [x1, y1]] = path.bounds(d);
 
     states_g.transition().style('fill', null);
+    const counties_g = d3
+      .select(this)
+      .selectAll('g')
+      .data(filterCountyDataToInterval(stateId, startDate, endDate))
+      .join('g')
+      .attr('fill', ({ deaths }) => casesColor(deaths))
+      .attr('opacity', 0);
+    counties_g.transition().duration(750).attr('opacity', 1);
+    counties_g
+      .append('path')
+      .attr('d', path)
+      .append('title')
+      .text(({ properties: { name: county }, cases, deaths }) => {
+        return `${county}\nCases: ${cases}\nDeaths: ${deaths}`;
+      });
     d3.select(this)
       .append('path')
       .attr('id', 'county-borders')
@@ -329,14 +386,9 @@ async function showMap() {
       .style('opacity', 1, 'important');
     states_g
       .filter(({ properties: { name } }) => stateName !== name)
-      .transition()
-      .duration(750)
       .style('display', 'none');
 
-    d3.selectAll('#state-borders, #us-border')
-      .transition()
-      .duration(750)
-      .style('display', 'none');
+    d3.selectAll('#state-borders, #us-border').style('display', 'none');
 
     const scaleX = (marginWidth - 10) / (x1 - x0),
       scaleY = (marginHeight - 10) / (y1 - y0);
