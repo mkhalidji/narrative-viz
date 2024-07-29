@@ -22,13 +22,13 @@ div.right i {
   opacity: 0.2;
 }
 
-div.left i:not(.disabled),
-div.right i:not(.disabled) {
+div.left i.enabled,
+div.right i.enabled {
   opacity: 0.6;
 }
 
-div.left i:not(.disabled):hover,
-div.right i:not(.disabled):hover {
+div.left i.enabled:hover,
+div.right i.enabled:hover {
   opacity: 1;
   cursor: pointer;
 }

@@ -1,4 +1,6 @@
 const pageState = {
+  currentPage: 0,
+  pages: [],
   zoomedState: undefined,
   counties_g: undefined,
   dateRange: undefined,
@@ -13,6 +15,23 @@ async function showMap() {
 
   const width = mapWidth;
   const height = mapHeight + mapMargin.bottom + chartHeight;
+
+  d3.select('#left-nav')
+    .classed('enabled', pageState.currentPage > 0)
+    .on('click', function (event) {
+      if (d3.select(this).classed('enabled')) {
+        pageState.currentPage--;
+      }
+    });
+  d3.select('#right-nav')
+    .classed('enabled', pageState.currentPage < 2)
+    .on('click', function (event) {
+      if (d3.select(this).classed('enabled')) {
+        pageState.currentPage++;
+        d3.select('.viewport').html('<svg></svg>');
+        return showGraphs();
+      }
+    });
 
   const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
   svg
