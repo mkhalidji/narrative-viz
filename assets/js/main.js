@@ -43,6 +43,7 @@ async function showMap() {
     .attr('x', 20)
     .attr('y', 20)
     .attr('stroke', 'white')
+    .attr('fill', 'white')
     .style('font-size', '14pt')
     .text('Loading data... please wait');
 
@@ -839,6 +840,7 @@ async function showGraphs() {
         .data([now[i][0].toDateString(), `Cases: ${now[i][1]}`])
         .join('tspan')
         .attr('stroke', 'whitesmoke')
+        .attr('fill', 'whitesmoke')
         .attr('x', x_coord + (x_coord > width - 200 ? -5 : 5))
         .attr('y', (_d, j) => casesScale(i)(now[i][1]) + 20 * j - 30)
         .text((d) => d);
@@ -953,4 +955,4 @@ function movingAverage(values, N) {
   return means;
 }
 
-window.onload = showGraphs;
+window.onload = showMap;
