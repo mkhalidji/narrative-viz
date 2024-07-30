@@ -4,6 +4,7 @@ const pageState = {
   zoomedState: undefined,
   counties_g: undefined,
   dateRange: undefined,
+  selectedStates: ['California', 'Florida'],
 };
 
 async function showMap() {
@@ -597,7 +598,11 @@ async function showGraphs() {
     (d) => d.state
   );
 
-  const selectedStates = ['California', 'Florida'];
+  const us = await d3.json('data/counties-albers-10m.json');
+
+  const geoPath = d3.geoPath();
+
+  const { selectedStates } = pageState;
 
   const data = selectedStates.map((state) =>
     runningDiff(
@@ -629,8 +634,64 @@ async function showGraphs() {
       (d) => casesScale(i)(d[1])
     );
 
+  const mapWidth = 975,
+    mapHeight = 610;
+
+  const pane = d3
+    .select('.pane .pane-interior')
+    .selectChildren('svg')
+    .data([0, 1])
+    .join('svg')
+    .attr('viewBox', [0, 0, mapWidth, mapHeight]);
+
+  pane
+    .append('rect')
+    .attr('x', 5)
+    .attr('y', 5)
+    .attr('width', mapWidth)
+    .attr('height', mapHeight)
+    .attr('fill', '#222222');
+
+  const g = pane.append('g');
+
+  const states_g = g
+    .attr('cursor', 'pointer')
+    .selectAll('g')
+    .data(topojson.feature(us, us.objects.states).features)
+    .join('g')
+    .on('click', function (_e, d) {
+      console.log(d.properties.name);
+    });
+
+  const colors = ['blue', 'red'];
+
+  g.each(function (d, i) {
+    d3.select(this)
+      .selectAll('g')
+      .attr('fill', ({ properties: { name } }) =>
+        name === pageState.selectedStates[i] ? colors[i] : '#444444'
+      );
+  });
+
+  states_g
+    .append('path')
+    .attr('d', geoPath)
+    .append('title')
+    .text(({ properties: { name } }) => name);
+
+  states_g
+    .append('path')
+    .attr('d', geoPath(topojson.mesh(us, us.objects.states, (a, b) => a !== b)))
+    .attr('stroke', 'whitesmoke');
+
+  states_g
+    .append('path')
+    .attr('d', geoPath(topojson.mesh(us, us.objects.nation)))
+    .attr('stroke', 'whitesmoke')
+    .attr('fill', 'none');
+
   const svg = d3
-    .select('svg')
+    .select('.viewport svg')
     .attr('viewBox', [0, 0, width, height])
     .attr('width', width)
     .attr('height', height);
@@ -653,7 +714,6 @@ async function showGraphs() {
 
   const graphs = svg.selectAll('g').data(data).join('g');
 
-  const colors = ['blue', 'red'];
   graphs
     .append('path')
     .attr('d', (d, i) => lineGraph(i)(d))

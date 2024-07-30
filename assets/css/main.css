@@ -47,7 +47,7 @@ div.right {
 
 div.viewport {
   position: absolute;
-  left: 350px;
+  left: 510px;
   right: 100px;
   height: 100%;
   margin-top: 0px;
@@ -55,17 +55,33 @@ div.viewport {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 div.pane {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   box-sizing: content-box;
   left: 100px;
-  width: 250px;
+  width: 450px;
   height: 100%;
   padding: 10px;
   background: darkgray;
   color: #222222;
+  z-index: 100;
+}
+
+.pane .pane-interior {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.pane .pane-interior svg {
+  flex: 1;
 }
 
 div.pane h1 {
