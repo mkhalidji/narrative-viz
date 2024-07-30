@@ -6,7 +6,6 @@ const pageState = {
   dateRange: undefined,
   selectedStates: ['California', 'Florida'],
   us: undefined,
-  showGraphsData: undefined,
   geoData: undefined,
 };
 
@@ -592,40 +591,31 @@ async function showGraphs() {
   const height = 810;
   const margin = { bottom: 20, left: 50, right: 5 };
 
-  const covidData =
-    pageState.showGraphsData ||
-    Object.groupBy(
-      await d3.csv(
-        'https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv',
-        (d) => ({
-          ...d,
-          date: new Date(d.date),
-          cases: +d.cases,
-          deaths: +d.deaths,
-        })
-      ),
-      (d) => d.state
-    );
-  pageState.showGraphsData = covidData;
+  const data = pageState.geoData || (await prepareGeoData());
+  pageState.geoData = data;
 
-  const us = pageState.us || (await d3.json('data/counties-albers-10m.json'));
-  pageState.us = us;
+  const {
+    geoData: { us, states },
+    selectedStates,
+  } = pageState;
 
   const geoPath = d3.geoPath();
 
-  const { selectedStates } = pageState;
-
-  const data = selectedStates.map((state) =>
-    runningDiff(
-      covidData[state].sort((a, b) => a.date.getTime() - b.date.getTime())
-    ).map((d) => [d.date, d.cases])
-  );
+  const selectedStateData = selectedStates
+    .map((state) => states.filter((s) => s.state === state))
+    .map((stateData) =>
+      stateData.sort((a, b) => a.date.getTime() - b.date.getTime())
+    )
+    .map(runningDiff);
 
   const [minDate, maxDate] = d3.extent(
-    d3.merge(data.map((datum) => datum.map((d) => d[0])))
+    d3.merge(selectedStateData.map((datum) => datum.map((d) => d.date)))
   );
   const [_minCases, maxCases] = d3.extent(
-    d3.merge(data.map((datum) => datum.map((d) => d[1])))
+    d3.merge(selectedStateData.map((datum) => datum.map((d) => d.cases)))
+  );
+  const [_minDeaths, maxDeaths] = d3.extent(
+    d3.merge(selectedStateData.map((datum) => datum.map((d) => d.deaths)))
   );
 
   const xScale = d3
@@ -635,13 +625,15 @@ async function showGraphs() {
 
   const graphHeight = height / 2 - 2 * margin.bottom;
 
-  const casesScale = (i) =>
+  const yMax = [maxDeaths, maxCases];
+
+  const yScales = (i) =>
     d3
       .scaleLinear()
-      .domain([0, maxCases])
+      .domain([0, yMax[i]])
       .range([
-        graphHeight + 1 * (graphHeight + margin.bottom),
-        margin.bottom + 1 * graphHeight,
+        graphHeight + i * (graphHeight + margin.bottom),
+        margin.bottom + i * graphHeight,
       ]);
 
   // const areaGraph = (i) =>
@@ -692,7 +684,7 @@ async function showGraphs() {
     d3.select(this)
       .selectChildren('g')
       .attr('fill', ({ properties: { name } }) =>
-        name === pageState.selectedStates[i] ? colors[i] : '#444444'
+        name === selectedStates[i] ? colors[i] : '#444444'
       )
       .on('click', function (_e, { properties: { name } }) {
         pageState.selectedStates[i] = name;
@@ -730,48 +722,63 @@ async function showGraphs() {
 
   defs
     .selectAll('clipPath')
-    .data(data)
+    .data(selectedStateData)
     .join('clipPath')
     .attr('id', (_d, i) => `clip-path-${i}`)
     .append('rect')
     .attr('x', xScale(minDate))
-    .attr('y', (d, i) => casesScale(i).range()[1] + margin.left)
+    .attr('y', (d, i) => yScales(i).range()[1] + margin.left)
     .attr('width', width - margin.left - margin.right)
     .attr('height', (d, i) => {
-      const [bottom, top] = casesScale(i).range();
+      const [bottom, top] = yScales(i).range();
       return bottom - top + 2 * margin.bottom;
     });
 
-  const graphs = svg.selectAll('g').data(data).join('g');
+  const deathsGraphs = svg
+    .append('g')
+    .selectChildren('g')
+    .data(selectedStateData)
+    .join('g');
 
-  // graphs
-  //   .append('path')
-  //   .attr('d', (d, i) => areaGraph(i)(d))
-  //   .attr('fill', (_d, i) => colors[i])
-  //   .attr('stroke', (_d, i) => colors[i])
-  //   .attr('stroke-width', 2)
-  //   .style('clip-path', (_d, i) => `url(#clip-path-${i})`);
-
-  graphs.each(function (d, i) {
+  deathsGraphs.each(function (data, i) {
     d3.select(this)
-      .selectAll('circle')
-      .data(d)
+      .selectChildren('circle')
+      .data(data)
       .join('circle')
       .attr('r', 2)
       .attr('fill', colors[i])
-      .attr('cx', (d) => xScale(d[0]))
-      .attr('cy', (d) => casesScale(i)(d[1]));
+      .attr('cx', (d) => xScale(d.date))
+      .attr('cy', (d) => yScales(0)(d.deaths));
   });
 
-  graphs.each(function (d, i) {
+  const casesGraph = svg
+    .append('g')
+    .selectChildren('g')
+    .data(selectedStateData)
+    .join('g');
+
+  casesGraph.each(function (data, i) {
+    d3.select(this)
+      .selectChildren('circle')
+      .data(data)
+      .join('circle')
+      .attr('r', 2)
+      .attr('fill', colors[i])
+      .attr('cx', (d) => xScale(d.date))
+      .attr('cy', (d) => yScales(1)(d.cases));
+  });
+
+  const graphs = [deathsGraphs, casesGraph];
+
+  graphs.forEach(function (graph, i) {
     svg
       .append('g')
-      .attr('transform', `translate(0, ${casesScale(i)(0) + 2})`)
+      .attr('transform', `translate(0, ${yScales(i)(0) + 2})`)
       .call(d3.axisBottom(xScale));
     svg
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(casesScale(i)));
+      .call(d3.axisLeft(yScales(i)));
   });
 
   const mouse_g = svg
@@ -782,18 +789,29 @@ async function showGraphs() {
     .append('rect')
     .attr('width', 2)
     .attr('x', -1)
-    .attr('y', casesScale(0)(250000))
-    .attr('height', casesScale(1)(0) - casesScale(0)(250000))
+    .attr('y', yScales(0)(yMax[0]))
+    .attr('height', yScales(1)(0) - yScales(0)(yMax[0]))
     .attr('fill', 'lightgray');
-  mouse_g
-    .selectAll('circle')
-    .data(data)
-    .join('circle')
-    .attr('r', 5)
-    .attr('stroke', 'whitesmoke')
-    .attr('fill', (_d, i) => colors[i])
-    .style('clip-path', (d, i) => `url(#clip-path-${i})`);
-  mouse_g.selectAll('text').data(data).join('text');
+
+  const circles_g = mouse_g.selectAll('g').data(selectedStateData).join('g');
+
+  circles_g.each(function (_d, j) {
+    d3.select(this)
+      .selectAll('circle')
+      .data([0, 1])
+      .join('circle')
+      .datum(
+        selectedStateData[j].map(({ date, deaths, cases }) => [
+          { date, value: deaths },
+          { date, value: cases },
+        ])
+      )
+      .attr('r', 5)
+      .attr('stroke', 'whitesmoke')
+      .attr('fill', colors[j])
+      .style('clip-path', (_d, i) => `url(#clip-path-${i})`);
+    d3.select(this).selectAll('text').data([0, 1]).join('text');
+  });
 
   svg.on('mouseover', function (mouse) {
     const [x_coord, _] = d3.pointer(mouse, svg.node());
@@ -811,39 +829,34 @@ async function showGraphs() {
     }
     mouse_g.style('display', 'block');
     const pointerDate = xScale.invert(x_coord);
-    const data = mouse_g.selectAll('circle').data();
-    const now = data
-      .map((datum) =>
-        d3.minIndex(datum, (d) =>
-          Math.abs(d[0].getTime() - pointerDate.getTime())
-        )
-      )
-      .map((index, i) => data[i][index]);
 
     mouse_g.select('rect').attr('x', x_coord);
-    // mouse_g
-    //   .selectAll('text')
-    //   .text((_d, i) => `${now[i][0].toDateString()}, New cases: ${now[i][1]}`)
-    //   .attr('stroke', 'whitesmoke')
-    //   .attr('text-anchor', 'middle')
-    //   .raise();
 
-    mouse_g
-      .selectAll('circle')
-      .attr('cx', x_coord)
-      .attr('cy', (d, i) => casesScale(i)(now[i][1]));
+    circles_g.each(function (_d, j) {
+      const circles = d3.select(this).selectAll('circle');
+      const data = circles.datum();
+      const index = d3.minIndex(data, (d) =>
+        Math.abs(d[0].date.getTime() - pointerDate.getTime())
+      );
+      const now = data[index];
 
-    mouse_g.selectAll('text').each(function (d, i) {
-      d3.select(this)
-        .attr('text-anchor', x_coord > width - 200 ? 'end' : 'start')
-        .selectAll('tspan')
-        .data([now[i][0].toDateString(), `Cases: ${now[i][1]}`])
-        .join('tspan')
-        .attr('stroke', 'whitesmoke')
-        .attr('fill', 'whitesmoke')
-        .attr('x', x_coord + (x_coord > width - 200 ? -5 : 5))
-        .attr('y', (_d, j) => casesScale(i)(now[i][1]) + 20 * j - 30)
-        .text((d) => d);
+      circles
+        .attr('cx', x_coord)
+        .attr('cy', (d, i) => yScales(i)(now[i].value));
+
+      const texts = d3.select(this).selectAll('text');
+
+      texts.each(function (_d, t) {
+        d3.select(this)
+          .attr('text-anchor', x_coord > width - 200 ? 'end' : 'start')
+          .attr('stroke', 'whitesmoke')
+          .attr('fill', 'whitesmoke')
+          .attr('x', x_coord + (x_coord > width - 200 ? -5 : 5))
+          .attr('y', (d) => yScales(d)(now[d].value) - 10)
+          .text((d) =>
+            d === 0 ? `Deaths: ${now[d].value}` : `Cases: ${now[d].value}`
+          );
+      });
     });
   });
   svg.on('mouseout', function () {
@@ -955,4 +968,4 @@ function movingAverage(values, N) {
   return means;
 }
 
-window.onload = showMap;
+window.onload = showGraphs;
