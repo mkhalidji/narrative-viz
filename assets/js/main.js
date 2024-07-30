@@ -600,7 +600,9 @@ async function showGraphs() {
   const selectedStates = ['California', 'Florida'];
 
   const data = selectedStates.map((state) =>
-    runningDiff(covidData[state]).map((d) => [d.date, d.cases])
+    runningDiff(
+      covidData[state].sort((a, b) => a.date.getTime() - b.date.getTime())
+    ).map((d) => [d.date, d.cases])
   );
 
   const [minDate, maxDate] = d3.extent(
@@ -696,17 +698,29 @@ async function showGraphs() {
       .map((index, i) => data[i][index]);
 
     mouse_g.select('rect').attr('x', x_coord);
-    mouse_g
-      .selectAll('text')
-      .text((_d, i) => `${now[i][0].toDateString()}, Cases: ${now[i][1]}`)
-      .attr('stroke', 'whitesmoke')
-      .attr('text-anchor', 'middle')
-      .raise();
+    // mouse_g
+    //   .selectAll('text')
+    //   .text((_d, i) => `${now[i][0].toDateString()}, New cases: ${now[i][1]}`)
+    //   .attr('stroke', 'whitesmoke')
+    //   .attr('text-anchor', 'middle')
+    //   .raise();
 
     mouse_g
       .selectAll('circle')
       .attr('cx', x_coord)
       .attr('cy', (d, i) => casesScale(i)(now[i][1]));
+
+    mouse_g.selectAll('text').each(function (d, i) {
+      d3.select(this)
+        .attr('text-anchor', x_coord > width - 200 ? 'end' : 'start')
+        .selectAll('tspan')
+        .data([now[i][0].toDateString(), `Cases: ${now[i][1]}`])
+        .join('tspan')
+        .attr('stroke', 'whitesmoke')
+        .attr('x', x_coord + (x_coord > width - 200 ? -5 : 5))
+        .attr('y', (_d, j) => casesScale(i)(now[i][1]) + 20 * j - 30)
+        .text((d) => d);
+    });
   });
   svg.on('mouseout', function () {
     mouse_g.style('display', 'none');
@@ -800,6 +814,21 @@ async function prepareGeoData() {
     ]);
 
   return { us, national, states, counties, mandates, restrictions };
+}
+
+function movingAverage(values, N) {
+  let i = 0;
+  let sum = 0;
+  const means = new Float64Array(values.length).fill(NaN);
+  for (let n = Math.min(N - 1, values.length); i < n; ++i) {
+    sum += values[i];
+  }
+  for (let n = values.length; i < n; ++i) {
+    sum += values[i];
+    means[i] = sum / N;
+    sum -= values[i - N + 1];
+  }
+  return means;
 }
 
 window.onload = showGraphs;
