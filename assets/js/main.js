@@ -584,6 +584,7 @@ async function showMandates() {
 async function showGraphs() {
   const width = 960;
   const height = 810;
+  const margin = { bottom: 20, left: 50, right: 5 };
 
   const covidData = Object.groupBy(
     await d3.csv(
@@ -617,15 +618,17 @@ async function showGraphs() {
   const xScale = d3
     .scaleTime()
     .domain([minDate, maxDate])
-    .range([5, width - 5]);
+    .range([margin.left, width - margin.right]);
+
+  const graphHeight = height / 2 - 2 * margin.bottom;
 
   const casesScale = (i) =>
     d3
       .scaleLinear()
       .domain([0, 250000])
       .range([
-        height / 2 - 10 + i * (height / 2 - 5),
-        10 + i * (height / 2 - 5),
+        graphHeight + i * (graphHeight + margin.bottom),
+        margin.bottom + i * graphHeight,
       ]);
 
   // const areaGraph = (i) =>
@@ -713,11 +716,11 @@ async function showGraphs() {
     .attr('id', (_d, i) => `clip-path-${i}`)
     .append('rect')
     .attr('x', xScale(minDate))
-    .attr('y', (d, i) => casesScale(i).range()[1] + 5)
-    .attr('width', width - 10)
+    .attr('y', (d, i) => casesScale(i).range()[1] + margin.left)
+    .attr('width', width - margin.left - margin.right)
     .attr('height', (d, i) => {
       const [bottom, top] = casesScale(i).range();
-      return bottom - top + 10;
+      return bottom - top + 2 * margin.bottom;
     });
 
   const graphs = svg.selectAll('g').data(data).join('g');
@@ -741,6 +744,17 @@ async function showGraphs() {
       .attr('cy', (d) => casesScale(i)(d[1]));
   });
 
+  graphs.each(function (d, i) {
+    svg
+      .append('g')
+      .attr('transform', `translate(0, ${casesScale(i)(0) + 2})`)
+      .call(d3.axisBottom(xScale));
+    svg
+      .append('g')
+      .attr('transform', `translate(${margin.left}, 0)`)
+      .call(d3.axisLeft(casesScale(i)));
+  });
+
   const mouse_g = svg
     .append('g')
     .classed('mouse', true)
@@ -749,7 +763,8 @@ async function showGraphs() {
     .append('rect')
     .attr('width', 2)
     .attr('x', -1)
-    .attr('height', height - 20)
+    .attr('y', casesScale(0)(250000))
+    .attr('height', casesScale(1)(0) - casesScale(0)(250000))
     .attr('fill', 'lightgray');
   mouse_g
     .selectAll('circle')
@@ -760,12 +775,21 @@ async function showGraphs() {
     .style('clip-path', (d, i) => `url(#clip-path-${i})`);
   mouse_g.selectAll('text').data(data).join('text');
 
-  svg.on('mouseover', function () {
+  svg.on('mouseover', function (mouse) {
+    const [x_coord, _] = d3.pointer(mouse, svg.node());
+    if (x_coord < margin.left) {
+      return;
+    }
+
     mouse_g.style('display', 'block');
   });
 
   svg.on('mousemove', function (mouse) {
     const [x_coord, _] = d3.pointer(mouse, svg.node());
+    if (x_coord < margin.left) {
+      return;
+    }
+    mouse_g.style('display', 'block');
     const pointerDate = xScale.invert(x_coord);
     const data = mouse_g.selectAll('circle').data();
     const now = data
