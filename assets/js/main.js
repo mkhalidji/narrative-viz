@@ -645,14 +645,21 @@ async function showGraphs() {
     .attr('viewBox', [0, 0, mapWidth, mapHeight]);
 
   pane
-    .append('rect')
-    .attr('x', 5)
-    .attr('y', 5)
+    .on('mouseenter', function () {
+      d3.select(this).style('width', '200%');
+    })
+    .on('mouseleave', function () {
+      d3.select(this).style('width', null);
+    });
+
+  const g = pane.append('g');
+
+  g.append('rect')
+    .attr('x', 0)
+    .attr('y', 0)
     .attr('width', mapWidth)
     .attr('height', mapHeight)
     .attr('fill', '#222222');
-
-  const g = pane.append('g');
 
   const states_g = g
     .attr('cursor', 'pointer')
