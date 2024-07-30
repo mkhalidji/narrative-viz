@@ -5,6 +5,9 @@ const pageState = {
   counties_g: undefined,
   dateRange: undefined,
   selectedStates: ['California', 'Florida'],
+  us: undefined,
+  showGraphsData: undefined,
+  geoData: undefined,
 };
 
 async function showMap() {
@@ -43,7 +46,9 @@ async function showMap() {
     .style('font-size', '14pt')
     .text('Loading data... please wait');
 
-  const data = await prepareGeoData();
+  const data = pageState.geoData || (await prepareGeoData());
+  pageState.geoData = data;
+
   const { us, national, states, counties, mandates, restrictions } = data;
 
   const [startDate, endDate] = (pageState.dateRange = d3.extent(
@@ -114,7 +119,7 @@ async function showMap() {
   };
 
   const casesColor = d3
-    .scaleDivergingPow([0, 25000, 75000], ['#22763f', '#f4cf64', '#be2a3e'])
+    .scaleDiverging([0, 25000, 75000], ['#22763f', '#f4cf64', '#be2a3e'])
     .clamp(true);
 
   const borderColor = d3
@@ -586,20 +591,24 @@ async function showGraphs() {
   const height = 810;
   const margin = { bottom: 20, left: 50, right: 5 };
 
-  const covidData = Object.groupBy(
-    await d3.csv(
-      'https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv',
-      (d) => ({
-        ...d,
-        date: new Date(d.date),
-        cases: +d.cases,
-        deaths: +d.deaths,
-      })
-    ),
-    (d) => d.state
-  );
+  const covidData =
+    pageState.showGraphsData ||
+    Object.groupBy(
+      await d3.csv(
+        'https://raw.githubusercontent.com/mkhalidji/covid-19-data/master/us-states.csv',
+        (d) => ({
+          ...d,
+          date: new Date(d.date),
+          cases: +d.cases,
+          deaths: +d.deaths,
+        })
+      ),
+      (d) => d.state
+    );
+  pageState.showGraphsData = covidData;
 
-  const us = await d3.json('data/counties-albers-10m.json');
+  const us = pageState.us || (await d3.json('data/counties-albers-10m.json'));
+  pageState.us = us;
 
   const geoPath = d3.geoPath();
 
@@ -614,6 +623,9 @@ async function showGraphs() {
   const [minDate, maxDate] = d3.extent(
     d3.merge(data.map((datum) => datum.map((d) => d[0])))
   );
+  const [_minCases, maxCases] = d3.extent(
+    d3.merge(data.map((datum) => datum.map((d) => d[1])))
+  );
 
   const xScale = d3
     .scaleTime()
@@ -625,10 +637,10 @@ async function showGraphs() {
   const casesScale = (i) =>
     d3
       .scaleLinear()
-      .domain([0, 250000])
+      .domain([0, maxCases])
       .range([
-        graphHeight + i * (graphHeight + margin.bottom),
-        margin.bottom + i * graphHeight,
+        graphHeight + 1 * (graphHeight + margin.bottom),
+        margin.bottom + 1 * graphHeight,
       ]);
 
   // const areaGraph = (i) =>
@@ -647,6 +659,8 @@ async function showGraphs() {
     .data([0, 1])
     .join('svg')
     .attr('viewBox', [0, 0, mapWidth, mapHeight]);
+
+  pane.html('');
 
   pane
     .on('mouseenter', function () {
@@ -671,7 +685,7 @@ async function showGraphs() {
     .data(topojson.feature(us, us.objects.states).features)
     .join('g');
 
-  const colors = ['blue', 'red'];
+  const colors = ['#f4cf64', '#be2a3e'];
 
   g.each(function (d, i) {
     d3.select(this)
@@ -708,6 +722,8 @@ async function showGraphs() {
     .attr('viewBox', [0, 0, width, height])
     .attr('width', width)
     .attr('height', height);
+
+  svg.html('');
 
   const defs = svg.append('defs');
 
@@ -774,6 +790,7 @@ async function showGraphs() {
     .join('circle')
     .attr('r', 5)
     .attr('stroke', 'whitesmoke')
+    .attr('fill', (_d, i) => colors[i])
     .style('clip-path', (d, i) => `url(#clip-path-${i})`);
   mouse_g.selectAll('text').data(data).join('text');
 
