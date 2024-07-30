@@ -628,12 +628,6 @@ async function showGraphs() {
         10 + i * (height / 2 - 5),
       ]);
 
-  const lineGraph = (i) =>
-    d3.line(
-      (d) => xScale(d[0]),
-      (d) => casesScale(i)(d[1])
-    );
-
   const mapWidth = 975,
     mapHeight = 610;
 
@@ -721,13 +715,16 @@ async function showGraphs() {
 
   const graphs = svg.selectAll('g').data(data).join('g');
 
-  graphs
-    .append('path')
-    .attr('d', (d, i) => lineGraph(i)(d))
-    .attr('fill', 'none')
-    .attr('stroke', (_d, i) => colors[i])
-    .attr('stroke-width', 2)
-    .style('clip-path', (_d, i) => `url(#clip-path-${i})`);
+  graphs.each(function (d, i) {
+    d3.select(this)
+      .selectAll('circle')
+      .data(d)
+      .join('circle')
+      .attr('r', 2)
+      .attr('fill', colors[i])
+      .attr('cx', (d) => xScale(d[0]))
+      .attr('cy', (d) => casesScale(i)(d[1]));
+  });
 
   const mouse_g = svg
     .append('g')
