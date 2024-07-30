@@ -597,12 +597,14 @@ async function showGraphs() {
     (d) => d.state
   );
 
-  const caCovidData = covidData['California'].map((d) => [d.date, d.cases]);
+  const selectedStates = ['California', 'Florida'];
 
-  const flCovidData = covidData['Florida'].map((d) => [d.date, d.cases]);
+  const data = selectedStates.map((state) =>
+    runningDiff(covidData[state]).map((d) => [d.date, d.cases])
+  );
 
   const [minDate, maxDate] = d3.extent(
-    d3.merge([caCovidData.map((d) => d[0]), flCovidData.map((d) => d[0])])
+    d3.merge(data.map((datum) => datum.map((d) => d[0])))
   );
 
   const xScale = d3
@@ -613,7 +615,7 @@ async function showGraphs() {
   const casesScale = (i) =>
     d3
       .scaleLinear()
-      .domain([0, 5000000])
+      .domain([0, 250000])
       .range([
         height / 2 - 10 + i * (height / 2 - 5),
         10 + i * (height / 2 - 5),
@@ -635,7 +637,7 @@ async function showGraphs() {
 
   defs
     .selectAll('clipPath')
-    .data([caCovidData, flCovidData])
+    .data(data)
     .join('clipPath')
     .attr('id', (_d, i) => `clip-path-${i}`)
     .append('rect')
@@ -647,14 +649,7 @@ async function showGraphs() {
       return bottom - top + 10;
     });
 
-  const graphs = svg.selectAll('g').data([caCovidData, flCovidData]).join('g');
-
-  // graphs
-  //   .append('rect')
-  //   .attr('width', '100%')
-  //   .attr('height', height / 2 - 10)
-  //   .attr('y', (_d, i) => 5 + i * (height / 2 - 5))
-  //   .attr('fill', 'none');
+  const graphs = svg.selectAll('g').data(data).join('g');
 
   const colors = ['blue', 'red'];
   graphs
@@ -677,14 +672,14 @@ async function showGraphs() {
     .attr('fill', 'lightgray');
   mouse_g
     .selectAll('circle')
-    .data([caCovidData, flCovidData])
+    .data(data)
     .join('circle')
     .attr('r', 5)
     .attr('stroke', 'whitesmoke')
     .style('clip-path', (d, i) => `url(#clip-path-${i})`);
-  mouse_g.selectAll('text').data([caCovidData, flCovidData]).join('text');
+  mouse_g.selectAll('text').data(data).join('text');
 
-  svg.on('mouseover', function (mouse) {
+  svg.on('mouseover', function () {
     mouse_g.style('display', 'block');
   });
 
@@ -713,7 +708,7 @@ async function showGraphs() {
       .attr('cx', x_coord)
       .attr('cy', (d, i) => casesScale(i)(now[i][1]));
   });
-  svg.on('mouseout', function (mouse) {
+  svg.on('mouseout', function () {
     mouse_g.style('display', 'none');
   });
 }
