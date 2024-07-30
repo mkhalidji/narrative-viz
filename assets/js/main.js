@@ -628,6 +628,13 @@ async function showGraphs() {
         10 + i * (height / 2 - 5),
       ]);
 
+  // const areaGraph = (i) =>
+  //   d3
+  //     .area()
+  //     .x((d) => xScale(d[0]))
+  //     .y0(casesScale(i)(0))
+  //     .y1((d) => casesScale(i)(d[1]));
+
   const mapWidth = 975,
     mapHeight = 610;
 
@@ -714,6 +721,14 @@ async function showGraphs() {
     });
 
   const graphs = svg.selectAll('g').data(data).join('g');
+
+  // graphs
+  //   .append('path')
+  //   .attr('d', (d, i) => areaGraph(i)(d))
+  //   .attr('fill', (_d, i) => colors[i])
+  //   .attr('stroke', (_d, i) => colors[i])
+  //   .attr('stroke-width', 2)
+  //   .style('clip-path', (_d, i) => `url(#clip-path-${i})`);
 
   graphs.each(function (d, i) {
     d3.select(this)
