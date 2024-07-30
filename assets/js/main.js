@@ -669,19 +669,20 @@ async function showGraphs() {
     .attr('cursor', 'pointer')
     .selectAll('g')
     .data(topojson.feature(us, us.objects.states).features)
-    .join('g')
-    .on('click', function (_e, d) {
-      console.log(d.properties.name);
-    });
+    .join('g');
 
   const colors = ['blue', 'red'];
 
   g.each(function (d, i) {
     d3.select(this)
-      .selectAll('g')
+      .selectChildren('g')
       .attr('fill', ({ properties: { name } }) =>
         name === pageState.selectedStates[i] ? colors[i] : '#444444'
-      );
+      )
+      .on('click', function (_e, { properties: { name } }) {
+        pageState.selectedStates[i] = name;
+        showGraphs();
+      });
   });
 
   states_g
@@ -693,6 +694,7 @@ async function showGraphs() {
   states_g
     .append('path')
     .attr('d', geoPath(topojson.mesh(us, us.objects.states, (a, b) => a !== b)))
+    .attr('fill', 'none')
     .attr('stroke', 'whitesmoke');
 
   states_g
