@@ -581,8 +581,8 @@ async function showMandates() {
 }
 
 async function showGraphs() {
-  const width = 975;
-  const height = 610;
+  const width = 960;
+  const height = 810;
 
   const covidData = Object.groupBy(
     await d3.csv(
@@ -592,30 +592,38 @@ async function showGraphs() {
         date: new Date(d.date),
         cases: +d.cases,
         deaths: +d.deaths,
-        rate: +d.deaths === 0 ? 0 : (+d.deaths / +d.cases) * 100,
       })
     ),
     (d) => d.state
   );
 
-  const caCovidData = covidData['California'].map((d) => [d.date, d.rate]);
+  const caCovidData = covidData['California'].map((d) => [d.date, d.cases]);
 
-  const [minDate, maxDate] = d3.extent(caCovidData.map((d) => d[0]));
+  const flCovidData = covidData['Florida'].map((d) => [d.date, d.cases]);
+
+  const [minDate, maxDate] = d3.extent(
+    d3.merge([caCovidData.map((d) => d[0]), flCovidData.map((d) => d[0])])
+  );
 
   const xScale = d3
     .scaleTime()
     .domain([minDate, maxDate])
     .range([5, width - 5]);
 
-  const rateScale = d3
-    .scaleLinear()
-    .domain([0, 10])
-    .range([height - 10, 10]);
+  const casesScale = (i) =>
+    d3
+      .scaleLinear()
+      .domain([0, 5000000])
+      .range([
+        height / 2 - 10 + i * (height / 2 - 5),
+        10 + i * (height / 2 - 5),
+      ]);
 
-  const lineGraph = d3.line(
-    (d) => xScale(d[0]),
-    (d) => rateScale(d[1])
-  );
+  const lineGraph = (i) =>
+    d3.line(
+      (d) => xScale(d[0]),
+      (d) => casesScale(i)(d[1])
+    );
 
   const svg = d3
     .select('svg')
@@ -623,13 +631,39 @@ async function showGraphs() {
     .attr('width', width)
     .attr('height', height);
 
-  svg
+  const defs = svg.append('defs');
+
+  defs
+    .selectAll('clipPath')
+    .data([caCovidData, flCovidData])
+    .join('clipPath')
+    .attr('id', (_d, i) => `clip-path-${i}`)
+    .append('rect')
+    .attr('x', xScale(minDate))
+    .attr('y', (d, i) => casesScale(i).range()[1] + 5)
+    .attr('width', width - 10)
+    .attr('height', (d, i) => {
+      const [bottom, top] = casesScale(i).range();
+      return bottom - top + 10;
+    });
+
+  const graphs = svg.selectAll('g').data([caCovidData, flCovidData]).join('g');
+
+  // graphs
+  //   .append('rect')
+  //   .attr('width', '100%')
+  //   .attr('height', height / 2 - 10)
+  //   .attr('y', (_d, i) => 5 + i * (height / 2 - 5))
+  //   .attr('fill', 'none');
+
+  const colors = ['blue', 'red'];
+  graphs
     .append('path')
-    .datum(caCovidData)
-    .attr('d', lineGraph)
+    .attr('d', (d, i) => lineGraph(i)(d))
     .attr('fill', 'none')
-    .attr('stroke', 'whitesmoke')
-    .attr('stroke-width', 2);
+    .attr('stroke', (_d, i) => colors[i])
+    .attr('stroke-width', 2)
+    .style('clip-path', (_d, i) => `url(#clip-path-${i})`);
 
   const mouse_g = svg
     .append('g')
@@ -641,40 +675,43 @@ async function showGraphs() {
     .attr('x', -1)
     .attr('height', height - 20)
     .attr('fill', 'lightgray');
-  mouse_g.append('circle').attr('r', 5).attr('stroke', 'whitesmoke');
-  mouse_g.append('text');
+  mouse_g
+    .selectAll('circle')
+    .data([caCovidData, flCovidData])
+    .join('circle')
+    .attr('r', 5)
+    .attr('stroke', 'whitesmoke')
+    .style('clip-path', (d, i) => `url(#clip-path-${i})`);
+  mouse_g.selectAll('text').data([caCovidData, flCovidData]).join('text');
 
   svg.on('mouseover', function (mouse) {
     mouse_g.style('display', 'block');
   });
 
   svg.on('mousemove', function (mouse) {
-    const [x_cord, y_cord] = d3.pointer(mouse);
-    const ratio = x_cord / (width - 20);
-    const now = new Date(
-      minDate.getTime() +
-        Math.round(ratio * (maxDate.getTime() - minDate.getTime()))
-    );
-    const index = d3.maxIndex(
-      caCovidData.map((d) => d[0].getTime()).filter((d) => d < now.getTime())
-    );
-    if (index < 0) {
-      mouse_g.style('display', 'none');
-      return;
-    }
-    const datum = caCovidData[index];
-    const rate = datum[1];
-    mouse_g.attr(
-      'transform',
-      `translate(${xScale(datum[0])},${rateScale(10)})`
-    );
-    mouse_g
-      .select('text')
-      .text(`${now.toDateString()}, Mortality: ${rate.toFixed(2)}%`)
-      .attr('stroke', 'whitesmoke')
-      .attr('text-anchor', 'middle');
+    const [x_coord, _] = d3.pointer(mouse, svg.node());
+    const pointerDate = xScale.invert(x_coord);
+    const data = mouse_g.selectAll('circle').data();
+    const now = data
+      .map((datum) =>
+        d3.minIndex(datum, (d) =>
+          Math.abs(d[0].getTime() - pointerDate.getTime())
+        )
+      )
+      .map((index, i) => data[i][index]);
 
-    mouse_g.select('circle').attr('cy', rateScale(rate) - 10);
+    mouse_g.select('rect').attr('x', x_coord);
+    mouse_g
+      .selectAll('text')
+      .text((_d, i) => `${now[i][0].toDateString()}, Cases: ${now[i][1]}`)
+      .attr('stroke', 'whitesmoke')
+      .attr('text-anchor', 'middle')
+      .raise();
+
+    mouse_g
+      .selectAll('circle')
+      .attr('cx', x_coord)
+      .attr('cy', (d, i) => casesScale(i)(now[i][1]));
   });
   svg.on('mouseout', function (mouse) {
     mouse_g.style('display', 'none');
@@ -770,4 +807,4 @@ async function prepareGeoData() {
   return { us, national, states, counties, mandates, restrictions };
 }
 
-window.onload = showMap;
+window.onload = showGraphs;
