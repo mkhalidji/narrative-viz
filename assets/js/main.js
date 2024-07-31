@@ -50,7 +50,16 @@ async function showMap() {
   const data = pageState.geoData || (await prepareGeoData());
   pageState.geoData = data;
 
-  const { us, national, states, counties, mandates, restrictions } = data;
+  const {
+    us,
+    national,
+    states,
+    counties,
+    mandates,
+    restrictions,
+    statesPopulation,
+    countiesPopulation,
+  } = data;
 
   const [startDate, endDate] = (pageState.dateRange = d3.extent(
     national,
@@ -66,6 +75,7 @@ async function showMap() {
     return topojson.feature(us, us.objects.states).features.map((feature) => {
       const {
         properties: { name: stateName },
+        id,
       } = feature;
       const values = d3
         .filter(intervalStates, (d) => d.state === stateName)
@@ -74,8 +84,8 @@ async function showMap() {
       const deaths = values[values.length - 1].deaths - values[0].deaths;
       return {
         ...feature,
-        cases,
-        deaths,
+        cases: (cases / statesPopulation[id]) * 100,
+        deaths: (deaths / statesPopulation[id]) * 100,
       };
     });
   };
@@ -119,9 +129,28 @@ async function showMap() {
       .filter((feature) => feature !== undefined);
   };
 
-  const casesColor = d3
-    .scaleDiverging([0, 25000, 75000], ['#22763f', '#f4cf64', '#be2a3e'])
+  const quantileData = filterStateDataToInterval(startDate, endDate);
+
+  const casesRawColor = d3
+    .scaleDiverging([0, 50, 99], ['#22763f', '#f4cf64', '#be2a3e'])
     .clamp(true);
+
+  const nQuantile = 10;
+
+  const scaleColors = d3.range(nQuantile ** 2).map((q) => casesRawColor(q));
+
+  const casesQuantile = d3.scaleQuantile(
+    quantileData.map((state) => state.cases),
+    d3.range(nQuantile)
+  );
+
+  const deathsQuantile = d3.scaleQuantile(
+    quantileData.map((state) => state.deaths),
+    d3.range(nQuantile)
+  );
+
+  const choropleth = ({ cases, deaths }) =>
+    scaleColors[casesQuantile(cases) + nQuantile * deathsQuantile(deaths)];
 
   const borderColor = d3
     .scaleDiverging([0, 25000, 75000], ['lightgrey', '#000', 'lightgrey'])
@@ -176,8 +205,6 @@ async function showMap() {
     .attr('transform', `translate(0, ${height - 20})`)
     .call(d3.axisBottom(xScale));
 
-  svg.on('click', reset);
-
   const path = d3.geoPath();
 
   const g = svg.append('g').call(zoom);
@@ -191,8 +218,8 @@ async function showMap() {
     .join('g')
     .on('click', stateClicked);
 
-  states_g.attr('fill', ({ deaths }) => {
-    return casesColor(deaths);
+  states_g.attr('fill', (d) => {
+    return choropleth(d);
   });
 
   states_g
@@ -281,7 +308,7 @@ async function showMap() {
       if (pageState.zoomedState === undefined) {
         states_g
           .data(filterStateDataToInterval(startDate, endDate))
-          .attr('fill', ({ deaths }) => casesColor(deaths))
+          .attr('fill', (d) => choropleth(d))
           .selectChild('path')
           .attr('d', path)
           .selectChild('title')
@@ -300,7 +327,7 @@ async function showMap() {
               endDate
             )
           )
-          .attr('fill', ({ deaths }) => casesColor(deaths))
+          .attr('fill', (d) => choropleth(d))
           .selectChild('path')
           .attr('d', path)
           .select('title')
@@ -404,7 +431,7 @@ async function showMap() {
       .selectAll('g')
       .data(filterCountyDataToInterval(stateId, startDate, endDate))
       .join('g')
-      .attr('fill', ({ deaths }) => casesColor(deaths))
+      .attr('fill', (d) => choropleth(d))
       .attr('opacity', 0);
     pageState.counties_g.transition().duration(750).attr('opacity', 1);
     pageState.counties_g
@@ -1161,4 +1188,4 @@ function movingAverage(values, N) {
   return means;
 }
 
-window.onload = showGraphs;
+window.onload = showMap;
