@@ -1050,6 +1050,23 @@ function fetchNationalData() {
   );
 }
 
+async function loadPopulationData(filename) {
+  const populations = await d3.csv(
+    filename,
+    ({ fips, census_2020_pop, estimates_base_2020 }) => ({
+      fips,
+      population: +(census_2020_pop || estimates_base_2020),
+    })
+  );
+
+  const map = {};
+  populations.forEach(({ fips, population }) => {
+    map[fips] = population;
+  });
+
+  return map;
+}
+
 function fetchStateData() {
   return d3.csv(
     'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv',
@@ -1103,14 +1120,30 @@ function prepareMandateData() {
 }
 
 async function prepareGeoData() {
-  const [us, [national, states, counties], [mandates, restrictions]] =
-    await Promise.all([
-      d3.json('data/counties-albers-10m.json'),
-      prepareCovidData(),
-      prepareMandateData(),
-    ]);
+  const [
+    us,
+    [national, states, counties],
+    [mandates, restrictions],
+    statesPopulation,
+    countiesPopulation,
+  ] = await Promise.all([
+    d3.json('data/counties-albers-10m.json'),
+    prepareCovidData(),
+    prepareMandateData(),
+    loadPopulationData('data/us-population-states.csv'),
+    loadPopulationData('data/us-population-counties.csv'),
+  ]);
 
-  return { us, national, states, counties, mandates, restrictions };
+  return {
+    us,
+    national,
+    states,
+    counties,
+    mandates,
+    restrictions,
+    statesPopulation,
+    countiesPopulation,
+  };
 }
 
 function movingAverage(values, N) {
