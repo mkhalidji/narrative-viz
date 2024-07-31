@@ -99,3 +99,59 @@ text {
 .annotation-note-label {
   fill: 'white';
 }
+.annotation path {
+  fill: none;
+  stroke: #ff8684;
+  stroke-width: 2;
+}
+
+.annotation text {
+  fill: #ff8684;
+}
+.annotation tspan {
+}
+
+.annotation-note-title {
+  font-weight: bold;
+}
+.annotation-note-bg {
+  fill-opacity: 0.8;
+  filter: url(#blur-effect);
+  border-radius: 5px;
+}
+
+.annotation.annotation-first .annotation-note-bg {
+  fill: darkblue;
+}
+
+.annotation.annotation-second .annotation-note-bg {
+  fill: lightcyan;
+}
+
+circle.handle {
+  stroke-dasharray: 5;
+  stroke: #e91e56;
+  fill: rgba(255, 255, 255, 0.5);
+  cursor: move;
+
+  stroke-opacity: 0.4;
+}
+
+circle.handle.highlight {
+  stroke-opacity: 1;
+}
+
+.annotation-tip .annotation path {
+  stroke: white;
+}
+.annotation-tip .annotation text {
+  fill: white;
+}
+
+.annotation.annotation-first text {
+  fill: #f4cf64;
+}
+
+.annotation.annotation-second text {
+  fill: #be2a3e;
+}

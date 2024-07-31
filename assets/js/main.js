@@ -738,6 +738,12 @@ async function showGraphs() {
       return bottom - top + 2 * margin.bottom;
     });
 
+  defs
+    .append('filter')
+    .attr('id', 'blur-effect')
+    .append('feGaussianBlur')
+    .attr('stdDeviation', 4);
+
   const zoomData = (data) => (
     (dateExtent = xScale.domain()),
     data.filter(
@@ -783,13 +789,14 @@ async function showGraphs() {
 
   const graphs = [deathsGraphs, casesGraph];
 
-  const zoomedMandates = selectedStateMandates.map((mandates) =>
-    d3.group(
-      zoomData(mandates),
-      (m) => m.date,
-      (m) => m.type
-    )
-  );
+  const zoomedMandates = () =>
+    selectedStateMandates.map((mandates) =>
+      d3.group(
+        zoomData(mandates),
+        (m) => m.date,
+        (m) => m.type
+      )
+    );
 
   const extractMandateHtml = (m) => m.vaccination_mandate_group;
 
@@ -797,39 +804,48 @@ async function showGraphs() {
 
   const prepareAnnotations = (group) => ({});
 
-  const annotations = d3.merge(
-    zoomedMandates.flatMap((grouped) =>
-      Array.from(
-        grouped.entries().map(([date, regulations]) =>
-          Array.from(
-            regulations.entries().map(([type, regulation]) => ({
-              note: {
-                label: Array.from(
-                  d3.union(
-                    type === 'mandate'
-                      ? regulation.map(extractMandateHtml)
-                      : regulation.map(extractRestrictionHtml)
-                  )
-                ).join(', '),
-                bgPadding: 20,
-                title: type,
-              },
-              data: { date },
-            }))
+  const defineAnnotations = () =>
+    d3.merge(
+      zoomedMandates().flatMap((grouped, s) =>
+        Array.from(
+          grouped.entries().map(([date, regulations], i) =>
+            Array.from(
+              regulations.entries().map(([type, regulation]) => ({
+                note: {
+                  label: Array.from(
+                    d3.union(
+                      type === 'mandate'
+                        ? regulation.map(extractMandateHtml)
+                        : regulation.map(extractRestrictionHtml)
+                    )
+                  ).join(', '),
+                  bgPadding: 20,
+                  title: type,
+                },
+                data: { date },
+                className: s === 0 ? 'annotation-first' : 'annotation-second',
+                dy: -100 - Math.round(Math.random() * grouped.size) * 30,
+                dx: Math.min(
+                  xScale(maxDate) - xScale(date) - 100,
+                  Math.max(margin.left - xScale(date), -150 + i * 50)
+                ),
+              }))
+            )
           )
         )
       )
-    )
-  );
+    );
 
-  const makeAnnotations = d3
-    .annotation()
-    .type(d3.annotationCallout)
-    .accessors({
-      x: (d) => xScale(d.date) + 10,
-      y: (d) => d3.sum(yScales(1).range()) / 2,
-    })
-    .annotations(annotations);
+  const makeAnnotations = () =>
+    d3
+      .annotation()
+      .notePadding(10)
+      .type(d3.annotationCallout)
+      .accessors({
+        x: (d) => xScale(d.date) + 10,
+        y: (d) => yScales(1)(0),
+      })
+      .annotations(defineAnnotations());
 
   graphs.forEach(function (graph, i) {
     svg
@@ -841,8 +857,8 @@ async function showGraphs() {
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(yScales(i)));
-    svg.append('g').attr('class', 'annotation-group').call(makeAnnotations);
   });
+  svg.append('g').attr('class', 'annotation-tip').call(makeAnnotations());
 
   const mouse_g = svg
     .append('g')
@@ -1000,6 +1016,7 @@ async function showGraphs() {
           .call(d3.axisBottom(xScale));
       });
     });
+    svg.select('.annotation-tip').call(makeAnnotations());
   }
 }
 
