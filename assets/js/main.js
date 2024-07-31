@@ -596,7 +596,7 @@ async function showGraphs() {
   pageState.geoData = data;
 
   const {
-    geoData: { us, states },
+    geoData: { us, states, mandates, restrictions },
     selectedStates,
   } = pageState;
 
@@ -608,6 +608,16 @@ async function showGraphs() {
       stateData.sort((a, b) => a.date.getTime() - b.date.getTime())
     )
     .map(runningDiff);
+
+  const selectedStateMandates = selectedStates.map((state) =>
+    d3
+      .merge([
+        mandates.filter((m) => m.state === state),
+        restrictions.filter((m) => m.state === state),
+      ])
+      .map(({ effective_date: date, ...rest }) => ({ date, ...rest }))
+      .sort((a, b) => a.date.getTime() - b.date.getTime())
+  );
 
   const [minDate, maxDate] = d3.extent(
     d3.merge(selectedStateData.map((datum) => datum.map((d) => d.date)))
@@ -636,13 +646,6 @@ async function showGraphs() {
         graphHeight + i * (graphHeight + margin.bottom),
         margin.bottom + i * graphHeight,
       ]);
-
-  // const areaGraph = (i) =>
-  //   d3
-  //     .area()
-  //     .x((d) => xScale(d[0]))
-  //     .y0(casesScale(i)(0))
-  //     .y1((d) => casesScale(i)(d[1]));
 
   const mapWidth = 975,
     mapHeight = 610;
@@ -780,6 +783,54 @@ async function showGraphs() {
 
   const graphs = [deathsGraphs, casesGraph];
 
+  const zoomedMandates = selectedStateMandates.map((mandates) =>
+    d3.group(
+      zoomData(mandates),
+      (m) => m.date,
+      (m) => m.type
+    )
+  );
+
+  const extractMandateHtml = (m) => m.vaccination_mandate_group;
+
+  const extractRestrictionHtml = (m) => m.vaccination_prohibition_groups;
+
+  const prepareAnnotations = (group) => ({});
+
+  const annotations = d3.merge(
+    zoomedMandates.flatMap((grouped) =>
+      Array.from(
+        grouped.entries().map(([date, regulations]) =>
+          Array.from(
+            regulations.entries().map(([type, regulation]) => ({
+              note: {
+                label: Array.from(
+                  d3.union(
+                    type === 'mandate'
+                      ? regulation.map(extractMandateHtml)
+                      : regulation.map(extractRestrictionHtml)
+                  )
+                ).join(', '),
+                bgPadding: 20,
+                title: type,
+              },
+              data: { date },
+            }))
+          )
+        )
+      )
+    )
+  );
+
+  const makeAnnotations = d3
+    .annotation()
+    .type(d3.annotationCallout)
+    .accessors({
+      x: (d) => xScale(d.date) + 10,
+      y: (d) => d3.sum(yScales(1).range()) / 2,
+    })
+    .annotations(annotations);
+
   graphs.forEach(function (graph, i) {
     svg
       .append('g')
@@ -790,6 +841,7 @@ async function showGraphs() {
       .append('g')
       .attr('transform', `translate(${margin.left}, 0)`)
       .call(d3.axisLeft(yScales(i)));
+    svg.append('g').attr('class', 'annotation-group').call(makeAnnotations);
   });
 
   const mouse_g = svg
