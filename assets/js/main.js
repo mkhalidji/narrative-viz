@@ -106,8 +106,8 @@ async function showMap() {
       .map((feature) => {
         const {
           properties: { name: countyName },
+          id,
         } = feature;
-        console.log(countyName);
         const values = [
           allCountyValues.find(({ county }) => county.includes(countyName)),
           allCountyValues.findLast(({ county }) => county.includes(countyName)),
@@ -122,8 +122,8 @@ async function showMap() {
         return {
           ...feature,
           state,
-          cases,
-          deaths,
+          cases: cases / countiesPopulation[id],
+          deaths: deaths / countiesPopulation[id],
         };
       })
       .filter((feature) => feature !== undefined);
@@ -131,26 +131,34 @@ async function showMap() {
 
   const quantileData = filterStateDataToInterval(startDate, endDate);
 
-  const casesRawColor = d3
-    .scaleDiverging([0, 50, 99], ['#22763f', '#f4cf64', '#be2a3e'])
-    .clamp(true);
-
   const nQuantile = 10;
 
-  const scaleColors = d3.range(nQuantile ** 2).map((q) => casesRawColor(q));
+  const rawColorScale = d3
+    .scaleDiverging(
+      [0, nQuantile ** 2 / 2, nQuantile ** 2 - 1],
+      ['#22763f', '#f4cf64', '#be2a3e']
+    )
+    .clamp(true);
 
-  const casesQuantile = d3.scaleQuantile(
-    quantileData.map((state) => state.cases),
-    d3.range(nQuantile)
-  );
+  const scaleColors = d3.range(nQuantile ** 2).map((q) => rawColorScale(q));
 
-  const deathsQuantile = d3.scaleQuantile(
-    quantileData.map((state) => state.deaths),
-    d3.range(nQuantile)
-  );
+  const casesQuantile = (data) =>
+    d3.scaleQuantile(
+      data.map((d) => d.cases),
+      d3.range(nQuantile)
+    );
+
+  const deathsQuantile = (data) =>
+    d3.scaleQuantile(
+      data.map((d) => d.deaths),
+      d3.range(nQuantile)
+    );
 
   const choropleth = ({ cases, deaths }) =>
-    scaleColors[casesQuantile(cases) + nQuantile * deathsQuantile(deaths)];
+    scaleColors[
+      casesQuantile(quantileData)(cases) +
+        nQuantile * deathsQuantile(quantileData)(deaths)
+    ];
 
   const borderColor = d3
     .scaleDiverging([0, 25000, 75000], ['lightgrey', '#000', 'lightgrey'])
