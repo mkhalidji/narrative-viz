@@ -7,6 +7,7 @@ const pageState = {
   selectedStates: ['California', 'Florida'],
   us: undefined,
   geoData: undefined,
+  zoomDateExtent: undefined,
 };
 
 async function showMap() {
@@ -216,7 +217,7 @@ async function showMap() {
     .attr('stroke', '#a2a2a2')
     .attr('d', path(topojson.mesh(us, us.objects.nation)));
 
-  const defaultSelection = [xScale.range()[0], xScale.range()[1]];
+  const defaultSelection = xScale.range();
   const gb = svg.append('g');
 
   const tracker = svg
@@ -620,7 +621,7 @@ async function showGraphs() {
 
   const xScale = d3
     .scaleTime()
-    .domain([minDate, maxDate])
+    .domain(pageState.zoomDateExtent || [minDate, maxDate])
     .range([margin.left, width - margin.right]);
 
   const graphHeight = height / 2 - 2 * margin.bottom;
@@ -734,6 +735,15 @@ async function showGraphs() {
       return bottom - top + 2 * margin.bottom;
     });
 
+  const zoomData = (data) => (
+    (dateExtent = xScale.domain()),
+    data.filter(
+      (d) =>
+        d.date.getTime() >= dateExtent[0].getTime() &&
+        d.date.getTime() <= dateExtent[1].getTime()
+    )
+  );
+
   const deathsGraphs = svg
     .append('g')
     .selectChildren('g')
@@ -743,7 +753,7 @@ async function showGraphs() {
   deathsGraphs.each(function (data, i) {
     d3.select(this)
       .selectChildren('circle')
-      .data(data)
+      .data(zoomData(data))
       .join('circle')
       .attr('r', 2)
       .attr('fill', colors[i])
@@ -760,7 +770,7 @@ async function showGraphs() {
   casesGraph.each(function (data, i) {
     d3.select(this)
       .selectChildren('circle')
-      .data(data)
+      .data(zoomData(data))
       .join('circle')
       .attr('r', 2)
       .attr('fill', colors[i])
@@ -773,6 +783,7 @@ async function showGraphs() {
   graphs.forEach(function (graph, i) {
     svg
       .append('g')
+      .attr('id', `axis-bottom-${i}`)
       .attr('transform', `translate(0, ${yScales(i)(0) + 2})`)
       .call(d3.axisBottom(xScale));
     svg
@@ -784,9 +795,11 @@ async function showGraphs() {
   const mouse_g = svg
     .append('g')
     .classed('mouse', true)
-    .style('display', 'none');
+    .style('display', 'none')
+    .style('pointer-events', 'none');
   mouse_g
     .append('rect')
+    .style('pointer-events', 'none')
     .attr('width', 2)
     .attr('x', -1)
     .attr('y', yScales(0)(yMax[0]))
@@ -862,6 +875,80 @@ async function showGraphs() {
   svg.on('mouseout', function () {
     mouse_g.style('display', 'none');
   });
+
+  const brush_g = svg.append('g');
+
+  const defaultSelection = null;
+
+  const brush = d3
+    .brushX()
+    .extent([
+      [margin.left, yScales(0).range()[1]],
+      [width - margin.right, yScales(1).range()[0]],
+    ])
+    .on('brush', brushed)
+    .on('start', brushStareted)
+    .on('end', brushEnded);
+
+  brush_g.call(brush).call(brush.move, defaultSelection);
+
+  function brushed({ selection }) {
+    if (selection) {
+      console.log(selection);
+    }
+  }
+
+  function brushStareted() {
+    mouse_g.style('display', 'none');
+  }
+
+  function brushEnded({ selection }) {
+    if (selection) {
+      xScale.domain(
+        (pageState.zoomDateExtent = [
+          xScale.invert(selection[0]),
+          xScale.invert(selection[1]),
+        ])
+      );
+      updateGraphs();
+      brush_g.call(brush.move, defaultSelection);
+    }
+  }
+
+  svg.on('dblclick', function () {
+    xScale.domain([minDate, maxDate]);
+    pageState.zoomDateExtent = undefined;
+    updateGraphs();
+  });
+
+  function updateGraphs() {
+    deathsGraphs.each(function (data, i) {
+      d3.select(this)
+        .selectChildren('circle')
+        .data(zoomData(data))
+        .join('circle')
+        .attr('r', 2)
+        .attr('fill', colors[i])
+        .attr('cx', (d) => xScale(d.date))
+        .attr('cy', (d) => yScales(0)(d.deaths));
+    });
+    casesGraph.each(function (data, i) {
+      d3.select(this)
+        .selectChildren('circle')
+        .data(zoomData(data))
+        .join('circle')
+        .attr('r', 2)
+        .attr('fill', colors[i])
+        .attr('cx', (d) => xScale(d.date))
+        .attr('cy', (d) => yScales(1)(d.cases));
+      graphs.forEach(function (graph, i) {
+        svg
+          .select(`#axis-bottom-${i}`)
+          .attr('transform', `translate(0, ${yScales(i)(0) + 2})`)
+          .call(d3.axisBottom(xScale));
+      });
+    });
+  }
 }
 
 const runningDiff = (series) => {
