@@ -820,7 +820,7 @@ async function showGraphs() {
                     )
                   ).join(', '),
                   bgPadding: 20,
-                  title: type,
+                  title: `${type} in ${selectedStates[s]}`,
                 },
                 data: { date },
                 className: s === 0 ? 'annotation-first' : 'annotation-second',
@@ -829,6 +829,10 @@ async function showGraphs() {
                   xScale(maxDate) - xScale(date) - 100,
                   Math.max(margin.left - xScale(date), -150 + i * 50)
                 ),
+                subject: {
+                  radius: 5,
+                  raduisPadding: 1,
+                },
               }))
             )
           )
@@ -840,7 +844,7 @@ async function showGraphs() {
     d3
       .annotation()
       .notePadding(10)
-      .type(d3.annotationCallout)
+      .type(d3.annotationCalloutCircle)
       .accessors({
         x: (d) => xScale(d.date) + 10,
         y: (d) => yScales(1)(0),
