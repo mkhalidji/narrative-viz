@@ -289,12 +289,11 @@ async function showMap() {
       tracker.attr('transform', `translate(${xScale(date)}, ${0})`);
       tracker
         .select('text')
-        .attr('stroke', 'whitesmoke')
+        .attr('fill', 'whitesmoke')
         .attr('text-anchor', x > width - 150 ? 'end' : 'start')
         .selectChildren('tspan')
         .data([date.toDateString(), `Cases: ${cases}`, `Deaths: ${deaths}`])
         .join('tspan')
-        .attr('stroke', 'whitesmoke')
         .attr('pointer-events', 'none')
         .attr('x', 5)
         .attr('y', (_d, i) => yScale(cases) + 20 * i - 50)
