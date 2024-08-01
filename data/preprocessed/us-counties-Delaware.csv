@@ -1,0 +1,4388 @@
+date,county,state,fips,cases,deaths
+2020-03-11,New Castle,Delaware,10003,1,0
+2020-03-12,New Castle,Delaware,10003,4,0
+2020-03-13,New Castle,Delaware,10003,4,0
+2020-03-14,New Castle,Delaware,10003,4,0
+2020-03-15,New Castle,Delaware,10003,7,0
+2020-03-16,New Castle,Delaware,10003,8,0
+2020-03-17,New Castle,Delaware,10003,15,0
+2020-03-17,Sussex,Delaware,10005,1,0
+2020-03-18,Kent,Delaware,10001,3,0
+2020-03-18,New Castle,Delaware,10003,20,0
+2020-03-18,Sussex,Delaware,10005,3,0
+2020-03-19,Kent,Delaware,10001,4,0
+2020-03-19,New Castle,Delaware,10003,23,0
+2020-03-19,Sussex,Delaware,10005,3,0
+2020-03-20,Kent,Delaware,10001,4,0
+2020-03-20,New Castle,Delaware,10003,28,0
+2020-03-20,Sussex,Delaware,10005,7,0
+2020-03-21,Kent,Delaware,10001,5,0
+2020-03-21,New Castle,Delaware,10003,32,0
+2020-03-21,Sussex,Delaware,10005,8,0
+2020-03-22,Kent,Delaware,10001,5,0
+2020-03-22,New Castle,Delaware,10003,39,0
+2020-03-22,Sussex,Delaware,10005,12,0
+2020-03-23,Kent,Delaware,10001,9,0
+2020-03-23,New Castle,Delaware,10003,58,0
+2020-03-23,Sussex,Delaware,10005,20,0
+2020-03-24,Kent,Delaware,10001,10,0
+2020-03-24,New Castle,Delaware,10003,71,0
+2020-03-24,Sussex,Delaware,10005,23,0
+2020-03-25,Kent,Delaware,10001,14,0
+2020-03-25,New Castle,Delaware,10003,79,0
+2020-03-25,Sussex,Delaware,10005,26,0
+2020-03-26,Kent,Delaware,10001,19,0
+2020-03-26,New Castle,Delaware,10003,91,0
+2020-03-26,Sussex,Delaware,10005,33,1
+2020-03-27,Kent,Delaware,10001,21,0
+2020-03-27,New Castle,Delaware,10003,106,1
+2020-03-27,Sussex,Delaware,10005,38,1
+2020-03-28,Kent,Delaware,10001,25,2
+2020-03-28,New Castle,Delaware,10003,130,2
+2020-03-28,Sussex,Delaware,10005,59,1
+2020-03-29,Kent,Delaware,10001,25,2
+2020-03-29,New Castle,Delaware,10003,141,3
+2020-03-29,Sussex,Delaware,10005,66,1
+2020-03-30,Kent,Delaware,10001,27,2
+2020-03-30,New Castle,Delaware,10003,156,3
+2020-03-30,Sussex,Delaware,10005,81,2
+2020-03-31,Kent,Delaware,10001,34,2
+2020-03-31,New Castle,Delaware,10003,197,6
+2020-03-31,Sussex,Delaware,10005,88,2
+2020-04-01,Kent,Delaware,10001,41,2
+2020-04-01,New Castle,Delaware,10003,226,6
+2020-04-01,Sussex,Delaware,10005,101,3
+2020-04-02,Kent,Delaware,10001,43,2
+2020-04-02,New Castle,Delaware,10003,245,7
+2020-04-02,Sussex,Delaware,10005,105,3
+2020-04-03,Kent,Delaware,10001,54,2
+2020-04-03,New Castle,Delaware,10003,279,9
+2020-04-03,Sussex,Delaware,10005,117,3
+2020-04-04,Kent,Delaware,10001,68,2
+2020-04-04,New Castle,Delaware,10003,400,9
+2020-04-04,Sussex,Delaware,10005,125,3
+2020-04-05,Kent,Delaware,10001,86,2
+2020-04-05,New Castle,Delaware,10003,436,9
+2020-04-05,Sussex,Delaware,10005,151,3
+2020-04-06,Kent,Delaware,10001,128,3
+2020-04-06,New Castle,Delaware,10003,496,9
+2020-04-06,Sussex,Delaware,10005,159,3
+2020-04-07,Kent,Delaware,10001,147,3
+2020-04-07,New Castle,Delaware,10003,571,9
+2020-04-07,Sussex,Delaware,10005,210,4
+2020-04-08,Kent,Delaware,10001,201,3
+2020-04-08,New Castle,Delaware,10003,636,11
+2020-04-08,Sussex,Delaware,10005,279,5
+2020-04-09,Kent,Delaware,10001,214,3
+2020-04-09,New Castle,Delaware,10003,701,13
+2020-04-09,Sussex,Delaware,10005,294,7
+2020-04-10,Kent,Delaware,10001,230,3
+2020-04-10,New Castle,Delaware,10003,751,19
+2020-04-10,Sussex,Delaware,10005,336,10
+2020-04-10,Unknown,Delaware,,9,0
+2020-04-11,Kent,Delaware,10001,255,4
+2020-04-11,New Castle,Delaware,10003,807,19
+2020-04-11,Sussex,Delaware,10005,404,10
+2020-04-11,Unknown,Delaware,,13,0
+2020-04-12,Kent,Delaware,10001,281,4
+2020-04-12,New Castle,Delaware,10003,880,19
+2020-04-12,Sussex,Delaware,10005,464,12
+2020-04-13,Kent,Delaware,10001,288,6
+2020-04-13,New Castle,Delaware,10003,919,20
+2020-04-13,Sussex,Delaware,10005,551,15
+2020-04-13,Unknown,Delaware,,3,0
+2020-04-14,Kent,Delaware,10001,329,7
+2020-04-14,New Castle,Delaware,10003,947,20
+2020-04-14,Sussex,Delaware,10005,639,16
+2020-04-14,Unknown,Delaware,,11,0
+2020-04-15,Kent,Delaware,10001,345,8
+2020-04-15,New Castle,Delaware,10003,974,21
+2020-04-15,Sussex,Delaware,10005,678,17
+2020-04-15,Unknown,Delaware,,17,0
+2020-04-16,Kent,Delaware,10001,352,9
+2020-04-16,New Castle,Delaware,10003,1003,25
+2020-04-16,Sussex,Delaware,10005,698,18
+2020-04-16,Unknown,Delaware,,22,0
+2020-04-17,Kent,Delaware,10001,384,9
+2020-04-17,New Castle,Delaware,10003,1100,30
+2020-04-17,Sussex,Delaware,10005,811,22
+2020-04-17,Unknown,Delaware,,28,0
+2020-04-18,Kent,Delaware,10001,417,10
+2020-04-18,New Castle,Delaware,10003,1205,32
+2020-04-18,Sussex,Delaware,10005,886,25
+2020-04-18,Unknown,Delaware,,30,0
+2020-04-19,Kent,Delaware,10001,417,10
+2020-04-19,New Castle,Delaware,10003,1205,32
+2020-04-19,Sussex,Delaware,10005,886,25
+2020-04-19,Unknown,Delaware,,30,0
+2020-04-20,Kent,Delaware,10001,430,13
+2020-04-20,New Castle,Delaware,10003,1229,33
+2020-04-20,Sussex,Delaware,10005,1055,26
+2020-04-20,Unknown,Delaware,,31,0
+2020-04-21,Kent,Delaware,10001,459,14
+2020-04-21,New Castle,Delaware,10003,1303,36
+2020-04-21,Sussex,Delaware,10005,1139,32
+2020-04-21,Unknown,Delaware,,30,0
+2020-04-22,Kent,Delaware,10001,503,15
+2020-04-22,New Castle,Delaware,10003,1352,38
+2020-04-22,Sussex,Delaware,10005,1317,36
+2020-04-22,Unknown,Delaware,,28,0
+2020-04-23,Kent,Delaware,10001,539,15
+2020-04-23,New Castle,Delaware,10003,1389,40
+2020-04-23,Sussex,Delaware,10005,1377,37
+2020-04-23,Unknown,Delaware,,3,0
+2020-04-24,Kent,Delaware,10001,558,15
+2020-04-24,New Castle,Delaware,10003,1486,45
+2020-04-24,Sussex,Delaware,10005,1394,40
+2020-04-24,Unknown,Delaware,,4,0
+2020-04-25,Kent,Delaware,10001,579,18
+2020-04-25,New Castle,Delaware,10003,1504,52
+2020-04-25,Sussex,Delaware,10005,1490,42
+2020-04-25,Unknown,Delaware,,3,0
+2020-04-26,Kent,Delaware,10001,625,22
+2020-04-26,New Castle,Delaware,10003,1599,55
+2020-04-26,Sussex,Delaware,10005,1801,43
+2020-04-26,Unknown,Delaware,,9,0
+2020-04-27,Kent,Delaware,10001,652,23
+2020-04-27,New Castle,Delaware,10003,1629,57
+2020-04-27,Sussex,Delaware,10005,1870,45
+2020-04-27,Unknown,Delaware,,11,0
+2020-04-28,Kent,Delaware,10001,728,23
+2020-04-28,New Castle,Delaware,10003,1701,63
+2020-04-28,Sussex,Delaware,10005,2114,51
+2020-04-28,Unknown,Delaware,,32,0
+2020-04-29,Kent,Delaware,10001,743,25
+2020-04-29,New Castle,Delaware,10003,1717,65
+2020-04-29,Sussex,Delaware,10005,2169,54
+2020-04-29,Unknown,Delaware,,26,0
+2020-04-30,Kent,Delaware,10001,759,26
+2020-04-30,New Castle,Delaware,10003,1734,68
+2020-04-30,Sussex,Delaware,10005,2216,58
+2020-04-30,Unknown,Delaware,,25,0
+2020-05-01,Kent,Delaware,10001,773,27
+2020-05-01,New Castle,Delaware,10003,1829,70
+2020-05-01,Sussex,Delaware,10005,2292,62
+2020-05-01,Unknown,Delaware,,24,0
+2020-05-02,Kent,Delaware,10001,793,29
+2020-05-02,New Castle,Delaware,10003,1864,76
+2020-05-02,Sussex,Delaware,10005,2359,63
+2020-05-02,Unknown,Delaware,,22,0
+2020-05-03,Kent,Delaware,10001,821,30
+2020-05-03,New Castle,Delaware,10003,1903,79
+2020-05-03,Sussex,Delaware,10005,2461,68
+2020-05-03,Unknown,Delaware,,23,0
+2020-05-04,Kent,Delaware,10001,833,30
+2020-05-04,New Castle,Delaware,10003,1934,82
+2020-05-04,Sussex,Delaware,10005,2497,70
+2020-05-04,Unknown,Delaware,,24,0
+2020-05-05,Kent,Delaware,10001,847,32
+2020-05-05,New Castle,Delaware,10003,1979,83
+2020-05-05,Sussex,Delaware,10005,2520,72
+2020-05-05,Unknown,Delaware,,25,0
+2020-05-06,Kent,Delaware,10001,891,33
+2020-05-06,New Castle,Delaware,10003,2087,85
+2020-05-06,Sussex,Delaware,10005,2764,75
+2020-05-06,Unknown,Delaware,,36,0
+2020-05-07,Kent,Delaware,10001,945,34
+2020-05-07,New Castle,Delaware,10003,2130,89
+2020-05-07,Sussex,Delaware,10005,2834,79
+2020-05-07,Unknown,Delaware,,30,0
+2020-05-08,Kent,Delaware,10001,963,36
+2020-05-08,New Castle,Delaware,10003,2184,91
+2020-05-08,Sussex,Delaware,10005,2936,86
+2020-05-09,Kent,Delaware,10001,985,38
+2020-05-09,New Castle,Delaware,10003,2275,93
+2020-05-09,Sussex,Delaware,10005,2990,90
+2020-05-09,Unknown,Delaware,,27,0
+2020-05-10,Kent,Delaware,10001,1016,38
+2020-05-10,New Castle,Delaware,10003,2331,95
+2020-05-10,Sussex,Delaware,10005,3059,91
+2020-05-10,Unknown,Delaware,,41,0
+2020-05-11,Kent,Delaware,10001,1044,39
+2020-05-11,New Castle,Delaware,10003,2390,95
+2020-05-11,Sussex,Delaware,10005,3091,91
+2020-05-11,Unknown,Delaware,,40,0
+2020-05-12,Kent,Delaware,10001,1060,43
+2020-05-12,New Castle,Delaware,10003,2440,100
+2020-05-12,Sussex,Delaware,10005,3205,93
+2020-05-12,Unknown,Delaware,,36,1
+2020-05-13,Kent,Delaware,10001,1084,45
+2020-05-13,New Castle,Delaware,10003,2496,102
+2020-05-13,Sussex,Delaware,10005,3336,99
+2020-05-13,Unknown,Delaware,,36,1
+2020-05-14,Kent,Delaware,10001,1115,46
+2020-05-14,New Castle,Delaware,10003,2560,108
+2020-05-14,Sussex,Delaware,10005,3503,105
+2020-05-14,Unknown,Delaware,,45,1
+2020-05-15,Kent,Delaware,10001,1146,48
+2020-05-15,New Castle,Delaware,10003,2619,114
+2020-05-15,Sussex,Delaware,10005,3565,108
+2020-05-15,Unknown,Delaware,,43,1
+2020-05-16,Kent,Delaware,10001,1176,52
+2020-05-16,New Castle,Delaware,10003,2667,121
+2020-05-16,Sussex,Delaware,10005,3658,112
+2020-05-16,Unknown,Delaware,,46,1
+2020-05-17,Kent,Delaware,10001,1197,52
+2020-05-17,New Castle,Delaware,10003,2682,124
+2020-05-17,Sussex,Delaware,10005,3739,113
+2020-05-17,Unknown,Delaware,,52,1
+2020-05-18,Kent,Delaware,10001,1219,52
+2020-05-18,New Castle,Delaware,10003,2738,130
+2020-05-18,Sussex,Delaware,10005,3861,114
+2020-05-18,Unknown,Delaware,,51,1
+2020-05-19,Kent,Delaware,10001,1238,53
+2020-05-19,New Castle,Delaware,10003,2845,135
+2020-05-19,Sussex,Delaware,10005,3904,115
+2020-05-19,Unknown,Delaware,,50,1
+2020-05-20,Kent,Delaware,10001,1253,55
+2020-05-20,New Castle,Delaware,10003,2933,138
+2020-05-20,Sussex,Delaware,10005,3960,116
+2020-05-20,Unknown,Delaware,,48,1
+2020-05-21,Kent,Delaware,10001,1281,55
+2020-05-21,New Castle,Delaware,10003,3053,144
+2020-05-21,Sussex,Delaware,10005,4006,117
+2020-05-21,Unknown,Delaware,,46,1
+2020-05-22,Kent,Delaware,10001,1296,56
+2020-05-22,New Castle,Delaware,10003,3132,146
+2020-05-22,Sussex,Delaware,10005,4048,119
+2020-05-22,Unknown,Delaware,,53,1
+2020-05-23,Kent,Delaware,10001,1315,56
+2020-05-23,New Castle,Delaware,10003,3238,147
+2020-05-23,Sussex,Delaware,10005,4084,120
+2020-05-23,Unknown,Delaware,,53,1
+2020-05-24,Kent,Delaware,10001,1340,56
+2020-05-24,New Castle,Delaware,10003,3309,148
+2020-05-24,Sussex,Delaware,10005,4103,121
+2020-05-24,Unknown,Delaware,,57,1
+2020-05-25,Kent,Delaware,10001,1356,56
+2020-05-25,New Castle,Delaware,10003,3436,149
+2020-05-25,Sussex,Delaware,10005,4118,126
+2020-05-25,Unknown,Delaware,,55,1
+2020-05-26,Kent,Delaware,10001,1368,57
+2020-05-26,New Castle,Delaware,10003,3508,150
+2020-05-26,Sussex,Delaware,10005,4132,128
+2020-05-26,Unknown,Delaware,,58,0
+2020-05-27,Kent,Delaware,10001,1374,61
+2020-05-27,New Castle,Delaware,10003,3528,155
+2020-05-27,Sussex,Delaware,10005,4140,128
+2020-05-27,Unknown,Delaware,,54,0
+2020-05-28,Kent,Delaware,10001,1392,61
+2020-05-28,New Castle,Delaware,10003,3575,155
+2020-05-28,Sussex,Delaware,10005,4151,129
+2020-05-28,Unknown,Delaware,,53,0
+2020-05-29,Kent,Delaware,10001,1401,62
+2020-05-29,New Castle,Delaware,10003,3629,163
+2020-05-29,Sussex,Delaware,10005,4155,131
+2020-05-29,Unknown,Delaware,,51,0
+2020-05-30,Kent,Delaware,10001,1432,63
+2020-05-30,New Castle,Delaware,10003,3723,166
+2020-05-30,Sussex,Delaware,10005,4215,132
+2020-05-30,Unknown,Delaware,,52,0
+2020-05-31,Kent,Delaware,10001,1436,63
+2020-05-31,New Castle,Delaware,10003,3758,170
+2020-05-31,Sussex,Delaware,10005,4253,133
+2020-05-31,Unknown,Delaware,,51,0
+2020-06-01,Kent,Delaware,10001,1440,63
+2020-06-01,New Castle,Delaware,10003,3838,172
+2020-06-01,Sussex,Delaware,10005,4272,133
+2020-06-01,Unknown,Delaware,,55,0
+2020-06-02,Kent,Delaware,10001,1450,66
+2020-06-02,New Castle,Delaware,10003,3883,172
+2020-06-02,Sussex,Delaware,10005,4299,135
+2020-06-02,Unknown,Delaware,,53,0
+2020-06-03,Kent,Delaware,10001,1451,66
+2020-06-03,New Castle,Delaware,10003,3903,173
+2020-06-03,Sussex,Delaware,10005,4305,136
+2020-06-03,Unknown,Delaware,,53,0
+2020-06-04,Kent,Delaware,10001,1454,69
+2020-06-04,New Castle,Delaware,10003,3925,173
+2020-06-04,Sussex,Delaware,10005,4314,143
+2020-06-04,Unknown,Delaware,,53,1
+2020-06-05,Kent,Delaware,10001,1465,71
+2020-06-05,New Castle,Delaware,10003,3937,173
+2020-06-05,Sussex,Delaware,10005,4322,144
+2020-06-05,Unknown,Delaware,,49,0
+2020-06-06,Kent,Delaware,10001,1496,72
+2020-06-06,New Castle,Delaware,10003,3995,174
+2020-06-06,Sussex,Delaware,10005,4342,144
+2020-06-06,Unknown,Delaware,,12,0
+2020-06-07,Kent,Delaware,10001,1511,76
+2020-06-07,New Castle,Delaware,10003,4070,176
+2020-06-07,Sussex,Delaware,10005,4346,146
+2020-06-07,Unknown,Delaware,,15,0
+2020-06-08,Kent,Delaware,10001,1513,76
+2020-06-08,New Castle,Delaware,10003,4095,176
+2020-06-08,Sussex,Delaware,10005,4353,146
+2020-06-08,Unknown,Delaware,,11,0
+2020-06-09,Kent,Delaware,10001,1522,76
+2020-06-09,New Castle,Delaware,10003,4125,185
+2020-06-09,Sussex,Delaware,10005,4361,149
+2020-06-09,Unknown,Delaware,,12,0
+2020-06-10,Kent,Delaware,10001,1530,78
+2020-06-10,New Castle,Delaware,10003,4139,186
+2020-06-10,Sussex,Delaware,10005,4373,149
+2020-06-10,Unknown,Delaware,,14,0
+2020-06-11,Kent,Delaware,10001,1543,79
+2020-06-11,New Castle,Delaware,10003,4171,186
+2020-06-11,Sussex,Delaware,10005,4379,149
+2020-06-11,Unknown,Delaware,,13,0
+2020-06-12,Kent,Delaware,10001,1544,79
+2020-06-12,New Castle,Delaware,10003,4224,186
+2020-06-12,Sussex,Delaware,10005,4389,149
+2020-06-12,Unknown,Delaware,,16,0
+2020-06-13,Kent,Delaware,10001,1554,82
+2020-06-13,New Castle,Delaware,10003,4259,187
+2020-06-13,Sussex,Delaware,10005,4401,150
+2020-06-13,Unknown,Delaware,,15,0
+2020-06-14,Kent,Delaware,10001,1557,83
+2020-06-14,New Castle,Delaware,10003,4287,189
+2020-06-14,Sussex,Delaware,10005,4406,150
+2020-06-14,Unknown,Delaware,,14,0
+2020-06-15,Kent,Delaware,10001,1565,83
+2020-06-15,New Castle,Delaware,10003,4345,190
+2020-06-15,Sussex,Delaware,10005,4416,150
+2020-06-15,Unknown,Delaware,,14,0
+2020-06-16,Kent,Delaware,10001,1573,84
+2020-06-16,New Castle,Delaware,10003,4386,190
+2020-06-16,Sussex,Delaware,10005,4428,150
+2020-06-16,Unknown,Delaware,,16,0
+2020-06-17,Kent,Delaware,10001,1579,84
+2020-06-17,New Castle,Delaware,10003,4422,191
+2020-06-17,Sussex,Delaware,10005,4429,151
+2020-06-17,Unknown,Delaware,,14,0
+2020-06-18,Kent,Delaware,10001,1584,84
+2020-06-18,New Castle,Delaware,10003,4470,195
+2020-06-18,Sussex,Delaware,10005,4431,152
+2020-06-18,Unknown,Delaware,,14,0
+2020-06-19,Kent,Delaware,10001,1602,84
+2020-06-19,New Castle,Delaware,10003,4522,196
+2020-06-19,Sussex,Delaware,10005,4470,153
+2020-06-19,Unknown,Delaware,,17,0
+2020-06-20,Kent,Delaware,10001,1606,84
+2020-06-20,New Castle,Delaware,10003,4569,197
+2020-06-20,Sussex,Delaware,10005,4487,153
+2020-06-20,Unknown,Delaware,,19,0
+2020-06-21,Kent,Delaware,10001,1613,84
+2020-06-21,New Castle,Delaware,10003,4647,197
+2020-06-21,Sussex,Delaware,10005,4495,154
+2020-06-21,Unknown,Delaware,,20,0
+2020-06-22,Kent,Delaware,10001,1620,84
+2020-06-22,New Castle,Delaware,10003,4682,197
+2020-06-22,Sussex,Delaware,10005,4501,154
+2020-06-22,Unknown,Delaware,,17,0
+2020-06-23,Kent,Delaware,10001,1624,89
+2020-06-23,New Castle,Delaware,10003,4697,239
+2020-06-23,Sussex,Delaware,10005,4509,176
+2020-06-23,Unknown,Delaware,,17,0
+2020-06-24,Kent,Delaware,10001,1628,89
+2020-06-24,New Castle,Delaware,10003,4720,240
+2020-06-24,Sussex,Delaware,10005,4522,176
+2020-06-24,Unknown,Delaware,,19,0
+2020-06-25,Kent,Delaware,10001,1630,89
+2020-06-25,New Castle,Delaware,10003,4791,242
+2020-06-25,Sussex,Delaware,10005,4538,176
+2020-06-25,Unknown,Delaware,,21,0
+2020-06-26,Kent,Delaware,10001,1635,89
+2020-06-26,New Castle,Delaware,10003,4840,242
+2020-06-26,Sussex,Delaware,10005,4519,176
+2020-06-26,Unknown,Delaware,,23,0
+2020-06-27,Kent,Delaware,10001,1652,89
+2020-06-27,New Castle,Delaware,10003,4871,242
+2020-06-27,Sussex,Delaware,10005,4542,176
+2020-06-27,Unknown,Delaware,,26,0
+2020-06-28,Kent,Delaware,10001,1663,89
+2020-06-28,New Castle,Delaware,10003,4925,242
+2020-06-28,Sussex,Delaware,10005,4608,176
+2020-06-28,Unknown,Delaware,,30,0
+2020-06-29,Kent,Delaware,10001,1672,89
+2020-06-29,New Castle,Delaware,10003,5031,242
+2020-06-29,Sussex,Delaware,10005,4637,176
+2020-06-29,Unknown,Delaware,,36,0
+2020-06-30,Kent,Delaware,10001,1690,89
+2020-06-30,New Castle,Delaware,10003,5065,244
+2020-06-30,Sussex,Delaware,10005,4681,176
+2020-06-30,Unknown,Delaware,,38,0
+2020-07-01,Kent,Delaware,10001,1699,90
+2020-07-01,New Castle,Delaware,10003,5079,243
+2020-07-01,Sussex,Delaware,10005,4690,176
+2020-07-01,Unknown,Delaware,,42,0
+2020-07-02,Kent,Delaware,10001,1716,90
+2020-07-02,New Castle,Delaware,10003,5183,245
+2020-07-02,Sussex,Delaware,10005,4779,175
+2020-07-02,Unknown,Delaware,,53,0
+2020-07-03,Kent,Delaware,10001,1730,92
+2020-07-03,New Castle,Delaware,10003,5277,245
+2020-07-03,Sussex,Delaware,10005,4847,175
+2020-07-03,Unknown,Delaware,,69,0
+2020-07-04,Kent,Delaware,10001,1735,92
+2020-07-04,New Castle,Delaware,10003,5334,245
+2020-07-04,Sussex,Delaware,10005,4854,175
+2020-07-04,Unknown,Delaware,,73,0
+2020-07-05,Kent,Delaware,10001,1746,92
+2020-07-05,New Castle,Delaware,10003,5398,245
+2020-07-05,Sussex,Delaware,10005,4903,175
+2020-07-05,Unknown,Delaware,,81,0
+2020-07-06,Kent,Delaware,10001,1761,92
+2020-07-06,New Castle,Delaware,10003,5489,245
+2020-07-06,Sussex,Delaware,10005,4952,175
+2020-07-06,Unknown,Delaware,,91,0
+2020-07-07,Kent,Delaware,10001,1784,92
+2020-07-07,New Castle,Delaware,10003,5555,247
+2020-07-07,Sussex,Delaware,10005,4977,175
+2020-07-07,Unknown,Delaware,,98,0
+2020-07-08,Kent,Delaware,10001,1790,92
+2020-07-08,New Castle,Delaware,10003,5583,248
+2020-07-08,Sussex,Delaware,10005,4988,175
+2020-07-08,Unknown,Delaware,,101,0
+2020-07-09,Kent,Delaware,10001,1795,92
+2020-07-09,New Castle,Delaware,10003,5626,249
+2020-07-09,Sussex,Delaware,10005,5008,176
+2020-07-09,Unknown,Delaware,,102,0
+2020-07-10,Kent,Delaware,10001,1815,92
+2020-07-10,New Castle,Delaware,10003,5688,249
+2020-07-10,Sussex,Delaware,10005,5045,176
+2020-07-10,Unknown,Delaware,,104,0
+2020-07-11,Kent,Delaware,10001,1829,92
+2020-07-11,New Castle,Delaware,10003,5732,249
+2020-07-11,Sussex,Delaware,10005,5076,176
+2020-07-11,Unknown,Delaware,,106,0
+2020-07-12,Kent,Delaware,10001,1848,92
+2020-07-12,New Castle,Delaware,10003,5759,249
+2020-07-12,Sussex,Delaware,10005,5093,176
+2020-07-12,Unknown,Delaware,,104,0
+2020-07-13,Kent,Delaware,10001,1857,92
+2020-07-13,New Castle,Delaware,10003,5797,249
+2020-07-13,Sussex,Delaware,10005,5119,176
+2020-07-13,Unknown,Delaware,,106,0
+2020-07-14,Kent,Delaware,10001,1865,92
+2020-07-14,New Castle,Delaware,10003,5860,249
+2020-07-14,Sussex,Delaware,10005,5130,177
+2020-07-14,Unknown,Delaware,,114,0
+2020-07-15,Kent,Delaware,10001,1876,94
+2020-07-15,New Castle,Delaware,10003,5904,249
+2020-07-15,Sussex,Delaware,10005,5153,178
+2020-07-15,Unknown,Delaware,,117,0
+2020-07-16,Kent,Delaware,10001,1887,94
+2020-07-16,New Castle,Delaware,10003,5935,249
+2020-07-16,Sussex,Delaware,10005,5171,178
+2020-07-16,Unknown,Delaware,,121,0
+2020-07-17,Kent,Delaware,10001,1978,94
+2020-07-17,New Castle,Delaware,10003,5981,249
+2020-07-17,Sussex,Delaware,10005,5244,178
+2020-07-17,Unknown,Delaware,,134,0
+2020-07-18,Kent,Delaware,10001,1995,95
+2020-07-18,New Castle,Delaware,10003,6028,250
+2020-07-18,Sussex,Delaware,10005,5264,178
+2020-07-18,Unknown,Delaware,,142,0
+2020-07-19,Kent,Delaware,10001,2000,95
+2020-07-19,New Castle,Delaware,10003,6070,250
+2020-07-19,Sussex,Delaware,10005,5304,178
+2020-07-19,Unknown,Delaware,,145,0
+2020-07-20,Kent,Delaware,10001,2013,95
+2020-07-20,New Castle,Delaware,10003,6125,250
+2020-07-20,Sussex,Delaware,10005,5333,178
+2020-07-20,Unknown,Delaware,,153,0
+2020-07-21,Kent,Delaware,10001,2017,96
+2020-07-21,New Castle,Delaware,10003,6206,251
+2020-07-21,Sussex,Delaware,10005,5365,178
+2020-07-21,Unknown,Delaware,,158,0
+2020-07-22,Kent,Delaware,10001,2025,96
+2020-07-22,New Castle,Delaware,10003,6231,252
+2020-07-22,Sussex,Delaware,10005,5375,179
+2020-07-22,Unknown,Delaware,,161,0
+2020-07-23,Kent,Delaware,10001,2058,96
+2020-07-23,New Castle,Delaware,10003,6296,253
+2020-07-23,Sussex,Delaware,10005,5407,180
+2020-07-23,Unknown,Delaware,,163,0
+2020-07-24,Kent,Delaware,10001,2102,105
+2020-07-24,New Castle,Delaware,10003,6408,283
+2020-07-24,Sussex,Delaware,10005,5508,190
+2020-07-24,Unknown,Delaware,,184,0
+2020-07-25,Kent,Delaware,10001,2091,105
+2020-07-25,New Castle,Delaware,10003,6414,284
+2020-07-25,Sussex,Delaware,10005,5488,190
+2020-07-25,Unknown,Delaware,,182,0
+2020-07-26,Kent,Delaware,10001,2117,105
+2020-07-26,New Castle,Delaware,10003,6480,284
+2020-07-26,Sussex,Delaware,10005,5506,190
+2020-07-26,Unknown,Delaware,,187,0
+2020-07-27,Kent,Delaware,10001,2125,105
+2020-07-27,New Castle,Delaware,10003,6560,284
+2020-07-27,Sussex,Delaware,10005,5529,190
+2020-07-27,Unknown,Delaware,,192,0
+2020-07-28,Kent,Delaware,10001,2132,105
+2020-07-28,New Castle,Delaware,10003,6588,285
+2020-07-28,Sussex,Delaware,10005,5564,190
+2020-07-28,Unknown,Delaware,,192,0
+2020-07-29,Kent,Delaware,10001,2142,105
+2020-07-29,New Castle,Delaware,10003,6682,285
+2020-07-29,Sussex,Delaware,10005,5575,191
+2020-07-29,Unknown,Delaware,,203,0
+2020-07-30,Kent,Delaware,10001,2151,105
+2020-07-30,New Castle,Delaware,10003,6743,285
+2020-07-30,Sussex,Delaware,10005,5583,191
+2020-07-30,Unknown,Delaware,,212,0
+2020-07-31,Kent,Delaware,10001,2167,107
+2020-07-31,New Castle,Delaware,10003,6794,287
+2020-07-31,Sussex,Delaware,10005,5608,191
+2020-07-31,Unknown,Delaware,,219,0
+2020-08-01,Kent,Delaware,10001,2183,107
+2020-08-01,New Castle,Delaware,10003,6843,287
+2020-08-01,Sussex,Delaware,10005,5630,191
+2020-08-01,Unknown,Delaware,,221,0
+2020-08-02,Kent,Delaware,10001,2199,107
+2020-08-02,New Castle,Delaware,10003,6868,287
+2020-08-02,Sussex,Delaware,10005,5656,191
+2020-08-02,Unknown,Delaware,,226,0
+2020-08-03,Kent,Delaware,10001,2215,107
+2020-08-03,New Castle,Delaware,10003,6938,287
+2020-08-03,Sussex,Delaware,10005,5673,191
+2020-08-03,Unknown,Delaware,,229,0
+2020-08-04,Kent,Delaware,10001,2226,107
+2020-08-04,New Castle,Delaware,10003,6994,289
+2020-08-04,Sussex,Delaware,10005,5685,191
+2020-08-04,Unknown,Delaware,,232,0
+2020-08-05,Kent,Delaware,10001,2238,107
+2020-08-05,New Castle,Delaware,10003,7042,289
+2020-08-05,Sussex,Delaware,10005,5778,191
+2020-08-05,Unknown,Delaware,,238,0
+2020-08-06,Kent,Delaware,10001,2247,107
+2020-08-06,New Castle,Delaware,10003,7092,289
+2020-08-06,Sussex,Delaware,10005,5786,191
+2020-08-06,Unknown,Delaware,,240,0
+2020-08-07,Kent,Delaware,10001,2268,107
+2020-08-07,New Castle,Delaware,10003,7130,289
+2020-08-07,Sussex,Delaware,10005,5803,192
+2020-08-07,Unknown,Delaware,,244,0
+2020-08-08,Kent,Delaware,10001,2277,107
+2020-08-08,New Castle,Delaware,10003,7161,291
+2020-08-08,Sussex,Delaware,10005,5821,192
+2020-08-08,Unknown,Delaware,,243,0
+2020-08-09,Kent,Delaware,10001,2287,108
+2020-08-09,New Castle,Delaware,10003,7206,291
+2020-08-09,Sussex,Delaware,10005,5839,192
+2020-08-09,Unknown,Delaware,,243,0
+2020-08-10,Kent,Delaware,10001,2294,108
+2020-08-10,New Castle,Delaware,10003,7243,291
+2020-08-10,Sussex,Delaware,10005,5848,192
+2020-08-10,Unknown,Delaware,,249,0
+2020-08-11,Kent,Delaware,10001,2306,108
+2020-08-11,New Castle,Delaware,10003,7276,291
+2020-08-11,Sussex,Delaware,10005,5867,192
+2020-08-11,Unknown,Delaware,,250,0
+2020-08-12,Kent,Delaware,10001,2319,109
+2020-08-12,New Castle,Delaware,10003,7309,291
+2020-08-12,Sussex,Delaware,10005,5881,192
+2020-08-12,Unknown,Delaware,,256,0
+2020-08-13,Kent,Delaware,10001,2402,108
+2020-08-13,New Castle,Delaware,10003,7379,293
+2020-08-13,Sussex,Delaware,10005,5928,192
+2020-08-13,Unknown,Delaware,,258,0
+2020-08-14,Kent,Delaware,10001,2463,108
+2020-08-14,New Castle,Delaware,10003,7450,293
+2020-08-14,Sussex,Delaware,10005,6167,192
+2020-08-14,Unknown,Delaware,,260,0
+2020-08-15,Kent,Delaware,10001,2475,108
+2020-08-15,New Castle,Delaware,10003,7490,293
+2020-08-15,Sussex,Delaware,10005,6172,192
+2020-08-15,Unknown,Delaware,,259,0
+2020-08-16,Kent,Delaware,10001,2485,108
+2020-08-16,New Castle,Delaware,10003,7524,293
+2020-08-16,Sussex,Delaware,10005,6181,192
+2020-08-16,Unknown,Delaware,,261,0
+2020-08-17,Kent,Delaware,10001,2496,108
+2020-08-17,New Castle,Delaware,10003,7580,293
+2020-08-17,Sussex,Delaware,10005,6197,192
+2020-08-17,Unknown,Delaware,,263,0
+2020-08-18,Kent,Delaware,10001,2503,108
+2020-08-18,New Castle,Delaware,10003,7617,293
+2020-08-18,Sussex,Delaware,10005,6209,192
+2020-08-18,Unknown,Delaware,,264,0
+2020-08-19,Kent,Delaware,10001,2505,109
+2020-08-19,New Castle,Delaware,10003,7661,292
+2020-08-19,Sussex,Delaware,10005,6213,194
+2020-08-19,Unknown,Delaware,,264,0
+2020-08-20,Kent,Delaware,10001,2525,109
+2020-08-20,New Castle,Delaware,10003,7705,292
+2020-08-20,Sussex,Delaware,10005,6221,194
+2020-08-20,Unknown,Delaware,,267,0
+2020-08-21,Kent,Delaware,10001,2529,109
+2020-08-21,New Castle,Delaware,10003,7737,297
+2020-08-21,Sussex,Delaware,10005,6235,194
+2020-08-21,Unknown,Delaware,,269,0
+2020-08-22,Kent,Delaware,10001,2543,109
+2020-08-22,New Castle,Delaware,10003,7771,297
+2020-08-22,Sussex,Delaware,10005,6242,194
+2020-08-22,Unknown,Delaware,,272,0
+2020-08-23,Kent,Delaware,10001,2551,109
+2020-08-23,New Castle,Delaware,10003,7826,297
+2020-08-23,Sussex,Delaware,10005,6245,194
+2020-08-23,Unknown,Delaware,,273,0
+2020-08-24,Kent,Delaware,10001,2553,109
+2020-08-24,New Castle,Delaware,10003,7865,299
+2020-08-24,Sussex,Delaware,10005,6249,196
+2020-08-24,Unknown,Delaware,,275,0
+2020-08-25,Kent,Delaware,10001,2556,109
+2020-08-25,New Castle,Delaware,10003,7890,299
+2020-08-25,Sussex,Delaware,10005,6239,195
+2020-08-25,Unknown,Delaware,,277,0
+2020-08-26,Kent,Delaware,10001,2560,109
+2020-08-26,New Castle,Delaware,10003,7925,300
+2020-08-26,Sussex,Delaware,10005,6225,195
+2020-08-26,Unknown,Delaware,,276,0
+2020-08-27,Kent,Delaware,10001,2566,109
+2020-08-27,New Castle,Delaware,10003,7927,300
+2020-08-27,Sussex,Delaware,10005,6208,195
+2020-08-27,Unknown,Delaware,,275,0
+2020-08-28,Kent,Delaware,10001,2578,109
+2020-08-28,New Castle,Delaware,10003,7989,300
+2020-08-28,Sussex,Delaware,10005,6237,195
+2020-08-28,Unknown,Delaware,,279,0
+2020-08-29,Kent,Delaware,10001,2612,109
+2020-08-29,New Castle,Delaware,10003,8109,300
+2020-08-29,Sussex,Delaware,10005,6350,195
+2020-08-29,Unknown,Delaware,,278,0
+2020-08-30,Kent,Delaware,10001,2608,109
+2020-08-30,New Castle,Delaware,10003,8139,300
+2020-08-30,Sussex,Delaware,10005,6317,195
+2020-08-30,Unknown,Delaware,,279,0
+2020-08-31,Kent,Delaware,10001,2624,110
+2020-08-31,New Castle,Delaware,10003,8190,300
+2020-08-31,Sussex,Delaware,10005,6330,195
+2020-08-31,Unknown,Delaware,,285,0
+2020-09-01,Kent,Delaware,10001,2639,110
+2020-09-01,New Castle,Delaware,10003,8250,300
+2020-09-01,Sussex,Delaware,10005,6357,195
+2020-09-01,Unknown,Delaware,,289,0
+2020-09-02,Kent,Delaware,10001,2639,110
+2020-09-02,New Castle,Delaware,10003,8285,301
+2020-09-02,Sussex,Delaware,10005,6335,195
+2020-09-02,Unknown,Delaware,,290,0
+2020-09-03,Kent,Delaware,10001,2655,110
+2020-09-03,New Castle,Delaware,10003,8360,301
+2020-09-03,Sussex,Delaware,10005,6346,195
+2020-09-03,Unknown,Delaware,,292,0
+2020-09-04,Kent,Delaware,10001,2678,110
+2020-09-04,New Castle,Delaware,10003,8415,301
+2020-09-04,Sussex,Delaware,10005,6365,195
+2020-09-04,Unknown,Delaware,,294,0
+2020-09-05,Kent,Delaware,10001,2699,110
+2020-09-05,New Castle,Delaware,10003,8516,302
+2020-09-05,Sussex,Delaware,10005,6374,196
+2020-09-05,Unknown,Delaware,,303,0
+2020-09-06,Kent,Delaware,10001,2712,110
+2020-09-06,New Castle,Delaware,10003,8601,303
+2020-09-06,Sussex,Delaware,10005,6396,196
+2020-09-06,Unknown,Delaware,,334,0
+2020-09-07,Kent,Delaware,10001,2720,110
+2020-09-07,New Castle,Delaware,10003,8656,303
+2020-09-07,Sussex,Delaware,10005,6420,196
+2020-09-07,Unknown,Delaware,,453,0
+2020-09-08,Kent,Delaware,10001,2727,110
+2020-09-08,New Castle,Delaware,10003,8694,303
+2020-09-08,Sussex,Delaware,10005,6432,196
+2020-09-08,Unknown,Delaware,,455,0
+2020-09-09,Kent,Delaware,10001,2727,110
+2020-09-09,New Castle,Delaware,10003,8694,303
+2020-09-09,Sussex,Delaware,10005,6432,196
+2020-09-09,Unknown,Delaware,,455,0
+2020-09-10,Kent,Delaware,10001,2744,111
+2020-09-10,New Castle,Delaware,10003,8805,305
+2020-09-10,Sussex,Delaware,10005,6456,197
+2020-09-10,Unknown,Delaware,,461,0
+2020-09-11,Kent,Delaware,10001,2747,111
+2020-09-11,New Castle,Delaware,10003,8880,305
+2020-09-11,Sussex,Delaware,10005,6471,197
+2020-09-11,Unknown,Delaware,,461,0
+2020-09-12,Kent,Delaware,10001,2782,111
+2020-09-12,New Castle,Delaware,10003,8989,305
+2020-09-12,Sussex,Delaware,10005,6491,197
+2020-09-12,Unknown,Delaware,,464,0
+2020-09-13,Kent,Delaware,10001,2788,113
+2020-09-13,New Castle,Delaware,10003,9092,305
+2020-09-13,Sussex,Delaware,10005,6504,197
+2020-09-13,Unknown,Delaware,,465,0
+2020-09-14,Kent,Delaware,10001,2802,113
+2020-09-14,New Castle,Delaware,10003,9146,306
+2020-09-14,Sussex,Delaware,10005,6519,198
+2020-09-14,Unknown,Delaware,,470,0
+2020-09-15,Kent,Delaware,10001,2815,113
+2020-09-15,New Castle,Delaware,10003,9262,306
+2020-09-15,Sussex,Delaware,10005,6567,199
+2020-09-15,Unknown,Delaware,,493,0
+2020-09-16,Kent,Delaware,10001,2827,113
+2020-09-16,New Castle,Delaware,10003,9351,306
+2020-09-16,Sussex,Delaware,10005,6578,200
+2020-09-16,Unknown,Delaware,,478,0
+2020-09-17,Kent,Delaware,10001,2836,113
+2020-09-17,New Castle,Delaware,10003,9418,306
+2020-09-17,Sussex,Delaware,10005,6585,200
+2020-09-17,Unknown,Delaware,,479,0
+2020-09-18,Kent,Delaware,10001,2839,113
+2020-09-18,New Castle,Delaware,10003,9480,307
+2020-09-18,Sussex,Delaware,10005,6570,200
+2020-09-18,Unknown,Delaware,,477,0
+2020-09-19,Kent,Delaware,10001,2852,113
+2020-09-19,New Castle,Delaware,10003,9521,307
+2020-09-19,Sussex,Delaware,10005,6600,201
+2020-09-19,Unknown,Delaware,,476,0
+2020-09-20,Kent,Delaware,10001,2865,113
+2020-09-20,New Castle,Delaware,10003,9590,307
+2020-09-20,Sussex,Delaware,10005,6631,201
+2020-09-20,Unknown,Delaware,,480,0
+2020-09-21,Kent,Delaware,10001,2875,115
+2020-09-21,New Castle,Delaware,10003,9663,309
+2020-09-21,Sussex,Delaware,10005,6649,203
+2020-09-21,Unknown,Delaware,,480,0
+2020-09-22,Kent,Delaware,10001,2882,115
+2020-09-22,New Castle,Delaware,10003,9731,310
+2020-09-22,Sussex,Delaware,10005,6666,203
+2020-09-22,Unknown,Delaware,,482,0
+2020-09-23,Kent,Delaware,10001,2898,115
+2020-09-23,New Castle,Delaware,10003,9777,310
+2020-09-23,Sussex,Delaware,10005,6673,204
+2020-09-23,Unknown,Delaware,,482,0
+2020-09-24,Kent,Delaware,10001,2903,116
+2020-09-24,New Castle,Delaware,10003,9865,310
+2020-09-24,Sussex,Delaware,10005,6691,204
+2020-09-24,Unknown,Delaware,,488,0
+2020-09-25,Kent,Delaware,10001,2905,116
+2020-09-25,New Castle,Delaware,10003,9975,310
+2020-09-25,Sussex,Delaware,10005,6718,205
+2020-09-25,Unknown,Delaware,,487,0
+2020-09-26,Kent,Delaware,10001,2911,116
+2020-09-26,New Castle,Delaware,10003,10029,311
+2020-09-26,Sussex,Delaware,10005,6727,206
+2020-09-26,Unknown,Delaware,,489,0
+2020-09-27,Kent,Delaware,10001,2925,116
+2020-09-27,New Castle,Delaware,10003,10106,311
+2020-09-27,Sussex,Delaware,10005,6740,206
+2020-09-27,Unknown,Delaware,,489,0
+2020-09-28,Kent,Delaware,10001,2937,116
+2020-09-28,New Castle,Delaware,10003,10198,312
+2020-09-28,Sussex,Delaware,10005,6761,206
+2020-09-28,Unknown,Delaware,,493,0
+2020-09-29,Kent,Delaware,10001,2949,117
+2020-09-29,New Castle,Delaware,10003,10309,312
+2020-09-29,Sussex,Delaware,10005,6782,206
+2020-09-29,Unknown,Delaware,,491,0
+2020-09-30,Kent,Delaware,10001,2963,117
+2020-09-30,New Castle,Delaware,10003,10368,312
+2020-09-30,Sussex,Delaware,10005,6791,207
+2020-09-30,Unknown,Delaware,,491,0
+2020-10-01,Kent,Delaware,10001,2969,117
+2020-10-01,New Castle,Delaware,10003,10520,312
+2020-10-01,Sussex,Delaware,10005,6807,207
+2020-10-01,Unknown,Delaware,,491,0
+2020-10-02,Kent,Delaware,10001,3121,118
+2020-10-02,New Castle,Delaware,10003,10813,317
+2020-10-02,Sussex,Delaware,10005,6913,207
+2020-10-02,Unknown,Delaware,,90,0
+2020-10-03,Kent,Delaware,10001,3137,118
+2020-10-03,New Castle,Delaware,10003,10936,317
+2020-10-03,Sussex,Delaware,10005,6962,210
+2020-10-03,Unknown,Delaware,,90,0
+2020-10-04,Kent,Delaware,10001,3152,118
+2020-10-04,New Castle,Delaware,10003,11005,317
+2020-10-04,Sussex,Delaware,10005,6996,210
+2020-10-04,Unknown,Delaware,,90,0
+2020-10-05,Kent,Delaware,10001,3162,118
+2020-10-05,New Castle,Delaware,10003,11087,317
+2020-10-05,Sussex,Delaware,10005,7024,210
+2020-10-05,Unknown,Delaware,,90,0
+2020-10-06,Kent,Delaware,10001,3167,118
+2020-10-06,New Castle,Delaware,10003,11159,318
+2020-10-06,Sussex,Delaware,10005,7050,210
+2020-10-06,Unknown,Delaware,,90,0
+2020-10-07,Kent,Delaware,10001,3178,118
+2020-10-07,New Castle,Delaware,10003,11216,321
+2020-10-07,Sussex,Delaware,10005,7066,210
+2020-10-07,Unknown,Delaware,,90,0
+2020-10-08,Kent,Delaware,10001,3183,118
+2020-10-08,New Castle,Delaware,10003,11297,323
+2020-10-08,Sussex,Delaware,10005,7112,210
+2020-10-08,Unknown,Delaware,,90,0
+2020-10-09,Kent,Delaware,10001,3190,118
+2020-10-09,New Castle,Delaware,10003,11399,323
+2020-10-09,Sussex,Delaware,10005,7148,210
+2020-10-09,Unknown,Delaware,,90,0
+2020-10-10,Kent,Delaware,10001,3212,118
+2020-10-10,New Castle,Delaware,10003,11507,325
+2020-10-10,Sussex,Delaware,10005,7188,210
+2020-10-10,Unknown,Delaware,,91,0
+2020-10-11,Kent,Delaware,10001,3225,118
+2020-10-11,New Castle,Delaware,10003,11593,325
+2020-10-11,Sussex,Delaware,10005,7221,211
+2020-10-11,Unknown,Delaware,,91,0
+2020-10-12,Kent,Delaware,10001,3243,119
+2020-10-12,New Castle,Delaware,10003,11688,326
+2020-10-12,Sussex,Delaware,10005,7267,211
+2020-10-12,Unknown,Delaware,,91,0
+2020-10-13,Kent,Delaware,10001,3254,119
+2020-10-13,New Castle,Delaware,10003,11747,328
+2020-10-13,Sussex,Delaware,10005,7302,212
+2020-10-13,Unknown,Delaware,,91,0
+2020-10-14,Kent,Delaware,10001,3259,119
+2020-10-14,New Castle,Delaware,10003,11787,329
+2020-10-14,Sussex,Delaware,10005,7328,212
+2020-10-14,Unknown,Delaware,,91,0
+2020-10-15,Kent,Delaware,10001,3272,119
+2020-10-15,New Castle,Delaware,10003,11851,330
+2020-10-15,Sussex,Delaware,10005,7346,212
+2020-10-15,Unknown,Delaware,,91,0
+2020-10-16,Kent,Delaware,10001,3285,119
+2020-10-16,New Castle,Delaware,10003,11958,330
+2020-10-16,Sussex,Delaware,10005,7390,213
+2020-10-16,Unknown,Delaware,,91,0
+2020-10-17,Kent,Delaware,10001,3316,119
+2020-10-17,New Castle,Delaware,10003,12059,332
+2020-10-17,Sussex,Delaware,10005,7476,213
+2020-10-17,Unknown,Delaware,,91,0
+2020-10-18,Kent,Delaware,10001,3331,119
+2020-10-18,New Castle,Delaware,10003,12153,332
+2020-10-18,Sussex,Delaware,10005,7518,214
+2020-10-18,Unknown,Delaware,,91,0
+2020-10-19,Kent,Delaware,10001,3345,119
+2020-10-19,New Castle,Delaware,10003,12200,333
+2020-10-19,Sussex,Delaware,10005,7560,214
+2020-10-19,Unknown,Delaware,,91,0
+2020-10-20,Kent,Delaware,10001,3364,119
+2020-10-20,New Castle,Delaware,10003,12277,334
+2020-10-20,Sussex,Delaware,10005,7593,215
+2020-10-20,Unknown,Delaware,,91,0
+2020-10-21,Kent,Delaware,10001,3364,119
+2020-10-21,New Castle,Delaware,10003,12311,335
+2020-10-21,Sussex,Delaware,10005,7609,216
+2020-10-21,Unknown,Delaware,,91,0
+2020-10-22,Kent,Delaware,10001,3376,119
+2020-10-22,New Castle,Delaware,10003,12401,335
+2020-10-22,Sussex,Delaware,10005,7660,216
+2020-10-22,Unknown,Delaware,,91,0
+2020-10-23,Kent,Delaware,10001,3394,120
+2020-10-23,New Castle,Delaware,10003,12491,339
+2020-10-23,Sussex,Delaware,10005,7711,219
+2020-10-23,Unknown,Delaware,,91,0
+2020-10-24,Kent,Delaware,10001,3407,120
+2020-10-24,New Castle,Delaware,10003,12579,339
+2020-10-24,Sussex,Delaware,10005,7770,221
+2020-10-24,Unknown,Delaware,,91,0
+2020-10-25,Kent,Delaware,10001,3422,120
+2020-10-25,New Castle,Delaware,10003,12646,339
+2020-10-25,Sussex,Delaware,10005,7802,222
+2020-10-25,Unknown,Delaware,,91,0
+2020-10-26,Kent,Delaware,10001,3447,120
+2020-10-26,New Castle,Delaware,10003,12776,339
+2020-10-26,Sussex,Delaware,10005,7854,226
+2020-10-26,Unknown,Delaware,,91,0
+2020-10-27,Kent,Delaware,10001,3462,120
+2020-10-27,New Castle,Delaware,10003,12814,340
+2020-10-27,Sussex,Delaware,10005,7882,226
+2020-10-27,Unknown,Delaware,,91,0
+2020-10-28,Kent,Delaware,10001,3481,120
+2020-10-28,New Castle,Delaware,10003,12895,340
+2020-10-28,Sussex,Delaware,10005,7925,228
+2020-10-28,Unknown,Delaware,,91,0
+2020-10-29,Kent,Delaware,10001,3505,120
+2020-10-29,New Castle,Delaware,10003,12989,341
+2020-10-29,Sussex,Delaware,10005,7968,228
+2020-10-29,Unknown,Delaware,,91,0
+2020-10-30,Kent,Delaware,10001,3545,120
+2020-10-30,New Castle,Delaware,10003,13079,351
+2020-10-30,Sussex,Delaware,10005,8036,233
+2020-10-30,Unknown,Delaware,,91,0
+2020-10-31,Kent,Delaware,10001,3569,120
+2020-10-31,New Castle,Delaware,10003,13192,353
+2020-10-31,Sussex,Delaware,10005,8099,235
+2020-10-31,Unknown,Delaware,,91,0
+2020-11-01,Kent,Delaware,10001,3606,121
+2020-11-01,New Castle,Delaware,10003,13259,353
+2020-11-01,Sussex,Delaware,10005,8170,236
+2020-11-01,Unknown,Delaware,,91,0
+2020-11-02,Kent,Delaware,10001,3613,121
+2020-11-02,New Castle,Delaware,10003,13394,353
+2020-11-02,Sussex,Delaware,10005,8213,236
+2020-11-02,Unknown,Delaware,,91,0
+2020-11-03,Kent,Delaware,10001,3629,122
+2020-11-03,New Castle,Delaware,10003,13451,354
+2020-11-03,Sussex,Delaware,10005,8255,236
+2020-11-03,Unknown,Delaware,,91,0
+2020-11-04,Kent,Delaware,10001,3636,122
+2020-11-04,New Castle,Delaware,10003,13507,354
+2020-11-04,Sussex,Delaware,10005,8299,236
+2020-11-04,Unknown,Delaware,,92,0
+2020-11-05,Kent,Delaware,10001,3681,122
+2020-11-05,New Castle,Delaware,10003,13639,354
+2020-11-05,Sussex,Delaware,10005,8342,240
+2020-11-05,Unknown,Delaware,,91,0
+2020-11-06,Kent,Delaware,10001,3717,122
+2020-11-06,New Castle,Delaware,10003,13818,354
+2020-11-06,Sussex,Delaware,10005,8408,240
+2020-11-06,Unknown,Delaware,,92,0
+2020-11-07,Kent,Delaware,10001,3741,122
+2020-11-07,New Castle,Delaware,10003,13964,354
+2020-11-07,Sussex,Delaware,10005,8461,240
+2020-11-07,Unknown,Delaware,,92,0
+2020-11-08,Kent,Delaware,10001,3778,122
+2020-11-08,New Castle,Delaware,10003,14204,355
+2020-11-08,Sussex,Delaware,10005,8528,241
+2020-11-08,Unknown,Delaware,,93,0
+2020-11-09,Kent,Delaware,10001,3812,122
+2020-11-09,New Castle,Delaware,10003,14414,356
+2020-11-09,Sussex,Delaware,10005,8589,241
+2020-11-09,Unknown,Delaware,,93,0
+2020-11-10,Kent,Delaware,10001,3829,122
+2020-11-10,New Castle,Delaware,10003,14545,359
+2020-11-10,Sussex,Delaware,10005,8645,241
+2020-11-10,Unknown,Delaware,,93,0
+2020-11-11,Kent,Delaware,10001,3874,122
+2020-11-11,New Castle,Delaware,10003,14675,359
+2020-11-11,Sussex,Delaware,10005,8700,243
+2020-11-11,Unknown,Delaware,,93,0
+2020-11-12,Kent,Delaware,10001,3901,122
+2020-11-12,New Castle,Delaware,10003,14800,365
+2020-11-12,Sussex,Delaware,10005,8752,245
+2020-11-12,Unknown,Delaware,,93,0
+2020-11-13,Kent,Delaware,10001,3956,122
+2020-11-13,New Castle,Delaware,10003,15113,365
+2020-11-13,Sussex,Delaware,10005,8854,247
+2020-11-13,Unknown,Delaware,,93,0
+2020-11-14,Kent,Delaware,10001,4027,122
+2020-11-14,New Castle,Delaware,10003,15341,366
+2020-11-14,Sussex,Delaware,10005,8932,248
+2020-11-14,Unknown,Delaware,,95,0
+2020-11-15,Kent,Delaware,10001,4044,122
+2020-11-15,New Castle,Delaware,10003,15629,366
+2020-11-15,Sussex,Delaware,10005,9035,248
+2020-11-15,Unknown,Delaware,,95,0
+2020-11-16,Kent,Delaware,10001,4100,122
+2020-11-16,New Castle,Delaware,10003,15866,366
+2020-11-16,Sussex,Delaware,10005,9139,248
+2020-11-16,Unknown,Delaware,,95,0
+2020-11-17,Kent,Delaware,10001,4140,122
+2020-11-17,New Castle,Delaware,10003,16123,367
+2020-11-17,Sussex,Delaware,10005,9194,250
+2020-11-17,Unknown,Delaware,,95,0
+2020-11-18,Kent,Delaware,10001,4172,122
+2020-11-18,New Castle,Delaware,10003,16240,369
+2020-11-18,Sussex,Delaware,10005,9247,251
+2020-11-18,Unknown,Delaware,,96,0
+2020-11-19,Kent,Delaware,10001,4225,122
+2020-11-19,New Castle,Delaware,10003,16490,369
+2020-11-19,Sussex,Delaware,10005,9341,251
+2020-11-19,Unknown,Delaware,,97,0
+2020-11-20,Kent,Delaware,10001,4324,123
+2020-11-20,New Castle,Delaware,10003,16900,370
+2020-11-20,Sussex,Delaware,10005,9493,253
+2020-11-20,Unknown,Delaware,,99,0
+2020-11-21,Kent,Delaware,10001,4375,123
+2020-11-21,New Castle,Delaware,10003,17262,370
+2020-11-21,Sussex,Delaware,10005,9585,253
+2020-11-21,Unknown,Delaware,,99,0
+2020-11-22,Kent,Delaware,10001,4439,123
+2020-11-22,New Castle,Delaware,10003,17587,370
+2020-11-22,Sussex,Delaware,10005,9682,255
+2020-11-22,Unknown,Delaware,,100,0
+2020-11-23,Kent,Delaware,10001,4498,123
+2020-11-23,New Castle,Delaware,10003,17820,372
+2020-11-23,Sussex,Delaware,10005,9793,257
+2020-11-23,Unknown,Delaware,,100,0
+2020-11-24,Kent,Delaware,10001,4562,125
+2020-11-24,New Castle,Delaware,10003,18121,375
+2020-11-24,Sussex,Delaware,10005,9876,257
+2020-11-24,Unknown,Delaware,,105,0
+2020-11-25,Kent,Delaware,10001,4613,127
+2020-11-25,New Castle,Delaware,10003,18359,375
+2020-11-25,Sussex,Delaware,10005,9918,258
+2020-11-25,Unknown,Delaware,,105,0
+2020-11-26,Kent,Delaware,10001,4693,127
+2020-11-26,New Castle,Delaware,10003,18709,376
+2020-11-26,Sussex,Delaware,10005,10069,258
+2020-11-26,Unknown,Delaware,,108,0
+2020-11-27,Kent,Delaware,10001,4798,128
+2020-11-27,New Castle,Delaware,10003,19088,376
+2020-11-27,Sussex,Delaware,10005,10175,259
+2020-11-27,Unknown,Delaware,,109,0
+2020-11-28,Kent,Delaware,10001,4899,128
+2020-11-28,New Castle,Delaware,10003,19409,376
+2020-11-28,Sussex,Delaware,10005,10253,259
+2020-11-28,Unknown,Delaware,,109,0
+2020-11-29,Kent,Delaware,10001,4975,128
+2020-11-29,New Castle,Delaware,10003,19788,379
+2020-11-29,Sussex,Delaware,10005,10377,263
+2020-11-29,Unknown,Delaware,,111,0
+2020-11-30,Kent,Delaware,10001,5103,129
+2020-11-30,New Castle,Delaware,10003,20004,381
+2020-11-30,Sussex,Delaware,10005,10436,262
+2020-11-30,Unknown,Delaware,,111,0
+2020-12-01,Kent,Delaware,10001,5190,132
+2020-12-01,New Castle,Delaware,10003,20501,382
+2020-12-01,Sussex,Delaware,10005,10558,263
+2020-12-01,Unknown,Delaware,,94,0
+2020-12-02,Kent,Delaware,10001,5283,132
+2020-12-02,New Castle,Delaware,10003,20700,383
+2020-12-02,Sussex,Delaware,10005,10620,264
+2020-12-02,Unknown,Delaware,,95,0
+2020-12-03,Kent,Delaware,10001,5405,132
+2020-12-03,New Castle,Delaware,10003,21211,383
+2020-12-03,Sussex,Delaware,10005,10746,264
+2020-12-03,Unknown,Delaware,,94,0
+2020-12-04,Kent,Delaware,10001,5651,133
+2020-12-04,New Castle,Delaware,10003,21753,385
+2020-12-04,Sussex,Delaware,10005,10899,264
+2020-12-04,Unknown,Delaware,,95,0
+2020-12-05,Kent,Delaware,10001,5789,133
+2020-12-05,New Castle,Delaware,10003,22204,385
+2020-12-05,Sussex,Delaware,10005,11007,264
+2020-12-05,Unknown,Delaware,,96,0
+2020-12-06,Kent,Delaware,10001,5945,133
+2020-12-06,New Castle,Delaware,10003,22705,392
+2020-12-06,Sussex,Delaware,10005,11165,268
+2020-12-06,Unknown,Delaware,,97,0
+2020-12-07,Kent,Delaware,10001,6150,133
+2020-12-07,New Castle,Delaware,10003,23109,392
+2020-12-07,Sussex,Delaware,10005,11355,268
+2020-12-07,Unknown,Delaware,,97,0
+2020-12-08,Kent,Delaware,10001,6292,139
+2020-12-08,New Castle,Delaware,10003,23576,395
+2020-12-08,Sussex,Delaware,10005,11499,269
+2020-12-08,Unknown,Delaware,,97,0
+2020-12-09,Kent,Delaware,10001,6431,139
+2020-12-09,New Castle,Delaware,10003,24250,395
+2020-12-09,Sussex,Delaware,10005,11618,269
+2020-12-09,Unknown,Delaware,,94,0
+2020-12-10,Kent,Delaware,10001,6536,139
+2020-12-10,New Castle,Delaware,10003,24705,398
+2020-12-10,Sussex,Delaware,10005,11702,269
+2020-12-10,Unknown,Delaware,,93,0
+2020-12-11,Kent,Delaware,10001,6706,139
+2020-12-11,New Castle,Delaware,10003,25107,398
+2020-12-11,Sussex,Delaware,10005,11912,270
+2020-12-11,Unknown,Delaware,,93,0
+2020-12-12,Kent,Delaware,10001,6903,142
+2020-12-12,New Castle,Delaware,10003,25771,402
+2020-12-12,Sussex,Delaware,10005,12108,271
+2020-12-12,Unknown,Delaware,,94,0
+2020-12-13,Kent,Delaware,10001,6989,142
+2020-12-13,New Castle,Delaware,10003,26089,403
+2020-12-13,Sussex,Delaware,10005,12286,271
+2020-12-13,Unknown,Delaware,,96,0
+2020-12-14,Kent,Delaware,10001,7180,142
+2020-12-14,New Castle,Delaware,10003,26653,403
+2020-12-14,Sussex,Delaware,10005,12526,271
+2020-12-14,Unknown,Delaware,,98,0
+2020-12-15,Kent,Delaware,10001,7293,144
+2020-12-15,New Castle,Delaware,10003,27095,409
+2020-12-15,Sussex,Delaware,10005,12651,273
+2020-12-15,Unknown,Delaware,,103,0
+2020-12-16,Kent,Delaware,10001,7442,146
+2020-12-16,New Castle,Delaware,10003,27602,411
+2020-12-16,Sussex,Delaware,10005,12780,276
+2020-12-16,Unknown,Delaware,,105,0
+2020-12-17,Kent,Delaware,10001,7599,147
+2020-12-17,New Castle,Delaware,10003,28075,418
+2020-12-17,Sussex,Delaware,10005,12976,280
+2020-12-17,Unknown,Delaware,,118,0
+2020-12-18,Kent,Delaware,10001,7676,151
+2020-12-18,New Castle,Delaware,10003,28235,421
+2020-12-18,Sussex,Delaware,10005,13079,282
+2020-12-18,Unknown,Delaware,,119,0
+2020-12-19,Kent,Delaware,10001,7829,152
+2020-12-19,New Castle,Delaware,10003,28869,422
+2020-12-19,Sussex,Delaware,10005,13318,284
+2020-12-19,Unknown,Delaware,,120,0
+2020-12-20,Kent,Delaware,10001,7910,156
+2020-12-20,New Castle,Delaware,10003,29126,422
+2020-12-20,Sussex,Delaware,10005,13460,284
+2020-12-20,Unknown,Delaware,,120,0
+2020-12-21,Kent,Delaware,10001,8026,157
+2020-12-21,New Castle,Delaware,10003,29300,428
+2020-12-21,Sussex,Delaware,10005,13611,286
+2020-12-21,Unknown,Delaware,,119,0
+2020-12-22,Kent,Delaware,10001,8127,157
+2020-12-22,New Castle,Delaware,10003,29647,429
+2020-12-22,Sussex,Delaware,10005,13727,286
+2020-12-22,Unknown,Delaware,,122,0
+2020-12-23,Kent,Delaware,10001,8241,157
+2020-12-23,New Castle,Delaware,10003,30058,429
+2020-12-23,Sussex,Delaware,10005,13815,286
+2020-12-23,Unknown,Delaware,,121,0
+2020-12-24,Kent,Delaware,10001,8346,158
+2020-12-24,New Castle,Delaware,10003,30526,441
+2020-12-24,Sussex,Delaware,10005,14021,289
+2020-12-24,Unknown,Delaware,,122,0
+2020-12-25,Kent,Delaware,10001,8437,158
+2020-12-25,New Castle,Delaware,10003,30964,444
+2020-12-25,Sussex,Delaware,10005,14129,289
+2020-12-25,Unknown,Delaware,,123,0
+2020-12-26,Kent,Delaware,10001,8654,158
+2020-12-26,New Castle,Delaware,10003,31370,447
+2020-12-26,Sussex,Delaware,10005,14325,290
+2020-12-26,Unknown,Delaware,,124,0
+2020-12-27,Kent,Delaware,10001,8771,158
+2020-12-27,New Castle,Delaware,10003,31697,448
+2020-12-27,Sussex,Delaware,10005,14458,291
+2020-12-27,Unknown,Delaware,,131,0
+2020-12-28,Kent,Delaware,10001,8838,158
+2020-12-28,New Castle,Delaware,10003,31963,449
+2020-12-28,Sussex,Delaware,10005,14555,291
+2020-12-28,Unknown,Delaware,,132,0
+2020-12-29,Kent,Delaware,10001,8939,158
+2020-12-29,New Castle,Delaware,10003,32426,449
+2020-12-29,Sussex,Delaware,10005,14689,291
+2020-12-29,Unknown,Delaware,,135,0
+2020-12-30,Kent,Delaware,10001,9019,165
+2020-12-30,New Castle,Delaware,10003,32686,460
+2020-12-30,Sussex,Delaware,10005,14758,296
+2020-12-30,Unknown,Delaware,,133,0
+2020-12-31,Kent,Delaware,10001,9173,167
+2020-12-31,New Castle,Delaware,10003,33211,462
+2020-12-31,Sussex,Delaware,10005,14936,297
+2020-12-31,Unknown,Delaware,,136,0
+2021-01-01,Kent,Delaware,10001,9329,168
+2021-01-01,New Castle,Delaware,10003,33433,464
+2021-01-01,Sussex,Delaware,10005,15166,298
+2021-01-01,Unknown,Delaware,,136,0
+2021-01-02,Kent,Delaware,10001,9489,168
+2021-01-02,New Castle,Delaware,10003,33852,464
+2021-01-02,Sussex,Delaware,10005,15396,298
+2021-01-02,Unknown,Delaware,,136,0
+2021-01-03,Kent,Delaware,10001,9600,168
+2021-01-03,New Castle,Delaware,10003,34182,464
+2021-01-03,Sussex,Delaware,10005,15563,298
+2021-01-03,Unknown,Delaware,,139,0
+2021-01-04,Kent,Delaware,10001,9733,168
+2021-01-04,New Castle,Delaware,10003,34641,468
+2021-01-04,Sussex,Delaware,10005,15819,301
+2021-01-04,Unknown,Delaware,,140,0
+2021-01-05,Kent,Delaware,10001,9853,171
+2021-01-05,New Castle,Delaware,10003,35085,472
+2021-01-05,Sussex,Delaware,10005,16022,304
+2021-01-05,Unknown,Delaware,,140,0
+2021-01-06,Kent,Delaware,10001,9946,171
+2021-01-06,New Castle,Delaware,10003,35434,472
+2021-01-06,Sussex,Delaware,10005,16205,304
+2021-01-06,Unknown,Delaware,,144,0
+2021-01-07,Kent,Delaware,10001,10097,171
+2021-01-07,New Castle,Delaware,10003,36188,474
+2021-01-07,Sussex,Delaware,10005,16515,304
+2021-01-07,Unknown,Delaware,,149,0
+2021-01-08,Kent,Delaware,10001,10216,171
+2021-01-08,New Castle,Delaware,10003,36424,476
+2021-01-08,Sussex,Delaware,10005,16715,310
+2021-01-08,Unknown,Delaware,,148,0
+2021-01-09,Kent,Delaware,10001,10366,177
+2021-01-09,New Castle,Delaware,10003,36913,480
+2021-01-09,Sussex,Delaware,10005,17045,312
+2021-01-09,Unknown,Delaware,,151,0
+2021-01-10,Kent,Delaware,10001,10471,180
+2021-01-10,New Castle,Delaware,10003,37396,480
+2021-01-10,Sussex,Delaware,10005,17252,312
+2021-01-10,Unknown,Delaware,,154,0
+2021-01-11,Kent,Delaware,10001,10580,182
+2021-01-11,New Castle,Delaware,10003,37674,488
+2021-01-11,Sussex,Delaware,10005,17419,316
+2021-01-11,Unknown,Delaware,,154,0
+2021-01-12,Kent,Delaware,10001,10680,182
+2021-01-12,New Castle,Delaware,10003,38033,493
+2021-01-12,Sussex,Delaware,10005,17579,316
+2021-01-12,Unknown,Delaware,,154,0
+2021-01-13,Kent,Delaware,10001,10809,183
+2021-01-13,New Castle,Delaware,10003,38451,495
+2021-01-13,Sussex,Delaware,10005,17758,316
+2021-01-13,Unknown,Delaware,,155,0
+2021-01-14,Kent,Delaware,10001,10970,183
+2021-01-14,New Castle,Delaware,10003,38955,496
+2021-01-14,Sussex,Delaware,10005,17983,316
+2021-01-14,Unknown,Delaware,,157,0
+2021-01-15,Kent,Delaware,10001,11088,186
+2021-01-15,New Castle,Delaware,10003,39339,499
+2021-01-15,Sussex,Delaware,10005,18142,317
+2021-01-15,Unknown,Delaware,,158,0
+2021-01-16,Kent,Delaware,10001,11206,187
+2021-01-16,New Castle,Delaware,10003,39678,509
+2021-01-16,Sussex,Delaware,10005,18328,320
+2021-01-16,Unknown,Delaware,,160,0
+2021-01-17,Kent,Delaware,10001,11363,187
+2021-01-17,New Castle,Delaware,10003,40199,509
+2021-01-17,Sussex,Delaware,10005,18570,320
+2021-01-17,Unknown,Delaware,,162,0
+2021-01-18,Kent,Delaware,10001,11487,187
+2021-01-18,New Castle,Delaware,10003,40497,509
+2021-01-18,Sussex,Delaware,10005,18762,320
+2021-01-18,Unknown,Delaware,,164,0
+2021-01-19,Kent,Delaware,10001,11548,187
+2021-01-19,New Castle,Delaware,10003,40753,514
+2021-01-19,Sussex,Delaware,10005,18844,320
+2021-01-19,Unknown,Delaware,,166,0
+2021-01-20,Kent,Delaware,10001,11620,187
+2021-01-20,New Castle,Delaware,10003,41012,518
+2021-01-20,Sussex,Delaware,10005,18977,321
+2021-01-20,Unknown,Delaware,,166,0
+2021-01-21,Kent,Delaware,10001,11737,187
+2021-01-21,New Castle,Delaware,10003,41472,519
+2021-01-21,Sussex,Delaware,10005,19148,321
+2021-01-21,Unknown,Delaware,,166,0
+2021-01-22,Kent,Delaware,10001,11870,187
+2021-01-22,New Castle,Delaware,10003,41819,519
+2021-01-22,Sussex,Delaware,10005,19372,321
+2021-01-22,Unknown,Delaware,,172,0
+2021-01-23,Kent,Delaware,10001,12017,190
+2021-01-23,New Castle,Delaware,10003,42180,521
+2021-01-23,Sussex,Delaware,10005,19545,325
+2021-01-23,Unknown,Delaware,,173,0
+2021-01-24,Kent,Delaware,10001,12157,191
+2021-01-24,New Castle,Delaware,10003,42499,522
+2021-01-24,Sussex,Delaware,10005,19745,328
+2021-01-24,Unknown,Delaware,,174,0
+2021-01-25,Kent,Delaware,10001,12241,191
+2021-01-25,New Castle,Delaware,10003,42872,522
+2021-01-25,Sussex,Delaware,10005,19903,336
+2021-01-25,Unknown,Delaware,,175,0
+2021-01-26,Kent,Delaware,10001,12306,193
+2021-01-26,New Castle,Delaware,10003,43025,532
+2021-01-26,Sussex,Delaware,10005,19985,340
+2021-01-26,Unknown,Delaware,,174,0
+2021-01-27,Kent,Delaware,10001,12375,197
+2021-01-27,New Castle,Delaware,10003,43190,535
+2021-01-27,Sussex,Delaware,10005,20092,340
+2021-01-27,Unknown,Delaware,,175,0
+2021-01-28,Kent,Delaware,10001,12521,197
+2021-01-28,New Castle,Delaware,10003,43541,536
+2021-01-28,Sussex,Delaware,10005,20256,342
+2021-01-28,Unknown,Delaware,,177,0
+2021-01-29,Kent,Delaware,10001,12634,197
+2021-01-29,New Castle,Delaware,10003,43763,538
+2021-01-29,Sussex,Delaware,10005,20361,343
+2021-01-29,Unknown,Delaware,,177,0
+2021-01-30,Kent,Delaware,10001,12746,199
+2021-01-30,New Castle,Delaware,10003,44073,538
+2021-01-30,Sussex,Delaware,10005,20550,344
+2021-01-30,Unknown,Delaware,,182,0
+2021-01-31,Kent,Delaware,10001,12821,202
+2021-01-31,New Castle,Delaware,10003,44340,540
+2021-01-31,Sussex,Delaware,10005,20728,348
+2021-01-31,Unknown,Delaware,,182,0
+2021-02-01,Kent,Delaware,10001,12918,203
+2021-02-01,New Castle,Delaware,10003,44570,549
+2021-02-01,Sussex,Delaware,10005,20824,349
+2021-02-01,Unknown,Delaware,,183,0
+2021-02-02,Kent,Delaware,10001,12964,206
+2021-02-02,New Castle,Delaware,10003,44683,553
+2021-02-02,Sussex,Delaware,10005,20867,349
+2021-02-02,Unknown,Delaware,,182,0
+2021-02-03,Kent,Delaware,10001,13031,213
+2021-02-03,New Castle,Delaware,10003,44833,561
+2021-02-03,Sussex,Delaware,10005,20940,356
+2021-02-03,Unknown,Delaware,,178,0
+2021-02-04,Kent,Delaware,10001,13096,215
+2021-02-04,New Castle,Delaware,10003,44932,563
+2021-02-04,Sussex,Delaware,10005,21018,357
+2021-02-04,Unknown,Delaware,,179,0
+2021-02-05,Kent,Delaware,10001,13162,249
+2021-02-05,New Castle,Delaware,10003,45112,566
+2021-02-05,Sussex,Delaware,10005,21092,376
+2021-02-05,Unknown,Delaware,,180,0
+2021-02-06,Kent,Delaware,10001,13216,252
+2021-02-06,New Castle,Delaware,10003,45277,569
+2021-02-06,Sussex,Delaware,10005,21158,381
+2021-02-06,Unknown,Delaware,,181,0
+2021-02-07,Kent,Delaware,10001,13330,255
+2021-02-07,New Castle,Delaware,10003,45742,570
+2021-02-07,Sussex,Delaware,10005,21339,383
+2021-02-07,Unknown,Delaware,,183,0
+2021-02-08,Kent,Delaware,10001,13371,255
+2021-02-08,New Castle,Delaware,10003,45935,570
+2021-02-08,Sussex,Delaware,10005,21442,383
+2021-02-08,Unknown,Delaware,,183,0
+2021-02-09,Kent,Delaware,10001,13418,259
+2021-02-09,New Castle,Delaware,10003,46076,575
+2021-02-09,Sussex,Delaware,10005,21532,387
+2021-02-09,Unknown,Delaware,,184,0
+2021-02-10,Kent,Delaware,10001,13470,263
+2021-02-10,New Castle,Delaware,10003,46237,591
+2021-02-10,Sussex,Delaware,10005,21570,391
+2021-02-10,Unknown,Delaware,,184,0
+2021-02-11,Kent,Delaware,10001,13552,266
+2021-02-11,New Castle,Delaware,10003,46455,605
+2021-02-11,Sussex,Delaware,10005,21683,391
+2021-02-11,Unknown,Delaware,,185,0
+2021-02-12,Kent,Delaware,10001,13623,267
+2021-02-12,New Castle,Delaware,10003,46681,610
+2021-02-12,Sussex,Delaware,10005,21773,392
+2021-02-12,Unknown,Delaware,,186,0
+2021-02-13,Kent,Delaware,10001,13678,271
+2021-02-13,New Castle,Delaware,10003,46949,614
+2021-02-13,Sussex,Delaware,10005,21858,397
+2021-02-13,Unknown,Delaware,,187,0
+2021-02-14,Kent,Delaware,10001,13736,272
+2021-02-14,New Castle,Delaware,10003,47134,614
+2021-02-14,Sussex,Delaware,10005,21945,397
+2021-02-14,Unknown,Delaware,,188,0
+2021-02-15,Kent,Delaware,10001,13756,272
+2021-02-15,New Castle,Delaware,10003,47278,614
+2021-02-15,Sussex,Delaware,10005,22017,397
+2021-02-15,Unknown,Delaware,,188,0
+2021-02-16,Kent,Delaware,10001,13786,272
+2021-02-16,New Castle,Delaware,10003,47349,617
+2021-02-16,Sussex,Delaware,10005,22046,402
+2021-02-16,Unknown,Delaware,,188,0
+2021-02-17,Kent,Delaware,10001,13832,278
+2021-02-17,New Castle,Delaware,10003,47465,629
+2021-02-17,Sussex,Delaware,10005,22095,409
+2021-02-17,Unknown,Delaware,,189,0
+2021-02-18,Kent,Delaware,10001,13906,280
+2021-02-18,New Castle,Delaware,10003,47608,634
+2021-02-18,Sussex,Delaware,10005,22148,412
+2021-02-18,Unknown,Delaware,,190,0
+2021-02-19,Kent,Delaware,10001,13956,281
+2021-02-19,New Castle,Delaware,10003,47842,644
+2021-02-19,Sussex,Delaware,10005,22195,418
+2021-02-19,Unknown,Delaware,,188,0
+2021-02-20,Kent,Delaware,10001,14042,287
+2021-02-20,New Castle,Delaware,10003,48047,659
+2021-02-20,Sussex,Delaware,10005,22253,420
+2021-02-20,Unknown,Delaware,,189,0
+2021-02-21,Kent,Delaware,10001,14089,287
+2021-02-21,New Castle,Delaware,10003,48142,660
+2021-02-21,Sussex,Delaware,10005,22311,420
+2021-02-21,Unknown,Delaware,,190,0
+2021-02-22,Kent,Delaware,10001,14136,287
+2021-02-22,New Castle,Delaware,10003,48396,661
+2021-02-22,Sussex,Delaware,10005,22368,420
+2021-02-22,Unknown,Delaware,,190,0
+2021-02-23,Kent,Delaware,10001,14147,289
+2021-02-23,New Castle,Delaware,10003,48493,666
+2021-02-23,Sussex,Delaware,10005,22398,424
+2021-02-23,Unknown,Delaware,,190,0
+2021-02-24,Kent,Delaware,10001,14199,290
+2021-02-24,New Castle,Delaware,10003,48647,682
+2021-02-24,Sussex,Delaware,10005,22467,430
+2021-02-24,Unknown,Delaware,,193,0
+2021-02-25,Kent,Delaware,10001,14248,292
+2021-02-25,New Castle,Delaware,10003,48833,683
+2021-02-25,Sussex,Delaware,10005,22526,431
+2021-02-25,Unknown,Delaware,,194,0
+2021-02-26,Kent,Delaware,10001,14295,295
+2021-02-26,New Castle,Delaware,10003,49019,692
+2021-02-26,Sussex,Delaware,10005,22590,431
+2021-02-26,Unknown,Delaware,,194,0
+2021-02-27,Kent,Delaware,10001,14355,295
+2021-02-27,New Castle,Delaware,10003,49304,692
+2021-02-27,Sussex,Delaware,10005,22664,431
+2021-02-27,Unknown,Delaware,,194,0
+2021-02-28,Kent,Delaware,10001,14388,295
+2021-02-28,New Castle,Delaware,10003,49523,695
+2021-02-28,Sussex,Delaware,10005,22694,432
+2021-02-28,Unknown,Delaware,,194,0
+2021-03-01,Kent,Delaware,10001,14420,295
+2021-03-01,New Castle,Delaware,10003,49741,695
+2021-03-01,Sussex,Delaware,10005,22725,432
+2021-03-01,Unknown,Delaware,,194,0
+2021-03-02,Kent,Delaware,10001,14437,296
+2021-03-02,New Castle,Delaware,10003,49817,697
+2021-03-02,Sussex,Delaware,10005,22744,433
+2021-03-02,Unknown,Delaware,,195,0
+2021-03-03,Kent,Delaware,10001,14478,297
+2021-03-03,New Castle,Delaware,10003,49967,707
+2021-03-03,Sussex,Delaware,10005,22785,436
+2021-03-03,Unknown,Delaware,,195,0
+2021-03-04,Kent,Delaware,10001,14517,299
+2021-03-04,New Castle,Delaware,10003,50129,709
+2021-03-04,Sussex,Delaware,10005,22802,436
+2021-03-04,Unknown,Delaware,,195,0
+2021-03-05,Kent,Delaware,10001,14554,302
+2021-03-05,New Castle,Delaware,10003,50278,715
+2021-03-05,Sussex,Delaware,10005,22847,436
+2021-03-05,Unknown,Delaware,,195,0
+2021-03-06,Kent,Delaware,10001,14605,302
+2021-03-06,New Castle,Delaware,10003,50449,722
+2021-03-06,Sussex,Delaware,10005,22890,440
+2021-03-06,Unknown,Delaware,,195,0
+2021-03-07,Kent,Delaware,10001,14627,304
+2021-03-07,New Castle,Delaware,10003,50614,728
+2021-03-07,Sussex,Delaware,10005,22918,441
+2021-03-07,Unknown,Delaware,,195,0
+2021-03-08,Kent,Delaware,10001,14662,304
+2021-03-08,New Castle,Delaware,10003,50757,730
+2021-03-08,Sussex,Delaware,10005,22949,441
+2021-03-08,Unknown,Delaware,,195,0
+2021-03-09,Kent,Delaware,10001,14678,308
+2021-03-09,New Castle,Delaware,10003,50844,732
+2021-03-09,Sussex,Delaware,10005,22962,442
+2021-03-09,Unknown,Delaware,,195,0
+2021-03-10,Kent,Delaware,10001,14710,309
+2021-03-10,New Castle,Delaware,10003,50991,737
+2021-03-10,Sussex,Delaware,10005,22993,446
+2021-03-10,Unknown,Delaware,,197,0
+2021-03-11,Kent,Delaware,10001,14746,309
+2021-03-11,New Castle,Delaware,10003,51712,739
+2021-03-11,Sussex,Delaware,10005,23023,446
+2021-03-11,Unknown,Delaware,,199,0
+2021-03-12,Kent,Delaware,10001,14775,309
+2021-03-12,New Castle,Delaware,10003,51890,741
+2021-03-12,Sussex,Delaware,10005,23047,446
+2021-03-12,Unknown,Delaware,,199,0
+2021-03-13,Kent,Delaware,10001,14800,311
+2021-03-13,New Castle,Delaware,10003,52084,745
+2021-03-13,Sussex,Delaware,10005,23073,448
+2021-03-13,Unknown,Delaware,,199,0
+2021-03-14,Kent,Delaware,10001,14829,312
+2021-03-14,New Castle,Delaware,10003,52228,746
+2021-03-14,Sussex,Delaware,10005,23125,449
+2021-03-14,Unknown,Delaware,,199,0
+2021-03-15,Kent,Delaware,10001,14844,315
+2021-03-15,New Castle,Delaware,10003,52413,746
+2021-03-15,Sussex,Delaware,10005,23158,450
+2021-03-15,Unknown,Delaware,,199,0
+2021-03-16,Kent,Delaware,10001,14863,316
+2021-03-16,New Castle,Delaware,10003,52512,747
+2021-03-16,Sussex,Delaware,10005,23176,451
+2021-03-16,Unknown,Delaware,,200,0
+2021-03-17,Kent,Delaware,10001,14913,317
+2021-03-17,New Castle,Delaware,10003,52763,748
+2021-03-17,Sussex,Delaware,10005,23248,451
+2021-03-17,Unknown,Delaware,,199,0
+2021-03-18,Kent,Delaware,10001,14949,317
+2021-03-18,New Castle,Delaware,10003,52986,749
+2021-03-18,Sussex,Delaware,10005,23291,451
+2021-03-18,Unknown,Delaware,,199,0
+2021-03-19,Kent,Delaware,10001,14979,318
+2021-03-19,New Castle,Delaware,10003,53148,753
+2021-03-19,Sussex,Delaware,10005,23308,451
+2021-03-19,Unknown,Delaware,,200,0
+2021-03-20,Kent,Delaware,10001,15039,318
+2021-03-20,New Castle,Delaware,10003,53323,756
+2021-03-20,Sussex,Delaware,10005,23379,452
+2021-03-20,Unknown,Delaware,,201,0
+2021-03-21,Kent,Delaware,10001,15102,320
+2021-03-21,New Castle,Delaware,10003,53561,757
+2021-03-21,Sussex,Delaware,10005,23423,452
+2021-03-21,Unknown,Delaware,,201,0
+2021-03-22,Kent,Delaware,10001,15118,320
+2021-03-22,New Castle,Delaware,10003,53672,759
+2021-03-22,Sussex,Delaware,10005,23438,452
+2021-03-22,Unknown,Delaware,,201,0
+2021-03-23,Kent,Delaware,10001,15134,322
+2021-03-23,New Castle,Delaware,10003,53818,760
+2021-03-23,Sussex,Delaware,10005,23456,453
+2021-03-23,Unknown,Delaware,,201,0
+2021-03-24,Kent,Delaware,10001,15170,322
+2021-03-24,New Castle,Delaware,10003,53966,760
+2021-03-24,Sussex,Delaware,10005,23482,453
+2021-03-24,Unknown,Delaware,,201,0
+2021-03-25,Kent,Delaware,10001,15206,322
+2021-03-25,New Castle,Delaware,10003,54110,761
+2021-03-25,Sussex,Delaware,10005,23521,453
+2021-03-25,Unknown,Delaware,,201,0
+2021-03-26,Kent,Delaware,10001,15256,322
+2021-03-26,New Castle,Delaware,10003,54318,761
+2021-03-26,Sussex,Delaware,10005,23548,453
+2021-03-26,Unknown,Delaware,,203,0
+2021-03-27,Kent,Delaware,10001,15338,322
+2021-03-27,New Castle,Delaware,10003,54554,767
+2021-03-27,Sussex,Delaware,10005,23606,455
+2021-03-27,Unknown,Delaware,,203,0
+2021-03-28,Kent,Delaware,10001,15393,322
+2021-03-28,New Castle,Delaware,10003,54815,767
+2021-03-28,Sussex,Delaware,10005,23651,455
+2021-03-28,Unknown,Delaware,,203,0
+2021-03-29,Kent,Delaware,10001,15444,322
+2021-03-29,New Castle,Delaware,10003,55064,775
+2021-03-29,Sussex,Delaware,10005,23691,455
+2021-03-29,Unknown,Delaware,,203,0
+2021-03-30,Kent,Delaware,10001,15462,323
+2021-03-30,New Castle,Delaware,10003,55191,778
+2021-03-30,Sussex,Delaware,10005,23717,458
+2021-03-30,Unknown,Delaware,,203,0
+2021-03-31,Kent,Delaware,10001,15527,323
+2021-03-31,New Castle,Delaware,10003,55327,778
+2021-03-31,Sussex,Delaware,10005,23744,458
+2021-03-31,Unknown,Delaware,,204,0
+2021-04-01,Kent,Delaware,10001,15595,323
+2021-04-01,New Castle,Delaware,10003,55599,778
+2021-04-01,Sussex,Delaware,10005,23788,458
+2021-04-01,Unknown,Delaware,,206,0
+2021-04-02,Kent,Delaware,10001,15662,323
+2021-04-02,New Castle,Delaware,10003,55871,781
+2021-04-02,Sussex,Delaware,10005,23852,461
+2021-04-02,Unknown,Delaware,,205,0
+2021-04-03,Kent,Delaware,10001,15748,323
+2021-04-03,New Castle,Delaware,10003,56201,781
+2021-04-03,Sussex,Delaware,10005,23924,461
+2021-04-03,Unknown,Delaware,,204,0
+2021-04-04,Kent,Delaware,10001,15806,323
+2021-04-04,New Castle,Delaware,10003,56411,781
+2021-04-04,Sussex,Delaware,10005,23955,462
+2021-04-04,Unknown,Delaware,,204,0
+2021-04-05,Kent,Delaware,10001,15843,323
+2021-04-05,New Castle,Delaware,10003,56541,781
+2021-04-05,Sussex,Delaware,10005,23989,462
+2021-04-05,Unknown,Delaware,,204,0
+2021-04-06,Kent,Delaware,10001,15863,323
+2021-04-06,New Castle,Delaware,10003,56715,781
+2021-04-06,Sussex,Delaware,10005,24025,463
+2021-04-06,Unknown,Delaware,,203,0
+2021-04-07,Kent,Delaware,10001,15924,323
+2021-04-07,New Castle,Delaware,10003,56868,781
+2021-04-07,Sussex,Delaware,10005,24046,463
+2021-04-07,Unknown,Delaware,,204,0
+2021-04-08,Kent,Delaware,10001,15999,323
+2021-04-08,New Castle,Delaware,10003,57112,782
+2021-04-08,Sussex,Delaware,10005,24089,463
+2021-04-08,Unknown,Delaware,,204,0
+2021-04-09,Kent,Delaware,10001,16086,325
+2021-04-09,New Castle,Delaware,10003,57358,783
+2021-04-09,Sussex,Delaware,10005,24136,465
+2021-04-09,Unknown,Delaware,,204,0
+2021-04-10,Kent,Delaware,10001,16184,325
+2021-04-10,New Castle,Delaware,10003,57630,787
+2021-04-10,Sussex,Delaware,10005,24184,465
+2021-04-10,Unknown,Delaware,,205,0
+2021-04-11,Kent,Delaware,10001,16261,325
+2021-04-11,New Castle,Delaware,10003,57861,788
+2021-04-11,Sussex,Delaware,10005,24243,465
+2021-04-11,Unknown,Delaware,,205,0
+2021-04-12,Kent,Delaware,10001,16309,325
+2021-04-12,New Castle,Delaware,10003,58126,791
+2021-04-12,Sussex,Delaware,10005,24285,465
+2021-04-12,Unknown,Delaware,,205,0
+2021-04-13,Kent,Delaware,10001,16351,325
+2021-04-13,New Castle,Delaware,10003,58265,794
+2021-04-13,Sussex,Delaware,10005,24314,468
+2021-04-13,Unknown,Delaware,,205,0
+2021-04-14,Kent,Delaware,10001,16439,327
+2021-04-14,New Castle,Delaware,10003,58498,795
+2021-04-14,Sussex,Delaware,10005,24370,469
+2021-04-14,Unknown,Delaware,,208,0
+2021-04-15,Kent,Delaware,10001,16502,328
+2021-04-15,New Castle,Delaware,10003,58789,796
+2021-04-15,Sussex,Delaware,10005,24416,471
+2021-04-15,Unknown,Delaware,,208,0
+2021-04-16,Kent,Delaware,10001,16572,328
+2021-04-16,New Castle,Delaware,10003,59049,796
+2021-04-16,Sussex,Delaware,10005,24494,472
+2021-04-16,Unknown,Delaware,,207,0
+2021-04-17,Kent,Delaware,10001,16643,328
+2021-04-17,New Castle,Delaware,10003,59355,799
+2021-04-17,Sussex,Delaware,10005,24570,475
+2021-04-17,Unknown,Delaware,,209,0
+2021-04-18,Kent,Delaware,10001,16708,328
+2021-04-18,New Castle,Delaware,10003,59610,799
+2021-04-18,Sussex,Delaware,10005,24630,475
+2021-04-18,Unknown,Delaware,,210,0
+2021-04-19,Kent,Delaware,10001,16775,328
+2021-04-19,New Castle,Delaware,10003,59884,799
+2021-04-19,Sussex,Delaware,10005,24678,475
+2021-04-19,Unknown,Delaware,,210,0
+2021-04-20,Kent,Delaware,10001,16795,328
+2021-04-20,New Castle,Delaware,10003,59996,799
+2021-04-20,Sussex,Delaware,10005,24703,476
+2021-04-20,Unknown,Delaware,,213,0
+2021-04-21,Kent,Delaware,10001,16838,328
+2021-04-21,New Castle,Delaware,10003,60187,799
+2021-04-21,Sussex,Delaware,10005,24754,476
+2021-04-21,Unknown,Delaware,,214,0
+2021-04-22,Kent,Delaware,10001,16874,328
+2021-04-22,New Castle,Delaware,10003,60366,800
+2021-04-22,Sussex,Delaware,10005,24815,476
+2021-04-22,Unknown,Delaware,,212,0
+2021-04-23,Kent,Delaware,10001,16932,329
+2021-04-23,New Castle,Delaware,10003,60591,801
+2021-04-23,Sussex,Delaware,10005,24857,479
+2021-04-23,Unknown,Delaware,,213,0
+2021-04-24,Kent,Delaware,10001,17009,330
+2021-04-24,New Castle,Delaware,10003,60777,804
+2021-04-24,Sussex,Delaware,10005,24926,481
+2021-04-24,Unknown,Delaware,,215,0
+2021-04-25,Kent,Delaware,10001,17065,330
+2021-04-25,New Castle,Delaware,10003,60970,805
+2021-04-25,Sussex,Delaware,10005,24973,481
+2021-04-25,Unknown,Delaware,,214,0
+2021-04-26,Kent,Delaware,10001,17114,330
+2021-04-26,New Castle,Delaware,10003,61111,806
+2021-04-26,Sussex,Delaware,10005,25019,481
+2021-04-26,Unknown,Delaware,,215,0
+2021-04-27,Kent,Delaware,10001,17137,330
+2021-04-27,New Castle,Delaware,10003,61218,806
+2021-04-27,Sussex,Delaware,10005,25034,481
+2021-04-27,Unknown,Delaware,,214,0
+2021-04-28,Kent,Delaware,10001,17205,333
+2021-04-28,New Castle,Delaware,10003,61359,807
+2021-04-28,Sussex,Delaware,10005,25064,482
+2021-04-28,Unknown,Delaware,,216,0
+2021-04-29,Kent,Delaware,10001,17270,333
+2021-04-29,New Castle,Delaware,10003,61447,808
+2021-04-29,Sussex,Delaware,10005,25108,483
+2021-04-29,Unknown,Delaware,,213,0
+2021-04-30,Kent,Delaware,10001,17378,334
+2021-04-30,New Castle,Delaware,10003,61647,808
+2021-04-30,Sussex,Delaware,10005,25165,483
+2021-04-30,Unknown,Delaware,,215,0
+2021-05-01,Kent,Delaware,10001,17413,334
+2021-05-01,New Castle,Delaware,10003,61787,809
+2021-05-01,Sussex,Delaware,10005,25205,483
+2021-05-01,Unknown,Delaware,,216,0
+2021-05-02,Kent,Delaware,10001,17484,334
+2021-05-02,New Castle,Delaware,10003,61935,809
+2021-05-02,Sussex,Delaware,10005,25272,483
+2021-05-02,Unknown,Delaware,,218,0
+2021-05-03,Kent,Delaware,10001,17504,334
+2021-05-03,New Castle,Delaware,10003,62047,809
+2021-05-03,Sussex,Delaware,10005,25300,483
+2021-05-03,Unknown,Delaware,,216,0
+2021-05-04,Kent,Delaware,10001,17516,334
+2021-05-04,New Castle,Delaware,10003,62151,809
+2021-05-04,Sussex,Delaware,10005,25319,483
+2021-05-04,Unknown,Delaware,,218,0
+2021-05-05,Kent,Delaware,10001,17553,336
+2021-05-05,New Castle,Delaware,10003,62273,809
+2021-05-05,Sussex,Delaware,10005,25356,483
+2021-05-05,Unknown,Delaware,,219,0
+2021-05-06,Kent,Delaware,10001,17578,336
+2021-05-06,New Castle,Delaware,10003,62381,809
+2021-05-06,Sussex,Delaware,10005,25392,484
+2021-05-06,Unknown,Delaware,,221,0
+2021-05-07,Kent,Delaware,10001,17619,336
+2021-05-07,New Castle,Delaware,10003,62514,809
+2021-05-07,Sussex,Delaware,10005,25423,484
+2021-05-07,Unknown,Delaware,,219,0
+2021-05-08,Kent,Delaware,10001,17655,338
+2021-05-08,New Castle,Delaware,10003,62615,812
+2021-05-08,Sussex,Delaware,10005,25458,486
+2021-05-08,Unknown,Delaware,,220,0
+2021-05-09,Kent,Delaware,10001,17692,338
+2021-05-09,New Castle,Delaware,10003,62734,812
+2021-05-09,Sussex,Delaware,10005,25502,486
+2021-05-09,Unknown,Delaware,,220,0
+2021-05-10,Kent,Delaware,10001,17712,339
+2021-05-10,New Castle,Delaware,10003,62805,814
+2021-05-10,Sussex,Delaware,10005,25515,488
+2021-05-10,Unknown,Delaware,,220,0
+2021-05-11,Kent,Delaware,10001,17722,340
+2021-05-11,New Castle,Delaware,10003,62862,815
+2021-05-11,Sussex,Delaware,10005,25537,489
+2021-05-11,Unknown,Delaware,,220,0
+2021-05-12,Kent,Delaware,10001,17753,340
+2021-05-12,New Castle,Delaware,10003,62915,815
+2021-05-12,Sussex,Delaware,10005,25566,489
+2021-05-12,Unknown,Delaware,,221,0
+2021-05-13,Kent,Delaware,10001,17779,342
+2021-05-13,New Castle,Delaware,10003,62991,817
+2021-05-13,Sussex,Delaware,10005,25590,489
+2021-05-13,Unknown,Delaware,,220,0
+2021-05-14,Kent,Delaware,10001,17801,342
+2021-05-14,New Castle,Delaware,10003,63077,820
+2021-05-14,Sussex,Delaware,10005,25617,489
+2021-05-14,Unknown,Delaware,,220,0
+2021-05-15,Kent,Delaware,10001,17832,342
+2021-05-15,New Castle,Delaware,10003,63166,820
+2021-05-15,Sussex,Delaware,10005,25654,489
+2021-05-15,Unknown,Delaware,,221,0
+2021-05-16,Kent,Delaware,10001,17850,342
+2021-05-16,New Castle,Delaware,10003,63262,820
+2021-05-16,Sussex,Delaware,10005,25674,489
+2021-05-16,Unknown,Delaware,,221,0
+2021-05-17,Kent,Delaware,10001,17855,342
+2021-05-17,New Castle,Delaware,10003,63317,820
+2021-05-17,Sussex,Delaware,10005,25696,489
+2021-05-17,Unknown,Delaware,,221,0
+2021-05-18,Kent,Delaware,10001,17864,342
+2021-05-18,New Castle,Delaware,10003,63374,820
+2021-05-18,Sussex,Delaware,10005,25716,489
+2021-05-18,Unknown,Delaware,,221,0
+2021-05-19,Kent,Delaware,10001,17997,342
+2021-05-19,New Castle,Delaware,10003,63953,821
+2021-05-19,Sussex,Delaware,10005,25756,489
+2021-05-19,Unknown,Delaware,,222,0
+2021-05-20,Kent,Delaware,10001,18018,342
+2021-05-20,New Castle,Delaware,10003,64017,821
+2021-05-20,Sussex,Delaware,10005,25774,489
+2021-05-20,Unknown,Delaware,,222,0
+2021-05-21,Kent,Delaware,10001,18034,343
+2021-05-21,New Castle,Delaware,10003,64107,822
+2021-05-21,Sussex,Delaware,10005,25802,489
+2021-05-21,Unknown,Delaware,,223,0
+2021-05-22,Kent,Delaware,10001,18045,343
+2021-05-22,New Castle,Delaware,10003,64183,823
+2021-05-22,Sussex,Delaware,10005,25829,493
+2021-05-22,Unknown,Delaware,,223,0
+2021-05-23,Kent,Delaware,10001,18053,343
+2021-05-23,New Castle,Delaware,10003,64248,823
+2021-05-23,Sussex,Delaware,10005,25841,493
+2021-05-23,Unknown,Delaware,,223,0
+2021-05-24,Kent,Delaware,10001,18060,343
+2021-05-24,New Castle,Delaware,10003,64279,823
+2021-05-24,Sussex,Delaware,10005,25847,493
+2021-05-24,Unknown,Delaware,,223,0
+2021-05-25,Kent,Delaware,10001,18065,343
+2021-05-25,New Castle,Delaware,10003,64329,824
+2021-05-25,Sussex,Delaware,10005,25866,493
+2021-05-25,Unknown,Delaware,,223,0
+2021-05-26,Kent,Delaware,10001,18077,343
+2021-05-26,New Castle,Delaware,10003,64351,824
+2021-05-26,Sussex,Delaware,10005,25881,493
+2021-05-26,Unknown,Delaware,,223,0
+2021-05-27,Kent,Delaware,10001,18087,343
+2021-05-27,New Castle,Delaware,10003,64396,824
+2021-05-27,Sussex,Delaware,10005,25900,493
+2021-05-27,Unknown,Delaware,,224,0
+2021-05-28,Kent,Delaware,10001,18094,343
+2021-05-28,New Castle,Delaware,10003,64448,824
+2021-05-28,Sussex,Delaware,10005,25915,493
+2021-05-28,Unknown,Delaware,,224,0
+2021-05-29,Kent,Delaware,10001,18103,344
+2021-05-29,New Castle,Delaware,10003,64504,824
+2021-05-29,Sussex,Delaware,10005,25937,493
+2021-05-29,Unknown,Delaware,,226,0
+2021-05-30,Kent,Delaware,10001,18108,344
+2021-05-30,New Castle,Delaware,10003,64524,824
+2021-05-30,Sussex,Delaware,10005,25963,493
+2021-05-30,Unknown,Delaware,,226,0
+2021-05-31,Kent,Delaware,10001,18113,344
+2021-05-31,New Castle,Delaware,10003,64555,824
+2021-05-31,Sussex,Delaware,10005,25972,493
+2021-05-31,Unknown,Delaware,,226,0
+2021-06-01,Kent,Delaware,10001,18118,344
+2021-06-01,New Castle,Delaware,10003,64566,824
+2021-06-01,Sussex,Delaware,10005,25984,493
+2021-06-01,Unknown,Delaware,,226,0
+2021-06-02,Kent,Delaware,10001,18120,344
+2021-06-02,New Castle,Delaware,10003,64578,827
+2021-06-02,Sussex,Delaware,10005,25987,495
+2021-06-02,Unknown,Delaware,,226,0
+2021-06-03,Kent,Delaware,10001,18126,344
+2021-06-03,New Castle,Delaware,10003,64608,828
+2021-06-03,Sussex,Delaware,10005,25997,496
+2021-06-03,Unknown,Delaware,,226,0
+2021-06-04,Kent,Delaware,10001,18129,345
+2021-06-04,New Castle,Delaware,10003,64631,832
+2021-06-04,Sussex,Delaware,10005,26019,497
+2021-06-04,Unknown,Delaware,,226,0
+2021-06-05,Kent,Delaware,10001,18143,345
+2021-06-05,New Castle,Delaware,10003,64656,835
+2021-06-05,Sussex,Delaware,10005,26045,497
+2021-06-05,Unknown,Delaware,,226,0
+2021-06-06,Kent,Delaware,10001,18150,345
+2021-06-06,New Castle,Delaware,10003,64690,835
+2021-06-06,Sussex,Delaware,10005,26060,497
+2021-06-06,Unknown,Delaware,,226,0
+2021-06-07,Kent,Delaware,10001,18153,345
+2021-06-07,New Castle,Delaware,10003,64716,835
+2021-06-07,Sussex,Delaware,10005,26072,497
+2021-06-07,Unknown,Delaware,,226,0
+2021-06-08,Kent,Delaware,10001,18155,345
+2021-06-08,New Castle,Delaware,10003,64726,835
+2021-06-08,Sussex,Delaware,10005,26081,497
+2021-06-08,Unknown,Delaware,,226,0
+2021-06-09,Kent,Delaware,10001,18159,345
+2021-06-09,New Castle,Delaware,10003,64742,835
+2021-06-09,Sussex,Delaware,10005,26097,497
+2021-06-09,Unknown,Delaware,,227,0
+2021-06-10,Kent,Delaware,10001,18164,346
+2021-06-10,New Castle,Delaware,10003,64761,836
+2021-06-10,Sussex,Delaware,10005,26106,497
+2021-06-10,Unknown,Delaware,,227,0
+2021-06-11,Kent,Delaware,10001,18168,346
+2021-06-11,New Castle,Delaware,10003,64784,836
+2021-06-11,Sussex,Delaware,10005,26117,497
+2021-06-11,Unknown,Delaware,,227,0
+2021-06-12,Kent,Delaware,10001,18172,346
+2021-06-12,New Castle,Delaware,10003,64802,836
+2021-06-12,Sussex,Delaware,10005,26121,497
+2021-06-12,Unknown,Delaware,,227,0
+2021-06-13,Kent,Delaware,10001,18175,346
+2021-06-13,New Castle,Delaware,10003,64823,836
+2021-06-13,Sussex,Delaware,10005,26133,497
+2021-06-13,Unknown,Delaware,,227,0
+2021-06-14,Kent,Delaware,10001,18175,346
+2021-06-14,New Castle,Delaware,10003,64842,836
+2021-06-14,Sussex,Delaware,10005,26135,497
+2021-06-14,Unknown,Delaware,,227,0
+2021-06-15,Kent,Delaware,10001,18184,346
+2021-06-15,New Castle,Delaware,10003,64866,836
+2021-06-15,Sussex,Delaware,10005,26144,497
+2021-06-15,Unknown,Delaware,,227,0
+2021-06-16,Kent,Delaware,10001,18184,346
+2021-06-16,New Castle,Delaware,10003,64865,836
+2021-06-16,Sussex,Delaware,10005,26142,497
+2021-06-16,Unknown,Delaware,,227,0
+2021-06-17,Kent,Delaware,10001,18192,346
+2021-06-17,New Castle,Delaware,10003,64897,836
+2021-06-17,Sussex,Delaware,10005,26154,497
+2021-06-17,Unknown,Delaware,,227,0
+2021-06-18,Kent,Delaware,10001,18199,346
+2021-06-18,New Castle,Delaware,10003,64907,836
+2021-06-18,Sussex,Delaware,10005,26168,497
+2021-06-18,Unknown,Delaware,,227,0
+2021-06-19,Kent,Delaware,10001,18204,346
+2021-06-19,New Castle,Delaware,10003,64923,839
+2021-06-19,Sussex,Delaware,10005,26174,497
+2021-06-19,Unknown,Delaware,,227,0
+2021-06-20,Kent,Delaware,10001,18206,347
+2021-06-20,New Castle,Delaware,10003,64937,839
+2021-06-20,Sussex,Delaware,10005,26178,497
+2021-06-20,Unknown,Delaware,,227,0
+2021-06-21,Kent,Delaware,10001,18208,347
+2021-06-21,New Castle,Delaware,10003,64945,839
+2021-06-21,Sussex,Delaware,10005,26184,497
+2021-06-21,Unknown,Delaware,,227,0
+2021-06-22,Kent,Delaware,10001,18209,349
+2021-06-22,New Castle,Delaware,10003,64954,845
+2021-06-22,Sussex,Delaware,10005,26187,497
+2021-06-22,Unknown,Delaware,,227,0
+2021-06-23,Kent,Delaware,10001,18212,349
+2021-06-23,New Castle,Delaware,10003,64964,845
+2021-06-23,Sussex,Delaware,10005,26196,499
+2021-06-23,Unknown,Delaware,,227,0
+2021-06-24,Kent,Delaware,10001,18215,349
+2021-06-24,New Castle,Delaware,10003,64976,845
+2021-06-24,Sussex,Delaware,10005,26202,499
+2021-06-24,Unknown,Delaware,,227,0
+2021-06-25,Kent,Delaware,10001,18216,349
+2021-06-25,New Castle,Delaware,10003,64987,845
+2021-06-25,Sussex,Delaware,10005,26206,499
+2021-06-25,Unknown,Delaware,,227,0
+2021-06-26,Kent,Delaware,10001,18224,349
+2021-06-26,New Castle,Delaware,10003,64999,846
+2021-06-26,Sussex,Delaware,10005,26207,499
+2021-06-26,Unknown,Delaware,,227,0
+2021-06-27,Kent,Delaware,10001,18225,349
+2021-06-27,New Castle,Delaware,10003,65016,846
+2021-06-27,Sussex,Delaware,10005,26214,499
+2021-06-27,Unknown,Delaware,,227,0
+2021-06-28,Kent,Delaware,10001,18226,349
+2021-06-28,New Castle,Delaware,10003,65030,846
+2021-06-28,Sussex,Delaware,10005,26217,499
+2021-06-28,Unknown,Delaware,,227,0
+2021-06-29,Kent,Delaware,10001,18230,349
+2021-06-29,New Castle,Delaware,10003,65034,846
+2021-06-29,Sussex,Delaware,10005,26221,499
+2021-06-29,Unknown,Delaware,,227,0
+2021-06-30,Kent,Delaware,10001,18234,349
+2021-06-30,New Castle,Delaware,10003,65053,846
+2021-06-30,Sussex,Delaware,10005,26230,499
+2021-06-30,Unknown,Delaware,,227,0
+2021-07-01,Kent,Delaware,10001,18243,349
+2021-07-01,New Castle,Delaware,10003,65059,846
+2021-07-01,Sussex,Delaware,10005,26241,499
+2021-07-01,Unknown,Delaware,,227,0
+2021-07-02,Kent,Delaware,10001,18256,349
+2021-07-02,New Castle,Delaware,10003,65087,847
+2021-07-02,Sussex,Delaware,10005,26250,499
+2021-07-02,Unknown,Delaware,,227,0
+2021-07-03,Kent,Delaware,10001,18264,349
+2021-07-03,New Castle,Delaware,10003,65099,847
+2021-07-03,Sussex,Delaware,10005,26256,499
+2021-07-03,Unknown,Delaware,,227,0
+2021-07-04,Kent,Delaware,10001,18270,349
+2021-07-04,New Castle,Delaware,10003,65119,847
+2021-07-04,Sussex,Delaware,10005,26259,499
+2021-07-04,Unknown,Delaware,,227,0
+2021-07-05,Kent,Delaware,10001,18272,349
+2021-07-05,New Castle,Delaware,10003,65131,847
+2021-07-05,Sussex,Delaware,10005,26261,499
+2021-07-05,Unknown,Delaware,,227,0
+2021-07-06,Kent,Delaware,10001,18272,349
+2021-07-06,New Castle,Delaware,10003,65138,847
+2021-07-06,Sussex,Delaware,10005,26263,499
+2021-07-06,Unknown,Delaware,,227,0
+2021-07-07,Kent,Delaware,10001,18272,349
+2021-07-07,New Castle,Delaware,10003,65138,847
+2021-07-07,Sussex,Delaware,10005,26263,499
+2021-07-07,Unknown,Delaware,,227,0
+2021-07-08,Kent,Delaware,10001,18277,349
+2021-07-08,New Castle,Delaware,10003,65151,847
+2021-07-08,Sussex,Delaware,10005,26276,499
+2021-07-08,Unknown,Delaware,,227,0
+2021-07-09,Kent,Delaware,10001,18288,349
+2021-07-09,New Castle,Delaware,10003,65182,847
+2021-07-09,Sussex,Delaware,10005,26289,499
+2021-07-09,Unknown,Delaware,,227,0
+2021-07-10,Kent,Delaware,10001,18292,349
+2021-07-10,New Castle,Delaware,10003,65205,847
+2021-07-10,Sussex,Delaware,10005,26295,499
+2021-07-10,Unknown,Delaware,,227,0
+2021-07-11,Kent,Delaware,10001,18301,349
+2021-07-11,New Castle,Delaware,10003,65240,847
+2021-07-11,Sussex,Delaware,10005,26306,499
+2021-07-11,Unknown,Delaware,,227,0
+2021-07-12,Kent,Delaware,10001,18305,349
+2021-07-12,New Castle,Delaware,10003,65251,847
+2021-07-12,Sussex,Delaware,10005,26310,499
+2021-07-12,Unknown,Delaware,,227,0
+2021-07-13,Kent,Delaware,10001,18305,349
+2021-07-13,New Castle,Delaware,10003,65263,847
+2021-07-13,Sussex,Delaware,10005,26318,499
+2021-07-13,Unknown,Delaware,,226,0
+2021-07-14,Kent,Delaware,10001,18325,349
+2021-07-14,New Castle,Delaware,10003,65301,847
+2021-07-14,Sussex,Delaware,10005,26330,500
+2021-07-14,Unknown,Delaware,,226,0
+2021-07-15,Kent,Delaware,10001,18335,349
+2021-07-15,New Castle,Delaware,10003,65320,847
+2021-07-15,Sussex,Delaware,10005,26350,500
+2021-07-15,Unknown,Delaware,,226,0
+2021-07-16,Kent,Delaware,10001,18341,349
+2021-07-16,New Castle,Delaware,10003,65339,847
+2021-07-16,Sussex,Delaware,10005,26364,501
+2021-07-16,Unknown,Delaware,,226,0
+2021-07-17,Kent,Delaware,10001,18349,349
+2021-07-17,New Castle,Delaware,10003,65382,847
+2021-07-17,Sussex,Delaware,10005,26381,501
+2021-07-17,Unknown,Delaware,,227,0
+2021-07-18,Kent,Delaware,10001,18365,349
+2021-07-18,New Castle,Delaware,10003,65399,847
+2021-07-18,Sussex,Delaware,10005,26396,501
+2021-07-18,Unknown,Delaware,,227,0
+2021-07-19,Kent,Delaware,10001,18371,349
+2021-07-19,New Castle,Delaware,10003,65421,847
+2021-07-19,Sussex,Delaware,10005,26404,501
+2021-07-19,Unknown,Delaware,,227,0
+2021-07-20,Kent,Delaware,10001,18374,349
+2021-07-20,New Castle,Delaware,10003,65444,847
+2021-07-20,Sussex,Delaware,10005,26412,501
+2021-07-20,Unknown,Delaware,,227,0
+2021-07-21,Kent,Delaware,10001,18385,349
+2021-07-21,New Castle,Delaware,10003,65467,847
+2021-07-21,Sussex,Delaware,10005,26422,501
+2021-07-21,Unknown,Delaware,,228,0
+2021-07-22,Kent,Delaware,10001,18392,349
+2021-07-22,New Castle,Delaware,10003,65506,847
+2021-07-22,Sussex,Delaware,10005,26447,501
+2021-07-22,Unknown,Delaware,,228,0
+2021-07-23,Kent,Delaware,10001,18401,349
+2021-07-23,New Castle,Delaware,10003,65530,847
+2021-07-23,Sussex,Delaware,10005,26479,502
+2021-07-23,Unknown,Delaware,,228,0
+2021-07-24,Kent,Delaware,10001,18416,349
+2021-07-24,New Castle,Delaware,10003,65570,847
+2021-07-24,Sussex,Delaware,10005,26515,502
+2021-07-24,Unknown,Delaware,,228,0
+2021-07-25,Kent,Delaware,10001,18424,349
+2021-07-25,New Castle,Delaware,10003,65613,847
+2021-07-25,Sussex,Delaware,10005,26532,502
+2021-07-25,Unknown,Delaware,,228,0
+2021-07-26,Kent,Delaware,10001,18434,349
+2021-07-26,New Castle,Delaware,10003,65660,847
+2021-07-26,Sussex,Delaware,10005,26540,502
+2021-07-26,Unknown,Delaware,,228,0
+2021-07-27,Kent,Delaware,10001,18439,349
+2021-07-27,New Castle,Delaware,10003,65710,847
+2021-07-27,Sussex,Delaware,10005,26565,502
+2021-07-27,Unknown,Delaware,,229,0
+2021-07-28,Kent,Delaware,10001,18460,349
+2021-07-28,New Castle,Delaware,10003,65747,847
+2021-07-28,Sussex,Delaware,10005,26578,502
+2021-07-28,Unknown,Delaware,,231,0
+2021-07-29,Kent,Delaware,10001,18477,349
+2021-07-29,New Castle,Delaware,10003,65806,847
+2021-07-29,Sussex,Delaware,10005,26617,504
+2021-07-29,Unknown,Delaware,,229,0
+2021-07-30,Kent,Delaware,10001,18507,382
+2021-07-30,New Castle,Delaware,10003,65889,903
+2021-07-30,Sussex,Delaware,10005,26650,545
+2021-07-30,Unknown,Delaware,,229,0
+2021-07-31,Kent,Delaware,10001,18534,382
+2021-07-31,New Castle,Delaware,10003,65963,906
+2021-07-31,Sussex,Delaware,10005,26681,545
+2021-07-31,Unknown,Delaware,,229,0
+2021-08-01,Kent,Delaware,10001,18575,382
+2021-08-01,New Castle,Delaware,10003,66033,906
+2021-08-01,Sussex,Delaware,10005,26727,545
+2021-08-01,Unknown,Delaware,,228,0
+2021-08-02,Kent,Delaware,10001,18594,382
+2021-08-02,New Castle,Delaware,10003,66094,906
+2021-08-02,Sussex,Delaware,10005,26765,545
+2021-08-02,Unknown,Delaware,,228,0
+2021-08-03,Kent,Delaware,10001,18607,382
+2021-08-03,New Castle,Delaware,10003,66144,906
+2021-08-03,Sussex,Delaware,10005,26783,545
+2021-08-03,Unknown,Delaware,,228,0
+2021-08-04,Kent,Delaware,10001,18646,382
+2021-08-04,New Castle,Delaware,10003,66198,906
+2021-08-04,Sussex,Delaware,10005,26811,545
+2021-08-04,Unknown,Delaware,,229,0
+2021-08-05,Kent,Delaware,10001,18702,382
+2021-08-05,New Castle,Delaware,10003,66275,906
+2021-08-05,Sussex,Delaware,10005,26864,545
+2021-08-05,Unknown,Delaware,,229,0
+2021-08-06,Kent,Delaware,10001,18769,382
+2021-08-06,New Castle,Delaware,10003,66383,906
+2021-08-06,Sussex,Delaware,10005,26917,545
+2021-08-06,Unknown,Delaware,,229,0
+2021-08-07,Kent,Delaware,10001,18841,383
+2021-08-07,New Castle,Delaware,10003,66504,906
+2021-08-07,Sussex,Delaware,10005,26984,546
+2021-08-07,Unknown,Delaware,,229,0
+2021-08-08,Kent,Delaware,10001,18883,383
+2021-08-08,New Castle,Delaware,10003,66602,906
+2021-08-08,Sussex,Delaware,10005,27057,546
+2021-08-08,Unknown,Delaware,,230,0
+2021-08-09,Kent,Delaware,10001,18921,383
+2021-08-09,New Castle,Delaware,10003,66702,906
+2021-08-09,Sussex,Delaware,10005,27113,546
+2021-08-09,Unknown,Delaware,,231,0
+2021-08-10,Kent,Delaware,10001,18947,383
+2021-08-10,New Castle,Delaware,10003,66767,906
+2021-08-10,Sussex,Delaware,10005,27145,547
+2021-08-10,Unknown,Delaware,,231,0
+2021-08-11,Kent,Delaware,10001,18998,383
+2021-08-11,New Castle,Delaware,10003,66836,906
+2021-08-11,Sussex,Delaware,10005,27186,547
+2021-08-11,Unknown,Delaware,,231,0
+2021-08-12,Kent,Delaware,10001,19091,383
+2021-08-12,New Castle,Delaware,10003,66990,907
+2021-08-12,Sussex,Delaware,10005,27270,547
+2021-08-12,Unknown,Delaware,,231,0
+2021-08-13,Kent,Delaware,10001,19151,383
+2021-08-13,New Castle,Delaware,10003,67120,907
+2021-08-13,Sussex,Delaware,10005,27349,547
+2021-08-13,Unknown,Delaware,,233,0
+2021-08-14,Kent,Delaware,10001,19250,384
+2021-08-14,New Castle,Delaware,10003,67274,907
+2021-08-14,Sussex,Delaware,10005,27431,547
+2021-08-14,Unknown,Delaware,,232,0
+2021-08-15,Kent,Delaware,10001,19336,384
+2021-08-15,New Castle,Delaware,10003,67394,907
+2021-08-15,Sussex,Delaware,10005,27524,547
+2021-08-15,Unknown,Delaware,,232,0
+2021-08-16,Kent,Delaware,10001,19410,384
+2021-08-16,New Castle,Delaware,10003,67549,907
+2021-08-16,Sussex,Delaware,10005,27580,547
+2021-08-16,Unknown,Delaware,,231,0
+2021-08-17,Kent,Delaware,10001,19437,384
+2021-08-17,New Castle,Delaware,10003,67618,909
+2021-08-17,Sussex,Delaware,10005,27625,547
+2021-08-17,Unknown,Delaware,,232,0
+2021-08-18,Kent,Delaware,10001,19530,387
+2021-08-18,New Castle,Delaware,10003,67764,914
+2021-08-18,Sussex,Delaware,10005,27709,548
+2021-08-18,Unknown,Delaware,,233,0
+2021-08-19,Kent,Delaware,10001,19646,387
+2021-08-19,New Castle,Delaware,10003,67965,915
+2021-08-19,Sussex,Delaware,10005,27821,549
+2021-08-19,Unknown,Delaware,,233,0
+2021-08-20,Kent,Delaware,10001,19776,387
+2021-08-20,New Castle,Delaware,10003,68162,915
+2021-08-20,Sussex,Delaware,10005,27903,549
+2021-08-20,Unknown,Delaware,,232,0
+2021-08-21,Kent,Delaware,10001,19866,387
+2021-08-21,New Castle,Delaware,10003,68353,918
+2021-08-21,Sussex,Delaware,10005,28009,549
+2021-08-21,Unknown,Delaware,,233,0
+2021-08-22,Kent,Delaware,10001,19942,387
+2021-08-22,New Castle,Delaware,10003,68493,918
+2021-08-22,Sussex,Delaware,10005,28102,549
+2021-08-22,Unknown,Delaware,,234,0
+2021-08-23,Kent,Delaware,10001,19988,387
+2021-08-23,New Castle,Delaware,10003,68630,918
+2021-08-23,Sussex,Delaware,10005,28199,549
+2021-08-23,Unknown,Delaware,,234,0
+2021-08-24,Kent,Delaware,10001,20020,387
+2021-08-24,New Castle,Delaware,10003,68740,921
+2021-08-24,Sussex,Delaware,10005,28253,549
+2021-08-24,Unknown,Delaware,,233,0
+2021-08-25,Kent,Delaware,10001,20114,388
+2021-08-25,New Castle,Delaware,10003,68878,928
+2021-08-25,Sussex,Delaware,10005,28362,553
+2021-08-25,Unknown,Delaware,,233,0
+2021-08-26,Kent,Delaware,10001,20208,388
+2021-08-26,New Castle,Delaware,10003,69101,929
+2021-08-26,Sussex,Delaware,10005,28474,555
+2021-08-26,Unknown,Delaware,,233,0
+2021-08-27,Kent,Delaware,10001,20340,388
+2021-08-27,New Castle,Delaware,10003,69360,931
+2021-08-27,Sussex,Delaware,10005,28609,556
+2021-08-27,Unknown,Delaware,,235,0
+2021-08-28,Kent,Delaware,10001,20459,389
+2021-08-28,New Castle,Delaware,10003,69507,932
+2021-08-28,Sussex,Delaware,10005,28724,556
+2021-08-28,Unknown,Delaware,,236,0
+2021-08-29,Kent,Delaware,10001,20516,389
+2021-08-29,New Castle,Delaware,10003,69660,932
+2021-08-29,Sussex,Delaware,10005,28813,556
+2021-08-29,Unknown,Delaware,,237,0
+2021-08-30,Kent,Delaware,10001,20596,389
+2021-08-30,New Castle,Delaware,10003,69877,932
+2021-08-30,Sussex,Delaware,10005,28910,556
+2021-08-30,Unknown,Delaware,,237,0
+2021-08-31,Kent,Delaware,10001,20649,390
+2021-08-31,New Castle,Delaware,10003,69966,933
+2021-08-31,Sussex,Delaware,10005,28999,557
+2021-08-31,Unknown,Delaware,,238,0
+2021-09-01,Kent,Delaware,10001,20730,392
+2021-09-01,New Castle,Delaware,10003,70118,936
+2021-09-01,Sussex,Delaware,10005,29094,559
+2021-09-01,Unknown,Delaware,,238,0
+2021-09-02,Kent,Delaware,10001,20867,392
+2021-09-02,New Castle,Delaware,10003,70381,937
+2021-09-02,Sussex,Delaware,10005,29239,559
+2021-09-02,Unknown,Delaware,,240,0
+2021-09-03,Kent,Delaware,10001,21002,392
+2021-09-03,New Castle,Delaware,10003,70664,937
+2021-09-03,Sussex,Delaware,10005,29378,559
+2021-09-03,Unknown,Delaware,,239,0
+2021-09-04,Kent,Delaware,10001,21131,392
+2021-09-04,New Castle,Delaware,10003,70857,940
+2021-09-04,Sussex,Delaware,10005,29515,559
+2021-09-04,Unknown,Delaware,,241,0
+2021-09-05,Kent,Delaware,10001,21219,392
+2021-09-05,New Castle,Delaware,10003,71033,940
+2021-09-05,Sussex,Delaware,10005,29619,559
+2021-09-05,Unknown,Delaware,,240,0
+2021-09-06,Kent,Delaware,10001,21273,392
+2021-09-06,New Castle,Delaware,10003,71154,940
+2021-09-06,Sussex,Delaware,10005,29702,559
+2021-09-06,Unknown,Delaware,,241,0
+2021-09-07,Kent,Delaware,10001,21350,392
+2021-09-07,New Castle,Delaware,10003,71325,940
+2021-09-07,Sussex,Delaware,10005,29801,559
+2021-09-07,Unknown,Delaware,,242,0
+2021-09-08,Kent,Delaware,10001,21393,392
+2021-09-08,New Castle,Delaware,10003,71452,941
+2021-09-08,Sussex,Delaware,10005,29870,561
+2021-09-08,Unknown,Delaware,,241,0
+2021-09-09,Kent,Delaware,10001,21504,393
+2021-09-09,New Castle,Delaware,10003,71594,946
+2021-09-09,Sussex,Delaware,10005,29969,561
+2021-09-09,Unknown,Delaware,,241,0
+2021-09-10,Kent,Delaware,10001,21652,393
+2021-09-10,New Castle,Delaware,10003,71938,946
+2021-09-10,Sussex,Delaware,10005,30125,561
+2021-09-10,Unknown,Delaware,,243,0
+2021-09-11,Kent,Delaware,10001,21786,393
+2021-09-11,New Castle,Delaware,10003,72267,946
+2021-09-11,Sussex,Delaware,10005,30280,561
+2021-09-11,Unknown,Delaware,,242,0
+2021-09-12,Kent,Delaware,10001,21882,393
+2021-09-12,New Castle,Delaware,10003,72576,946
+2021-09-12,Sussex,Delaware,10005,30406,561
+2021-09-12,Unknown,Delaware,,241,0
+2021-09-13,Kent,Delaware,10001,21965,393
+2021-09-13,New Castle,Delaware,10003,72781,946
+2021-09-13,Sussex,Delaware,10005,30560,561
+2021-09-13,Unknown,Delaware,,243,0
+2021-09-14,Kent,Delaware,10001,21996,393
+2021-09-14,New Castle,Delaware,10003,72930,947
+2021-09-14,Sussex,Delaware,10005,30630,562
+2021-09-14,Unknown,Delaware,,242,0
+2021-09-15,Kent,Delaware,10001,22056,396
+2021-09-15,New Castle,Delaware,10003,73024,949
+2021-09-15,Sussex,Delaware,10005,30727,566
+2021-09-15,Unknown,Delaware,,243,0
+2021-09-16,Kent,Delaware,10001,22199,396
+2021-09-16,New Castle,Delaware,10003,73296,949
+2021-09-16,Sussex,Delaware,10005,30853,568
+2021-09-16,Unknown,Delaware,,256,0
+2021-09-17,Kent,Delaware,10001,22339,396
+2021-09-17,New Castle,Delaware,10003,73601,949
+2021-09-17,Sussex,Delaware,10005,31024,568
+2021-09-17,Unknown,Delaware,,258,0
+2021-09-18,Kent,Delaware,10001,22481,398
+2021-09-18,New Castle,Delaware,10003,73907,952
+2021-09-18,Sussex,Delaware,10005,31157,570
+2021-09-18,Unknown,Delaware,,258,0
+2021-09-19,Kent,Delaware,10001,22576,398
+2021-09-19,New Castle,Delaware,10003,74119,952
+2021-09-19,Sussex,Delaware,10005,31301,570
+2021-09-19,Unknown,Delaware,,257,0
+2021-09-20,Kent,Delaware,10001,22691,398
+2021-09-20,New Castle,Delaware,10003,74331,952
+2021-09-20,Sussex,Delaware,10005,31413,570
+2021-09-20,Unknown,Delaware,,257,0
+2021-09-21,Kent,Delaware,10001,22747,400
+2021-09-21,New Castle,Delaware,10003,74466,952
+2021-09-21,Sussex,Delaware,10005,31494,575
+2021-09-21,Unknown,Delaware,,257,0
+2021-09-22,Kent,Delaware,10001,22814,400
+2021-09-22,New Castle,Delaware,10003,74576,953
+2021-09-22,Sussex,Delaware,10005,31576,576
+2021-09-22,Unknown,Delaware,,265,0
+2021-09-23,Kent,Delaware,10001,22974,405
+2021-09-23,New Castle,Delaware,10003,74873,959
+2021-09-23,Sussex,Delaware,10005,31750,578
+2021-09-23,Unknown,Delaware,,277,0
+2021-09-24,Kent,Delaware,10001,23086,405
+2021-09-24,New Castle,Delaware,10003,75137,959
+2021-09-24,Sussex,Delaware,10005,31934,578
+2021-09-24,Unknown,Delaware,,287,0
+2021-09-25,Kent,Delaware,10001,23218,405
+2021-09-25,New Castle,Delaware,10003,75442,959
+2021-09-25,Sussex,Delaware,10005,32094,578
+2021-09-25,Unknown,Delaware,,289,0
+2021-09-26,Kent,Delaware,10001,23306,405
+2021-09-26,New Castle,Delaware,10003,75622,959
+2021-09-26,Sussex,Delaware,10005,32199,578
+2021-09-26,Unknown,Delaware,,297,0
+2021-09-27,Kent,Delaware,10001,23393,405
+2021-09-27,New Castle,Delaware,10003,75822,959
+2021-09-27,Sussex,Delaware,10005,32333,578
+2021-09-27,Unknown,Delaware,,300,0
+2021-09-28,Kent,Delaware,10001,23447,406
+2021-09-28,New Castle,Delaware,10003,75979,961
+2021-09-28,Sussex,Delaware,10005,32405,583
+2021-09-28,Unknown,Delaware,,307,0
+2021-09-29,Kent,Delaware,10001,23499,406
+2021-09-29,New Castle,Delaware,10003,76146,962
+2021-09-29,Sussex,Delaware,10005,32476,585
+2021-09-29,Unknown,Delaware,,311,0
+2021-09-30,Kent,Delaware,10001,23603,406
+2021-09-30,New Castle,Delaware,10003,76411,962
+2021-09-30,Sussex,Delaware,10005,32630,586
+2021-09-30,Unknown,Delaware,,319,0
+2021-10-01,Kent,Delaware,10001,23764,406
+2021-10-01,New Castle,Delaware,10003,76690,962
+2021-10-01,Sussex,Delaware,10005,32816,586
+2021-10-01,Unknown,Delaware,,329,0
+2021-10-02,Kent,Delaware,10001,23937,413
+2021-10-02,New Castle,Delaware,10003,77001,967
+2021-10-02,Sussex,Delaware,10005,32945,592
+2021-10-02,Unknown,Delaware,,334,0
+2021-10-03,Kent,Delaware,10001,24035,413
+2021-10-03,New Castle,Delaware,10003,77190,967
+2021-10-03,Sussex,Delaware,10005,33059,592
+2021-10-03,Unknown,Delaware,,335,0
+2021-10-04,Kent,Delaware,10001,24117,413
+2021-10-04,New Castle,Delaware,10003,77369,967
+2021-10-04,Sussex,Delaware,10005,33158,592
+2021-10-04,Unknown,Delaware,,340,0
+2021-10-05,Kent,Delaware,10001,24180,413
+2021-10-05,New Castle,Delaware,10003,77518,967
+2021-10-05,Sussex,Delaware,10005,33232,595
+2021-10-05,Unknown,Delaware,,337,0
+2021-10-06,Kent,Delaware,10001,24282,413
+2021-10-06,New Castle,Delaware,10003,77755,969
+2021-10-06,Sussex,Delaware,10005,33319,595
+2021-10-06,Unknown,Delaware,,339,0
+2021-10-07,Kent,Delaware,10001,24374,413
+2021-10-07,New Castle,Delaware,10003,77993,969
+2021-10-07,Sussex,Delaware,10005,33448,595
+2021-10-07,Unknown,Delaware,,351,0
+2021-10-08,Kent,Delaware,10001,24482,415
+2021-10-08,New Castle,Delaware,10003,78233,981
+2021-10-08,Sussex,Delaware,10005,33608,601
+2021-10-08,Unknown,Delaware,,359,0
+2021-10-09,Kent,Delaware,10001,24608,415
+2021-10-09,New Castle,Delaware,10003,78539,981
+2021-10-09,Sussex,Delaware,10005,33777,601
+2021-10-09,Unknown,Delaware,,364,0
+2021-10-10,Kent,Delaware,10001,24691,415
+2021-10-10,New Castle,Delaware,10003,78643,981
+2021-10-10,Sussex,Delaware,10005,33897,601
+2021-10-10,Unknown,Delaware,,368,0
+2021-10-11,Kent,Delaware,10001,24764,415
+2021-10-11,New Castle,Delaware,10003,78856,981
+2021-10-11,Sussex,Delaware,10005,33967,601
+2021-10-11,Unknown,Delaware,,371,0
+2021-10-12,Kent,Delaware,10001,24800,418
+2021-10-12,New Castle,Delaware,10003,78941,985
+2021-10-12,Sussex,Delaware,10005,34013,602
+2021-10-12,Unknown,Delaware,,369,0
+2021-10-13,Kent,Delaware,10001,24864,418
+2021-10-13,New Castle,Delaware,10003,79107,985
+2021-10-13,Sussex,Delaware,10005,34103,602
+2021-10-13,Unknown,Delaware,,370,0
+2021-10-14,Kent,Delaware,10001,24996,418
+2021-10-14,New Castle,Delaware,10003,79349,985
+2021-10-14,Sussex,Delaware,10005,34220,602
+2021-10-14,Unknown,Delaware,,373,0
+2021-10-15,Kent,Delaware,10001,25121,425
+2021-10-15,New Castle,Delaware,10003,79540,987
+2021-10-15,Sussex,Delaware,10005,34345,609
+2021-10-15,Unknown,Delaware,,374,0
+2021-10-16,Kent,Delaware,10001,25208,430
+2021-10-16,New Castle,Delaware,10003,79813,989
+2021-10-16,Sussex,Delaware,10005,34475,613
+2021-10-16,Unknown,Delaware,,378,0
+2021-10-17,Kent,Delaware,10001,25208,430
+2021-10-17,New Castle,Delaware,10003,79813,989
+2021-10-17,Sussex,Delaware,10005,34475,613
+2021-10-17,Unknown,Delaware,,378,0
+2021-10-18,Kent,Delaware,10001,25325,430
+2021-10-18,New Castle,Delaware,10003,80125,989
+2021-10-18,Sussex,Delaware,10005,34627,613
+2021-10-18,Unknown,Delaware,,385,0
+2021-10-19,Kent,Delaware,10001,25365,430
+2021-10-19,New Castle,Delaware,10003,80214,993
+2021-10-19,Sussex,Delaware,10005,34683,614
+2021-10-19,Unknown,Delaware,,389,0
+2021-10-20,Kent,Delaware,10001,25411,431
+2021-10-20,New Castle,Delaware,10003,80364,994
+2021-10-20,Sussex,Delaware,10005,34777,616
+2021-10-20,Unknown,Delaware,,392,0
+2021-10-21,Kent,Delaware,10001,25524,434
+2021-10-21,New Castle,Delaware,10003,80529,996
+2021-10-21,Sussex,Delaware,10005,34874,615
+2021-10-21,Unknown,Delaware,,396,0
+2021-10-22,Kent,Delaware,10001,25624,434
+2021-10-22,New Castle,Delaware,10003,80725,996
+2021-10-22,Sussex,Delaware,10005,34969,615
+2021-10-22,Unknown,Delaware,,399,0
+2021-10-23,Kent,Delaware,10001,25698,440
+2021-10-23,New Castle,Delaware,10003,80933,1004
+2021-10-23,Sussex,Delaware,10005,35022,620
+2021-10-23,Unknown,Delaware,,405,0
+2021-10-24,Kent,Delaware,10001,25766,440
+2021-10-24,New Castle,Delaware,10003,81061,1004
+2021-10-24,Sussex,Delaware,10005,35117,620
+2021-10-24,Unknown,Delaware,,410,0
+2021-10-25,Kent,Delaware,10001,25802,440
+2021-10-25,New Castle,Delaware,10003,81222,1004
+2021-10-25,Sussex,Delaware,10005,35163,620
+2021-10-25,Unknown,Delaware,,413,0
+2021-10-26,Kent,Delaware,10001,25829,440
+2021-10-26,New Castle,Delaware,10003,81267,1007
+2021-10-26,Sussex,Delaware,10005,35198,621
+2021-10-26,Unknown,Delaware,,413,0
+2021-10-27,Kent,Delaware,10001,25897,441
+2021-10-27,New Castle,Delaware,10003,81406,1007
+2021-10-27,Sussex,Delaware,10005,35252,621
+2021-10-27,Unknown,Delaware,,414,0
+2021-10-28,Kent,Delaware,10001,25977,444
+2021-10-28,New Castle,Delaware,10003,81556,1007
+2021-10-28,Sussex,Delaware,10005,35330,622
+2021-10-28,Unknown,Delaware,,418,0
+2021-10-29,Kent,Delaware,10001,26056,445
+2021-10-29,New Castle,Delaware,10003,81667,1014
+2021-10-29,Sussex,Delaware,10005,35419,630
+2021-10-29,Unknown,Delaware,,421,0
+2021-10-30,Kent,Delaware,10001,26143,445
+2021-10-30,New Castle,Delaware,10003,81889,1016
+2021-10-30,Sussex,Delaware,10005,35495,630
+2021-10-30,Unknown,Delaware,,423,0
+2021-10-31,Kent,Delaware,10001,26199,445
+2021-10-31,New Castle,Delaware,10003,82013,1016
+2021-10-31,Sussex,Delaware,10005,35560,630
+2021-10-31,Unknown,Delaware,,426,0
+2021-11-01,Kent,Delaware,10001,26234,445
+2021-11-01,New Castle,Delaware,10003,82126,1016
+2021-11-01,Sussex,Delaware,10005,35610,630
+2021-11-01,Unknown,Delaware,,427,0
+2021-11-02,Kent,Delaware,10001,26252,445
+2021-11-02,New Castle,Delaware,10003,82163,1017
+2021-11-02,Sussex,Delaware,10005,35627,633
+2021-11-02,Unknown,Delaware,,431,0
+2021-11-03,Kent,Delaware,10001,26319,445
+2021-11-03,New Castle,Delaware,10003,82309,1018
+2021-11-03,Sussex,Delaware,10005,35693,633
+2021-11-03,Unknown,Delaware,,434,0
+2021-11-04,Kent,Delaware,10001,26373,448
+2021-11-04,New Castle,Delaware,10003,82472,1020
+2021-11-04,Sussex,Delaware,10005,35771,633
+2021-11-04,Unknown,Delaware,,440,0
+2021-11-05,Kent,Delaware,10001,26373,448
+2021-11-05,New Castle,Delaware,10003,82472,1020
+2021-11-05,Sussex,Delaware,10005,35771,633
+2021-11-05,Unknown,Delaware,,440,0
+2021-11-06,Kent,Delaware,10001,26502,452
+2021-11-06,New Castle,Delaware,10003,82779,1029
+2021-11-06,Sussex,Delaware,10005,35886,638
+2021-11-06,Unknown,Delaware,,445,0
+2021-11-07,Kent,Delaware,10001,26575,452
+2021-11-07,New Castle,Delaware,10003,82929,1029
+2021-11-07,Sussex,Delaware,10005,35949,638
+2021-11-07,Unknown,Delaware,,450,0
+2021-11-08,Kent,Delaware,10001,26622,452
+2021-11-08,New Castle,Delaware,10003,83071,1029
+2021-11-08,Sussex,Delaware,10005,35992,638
+2021-11-08,Unknown,Delaware,,454,0
+2021-11-09,Kent,Delaware,10001,26630,454
+2021-11-09,New Castle,Delaware,10003,83110,1031
+2021-11-09,Sussex,Delaware,10005,36009,639
+2021-11-09,Unknown,Delaware,,458,0
+2021-11-10,Kent,Delaware,10001,26715,454
+2021-11-10,New Castle,Delaware,10003,83253,1032
+2021-11-10,Sussex,Delaware,10005,36056,639
+2021-11-10,Unknown,Delaware,,460,0
+2021-11-11,Kent,Delaware,10001,26786,454
+2021-11-11,New Castle,Delaware,10003,83446,1032
+2021-11-11,Sussex,Delaware,10005,36103,639
+2021-11-11,Unknown,Delaware,,465,0
+2021-11-12,Kent,Delaware,10001,26885,454
+2021-11-12,New Castle,Delaware,10003,83692,1032
+2021-11-12,Sussex,Delaware,10005,36186,639
+2021-11-12,Unknown,Delaware,,470,0
+2021-11-13,Kent,Delaware,10001,26939,460
+2021-11-13,New Castle,Delaware,10003,83851,1039
+2021-11-13,Sussex,Delaware,10005,36261,642
+2021-11-13,Unknown,Delaware,,482,0
+2021-11-14,Kent,Delaware,10001,27031,460
+2021-11-14,New Castle,Delaware,10003,84042,1039
+2021-11-14,Sussex,Delaware,10005,36318,642
+2021-11-14,Unknown,Delaware,,484,0
+2021-11-15,Kent,Delaware,10001,27051,460
+2021-11-15,New Castle,Delaware,10003,84140,1039
+2021-11-15,Sussex,Delaware,10005,36345,642
+2021-11-15,Unknown,Delaware,,613,0
+2021-11-16,Kent,Delaware,10001,27047,460
+2021-11-16,New Castle,Delaware,10003,84157,1041
+2021-11-16,Sussex,Delaware,10005,36348,642
+2021-11-16,Unknown,Delaware,,741,0
+2021-11-17,Kent,Delaware,10001,27083,460
+2021-11-17,New Castle,Delaware,10003,84235,1041
+2021-11-17,Sussex,Delaware,10005,36372,642
+2021-11-17,Unknown,Delaware,,984,0
+2021-11-18,Kent,Delaware,10001,27109,463
+2021-11-18,New Castle,Delaware,10003,84309,1045
+2021-11-18,Sussex,Delaware,10005,36400,646
+2021-11-18,Unknown,Delaware,,1278,0
+2021-11-19,Kent,Delaware,10001,27135,463
+2021-11-19,New Castle,Delaware,10003,84462,1045
+2021-11-19,Sussex,Delaware,10005,36461,646
+2021-11-19,Unknown,Delaware,,1508,0
+2021-11-20,Kent,Delaware,10001,27437,465
+2021-11-20,New Castle,Delaware,10003,85352,1047
+2021-11-20,Sussex,Delaware,10005,36846,647
+2021-11-20,Unknown,Delaware,,411,0
+2021-11-21,Kent,Delaware,10001,27536,465
+2021-11-21,New Castle,Delaware,10003,85521,1047
+2021-11-21,Sussex,Delaware,10005,36907,647
+2021-11-21,Unknown,Delaware,,421,0
+2021-11-22,Kent,Delaware,10001,27584,465
+2021-11-22,New Castle,Delaware,10003,85662,1047
+2021-11-22,Sussex,Delaware,10005,36955,647
+2021-11-22,Unknown,Delaware,,424,0
+2021-11-23,Kent,Delaware,10001,27633,465
+2021-11-23,New Castle,Delaware,10003,85810,1050
+2021-11-23,Sussex,Delaware,10005,37010,647
+2021-11-23,Unknown,Delaware,,423,0
+2021-11-24,Kent,Delaware,10001,27706,467
+2021-11-24,New Castle,Delaware,10003,85974,1050
+2021-11-24,Sussex,Delaware,10005,37062,647
+2021-11-24,Unknown,Delaware,,422,0
+2021-11-25,Kent,Delaware,10001,27839,469
+2021-11-25,New Castle,Delaware,10003,86194,1054
+2021-11-25,Sussex,Delaware,10005,37202,650
+2021-11-25,Unknown,Delaware,,420,0
+2021-11-26,Kent,Delaware,10001,27948,469
+2021-11-26,New Castle,Delaware,10003,86497,1054
+2021-11-26,Sussex,Delaware,10005,37297,650
+2021-11-26,Unknown,Delaware,,423,0
+2021-11-27,Kent,Delaware,10001,27993,469
+2021-11-27,New Castle,Delaware,10003,86641,1054
+2021-11-27,Sussex,Delaware,10005,37349,650
+2021-11-27,Unknown,Delaware,,424,0
+2021-11-28,Kent,Delaware,10001,28070,469
+2021-11-28,New Castle,Delaware,10003,86770,1054
+2021-11-28,Sussex,Delaware,10005,37407,650
+2021-11-28,Unknown,Delaware,,423,0
+2021-11-29,Kent,Delaware,10001,28124,469
+2021-11-29,New Castle,Delaware,10003,86901,1054
+2021-11-29,Sussex,Delaware,10005,37457,650
+2021-11-29,Unknown,Delaware,,422,0
+2021-11-30,Kent,Delaware,10001,28171,469
+2021-11-30,New Castle,Delaware,10003,87086,1056
+2021-11-30,Sussex,Delaware,10005,37513,653
+2021-11-30,Unknown,Delaware,,420,0
+2021-12-01,Kent,Delaware,10001,28307,469
+2021-12-01,New Castle,Delaware,10003,87424,1057
+2021-12-01,Sussex,Delaware,10005,37610,653
+2021-12-01,Unknown,Delaware,,421,0
+2021-12-02,Kent,Delaware,10001,28469,472
+2021-12-02,New Castle,Delaware,10003,87743,1057
+2021-12-02,Sussex,Delaware,10005,37777,653
+2021-12-02,Unknown,Delaware,,424,0
+2021-12-03,Kent,Delaware,10001,28628,473
+2021-12-03,New Castle,Delaware,10003,88159,1066
+2021-12-03,Sussex,Delaware,10005,37938,655
+2021-12-03,Unknown,Delaware,,424,0
+2021-12-04,Kent,Delaware,10001,28789,473
+2021-12-04,New Castle,Delaware,10003,88612,1066
+2021-12-04,Sussex,Delaware,10005,38097,655
+2021-12-04,Unknown,Delaware,,424,0
+2021-12-05,Kent,Delaware,10001,28916,473
+2021-12-05,New Castle,Delaware,10003,88888,1066
+2021-12-05,Sussex,Delaware,10005,38225,655
+2021-12-05,Unknown,Delaware,,425,0
+2021-12-06,Kent,Delaware,10001,28986,473
+2021-12-06,New Castle,Delaware,10003,89112,1066
+2021-12-06,Sussex,Delaware,10005,38364,655
+2021-12-06,Unknown,Delaware,,425,0
+2021-12-07,Kent,Delaware,10001,29058,474
+2021-12-07,New Castle,Delaware,10003,89279,1069
+2021-12-07,Sussex,Delaware,10005,38414,660
+2021-12-07,Unknown,Delaware,,424,0
+2021-12-08,Kent,Delaware,10001,29178,474
+2021-12-08,New Castle,Delaware,10003,89589,1072
+2021-12-08,Sussex,Delaware,10005,38557,660
+2021-12-08,Unknown,Delaware,,427,0
+2021-12-09,Kent,Delaware,10001,29428,476
+2021-12-09,New Castle,Delaware,10003,89970,1074
+2021-12-09,Sussex,Delaware,10005,38747,660
+2021-12-09,Unknown,Delaware,,455,0
+2021-12-10,Kent,Delaware,10001,29583,476
+2021-12-10,New Castle,Delaware,10003,90416,1075
+2021-12-10,Sussex,Delaware,10005,38922,660
+2021-12-10,Unknown,Delaware,,478,0
+2021-12-11,Kent,Delaware,10001,29773,478
+2021-12-11,New Castle,Delaware,10003,90795,1080
+2021-12-11,Sussex,Delaware,10005,39052,660
+2021-12-11,Unknown,Delaware,,504,0
+2021-12-12,Kent,Delaware,10001,29925,478
+2021-12-12,New Castle,Delaware,10003,91096,1080
+2021-12-12,Sussex,Delaware,10005,39229,660
+2021-12-12,Unknown,Delaware,,518,0
+2021-12-13,Kent,Delaware,10001,30050,478
+2021-12-13,New Castle,Delaware,10003,91454,1080
+2021-12-13,Sussex,Delaware,10005,39329,660
+2021-12-13,Unknown,Delaware,,526,0
+2021-12-14,Kent,Delaware,10001,30106,478
+2021-12-14,New Castle,Delaware,10003,91588,1083
+2021-12-14,Sussex,Delaware,10005,39423,664
+2021-12-14,Unknown,Delaware,,533,0
+2021-12-15,Kent,Delaware,10001,30329,481
+2021-12-15,New Castle,Delaware,10003,91873,1085
+2021-12-15,Sussex,Delaware,10005,39562,664
+2021-12-15,Unknown,Delaware,,567,0
+2021-12-16,Kent,Delaware,10001,30468,481
+2021-12-16,New Castle,Delaware,10003,92205,1085
+2021-12-16,Sussex,Delaware,10005,39782,665
+2021-12-16,Unknown,Delaware,,566,0
+2021-12-17,Kent,Delaware,10001,30798,483
+2021-12-17,New Castle,Delaware,10003,92734,1085
+2021-12-17,Sussex,Delaware,10005,39987,666
+2021-12-17,Unknown,Delaware,,573,0
+2021-12-18,Kent,Delaware,10001,30974,484
+2021-12-18,New Castle,Delaware,10003,93189,1091
+2021-12-18,Sussex,Delaware,10005,40184,667
+2021-12-18,Unknown,Delaware,,576,0
+2021-12-19,Kent,Delaware,10001,31115,484
+2021-12-19,New Castle,Delaware,10003,93554,1091
+2021-12-19,Sussex,Delaware,10005,40374,667
+2021-12-19,Unknown,Delaware,,578,0
+2021-12-20,Kent,Delaware,10001,31283,484
+2021-12-20,New Castle,Delaware,10003,93921,1091
+2021-12-20,Sussex,Delaware,10005,40508,667
+2021-12-20,Unknown,Delaware,,580,0
+2021-12-21,Kent,Delaware,10001,31398,485
+2021-12-21,New Castle,Delaware,10003,94218,1095
+2021-12-21,Sussex,Delaware,10005,40627,669
+2021-12-21,Unknown,Delaware,,577,0
+2021-12-22,Kent,Delaware,10001,31582,485
+2021-12-22,New Castle,Delaware,10003,94520,1095
+2021-12-22,Sussex,Delaware,10005,40814,669
+2021-12-22,Unknown,Delaware,,577,0
+2021-12-23,Kent,Delaware,10001,31866,489
+2021-12-23,New Castle,Delaware,10003,95144,1096
+2021-12-23,Sussex,Delaware,10005,41041,670
+2021-12-23,Unknown,Delaware,,580,0
+2021-12-24,Kent,Delaware,10001,32155,493
+2021-12-24,New Castle,Delaware,10003,95970,1105
+2021-12-24,Sussex,Delaware,10005,41279,673
+2021-12-24,Unknown,Delaware,,605,0
+2021-12-25,Kent,Delaware,10001,32509,493
+2021-12-25,New Castle,Delaware,10003,96862,1105
+2021-12-25,Sussex,Delaware,10005,41545,673
+2021-12-25,Unknown,Delaware,,647,0
+2021-12-26,Kent,Delaware,10001,32682,493
+2021-12-26,New Castle,Delaware,10003,97631,1105
+2021-12-26,Sussex,Delaware,10005,41826,673
+2021-12-26,Unknown,Delaware,,688,0
+2021-12-27,Kent,Delaware,10001,32734,493
+2021-12-27,New Castle,Delaware,10003,97915,1105
+2021-12-27,Sussex,Delaware,10005,41920,673
+2021-12-27,Unknown,Delaware,,689,0
+2021-12-28,Kent,Delaware,10001,32879,493
+2021-12-28,New Castle,Delaware,10003,98237,1107
+2021-12-28,Sussex,Delaware,10005,42029,676
+2021-12-28,Unknown,Delaware,,679,0
+2021-12-29,Kent,Delaware,10001,33104,493
+2021-12-29,New Castle,Delaware,10003,98819,1111
+2021-12-29,Sussex,Delaware,10005,42304,679
+2021-12-29,Unknown,Delaware,,682,0
+2021-12-30,Kent,Delaware,10001,33461,493
+2021-12-30,New Castle,Delaware,10003,100020,1112
+2021-12-30,Sussex,Delaware,10005,42695,681
+2021-12-30,Unknown,Delaware,,687,0
+2021-12-31,Kent,Delaware,10001,34199,493
+2021-12-31,New Castle,Delaware,10003,101913,1112
+2021-12-31,Sussex,Delaware,10005,43548,681
+2021-12-31,Unknown,Delaware,,706,0
+2022-01-01,Kent,Delaware,10001,34609,493
+2022-01-01,New Castle,Delaware,10003,104426,1112
+2022-01-01,Sussex,Delaware,10005,44129,681
+2022-01-01,Unknown,Delaware,,716,0
+2022-01-02,Kent,Delaware,10001,35219,493
+2022-01-02,New Castle,Delaware,10003,106161,1112
+2022-01-02,Sussex,Delaware,10005,44896,681
+2022-01-02,Unknown,Delaware,,720,0
+2022-01-03,Kent,Delaware,10001,35647,493
+2022-01-03,New Castle,Delaware,10003,107755,1112
+2022-01-03,Sussex,Delaware,10005,45253,681
+2022-01-03,Unknown,Delaware,,727,0
+2022-01-04,Kent,Delaware,10001,36002,493
+2022-01-04,New Castle,Delaware,10003,109060,1112
+2022-01-04,Sussex,Delaware,10005,45857,681
+2022-01-04,Unknown,Delaware,,730,0
+2022-01-05,Kent,Delaware,10001,36166,493
+2022-01-05,New Castle,Delaware,10003,109986,1112
+2022-01-05,Sussex,Delaware,10005,46085,681
+2022-01-05,Unknown,Delaware,,731,0
+2022-01-06,Kent,Delaware,10001,36519,493
+2022-01-06,New Castle,Delaware,10003,111837,1112
+2022-01-06,Sussex,Delaware,10005,46508,681
+2022-01-06,Unknown,Delaware,,736,0
+2022-01-07,Kent,Delaware,10001,37076,503
+2022-01-07,New Castle,Delaware,10003,113698,1130
+2022-01-07,Sussex,Delaware,10005,46989,697
+2022-01-07,Unknown,Delaware,,744,0
+2022-01-08,Kent,Delaware,10001,37953,512
+2022-01-08,New Castle,Delaware,10003,115882,1146
+2022-01-08,Sussex,Delaware,10005,47640,707
+2022-01-08,Unknown,Delaware,,761,0
+2022-01-09,Kent,Delaware,10001,38537,512
+2022-01-09,New Castle,Delaware,10003,117976,1146
+2022-01-09,Sussex,Delaware,10005,48355,707
+2022-01-09,Unknown,Delaware,,772,0
+2022-01-10,Kent,Delaware,10001,38971,512
+2022-01-10,New Castle,Delaware,10003,119730,1146
+2022-01-10,Sussex,Delaware,10005,48863,707
+2022-01-10,Unknown,Delaware,,776,0
+2022-01-11,Kent,Delaware,10001,39333,512
+2022-01-11,New Castle,Delaware,10003,121001,1150
+2022-01-11,Sussex,Delaware,10005,49315,711
+2022-01-11,Unknown,Delaware,,788,0
+2022-01-12,Kent,Delaware,10001,40005,512
+2022-01-12,New Castle,Delaware,10003,123038,1153
+2022-01-12,Sussex,Delaware,10005,50147,712
+2022-01-12,Unknown,Delaware,,803,0
+2022-01-13,Kent,Delaware,10001,40997,512
+2022-01-13,New Castle,Delaware,10003,125537,1156
+2022-01-13,Sussex,Delaware,10005,51137,712
+2022-01-13,Unknown,Delaware,,815,0
+2022-01-14,Kent,Delaware,10001,41752,519
+2022-01-14,New Castle,Delaware,10003,127278,1159
+2022-01-14,Sussex,Delaware,10005,51952,718
+2022-01-14,Unknown,Delaware,,829,0
+2022-01-15,Kent,Delaware,10001,42478,522
+2022-01-15,New Castle,Delaware,10003,128976,1177
+2022-01-15,Sussex,Delaware,10005,52805,725
+2022-01-15,Unknown,Delaware,,835,0
+2022-01-16,Kent,Delaware,10001,42958,522
+2022-01-16,New Castle,Delaware,10003,130278,1177
+2022-01-16,Sussex,Delaware,10005,53512,725
+2022-01-16,Unknown,Delaware,,846,0
+2022-01-17,Kent,Delaware,10001,43544,522
+2022-01-17,New Castle,Delaware,10003,131345,1177
+2022-01-17,Sussex,Delaware,10005,54011,725
+2022-01-17,Unknown,Delaware,,859,0
+2022-01-18,Kent,Delaware,10001,43674,522
+2022-01-18,New Castle,Delaware,10003,132118,1177
+2022-01-18,Sussex,Delaware,10005,54224,725
+2022-01-18,Unknown,Delaware,,860,0
+2022-01-19,Kent,Delaware,10001,43874,522
+2022-01-19,New Castle,Delaware,10003,132866,1186
+2022-01-19,Sussex,Delaware,10005,54531,732
+2022-01-19,Unknown,Delaware,,861,0
+2022-01-20,Kent,Delaware,10001,44311,522
+2022-01-20,New Castle,Delaware,10003,133641,1193
+2022-01-20,Sussex,Delaware,10005,55028,735
+2022-01-20,Unknown,Delaware,,863,0
+2022-01-21,Kent,Delaware,10001,44848,522
+2022-01-21,New Castle,Delaware,10003,134821,1199
+2022-01-21,Sussex,Delaware,10005,55486,736
+2022-01-21,Unknown,Delaware,,867,0
+2022-01-22,Kent,Delaware,10001,45510,536
+2022-01-22,New Castle,Delaware,10003,135915,1206
+2022-01-22,Sussex,Delaware,10005,56204,738
+2022-01-22,Unknown,Delaware,,872,0
+2022-01-23,Kent,Delaware,10001,45910,537
+2022-01-23,New Castle,Delaware,10003,136824,1205
+2022-01-23,Sussex,Delaware,10005,56571,738
+2022-01-23,Unknown,Delaware,,874,0
+2022-01-24,Kent,Delaware,10001,46093,537
+2022-01-24,New Castle,Delaware,10003,137494,1205
+2022-01-24,Sussex,Delaware,10005,56905,738
+2022-01-24,Unknown,Delaware,,875,0
+2022-01-25,Kent,Delaware,10001,46314,537
+2022-01-25,New Castle,Delaware,10003,138002,1210
+2022-01-25,Sussex,Delaware,10005,57129,742
+2022-01-25,Unknown,Delaware,,879,0
+2022-01-26,Kent,Delaware,10001,46583,537
+2022-01-26,New Castle,Delaware,10003,138376,1213
+2022-01-26,Sussex,Delaware,10005,57361,743
+2022-01-26,Unknown,Delaware,,882,0
+2022-01-27,Kent,Delaware,10001,46908,538
+2022-01-27,New Castle,Delaware,10003,139117,1213
+2022-01-27,Sussex,Delaware,10005,57822,743
+2022-01-27,Unknown,Delaware,,883,0
+2022-01-28,Kent,Delaware,10001,47198,538
+2022-01-28,New Castle,Delaware,10003,139775,1214
+2022-01-28,Sussex,Delaware,10005,58178,746
+2022-01-28,Unknown,Delaware,,886,0
+2022-01-29,Kent,Delaware,10001,47434,551
+2022-01-29,New Castle,Delaware,10003,140248,1224
+2022-01-29,Sussex,Delaware,10005,58391,756
+2022-01-29,Unknown,Delaware,,886,0
+2022-01-30,Kent,Delaware,10001,47598,551
+2022-01-30,New Castle,Delaware,10003,140567,1224
+2022-01-30,Sussex,Delaware,10005,58587,756
+2022-01-30,Unknown,Delaware,,886,0
+2022-01-31,Kent,Delaware,10001,47695,551
+2022-01-31,New Castle,Delaware,10003,140842,1224
+2022-01-31,Sussex,Delaware,10005,58688,756
+2022-01-31,Unknown,Delaware,,886,0
+2022-02-01,Kent,Delaware,10001,47771,558
+2022-02-01,New Castle,Delaware,10003,141029,1229
+2022-02-01,Sussex,Delaware,10005,58760,757
+2022-02-01,Unknown,Delaware,,887,0
+2022-02-02,Kent,Delaware,10001,47920,560
+2022-02-02,New Castle,Delaware,10003,141217,1231
+2022-02-02,Sussex,Delaware,10005,58885,761
+2022-02-02,Unknown,Delaware,,888,0
+2022-02-03,Kent,Delaware,10001,48098,560
+2022-02-03,New Castle,Delaware,10003,141653,1234
+2022-02-03,Sussex,Delaware,10005,59061,761
+2022-02-03,Unknown,Delaware,,904,0
+2022-02-04,Kent,Delaware,10001,48229,565
+2022-02-04,New Castle,Delaware,10003,141965,1236
+2022-02-04,Sussex,Delaware,10005,59213,762
+2022-02-04,Unknown,Delaware,,904,0
+2022-02-05,Kent,Delaware,10001,48336,567
+2022-02-05,New Castle,Delaware,10003,142195,1246
+2022-02-05,Sussex,Delaware,10005,59323,763
+2022-02-05,Unknown,Delaware,,902,0
+2022-02-06,Kent,Delaware,10001,48458,567
+2022-02-06,New Castle,Delaware,10003,142416,1246
+2022-02-06,Sussex,Delaware,10005,59415,763
+2022-02-06,Unknown,Delaware,,903,0
+2022-02-07,Kent,Delaware,10001,48509,567
+2022-02-07,New Castle,Delaware,10003,142562,1246
+2022-02-07,Sussex,Delaware,10005,59493,763
+2022-02-07,Unknown,Delaware,,903,0
+2022-02-08,Kent,Delaware,10001,48552,572
+2022-02-08,New Castle,Delaware,10003,142688,1250
+2022-02-08,Sussex,Delaware,10005,59526,771
+2022-02-08,Unknown,Delaware,,903,0
+2022-02-09,Kent,Delaware,10001,48617,574
+2022-02-09,New Castle,Delaware,10003,142887,1253
+2022-02-09,Sussex,Delaware,10005,59658,771
+2022-02-09,Unknown,Delaware,,906,0
+2022-02-10,Kent,Delaware,10001,48751,576
+2022-02-10,New Castle,Delaware,10003,143136,1253
+2022-02-10,Sussex,Delaware,10005,59772,772
+2022-02-10,Unknown,Delaware,,908,0
+2022-02-11,Kent,Delaware,10001,48839,576
+2022-02-11,New Castle,Delaware,10003,143381,1253
+2022-02-11,Sussex,Delaware,10005,59881,772
+2022-02-11,Unknown,Delaware,,909,0
+2022-02-12,Kent,Delaware,10001,48897,587
+2022-02-12,New Castle,Delaware,10003,143526,1278
+2022-02-12,Sussex,Delaware,10005,59960,778
+2022-02-12,Unknown,Delaware,,909,0
+2022-02-13,Kent,Delaware,10001,48959,587
+2022-02-13,New Castle,Delaware,10003,143648,1278
+2022-02-13,Sussex,Delaware,10005,60018,778
+2022-02-13,Unknown,Delaware,,909,0
+2022-02-14,Kent,Delaware,10001,48999,587
+2022-02-14,New Castle,Delaware,10003,143779,1278
+2022-02-14,Sussex,Delaware,10005,60061,778
+2022-02-14,Unknown,Delaware,,909,0
+2022-02-15,Kent,Delaware,10001,49030,587
+2022-02-15,New Castle,Delaware,10003,143852,1280
+2022-02-15,Sussex,Delaware,10005,60089,778
+2022-02-15,Unknown,Delaware,,910,0
+2022-02-16,Kent,Delaware,10001,49092,589
+2022-02-16,New Castle,Delaware,10003,143931,1281
+2022-02-16,Sussex,Delaware,10005,60149,784
+2022-02-16,Unknown,Delaware,,911,0
+2022-02-17,Kent,Delaware,10001,49165,589
+2022-02-17,New Castle,Delaware,10003,144131,1282
+2022-02-17,Sussex,Delaware,10005,60232,784
+2022-02-17,Unknown,Delaware,,913,0
+2022-02-18,Kent,Delaware,10001,49226,590
+2022-02-18,New Castle,Delaware,10003,144281,1285
+2022-02-18,Sussex,Delaware,10005,60299,785
+2022-02-18,Unknown,Delaware,,913,0
+2022-02-19,Kent,Delaware,10001,49268,596
+2022-02-19,New Castle,Delaware,10003,144399,1307
+2022-02-19,Sussex,Delaware,10005,60366,792
+2022-02-19,Unknown,Delaware,,913,0
+2022-02-20,Kent,Delaware,10001,49298,596
+2022-02-20,New Castle,Delaware,10003,144489,1307
+2022-02-20,Sussex,Delaware,10005,60396,792
+2022-02-20,Unknown,Delaware,,913,0
+2022-02-21,Kent,Delaware,10001,49327,596
+2022-02-21,New Castle,Delaware,10003,144554,1307
+2022-02-21,Sussex,Delaware,10005,60415,792
+2022-02-21,Unknown,Delaware,,914,0
+2022-02-22,Kent,Delaware,10001,49339,599
+2022-02-22,New Castle,Delaware,10003,144600,1308
+2022-02-22,Sussex,Delaware,10005,60434,795
+2022-02-22,Unknown,Delaware,,914,0
+2022-02-23,Kent,Delaware,10001,49362,599
+2022-02-23,New Castle,Delaware,10003,144648,1309
+2022-02-23,Sussex,Delaware,10005,60461,795
+2022-02-23,Unknown,Delaware,,914,0
+2022-02-24,Kent,Delaware,10001,49546,599
+2022-02-24,New Castle,Delaware,10003,145096,1309
+2022-02-24,Sussex,Delaware,10005,60645,795
+2022-02-24,Unknown,Delaware,,920,0
+2022-02-25,Kent,Delaware,10001,49573,601
+2022-02-25,New Castle,Delaware,10003,145173,1310
+2022-02-25,Sussex,Delaware,10005,60671,795
+2022-02-25,Unknown,Delaware,,920,0
+2022-02-26,Kent,Delaware,10001,49592,602
+2022-02-26,New Castle,Delaware,10003,145234,1310
+2022-02-26,Sussex,Delaware,10005,60701,797
+2022-02-26,Unknown,Delaware,,920,0
+2022-02-27,Kent,Delaware,10001,49606,602
+2022-02-27,New Castle,Delaware,10003,145301,1310
+2022-02-27,Sussex,Delaware,10005,60724,797
+2022-02-27,Unknown,Delaware,,920,0
+2022-02-28,Kent,Delaware,10001,49617,602
+2022-02-28,New Castle,Delaware,10003,145343,1310
+2022-02-28,Sussex,Delaware,10005,60741,797
+2022-02-28,Unknown,Delaware,,920,0
+2022-03-01,Kent,Delaware,10001,49627,603
+2022-03-01,New Castle,Delaware,10003,145354,1311
+2022-03-01,Sussex,Delaware,10005,60755,797
+2022-03-01,Unknown,Delaware,,920,0
+2022-03-02,Kent,Delaware,10001,49652,603
+2022-03-02,New Castle,Delaware,10003,145409,1311
+2022-03-02,Sussex,Delaware,10005,60772,797
+2022-03-02,Unknown,Delaware,,920,0
+2022-03-03,Kent,Delaware,10001,49679,603
+2022-03-03,New Castle,Delaware,10003,145490,1311
+2022-03-03,Sussex,Delaware,10005,60806,797
+2022-03-03,Unknown,Delaware,,920,0
+2022-03-04,Kent,Delaware,10001,49720,603
+2022-03-04,New Castle,Delaware,10003,145585,1312
+2022-03-04,Sussex,Delaware,10005,60840,798
+2022-03-04,Unknown,Delaware,,920,0
+2022-03-05,Kent,Delaware,10001,49725,609
+2022-03-05,New Castle,Delaware,10003,145662,1338
+2022-03-05,Sussex,Delaware,10005,60875,804
+2022-03-05,Unknown,Delaware,,919,0
+2022-03-06,Kent,Delaware,10001,49740,609
+2022-03-06,New Castle,Delaware,10003,145717,1338
+2022-03-06,Sussex,Delaware,10005,60894,804
+2022-03-06,Unknown,Delaware,,919,0
+2022-03-07,Kent,Delaware,10001,49755,609
+2022-03-07,New Castle,Delaware,10003,145740,1338
+2022-03-07,Sussex,Delaware,10005,60911,804
+2022-03-07,Unknown,Delaware,,919,0
+2022-03-08,Kent,Delaware,10001,49760,610
+2022-03-08,New Castle,Delaware,10003,145762,1338
+2022-03-08,Sussex,Delaware,10005,60926,804
+2022-03-08,Unknown,Delaware,,919,0
+2022-03-09,Kent,Delaware,10001,49777,610
+2022-03-09,New Castle,Delaware,10003,145797,1338
+2022-03-09,Sussex,Delaware,10005,60945,804
+2022-03-09,Unknown,Delaware,,919,0
+2022-03-10,Kent,Delaware,10001,49856,611
+2022-03-10,New Castle,Delaware,10003,146011,1338
+2022-03-10,Sussex,Delaware,10005,61061,804
+2022-03-10,Unknown,Delaware,,920,0
+2022-03-11,Kent,Delaware,10001,49887,611
+2022-03-11,New Castle,Delaware,10003,146106,1338
+2022-03-11,Sussex,Delaware,10005,61112,804
+2022-03-11,Unknown,Delaware,,919,0
+2022-03-12,Kent,Delaware,10001,49908,622
+2022-03-12,New Castle,Delaware,10003,146146,1367
+2022-03-12,Sussex,Delaware,10005,61143,818
+2022-03-12,Unknown,Delaware,,919,0
+2022-03-13,Kent,Delaware,10001,49917,622
+2022-03-13,New Castle,Delaware,10003,146189,1367
+2022-03-13,Sussex,Delaware,10005,61160,818
+2022-03-13,Unknown,Delaware,,919,0
+2022-03-14,Kent,Delaware,10001,49925,622
+2022-03-14,New Castle,Delaware,10003,146208,1367
+2022-03-14,Sussex,Delaware,10005,61174,818
+2022-03-14,Unknown,Delaware,,919,0
+2022-03-15,Kent,Delaware,10001,49934,625
+2022-03-15,New Castle,Delaware,10003,146237,1368
+2022-03-15,Sussex,Delaware,10005,61197,818
+2022-03-15,Unknown,Delaware,,919,0
+2022-03-16,Kent,Delaware,10001,49949,625
+2022-03-16,New Castle,Delaware,10003,146269,1368
+2022-03-16,Sussex,Delaware,10005,61210,819
+2022-03-16,Unknown,Delaware,,919,0
+2022-03-17,Kent,Delaware,10001,49969,625
+2022-03-17,New Castle,Delaware,10003,146306,1368
+2022-03-17,Sussex,Delaware,10005,61234,819
+2022-03-17,Unknown,Delaware,,919,0
+2022-03-18,Kent,Delaware,10001,49983,625
+2022-03-18,New Castle,Delaware,10003,146366,1368
+2022-03-18,Sussex,Delaware,10005,61245,819
+2022-03-18,Unknown,Delaware,,919,0
+2022-03-19,Kent,Delaware,10001,49998,631
+2022-03-19,New Castle,Delaware,10003,146418,1379
+2022-03-19,Sussex,Delaware,10005,61260,823
+2022-03-19,Unknown,Delaware,,919,0
+2022-03-20,Kent,Delaware,10001,50010,631
+2022-03-20,New Castle,Delaware,10003,146469,1379
+2022-03-20,Sussex,Delaware,10005,61272,823
+2022-03-20,Unknown,Delaware,,920,0
+2022-03-21,Kent,Delaware,10001,50018,631
+2022-03-21,New Castle,Delaware,10003,146494,1379
+2022-03-21,Sussex,Delaware,10005,61277,823
+2022-03-21,Unknown,Delaware,,920,0
+2022-03-22,Kent,Delaware,10001,50019,631
+2022-03-22,New Castle,Delaware,10003,146512,1379
+2022-03-22,Sussex,Delaware,10005,61285,825
+2022-03-22,Unknown,Delaware,,921,0
+2022-03-23,Kent,Delaware,10001,50031,631
+2022-03-23,New Castle,Delaware,10003,146551,1379
+2022-03-23,Sussex,Delaware,10005,61301,825
+2022-03-23,Unknown,Delaware,,920,0
+2022-03-24,Kent,Delaware,10001,50068,631
+2022-03-24,New Castle,Delaware,10003,146667,1379
+2022-03-24,Sussex,Delaware,10005,61348,826
+2022-03-24,Unknown,Delaware,,920,0
+2022-03-25,Kent,Delaware,10001,50096,632
+2022-03-25,New Castle,Delaware,10003,146758,1379
+2022-03-25,Sussex,Delaware,10005,61411,826
+2022-03-25,Unknown,Delaware,,920,0
+2022-03-26,Kent,Delaware,10001,50114,634
+2022-03-26,New Castle,Delaware,10003,146816,1383
+2022-03-26,Sussex,Delaware,10005,61437,829
+2022-03-26,Unknown,Delaware,,920,0
+2022-03-27,Kent,Delaware,10001,50134,634
+2022-03-27,New Castle,Delaware,10003,146867,1383
+2022-03-27,Sussex,Delaware,10005,61453,829
+2022-03-27,Unknown,Delaware,,920,0
+2022-03-28,Kent,Delaware,10001,50140,634
+2022-03-28,New Castle,Delaware,10003,146884,1383
+2022-03-28,Sussex,Delaware,10005,61461,829
+2022-03-28,Unknown,Delaware,,920,0
+2022-03-29,Kent,Delaware,10001,50153,634
+2022-03-29,New Castle,Delaware,10003,146910,1383
+2022-03-29,Sussex,Delaware,10005,61470,829
+2022-03-29,Unknown,Delaware,,920,0
+2022-03-30,Kent,Delaware,10001,50166,634
+2022-03-30,New Castle,Delaware,10003,146944,1383
+2022-03-30,Sussex,Delaware,10005,61503,829
+2022-03-30,Unknown,Delaware,,926,0
+2022-03-31,Kent,Delaware,10001,50196,634
+2022-03-31,New Castle,Delaware,10003,147004,1383
+2022-03-31,Sussex,Delaware,10005,61527,829
+2022-03-31,Unknown,Delaware,,920,0
+2022-04-01,Kent,Delaware,10001,50210,634
+2022-04-01,New Castle,Delaware,10003,147067,1383
+2022-04-01,Sussex,Delaware,10005,61549,829
+2022-04-01,Unknown,Delaware,,920,0
+2022-04-02,Kent,Delaware,10001,50225,638
+2022-04-02,New Castle,Delaware,10003,147127,1395
+2022-04-02,Sussex,Delaware,10005,61576,837
+2022-04-02,Unknown,Delaware,,920,0
+2022-04-03,Kent,Delaware,10001,50246,638
+2022-04-03,New Castle,Delaware,10003,147168,1395
+2022-04-03,Sussex,Delaware,10005,61592,837
+2022-04-03,Unknown,Delaware,,921,0
+2022-04-04,Kent,Delaware,10001,50253,638
+2022-04-04,New Castle,Delaware,10003,147192,1395
+2022-04-04,Sussex,Delaware,10005,61611,837
+2022-04-04,Unknown,Delaware,,921,0
+2022-04-05,Kent,Delaware,10001,50258,638
+2022-04-05,New Castle,Delaware,10003,147219,1396
+2022-04-05,Sussex,Delaware,10005,61626,837
+2022-04-05,Unknown,Delaware,,921,0
+2022-04-06,Kent,Delaware,10001,50280,638
+2022-04-06,New Castle,Delaware,10003,147265,1396
+2022-04-06,Sussex,Delaware,10005,61653,837
+2022-04-06,Unknown,Delaware,,921,0
+2022-04-07,Kent,Delaware,10001,50315,638
+2022-04-07,New Castle,Delaware,10003,147367,1396
+2022-04-07,Sussex,Delaware,10005,61685,837
+2022-04-07,Unknown,Delaware,,924,0
+2022-04-08,Kent,Delaware,10001,50175,638
+2022-04-08,New Castle,Delaware,10003,146569,1396
+2022-04-08,Sussex,Delaware,10005,61414,837
+2022-04-08,Unknown,Delaware,,850,0
+2022-04-09,Kent,Delaware,10001,50200,640
+2022-04-09,New Castle,Delaware,10003,146629,1400
+2022-04-09,Sussex,Delaware,10005,61438,844
+2022-04-09,Unknown,Delaware,,851,0
+2022-04-10,Kent,Delaware,10001,50229,640
+2022-04-10,New Castle,Delaware,10003,146707,1400
+2022-04-10,Sussex,Delaware,10005,61472,844
+2022-04-10,Unknown,Delaware,,851,0
+2022-04-11,Kent,Delaware,10001,50244,640
+2022-04-11,New Castle,Delaware,10003,146761,1400
+2022-04-11,Sussex,Delaware,10005,61490,844
+2022-04-11,Unknown,Delaware,,851,0
+2022-04-12,Kent,Delaware,10001,50256,640
+2022-04-12,New Castle,Delaware,10003,146801,1400
+2022-04-12,Sussex,Delaware,10005,61507,844
+2022-04-12,Unknown,Delaware,,855,0
+2022-04-13,Kent,Delaware,10001,50300,640
+2022-04-13,New Castle,Delaware,10003,146894,1400
+2022-04-13,Sussex,Delaware,10005,61525,844
+2022-04-13,Unknown,Delaware,,851,0
+2022-04-14,Kent,Delaware,10001,50356,640
+2022-04-14,New Castle,Delaware,10003,147005,1400
+2022-04-14,Sussex,Delaware,10005,61578,844
+2022-04-14,Unknown,Delaware,,857,0
+2022-04-15,Kent,Delaware,10001,50413,643
+2022-04-15,New Castle,Delaware,10003,147142,1407
+2022-04-15,Sussex,Delaware,10005,61627,844
+2022-04-15,Unknown,Delaware,,859,0
+2022-04-16,Kent,Delaware,10001,50413,643
+2022-04-16,New Castle,Delaware,10003,147142,1407
+2022-04-16,Sussex,Delaware,10005,61627,844
+2022-04-16,Unknown,Delaware,,859,0
+2022-04-17,Kent,Delaware,10001,50413,643
+2022-04-17,New Castle,Delaware,10003,147142,1407
+2022-04-17,Sussex,Delaware,10005,61627,844
+2022-04-17,Unknown,Delaware,,859,0
+2022-04-18,Kent,Delaware,10001,50479,643
+2022-04-18,New Castle,Delaware,10003,147434,1407
+2022-04-18,Sussex,Delaware,10005,61703,844
+2022-04-18,Unknown,Delaware,,860,0
+2022-04-19,Kent,Delaware,10001,50508,643
+2022-04-19,New Castle,Delaware,10003,147472,1408
+2022-04-19,Sussex,Delaware,10005,61724,845
+2022-04-19,Unknown,Delaware,,862,0
+2022-04-20,Kent,Delaware,10001,50551,643
+2022-04-20,New Castle,Delaware,10003,147570,1408
+2022-04-20,Sussex,Delaware,10005,61751,845
+2022-04-20,Unknown,Delaware,,863,0
+2022-04-21,Kent,Delaware,10001,50588,643
+2022-04-21,New Castle,Delaware,10003,147677,1408
+2022-04-21,Sussex,Delaware,10005,61790,845
+2022-04-21,Unknown,Delaware,,863,0
+2022-04-22,Kent,Delaware,10001,50631,643
+2022-04-22,New Castle,Delaware,10003,147791,1408
+2022-04-22,Sussex,Delaware,10005,61838,845
+2022-04-22,Unknown,Delaware,,858,0
+2022-04-23,Kent,Delaware,10001,50702,645
+2022-04-23,New Castle,Delaware,10003,147959,1412
+2022-04-23,Sussex,Delaware,10005,61880,848
+2022-04-23,Unknown,Delaware,,858,0
+2022-04-24,Kent,Delaware,10001,50702,645
+2022-04-24,New Castle,Delaware,10003,147959,1412
+2022-04-24,Sussex,Delaware,10005,61880,848
+2022-04-24,Unknown,Delaware,,858,0
+2022-04-25,Kent,Delaware,10001,50752,645
+2022-04-25,New Castle,Delaware,10003,148107,1412
+2022-04-25,Sussex,Delaware,10005,61940,848
+2022-04-25,Unknown,Delaware,,861,0
+2022-04-26,Kent,Delaware,10001,50776,645
+2022-04-26,New Castle,Delaware,10003,148164,1413
+2022-04-26,Sussex,Delaware,10005,61961,848
+2022-04-26,Unknown,Delaware,,861,0
+2022-04-27,Kent,Delaware,10001,50816,645
+2022-04-27,New Castle,Delaware,10003,148290,1413
+2022-04-27,Sussex,Delaware,10005,61991,848
+2022-04-27,Unknown,Delaware,,861,0
+2022-04-28,Kent,Delaware,10001,50861,645
+2022-04-28,New Castle,Delaware,10003,148439,1413
+2022-04-28,Sussex,Delaware,10005,62045,848
+2022-04-28,Unknown,Delaware,,866,0
+2022-04-29,Kent,Delaware,10001,50914,645
+2022-04-29,New Castle,Delaware,10003,148584,1414
+2022-04-29,Sussex,Delaware,10005,62096,848
+2022-04-29,Unknown,Delaware,,867,0
+2022-04-30,Kent,Delaware,10001,50914,645
+2022-04-30,New Castle,Delaware,10003,148584,1414
+2022-04-30,Sussex,Delaware,10005,62096,848
+2022-04-30,Unknown,Delaware,,867,0
+2022-05-01,Kent,Delaware,10001,50914,645
+2022-05-01,New Castle,Delaware,10003,148584,1414
+2022-05-01,Sussex,Delaware,10005,62096,848
+2022-05-01,Unknown,Delaware,,867,0
+2022-05-02,Kent,Delaware,10001,51041,649
+2022-05-02,New Castle,Delaware,10003,149023,1420
+2022-05-02,Sussex,Delaware,10005,62229,850
+2022-05-02,Unknown,Delaware,,871,0
+2022-05-03,Kent,Delaware,10001,51055,649
+2022-05-03,New Castle,Delaware,10003,149087,1420
+2022-05-03,Sussex,Delaware,10005,62253,850
+2022-05-03,Unknown,Delaware,,874,0
+2022-05-04,Kent,Delaware,10001,51102,649
+2022-05-04,New Castle,Delaware,10003,149200,1420
+2022-05-04,Sussex,Delaware,10005,62303,850
+2022-05-04,Unknown,Delaware,,874,0
+2022-05-05,Kent,Delaware,10001,51201,649
+2022-05-05,New Castle,Delaware,10003,149457,1420
+2022-05-05,Sussex,Delaware,10005,62429,850
+2022-05-05,Unknown,Delaware,,876,0
+2022-05-06,Kent,Delaware,10001,51306,650
+2022-05-06,New Castle,Delaware,10003,149662,1423
+2022-05-06,Sussex,Delaware,10005,62531,855
+2022-05-06,Unknown,Delaware,,877,0
+2022-05-07,Kent,Delaware,10001,51306,650
+2022-05-07,New Castle,Delaware,10003,149662,1423
+2022-05-07,Sussex,Delaware,10005,62531,855
+2022-05-07,Unknown,Delaware,,877,0
+2022-05-08,Kent,Delaware,10001,51306,650
+2022-05-08,New Castle,Delaware,10003,149662,1423
+2022-05-08,Sussex,Delaware,10005,62531,855
+2022-05-08,Unknown,Delaware,,877,0
+2022-05-09,Kent,Delaware,10001,51471,650
+2022-05-09,New Castle,Delaware,10003,150312,1423
+2022-05-09,Sussex,Delaware,10005,62808,855
+2022-05-09,Unknown,Delaware,,881,0
+2022-05-10,Kent,Delaware,10001,51498,650
+2022-05-10,New Castle,Delaware,10003,150458,1423
+2022-05-10,Sussex,Delaware,10005,62866,855
+2022-05-10,Unknown,Delaware,,885,0
+2022-05-11,Kent,Delaware,10001,51498,650
+2022-05-11,New Castle,Delaware,10003,150458,1423
+2022-05-11,Sussex,Delaware,10005,62866,855
+2022-05-11,Unknown,Delaware,,885,0
+2022-05-12,Kent,Delaware,10001,51721,650
+2022-05-12,New Castle,Delaware,10003,151033,1423
+2022-05-12,Sussex,Delaware,10005,63024,855
+2022-05-12,Unknown,Delaware,,895,0
+2022-05-13,Kent,Delaware,10001,51836,650
+2022-05-13,New Castle,Delaware,10003,151392,1424
+2022-05-13,Sussex,Delaware,10005,63138,857
+2022-05-13,Unknown,Delaware,,899,0
+2022-05-14,Kent,Delaware,10001,51836,650
+2022-05-14,New Castle,Delaware,10003,151392,1424
+2022-05-14,Sussex,Delaware,10005,63138,857
+2022-05-14,Unknown,Delaware,,899,0
+2022-05-15,Kent,Delaware,10001,51836,650
+2022-05-15,New Castle,Delaware,10003,151392,1424
+2022-05-15,Sussex,Delaware,10005,63138,857
+2022-05-15,Unknown,Delaware,,899,0
+2022-05-16,Kent,Delaware,10001,52144,650
+2022-05-16,New Castle,Delaware,10003,152408,1424
+2022-05-16,Sussex,Delaware,10005,63485,857
+2022-05-16,Unknown,Delaware,,908,0
+2022-05-17,Kent,Delaware,10001,52178,652
+2022-05-17,New Castle,Delaware,10003,152569,1424
+2022-05-17,Sussex,Delaware,10005,63542,860
+2022-05-17,Unknown,Delaware,,909,0
+2022-05-18,Kent,Delaware,10001,52307,652
+2022-05-18,New Castle,Delaware,10003,152914,1424
+2022-05-18,Sussex,Delaware,10005,63686,860
+2022-05-18,Unknown,Delaware,,911,0
+2022-05-19,Kent,Delaware,10001,52453,652
+2022-05-19,New Castle,Delaware,10003,153319,1424
+2022-05-19,Sussex,Delaware,10005,63804,860
+2022-05-19,Unknown,Delaware,,915,0
+2022-05-20,Kent,Delaware,10001,52621,652
+2022-05-20,New Castle,Delaware,10003,153780,1427
+2022-05-20,Sussex,Delaware,10005,63978,860
+2022-05-20,Unknown,Delaware,,915,0
+2022-05-21,Kent,Delaware,10001,52621,652
+2022-05-21,New Castle,Delaware,10003,153780,1427
+2022-05-21,Sussex,Delaware,10005,63978,860
+2022-05-21,Unknown,Delaware,,915,0
+2022-05-22,Kent,Delaware,10001,52621,652
+2022-05-22,New Castle,Delaware,10003,153780,1427
+2022-05-22,Sussex,Delaware,10005,63978,860
+2022-05-22,Unknown,Delaware,,915,0
+2022-05-23,Kent,Delaware,10001,52926,652
+2022-05-23,New Castle,Delaware,10003,154752,1427
+2022-05-23,Sussex,Delaware,10005,64305,860
+2022-05-23,Unknown,Delaware,,924,0
+2022-05-24,Kent,Delaware,10001,52961,652
+2022-05-24,New Castle,Delaware,10003,154931,1430
+2022-05-24,Sussex,Delaware,10005,64390,860
+2022-05-24,Unknown,Delaware,,925,0
+2022-05-25,Kent,Delaware,10001,53077,652
+2022-05-25,New Castle,Delaware,10003,155219,1430
+2022-05-25,Sussex,Delaware,10005,64499,860
+2022-05-25,Unknown,Delaware,,927,0
+2022-05-26,Kent,Delaware,10001,53189,652
+2022-05-26,New Castle,Delaware,10003,155575,1430
+2022-05-26,Sussex,Delaware,10005,64590,860
+2022-05-26,Unknown,Delaware,,932,0
+2022-05-27,Kent,Delaware,10001,53304,655
+2022-05-27,New Castle,Delaware,10003,155898,1433
+2022-05-27,Sussex,Delaware,10005,64765,868
+2022-05-27,Unknown,Delaware,,932,0
+2022-05-28,Kent,Delaware,10001,53304,655
+2022-05-28,New Castle,Delaware,10003,155898,1433
+2022-05-28,Sussex,Delaware,10005,64765,868
+2022-05-28,Unknown,Delaware,,932,0
+2022-05-29,Kent,Delaware,10001,53304,655
+2022-05-29,New Castle,Delaware,10003,155898,1433
+2022-05-29,Sussex,Delaware,10005,64765,868
+2022-05-29,Unknown,Delaware,,932,0
+2022-05-30,Kent,Delaware,10001,53582,655
+2022-05-30,New Castle,Delaware,10003,156806,1433
+2022-05-30,Sussex,Delaware,10005,65127,868
+2022-05-30,Unknown,Delaware,,939,0
+2022-05-31,Kent,Delaware,10001,53611,655
+2022-05-31,New Castle,Delaware,10003,156928,1433
+2022-05-31,Sussex,Delaware,10005,65161,868
+2022-05-31,Unknown,Delaware,,939,0
+2022-06-01,Kent,Delaware,10001,53642,655
+2022-06-01,New Castle,Delaware,10003,156977,1433
+2022-06-01,Sussex,Delaware,10005,65212,870
+2022-06-01,Unknown,Delaware,,940,0
+2022-06-02,Kent,Delaware,10001,53742,655
+2022-06-02,New Castle,Delaware,10003,157225,1434
+2022-06-02,Sussex,Delaware,10005,65279,870
+2022-06-02,Unknown,Delaware,,941,0
+2022-06-03,Kent,Delaware,10001,53851,655
+2022-06-03,New Castle,Delaware,10003,157506,1436
+2022-06-03,Sussex,Delaware,10005,65366,870
+2022-06-03,Unknown,Delaware,,943,0
+2022-06-04,Kent,Delaware,10001,53851,655
+2022-06-04,New Castle,Delaware,10003,157506,1436
+2022-06-04,Sussex,Delaware,10005,65366,870
+2022-06-04,Unknown,Delaware,,943,0
+2022-06-05,Kent,Delaware,10001,53851,655
+2022-06-05,New Castle,Delaware,10003,157506,1436
+2022-06-05,Sussex,Delaware,10005,65366,870
+2022-06-05,Unknown,Delaware,,943,0
+2022-06-06,Kent,Delaware,10001,54058,655
+2022-06-06,New Castle,Delaware,10003,158015,1436
+2022-06-06,Sussex,Delaware,10005,65590,870
+2022-06-06,Unknown,Delaware,,946,0
+2022-06-07,Kent,Delaware,10001,54107,655
+2022-06-07,New Castle,Delaware,10003,158184,1437
+2022-06-07,Sussex,Delaware,10005,65639,870
+2022-06-07,Unknown,Delaware,,947,0
+2022-06-08,Kent,Delaware,10001,54107,655
+2022-06-08,New Castle,Delaware,10003,158184,1437
+2022-06-08,Sussex,Delaware,10005,65639,870
+2022-06-08,Unknown,Delaware,,947,0
+2022-06-09,Kent,Delaware,10001,54107,655
+2022-06-09,New Castle,Delaware,10003,158184,1437
+2022-06-09,Sussex,Delaware,10005,65639,870
+2022-06-09,Unknown,Delaware,,947,0
+2022-06-10,Kent,Delaware,10001,54385,656
+2022-06-10,New Castle,Delaware,10003,159057,1443
+2022-06-10,Sussex,Delaware,10005,65854,871
+2022-06-10,Unknown,Delaware,,956,0
+2022-06-11,Kent,Delaware,10001,54385,656
+2022-06-11,New Castle,Delaware,10003,159057,1443
+2022-06-11,Sussex,Delaware,10005,65854,871
+2022-06-11,Unknown,Delaware,,956,0
+2022-06-12,Kent,Delaware,10001,54385,656
+2022-06-12,New Castle,Delaware,10003,159057,1443
+2022-06-12,Sussex,Delaware,10005,65854,871
+2022-06-12,Unknown,Delaware,,956,0
+2022-06-13,Kent,Delaware,10001,54385,656
+2022-06-13,New Castle,Delaware,10003,159057,1443
+2022-06-13,Sussex,Delaware,10005,65854,871
+2022-06-13,Unknown,Delaware,,956,0
+2022-06-14,Kent,Delaware,10001,54385,656
+2022-06-14,New Castle,Delaware,10003,159057,1443
+2022-06-14,Sussex,Delaware,10005,65854,871
+2022-06-14,Unknown,Delaware,,956,0
+2022-06-15,Kent,Delaware,10001,54592,656
+2022-06-15,New Castle,Delaware,10003,159748,1443
+2022-06-15,Sussex,Delaware,10005,66043,871
+2022-06-15,Unknown,Delaware,,964,0
+2022-06-16,Kent,Delaware,10001,54656,657
+2022-06-16,New Castle,Delaware,10003,159907,1443
+2022-06-16,Sussex,Delaware,10005,66096,871
+2022-06-16,Unknown,Delaware,,965,0
+2022-06-17,Kent,Delaware,10001,54737,658
+2022-06-17,New Castle,Delaware,10003,160115,1447
+2022-06-17,Sussex,Delaware,10005,66167,872
+2022-06-17,Unknown,Delaware,,967,0
+2022-06-18,Kent,Delaware,10001,54737,658
+2022-06-18,New Castle,Delaware,10003,160115,1447
+2022-06-18,Sussex,Delaware,10005,66167,872
+2022-06-18,Unknown,Delaware,,967,0
+2022-06-19,Kent,Delaware,10001,54737,658
+2022-06-19,New Castle,Delaware,10003,160115,1447
+2022-06-19,Sussex,Delaware,10005,66167,872
+2022-06-19,Unknown,Delaware,,967,0
+2022-06-20,Kent,Delaware,10001,54873,658
+2022-06-20,New Castle,Delaware,10003,160567,1447
+2022-06-20,Sussex,Delaware,10005,66331,872
+2022-06-20,Unknown,Delaware,,972,0
+2022-06-21,Kent,Delaware,10001,54897,660
+2022-06-21,New Castle,Delaware,10003,160675,1447
+2022-06-21,Sussex,Delaware,10005,66365,873
+2022-06-21,Unknown,Delaware,,972,0
+2022-06-22,Kent,Delaware,10001,54929,660
+2022-06-22,New Castle,Delaware,10003,160727,1448
+2022-06-22,Sussex,Delaware,10005,66388,874
+2022-06-22,Unknown,Delaware,,973,0
+2022-06-23,Kent,Delaware,10001,55002,660
+2022-06-23,New Castle,Delaware,10003,160947,1448
+2022-06-23,Sussex,Delaware,10005,66444,874
+2022-06-23,Unknown,Delaware,,977,0
+2022-06-24,Kent,Delaware,10001,55043,660
+2022-06-24,New Castle,Delaware,10003,161103,1449
+2022-06-24,Sussex,Delaware,10005,66507,874
+2022-06-24,Unknown,Delaware,,979,0
+2022-06-25,Kent,Delaware,10001,55043,660
+2022-06-25,New Castle,Delaware,10003,161103,1449
+2022-06-25,Sussex,Delaware,10005,66507,874
+2022-06-25,Unknown,Delaware,,979,0
+2022-06-26,Kent,Delaware,10001,55043,660
+2022-06-26,New Castle,Delaware,10003,161103,1449
+2022-06-26,Sussex,Delaware,10005,66507,874
+2022-06-26,Unknown,Delaware,,979,0
+2022-06-27,Kent,Delaware,10001,55160,660
+2022-06-27,New Castle,Delaware,10003,161525,1449
+2022-06-27,Sussex,Delaware,10005,66668,874
+2022-06-27,Unknown,Delaware,,981,0
+2022-06-28,Kent,Delaware,10001,55173,660
+2022-06-28,New Castle,Delaware,10003,161607,1450
+2022-06-28,Sussex,Delaware,10005,66698,874
+2022-06-28,Unknown,Delaware,,983,0
+2022-06-29,Kent,Delaware,10001,55235,660
+2022-06-29,New Castle,Delaware,10003,161769,1450
+2022-06-29,Sussex,Delaware,10005,66745,874
+2022-06-29,Unknown,Delaware,,984,0
+2022-06-30,Kent,Delaware,10001,55291,660
+2022-06-30,New Castle,Delaware,10003,161968,1450
+2022-06-30,Sussex,Delaware,10005,66803,874
+2022-06-30,Unknown,Delaware,,984,0
+2022-07-01,Kent,Delaware,10001,55359,660
+2022-07-01,New Castle,Delaware,10003,162187,1450
+2022-07-01,Sussex,Delaware,10005,66873,874
+2022-07-01,Unknown,Delaware,,984,0
+2022-07-02,Kent,Delaware,10001,55359,660
+2022-07-02,New Castle,Delaware,10003,162187,1450
+2022-07-02,Sussex,Delaware,10005,66873,874
+2022-07-02,Unknown,Delaware,,984,0
+2022-07-03,Kent,Delaware,10001,55359,660
+2022-07-03,New Castle,Delaware,10003,162187,1450
+2022-07-03,Sussex,Delaware,10005,66873,874
+2022-07-03,Unknown,Delaware,,984,0
+2022-07-04,Kent,Delaware,10001,55470,660
+2022-07-04,New Castle,Delaware,10003,162611,1450
+2022-07-04,Sussex,Delaware,10005,67022,874
+2022-07-04,Unknown,Delaware,,986,0
+2022-07-05,Kent,Delaware,10001,55485,660
+2022-07-05,New Castle,Delaware,10003,162709,1450
+2022-07-05,Sussex,Delaware,10005,67047,874
+2022-07-05,Unknown,Delaware,,986,0
+2022-07-06,Kent,Delaware,10001,55508,660
+2022-07-06,New Castle,Delaware,10003,162842,1450
+2022-07-06,Sussex,Delaware,10005,67072,874
+2022-07-06,Unknown,Delaware,,990,0
+2022-07-07,Kent,Delaware,10001,55588,660
+2022-07-07,New Castle,Delaware,10003,163018,1450
+2022-07-07,Sussex,Delaware,10005,67141,874
+2022-07-07,Unknown,Delaware,,990,0
+2022-07-08,Kent,Delaware,10001,55670,664
+2022-07-08,New Castle,Delaware,10003,163226,1456
+2022-07-08,Sussex,Delaware,10005,67191,878
+2022-07-08,Unknown,Delaware,,991,0
+2022-07-09,Kent,Delaware,10001,55670,664
+2022-07-09,New Castle,Delaware,10003,163226,1456
+2022-07-09,Sussex,Delaware,10005,67191,878
+2022-07-09,Unknown,Delaware,,991,0
+2022-07-10,Kent,Delaware,10001,55670,664
+2022-07-10,New Castle,Delaware,10003,163226,1456
+2022-07-10,Sussex,Delaware,10005,67191,878
+2022-07-10,Unknown,Delaware,,991,0
+2022-07-11,Kent,Delaware,10001,55812,664
+2022-07-11,New Castle,Delaware,10003,163882,1456
+2022-07-11,Sussex,Delaware,10005,67403,878
+2022-07-11,Unknown,Delaware,,995,0
+2022-07-12,Kent,Delaware,10001,55849,664
+2022-07-12,New Castle,Delaware,10003,164001,1458
+2022-07-12,Sussex,Delaware,10005,67434,878
+2022-07-12,Unknown,Delaware,,995,0
+2022-07-13,Kent,Delaware,10001,55919,664
+2022-07-13,New Castle,Delaware,10003,164184,1459
+2022-07-13,Sussex,Delaware,10005,67484,878
+2022-07-13,Unknown,Delaware,,996,0
+2022-07-14,Kent,Delaware,10001,55919,664
+2022-07-14,New Castle,Delaware,10003,164184,1459
+2022-07-14,Sussex,Delaware,10005,67484,878
+2022-07-14,Unknown,Delaware,,996,0
+2022-07-15,Kent,Delaware,10001,56062,666
+2022-07-15,New Castle,Delaware,10003,164584,1463
+2022-07-15,Sussex,Delaware,10005,67624,879
+2022-07-15,Unknown,Delaware,,996,0
+2022-07-16,Kent,Delaware,10001,56062,666
+2022-07-16,New Castle,Delaware,10003,164584,1463
+2022-07-16,Sussex,Delaware,10005,67624,879
+2022-07-16,Unknown,Delaware,,996,0
+2022-07-17,Kent,Delaware,10001,56062,666
+2022-07-17,New Castle,Delaware,10003,164584,1463
+2022-07-17,Sussex,Delaware,10005,67624,879
+2022-07-17,Unknown,Delaware,,996,0
+2022-07-18,Kent,Delaware,10001,56217,666
+2022-07-18,New Castle,Delaware,10003,165081,1463
+2022-07-18,Sussex,Delaware,10005,67816,879
+2022-07-18,Unknown,Delaware,,996,0
+2022-07-19,Kent,Delaware,10001,56255,666
+2022-07-19,New Castle,Delaware,10003,165287,1463
+2022-07-19,Sussex,Delaware,10005,67862,881
+2022-07-19,Unknown,Delaware,,997,0
+2022-07-20,Kent,Delaware,10001,56255,666
+2022-07-20,New Castle,Delaware,10003,165287,1463
+2022-07-20,Sussex,Delaware,10005,67862,881
+2022-07-20,Unknown,Delaware,,997,0
+2022-07-21,Kent,Delaware,10001,56420,666
+2022-07-21,New Castle,Delaware,10003,165760,1465
+2022-07-21,Sussex,Delaware,10005,68029,881
+2022-07-21,Unknown,Delaware,,1003,0
+2022-07-22,Kent,Delaware,10001,56511,666
+2022-07-22,New Castle,Delaware,10003,165999,1470
+2022-07-22,Sussex,Delaware,10005,68104,885
+2022-07-22,Unknown,Delaware,,1005,0
+2022-07-23,Kent,Delaware,10001,56511,666
+2022-07-23,New Castle,Delaware,10003,165999,1470
+2022-07-23,Sussex,Delaware,10005,68104,885
+2022-07-23,Unknown,Delaware,,1005,0
+2022-07-24,Kent,Delaware,10001,56511,666
+2022-07-24,New Castle,Delaware,10003,165999,1470
+2022-07-24,Sussex,Delaware,10005,68104,885
+2022-07-24,Unknown,Delaware,,1005,0
+2022-07-25,Kent,Delaware,10001,56688,666
+2022-07-25,New Castle,Delaware,10003,166556,1470
+2022-07-25,Sussex,Delaware,10005,68360,885
+2022-07-25,Unknown,Delaware,,1008,0
+2022-07-26,Kent,Delaware,10001,56722,666
+2022-07-26,New Castle,Delaware,10003,166709,1473
+2022-07-26,Sussex,Delaware,10005,68413,885
+2022-07-26,Unknown,Delaware,,1008,0
+2022-07-27,Kent,Delaware,10001,56815,666
+2022-07-27,New Castle,Delaware,10003,166933,1473
+2022-07-27,Sussex,Delaware,10005,68464,885
+2022-07-27,Unknown,Delaware,,1010,0
+2022-07-28,Kent,Delaware,10001,56867,666
+2022-07-28,New Castle,Delaware,10003,167120,1473
+2022-07-28,Sussex,Delaware,10005,68543,885
+2022-07-28,Unknown,Delaware,,1011,0
+2022-07-29,Kent,Delaware,10001,56965,666
+2022-07-29,New Castle,Delaware,10003,167417,1473
+2022-07-29,Sussex,Delaware,10005,68643,885
+2022-07-29,Unknown,Delaware,,1016,0
+2022-07-30,Kent,Delaware,10001,56965,666
+2022-07-30,New Castle,Delaware,10003,167417,1473
+2022-07-30,Sussex,Delaware,10005,68643,885
+2022-07-30,Unknown,Delaware,,1016,0
+2022-07-31,Kent,Delaware,10001,56965,666
+2022-07-31,New Castle,Delaware,10003,167417,1473
+2022-07-31,Sussex,Delaware,10005,68643,885
+2022-07-31,Unknown,Delaware,,1016,0
+2022-08-01,Kent,Delaware,10001,57116,666
+2022-08-01,New Castle,Delaware,10003,167903,1473
+2022-08-01,Sussex,Delaware,10005,68851,885
+2022-08-01,Unknown,Delaware,,1038,0
+2022-08-02,Kent,Delaware,10001,57152,667
+2022-08-02,New Castle,Delaware,10003,168003,1474
+2022-08-02,Sussex,Delaware,10005,68887,885
+2022-08-02,Unknown,Delaware,,1038,0
+2022-08-03,Kent,Delaware,10001,57243,667
+2022-08-03,New Castle,Delaware,10003,168197,1474
+2022-08-03,Sussex,Delaware,10005,68983,885
+2022-08-03,Unknown,Delaware,,1037,0
+2022-08-04,Kent,Delaware,10001,57338,667
+2022-08-04,New Castle,Delaware,10003,168388,1474
+2022-08-04,Sussex,Delaware,10005,69062,885
+2022-08-04,Unknown,Delaware,,1039,0
+2022-08-05,Kent,Delaware,10001,57420,667
+2022-08-05,New Castle,Delaware,10003,168554,1474
+2022-08-05,Sussex,Delaware,10005,69171,885
+2022-08-05,Unknown,Delaware,,1045,0
+2022-08-06,Kent,Delaware,10001,57420,667
+2022-08-06,New Castle,Delaware,10003,168554,1474
+2022-08-06,Sussex,Delaware,10005,69171,885
+2022-08-06,Unknown,Delaware,,1045,0
+2022-08-07,Kent,Delaware,10001,57420,667
+2022-08-07,New Castle,Delaware,10003,168554,1474
+2022-08-07,Sussex,Delaware,10005,69171,885
+2022-08-07,Unknown,Delaware,,1045,0
+2022-08-08,Kent,Delaware,10001,57573,667
+2022-08-08,New Castle,Delaware,10003,168996,1474
+2022-08-08,Sussex,Delaware,10005,69376,885
+2022-08-08,Unknown,Delaware,,1047,0
+2022-08-09,Kent,Delaware,10001,57608,669
+2022-08-09,New Castle,Delaware,10003,169114,1474
+2022-08-09,Sussex,Delaware,10005,69411,885
+2022-08-09,Unknown,Delaware,,1047,0
+2022-08-10,Kent,Delaware,10001,57694,669
+2022-08-10,New Castle,Delaware,10003,169285,1474
+2022-08-10,Sussex,Delaware,10005,69490,885
+2022-08-10,Unknown,Delaware,,1048,0
+2022-08-11,Kent,Delaware,10001,57776,669
+2022-08-11,New Castle,Delaware,10003,169495,1474
+2022-08-11,Sussex,Delaware,10005,69559,885
+2022-08-11,Unknown,Delaware,,1049,0
+2022-08-12,Kent,Delaware,10001,57862,672
+2022-08-12,New Castle,Delaware,10003,169683,1477
+2022-08-12,Sussex,Delaware,10005,69664,887
+2022-08-12,Unknown,Delaware,,1053,0
+2022-08-13,Kent,Delaware,10001,57862,672
+2022-08-13,New Castle,Delaware,10003,169683,1477
+2022-08-13,Sussex,Delaware,10005,69664,887
+2022-08-13,Unknown,Delaware,,1053,0
+2022-08-14,Kent,Delaware,10001,57862,672
+2022-08-14,New Castle,Delaware,10003,169683,1477
+2022-08-14,Sussex,Delaware,10005,69664,887
+2022-08-14,Unknown,Delaware,,1053,0
+2022-08-15,Kent,Delaware,10001,58028,672
+2022-08-15,New Castle,Delaware,10003,170144,1477
+2022-08-15,Sussex,Delaware,10005,69859,887
+2022-08-15,Unknown,Delaware,,1056,0
+2022-08-16,Kent,Delaware,10001,58052,672
+2022-08-16,New Castle,Delaware,10003,170226,1477
+2022-08-16,Sussex,Delaware,10005,69884,887
+2022-08-16,Unknown,Delaware,,1056,0
+2022-08-17,Kent,Delaware,10001,58124,672
+2022-08-17,New Castle,Delaware,10003,170340,1477
+2022-08-17,Sussex,Delaware,10005,69942,887
+2022-08-17,Unknown,Delaware,,1057,0
+2022-08-18,Kent,Delaware,10001,58203,672
+2022-08-18,New Castle,Delaware,10003,170520,1477
+2022-08-18,Sussex,Delaware,10005,70042,887
+2022-08-18,Unknown,Delaware,,1057,0
+2022-08-19,Kent,Delaware,10001,58282,674
+2022-08-19,New Castle,Delaware,10003,170666,1478
+2022-08-19,Sussex,Delaware,10005,70239,887
+2022-08-19,Unknown,Delaware,,1058,0
+2022-08-20,Kent,Delaware,10001,58282,674
+2022-08-20,New Castle,Delaware,10003,170666,1478
+2022-08-20,Sussex,Delaware,10005,70239,887
+2022-08-20,Unknown,Delaware,,1058,0
+2022-08-21,Kent,Delaware,10001,58282,674
+2022-08-21,New Castle,Delaware,10003,170666,1478
+2022-08-21,Sussex,Delaware,10005,70239,887
+2022-08-21,Unknown,Delaware,,1058,0
+2022-08-22,Kent,Delaware,10001,58421,674
+2022-08-22,New Castle,Delaware,10003,171037,1478
+2022-08-22,Sussex,Delaware,10005,70439,887
+2022-08-22,Unknown,Delaware,,1058,0
+2022-08-23,Kent,Delaware,10001,58421,674
+2022-08-23,New Castle,Delaware,10003,171037,1478
+2022-08-23,Sussex,Delaware,10005,70439,887
+2022-08-23,Unknown,Delaware,,1058,0
+2022-08-24,Kent,Delaware,10001,58503,674
+2022-08-24,New Castle,Delaware,10003,171251,1478
+2022-08-24,Sussex,Delaware,10005,70530,887
+2022-08-24,Unknown,Delaware,,1059,0
+2022-08-25,Kent,Delaware,10001,58552,676
+2022-08-25,New Castle,Delaware,10003,171388,1478
+2022-08-25,Sussex,Delaware,10005,70596,888
+2022-08-25,Unknown,Delaware,,1061,0
+2022-08-26,Kent,Delaware,10001,58592,676
+2022-08-26,New Castle,Delaware,10003,171485,1478
+2022-08-26,Sussex,Delaware,10005,70658,888
+2022-08-26,Unknown,Delaware,,1062,0
+2022-08-27,Kent,Delaware,10001,58592,676
+2022-08-27,New Castle,Delaware,10003,171485,1478
+2022-08-27,Sussex,Delaware,10005,70658,888
+2022-08-27,Unknown,Delaware,,1062,0
+2022-08-28,Kent,Delaware,10001,58592,676
+2022-08-28,New Castle,Delaware,10003,171485,1478
+2022-08-28,Sussex,Delaware,10005,70658,888
+2022-08-28,Unknown,Delaware,,1062,0
+2022-08-29,Kent,Delaware,10001,58710,676
+2022-08-29,New Castle,Delaware,10003,171794,1478
+2022-08-29,Sussex,Delaware,10005,70819,888
+2022-08-29,Unknown,Delaware,,1064,0
+2022-08-30,Kent,Delaware,10001,58745,676
+2022-08-30,New Castle,Delaware,10003,171864,1478
+2022-08-30,Sussex,Delaware,10005,70848,888
+2022-08-30,Unknown,Delaware,,1065,0
+2022-08-31,Kent,Delaware,10001,58794,676
+2022-08-31,New Castle,Delaware,10003,171986,1478
+2022-08-31,Sussex,Delaware,10005,70893,888
+2022-08-31,Unknown,Delaware,,1065,0
+2022-09-01,Kent,Delaware,10001,58866,676
+2022-09-01,New Castle,Delaware,10003,172105,1478
+2022-09-01,Sussex,Delaware,10005,70950,888
+2022-09-01,Unknown,Delaware,,1065,0
+2022-09-02,Kent,Delaware,10001,58914,686
+2022-09-02,New Castle,Delaware,10003,172203,1488
+2022-09-02,Sussex,Delaware,10005,71014,896
+2022-09-02,Unknown,Delaware,,1065,0
+2022-09-03,Kent,Delaware,10001,58914,686
+2022-09-03,New Castle,Delaware,10003,172203,1488
+2022-09-03,Sussex,Delaware,10005,71014,896
+2022-09-03,Unknown,Delaware,,1065,0
+2022-09-04,Kent,Delaware,10001,58914,686
+2022-09-04,New Castle,Delaware,10003,172203,1488
+2022-09-04,Sussex,Delaware,10005,71014,896
+2022-09-04,Unknown,Delaware,,1065,0
+2022-09-05,Kent,Delaware,10001,58914,686
+2022-09-05,New Castle,Delaware,10003,172203,1488
+2022-09-05,Sussex,Delaware,10005,71014,896
+2022-09-05,Unknown,Delaware,,1065,0
+2022-09-06,Kent,Delaware,10001,59020,686
+2022-09-06,New Castle,Delaware,10003,172541,1488
+2022-09-06,Sussex,Delaware,10005,71159,896
+2022-09-06,Unknown,Delaware,,1068,0
+2022-09-07,Kent,Delaware,10001,59036,687
+2022-09-07,New Castle,Delaware,10003,172639,1489
+2022-09-07,Sussex,Delaware,10005,71190,896
+2022-09-07,Unknown,Delaware,,1068,0
+2022-09-08,Kent,Delaware,10001,59100,688
+2022-09-08,New Castle,Delaware,10003,172779,1489
+2022-09-08,Sussex,Delaware,10005,71223,896
+2022-09-08,Unknown,Delaware,,1070,0
+2022-09-09,Kent,Delaware,10001,59144,689
+2022-09-09,New Castle,Delaware,10003,172915,1493
+2022-09-09,Sussex,Delaware,10005,71262,898
+2022-09-09,Unknown,Delaware,,1072,0
+2022-09-10,Kent,Delaware,10001,59144,689
+2022-09-10,New Castle,Delaware,10003,172915,1493
+2022-09-10,Sussex,Delaware,10005,71262,898
+2022-09-10,Unknown,Delaware,,1072,0
+2022-09-11,Kent,Delaware,10001,59144,689
+2022-09-11,New Castle,Delaware,10003,172915,1493
+2022-09-11,Sussex,Delaware,10005,71262,898
+2022-09-11,Unknown,Delaware,,1072,0
+2022-09-12,Kent,Delaware,10001,59256,689
+2022-09-12,New Castle,Delaware,10003,173249,1493
+2022-09-12,Sussex,Delaware,10005,71384,898
+2022-09-12,Unknown,Delaware,,1073,0
+2022-09-13,Kent,Delaware,10001,59271,689
+2022-09-13,New Castle,Delaware,10003,173358,1493
+2022-09-13,Sussex,Delaware,10005,71407,898
+2022-09-13,Unknown,Delaware,,1073,0
+2022-09-14,Kent,Delaware,10001,59312,689
+2022-09-14,New Castle,Delaware,10003,173462,1493
+2022-09-14,Sussex,Delaware,10005,71437,898
+2022-09-14,Unknown,Delaware,,1073,0
+2022-09-15,Kent,Delaware,10001,59355,689
+2022-09-15,New Castle,Delaware,10003,173613,1493
+2022-09-15,Sussex,Delaware,10005,71476,898
+2022-09-15,Unknown,Delaware,,1073,0
+2022-09-16,Kent,Delaware,10001,59388,691
+2022-09-16,New Castle,Delaware,10003,173774,1496
+2022-09-16,Sussex,Delaware,10005,71535,899
+2022-09-16,Unknown,Delaware,,1075,0
+2022-09-17,Kent,Delaware,10001,59388,691
+2022-09-17,New Castle,Delaware,10003,173774,1496
+2022-09-17,Sussex,Delaware,10005,71535,899
+2022-09-17,Unknown,Delaware,,1075,0
+2022-09-18,Kent,Delaware,10001,59388,691
+2022-09-18,New Castle,Delaware,10003,173774,1496
+2022-09-18,Sussex,Delaware,10005,71535,899
+2022-09-18,Unknown,Delaware,,1075,0
+2022-09-19,Kent,Delaware,10001,59490,691
+2022-09-19,New Castle,Delaware,10003,174142,1496
+2022-09-19,Sussex,Delaware,10005,71648,899
+2022-09-19,Unknown,Delaware,,1094,0
+2022-09-20,Kent,Delaware,10001,59511,691
+2022-09-20,New Castle,Delaware,10003,174234,1496
+2022-09-20,Sussex,Delaware,10005,71680,899
+2022-09-20,Unknown,Delaware,,1097,0
+2022-09-21,Kent,Delaware,10001,59553,692
+2022-09-21,New Castle,Delaware,10003,174362,1497
+2022-09-21,Sussex,Delaware,10005,71718,899
+2022-09-21,Unknown,Delaware,,1105,0
+2022-09-22,Kent,Delaware,10001,59609,692
+2022-09-22,New Castle,Delaware,10003,174495,1497
+2022-09-22,Sussex,Delaware,10005,71772,899
+2022-09-22,Unknown,Delaware,,1114,0
+2022-09-23,Kent,Delaware,10001,59657,693
+2022-09-23,New Castle,Delaware,10003,174674,1504
+2022-09-23,Sussex,Delaware,10005,71820,904
+2022-09-23,Unknown,Delaware,,1119,0
+2022-09-24,Kent,Delaware,10001,59657,693
+2022-09-24,New Castle,Delaware,10003,174674,1504
+2022-09-24,Sussex,Delaware,10005,71820,904
+2022-09-24,Unknown,Delaware,,1119,0
+2022-09-25,Kent,Delaware,10001,59657,693
+2022-09-25,New Castle,Delaware,10003,174674,1504
+2022-09-25,Sussex,Delaware,10005,71820,904
+2022-09-25,Unknown,Delaware,,1119,0
+2022-09-26,Kent,Delaware,10001,59772,693
+2022-09-26,New Castle,Delaware,10003,175010,1504
+2022-09-26,Sussex,Delaware,10005,71962,904
+2022-09-26,Unknown,Delaware,,1128,0
+2022-09-27,Kent,Delaware,10001,59792,695
+2022-09-27,New Castle,Delaware,10003,175123,1505
+2022-09-27,Sussex,Delaware,10005,71991,904
+2022-09-27,Unknown,Delaware,,1131,0
+2022-09-28,Kent,Delaware,10001,59834,695
+2022-09-28,New Castle,Delaware,10003,175254,1505
+2022-09-28,Sussex,Delaware,10005,72028,904
+2022-09-28,Unknown,Delaware,,1136,0
+2022-09-29,Kent,Delaware,10001,59874,695
+2022-09-29,New Castle,Delaware,10003,175370,1505
+2022-09-29,Sussex,Delaware,10005,72065,904
+2022-09-29,Unknown,Delaware,,1143,0
+2022-09-30,Kent,Delaware,10001,59915,696
+2022-09-30,New Castle,Delaware,10003,175521,1507
+2022-09-30,Sussex,Delaware,10005,72127,908
+2022-09-30,Unknown,Delaware,,1150,0
+2022-10-01,Kent,Delaware,10001,59915,696
+2022-10-01,New Castle,Delaware,10003,175521,1507
+2022-10-01,Sussex,Delaware,10005,72127,908
+2022-10-01,Unknown,Delaware,,1150,0
+2022-10-02,Kent,Delaware,10001,59915,696
+2022-10-02,New Castle,Delaware,10003,175521,1507
+2022-10-02,Sussex,Delaware,10005,72127,908
+2022-10-02,Unknown,Delaware,,1150,0
+2022-10-03,Kent,Delaware,10001,60001,696
+2022-10-03,New Castle,Delaware,10003,175791,1507
+2022-10-03,Sussex,Delaware,10005,72236,908
+2022-10-03,Unknown,Delaware,,1161,0
+2022-10-04,Kent,Delaware,10001,60015,696
+2022-10-04,New Castle,Delaware,10003,175836,1507
+2022-10-04,Sussex,Delaware,10005,72251,909
+2022-10-04,Unknown,Delaware,,1163,0
+2022-10-05,Kent,Delaware,10001,60050,696
+2022-10-05,New Castle,Delaware,10003,175910,1507
+2022-10-05,Sussex,Delaware,10005,72282,909
+2022-10-05,Unknown,Delaware,,1168,0
+2022-10-06,Kent,Delaware,10001,60245,696
+2022-10-06,New Castle,Delaware,10003,176030,1507
+2022-10-06,Sussex,Delaware,10005,72355,909
+2022-10-06,Unknown,Delaware,,1174,0
+2022-10-07,Kent,Delaware,10001,60245,696
+2022-10-07,New Castle,Delaware,10003,176030,1507
+2022-10-07,Sussex,Delaware,10005,72355,909
+2022-10-07,Unknown,Delaware,,1174,0
+2022-10-08,Kent,Delaware,10001,60245,696
+2022-10-08,New Castle,Delaware,10003,176030,1507
+2022-10-08,Sussex,Delaware,10005,72355,909
+2022-10-08,Unknown,Delaware,,1174,0
+2022-10-09,Kent,Delaware,10001,60245,696
+2022-10-09,New Castle,Delaware,10003,176030,1507
+2022-10-09,Sussex,Delaware,10005,72355,909
+2022-10-09,Unknown,Delaware,,1174,0
+2022-10-10,Kent,Delaware,10001,60245,696
+2022-10-10,New Castle,Delaware,10003,176030,1507
+2022-10-10,Sussex,Delaware,10005,72355,909
+2022-10-10,Unknown,Delaware,,1820,0
+2022-10-11,Kent,Delaware,10001,60402,700
+2022-10-11,New Castle,Delaware,10003,176449,1510
+2022-10-11,Sussex,Delaware,10005,72489,911
+2022-10-11,Unknown,Delaware,,1187,0
+2022-10-12,Kent,Delaware,10001,60441,700
+2022-10-12,New Castle,Delaware,10003,176544,1510
+2022-10-12,Sussex,Delaware,10005,72523,911
+2022-10-12,Unknown,Delaware,,1191,0
+2022-10-13,Kent,Delaware,10001,60460,700
+2022-10-13,New Castle,Delaware,10003,176622,1510
+2022-10-13,Sussex,Delaware,10005,72544,911
+2022-10-13,Unknown,Delaware,,1193,0
+2022-10-14,Kent,Delaware,10001,60486,701
+2022-10-14,New Castle,Delaware,10003,176735,1514
+2022-10-14,Sussex,Delaware,10005,72572,921
+2022-10-14,Unknown,Delaware,,1200,0
+2022-10-15,Kent,Delaware,10001,60486,701
+2022-10-15,New Castle,Delaware,10003,176735,1514
+2022-10-15,Sussex,Delaware,10005,72572,921
+2022-10-15,Unknown,Delaware,,1200,0
+2022-10-16,Kent,Delaware,10001,60486,701
+2022-10-16,New Castle,Delaware,10003,176735,1514
+2022-10-16,Sussex,Delaware,10005,72572,921
+2022-10-16,Unknown,Delaware,,1200,0
+2022-10-17,Kent,Delaware,10001,60585,701
+2022-10-17,New Castle,Delaware,10003,176984,1514
+2022-10-17,Sussex,Delaware,10005,72675,921
+2022-10-17,Unknown,Delaware,,1213,0
+2022-10-18,Kent,Delaware,10001,60665,701
+2022-10-18,New Castle,Delaware,10003,177030,1514
+2022-10-18,Sussex,Delaware,10005,72753,921
+2022-10-18,Unknown,Delaware,,1090,0
+2022-10-19,Kent,Delaware,10001,60701,701
+2022-10-19,New Castle,Delaware,10003,177135,1514
+2022-10-19,Sussex,Delaware,10005,72772,921
+2022-10-19,Unknown,Delaware,,1090,0
+2022-10-20,Kent,Delaware,10001,60743,701
+2022-10-20,New Castle,Delaware,10003,177203,1514
+2022-10-20,Sussex,Delaware,10005,72814,921
+2022-10-20,Unknown,Delaware,,1090,0
+2022-10-21,Kent,Delaware,10001,60780,701
+2022-10-21,New Castle,Delaware,10003,177299,1514
+2022-10-21,Sussex,Delaware,10005,72849,921
+2022-10-21,Unknown,Delaware,,1091,0
+2022-10-22,Kent,Delaware,10001,60780,701
+2022-10-22,New Castle,Delaware,10003,177299,1514
+2022-10-22,Sussex,Delaware,10005,72849,921
+2022-10-22,Unknown,Delaware,,1091,0
+2022-10-23,Kent,Delaware,10001,60780,701
+2022-10-23,New Castle,Delaware,10003,177299,1514
+2022-10-23,Sussex,Delaware,10005,72849,921
+2022-10-23,Unknown,Delaware,,1091,0
+2022-10-24,Kent,Delaware,10001,60867,701
+2022-10-24,New Castle,Delaware,10003,177514,1514
+2022-10-24,Sussex,Delaware,10005,72956,921
+2022-10-24,Unknown,Delaware,,1093,0
+2022-10-25,Kent,Delaware,10001,60883,701
+2022-10-25,New Castle,Delaware,10003,177561,1514
+2022-10-25,Sussex,Delaware,10005,72979,921
+2022-10-25,Unknown,Delaware,,1094,0
+2022-10-26,Kent,Delaware,10001,60901,701
+2022-10-26,New Castle,Delaware,10003,177654,1514
+2022-10-26,Sussex,Delaware,10005,73005,921
+2022-10-26,Unknown,Delaware,,1095,0
+2022-10-27,Kent,Delaware,10001,60947,701
+2022-10-27,New Castle,Delaware,10003,177763,1514
+2022-10-27,Sussex,Delaware,10005,73044,921
+2022-10-27,Unknown,Delaware,,1096,0
+2022-10-28,Kent,Delaware,10001,60975,703
+2022-10-28,New Castle,Delaware,10003,177841,1518
+2022-10-28,Sussex,Delaware,10005,73078,926
+2022-10-28,Unknown,Delaware,,1096,0
+2022-10-29,Kent,Delaware,10001,60975,703
+2022-10-29,New Castle,Delaware,10003,177841,1518
+2022-10-29,Sussex,Delaware,10005,73078,926
+2022-10-29,Unknown,Delaware,,1096,0
+2022-10-30,Kent,Delaware,10001,60975,703
+2022-10-30,New Castle,Delaware,10003,177841,1518
+2022-10-30,Sussex,Delaware,10005,73078,926
+2022-10-30,Unknown,Delaware,,1096,0
+2022-10-31,Kent,Delaware,10001,61057,703
+2022-10-31,New Castle,Delaware,10003,178045,1518
+2022-10-31,Sussex,Delaware,10005,73182,926
+2022-10-31,Unknown,Delaware,,1099,0
+2022-11-01,Kent,Delaware,10001,61073,703
+2022-11-01,New Castle,Delaware,10003,178092,1518
+2022-11-01,Sussex,Delaware,10005,73203,926
+2022-11-01,Unknown,Delaware,,1098,0
+2022-11-02,Kent,Delaware,10001,61102,703
+2022-11-02,New Castle,Delaware,10003,178169,1518
+2022-11-02,Sussex,Delaware,10005,73231,926
+2022-11-02,Unknown,Delaware,,1098,0
+2022-11-03,Kent,Delaware,10001,61123,703
+2022-11-03,New Castle,Delaware,10003,178264,1518
+2022-11-03,Sussex,Delaware,10005,73266,926
+2022-11-03,Unknown,Delaware,,1098,0
+2022-11-04,Kent,Delaware,10001,61145,703
+2022-11-04,New Castle,Delaware,10003,178354,1518
+2022-11-04,Sussex,Delaware,10005,73315,926
+2022-11-04,Unknown,Delaware,,1099,0
+2022-11-05,Kent,Delaware,10001,61145,703
+2022-11-05,New Castle,Delaware,10003,178354,1518
+2022-11-05,Sussex,Delaware,10005,73315,926
+2022-11-05,Unknown,Delaware,,1099,0
+2022-11-06,Kent,Delaware,10001,61145,703
+2022-11-06,New Castle,Delaware,10003,178354,1518
+2022-11-06,Sussex,Delaware,10005,73315,926
+2022-11-06,Unknown,Delaware,,1099,0
+2022-11-07,Kent,Delaware,10001,61212,703
+2022-11-07,New Castle,Delaware,10003,178587,1518
+2022-11-07,Sussex,Delaware,10005,73404,926
+2022-11-07,Unknown,Delaware,,1100,0
+2022-11-08,Kent,Delaware,10001,61212,703
+2022-11-08,New Castle,Delaware,10003,178587,1518
+2022-11-08,Sussex,Delaware,10005,73404,926
+2022-11-08,Unknown,Delaware,,1100,0
+2022-11-09,Kent,Delaware,10001,61263,703
+2022-11-09,New Castle,Delaware,10003,178728,1519
+2022-11-09,Sussex,Delaware,10005,73461,926
+2022-11-09,Unknown,Delaware,,1101,0
+2022-11-10,Kent,Delaware,10001,61295,703
+2022-11-10,New Castle,Delaware,10003,178799,1519
+2022-11-10,Sussex,Delaware,10005,73489,926
+2022-11-10,Unknown,Delaware,,1101,0
+2022-11-11,Kent,Delaware,10001,61295,703
+2022-11-11,New Castle,Delaware,10003,178799,1519
+2022-11-11,Sussex,Delaware,10005,73489,926
+2022-11-11,Unknown,Delaware,,1101,0
+2022-11-12,Kent,Delaware,10001,61295,703
+2022-11-12,New Castle,Delaware,10003,178799,1519
+2022-11-12,Sussex,Delaware,10005,73489,926
+2022-11-12,Unknown,Delaware,,1101,0
+2022-11-13,Kent,Delaware,10001,61295,703
+2022-11-13,New Castle,Delaware,10003,178799,1519
+2022-11-13,Sussex,Delaware,10005,73489,926
+2022-11-13,Unknown,Delaware,,1101,0
+2022-11-14,Kent,Delaware,10001,61373,705
+2022-11-14,New Castle,Delaware,10003,179044,1525
+2022-11-14,Sussex,Delaware,10005,73599,931
+2022-11-14,Unknown,Delaware,,1103,0
+2022-11-15,Kent,Delaware,10001,61383,707
+2022-11-15,New Castle,Delaware,10003,179074,1525
+2022-11-15,Sussex,Delaware,10005,73612,931
+2022-11-15,Unknown,Delaware,,1103,0
+2022-11-16,Kent,Delaware,10001,61415,707
+2022-11-16,New Castle,Delaware,10003,179157,1525
+2022-11-16,Sussex,Delaware,10005,73653,931
+2022-11-16,Unknown,Delaware,,1104,0
+2022-11-17,Kent,Delaware,10001,61435,707
+2022-11-17,New Castle,Delaware,10003,179224,1525
+2022-11-17,Sussex,Delaware,10005,73677,931
+2022-11-17,Unknown,Delaware,,1104,0
+2022-11-18,Kent,Delaware,10001,61457,707
+2022-11-18,New Castle,Delaware,10003,179290,1525
+2022-11-18,Sussex,Delaware,10005,73703,931
+2022-11-18,Unknown,Delaware,,1105,0
+2022-11-19,Kent,Delaware,10001,61457,707
+2022-11-19,New Castle,Delaware,10003,179290,1525
+2022-11-19,Sussex,Delaware,10005,73703,931
+2022-11-19,Unknown,Delaware,,1105,0
+2022-11-20,Kent,Delaware,10001,61457,707
+2022-11-20,New Castle,Delaware,10003,179290,1525
+2022-11-20,Sussex,Delaware,10005,73703,931
+2022-11-20,Unknown,Delaware,,1105,0
+2022-11-21,Kent,Delaware,10001,61519,707
+2022-11-21,New Castle,Delaware,10003,179471,1525
+2022-11-21,Sussex,Delaware,10005,73765,931
+2022-11-21,Unknown,Delaware,,1108,0
+2022-11-22,Kent,Delaware,10001,61532,707
+2022-11-22,New Castle,Delaware,10003,179507,1525
+2022-11-22,Sussex,Delaware,10005,73787,931
+2022-11-22,Unknown,Delaware,,1109,0
+2022-11-23,Kent,Delaware,10001,61558,707
+2022-11-23,New Castle,Delaware,10003,179566,1531
+2022-11-23,Sussex,Delaware,10005,73812,934
+2022-11-23,Unknown,Delaware,,1110,0
+2022-11-24,Kent,Delaware,10001,61558,707
+2022-11-24,New Castle,Delaware,10003,179566,1531
+2022-11-24,Sussex,Delaware,10005,73812,934
+2022-11-24,Unknown,Delaware,,1110,0
+2022-11-25,Kent,Delaware,10001,61558,707
+2022-11-25,New Castle,Delaware,10003,179566,1531
+2022-11-25,Sussex,Delaware,10005,73812,934
+2022-11-25,Unknown,Delaware,,1110,0
+2022-11-26,Kent,Delaware,10001,61558,707
+2022-11-26,New Castle,Delaware,10003,179566,1531
+2022-11-26,Sussex,Delaware,10005,73812,934
+2022-11-26,Unknown,Delaware,,1110,0
+2022-11-27,Kent,Delaware,10001,61558,707
+2022-11-27,New Castle,Delaware,10003,179566,1531
+2022-11-27,Sussex,Delaware,10005,73812,934
+2022-11-27,Unknown,Delaware,,1110,0
+2022-11-28,Kent,Delaware,10001,61655,707
+2022-11-28,New Castle,Delaware,10003,179866,1531
+2022-11-28,Sussex,Delaware,10005,73937,934
+2022-11-28,Unknown,Delaware,,1113,0
+2022-11-29,Kent,Delaware,10001,61680,707
+2022-11-29,New Castle,Delaware,10003,179940,1531
+2022-11-29,Sussex,Delaware,10005,73975,934
+2022-11-29,Unknown,Delaware,,1114,0
+2022-11-30,Kent,Delaware,10001,61730,707
+2022-11-30,New Castle,Delaware,10003,180080,1531
+2022-11-30,Sussex,Delaware,10005,74032,934
+2022-11-30,Unknown,Delaware,,1114,0
+2022-12-01,Kent,Delaware,10001,61776,707
+2022-12-01,New Castle,Delaware,10003,180210,1531
+2022-12-01,Sussex,Delaware,10005,74074,934
+2022-12-01,Unknown,Delaware,,1114,0
+2022-12-02,Kent,Delaware,10001,61821,707
+2022-12-02,New Castle,Delaware,10003,180348,1531
+2022-12-02,Sussex,Delaware,10005,74123,934
+2022-12-02,Unknown,Delaware,,1113,0
+2022-12-03,Kent,Delaware,10001,61821,707
+2022-12-03,New Castle,Delaware,10003,180348,1531
+2022-12-03,Sussex,Delaware,10005,74123,934
+2022-12-03,Unknown,Delaware,,1113,0
+2022-12-04,Kent,Delaware,10001,61821,707
+2022-12-04,New Castle,Delaware,10003,180348,1531
+2022-12-04,Sussex,Delaware,10005,74123,934
+2022-12-04,Unknown,Delaware,,1113,0
+2022-12-05,Kent,Delaware,10001,61916,707
+2022-12-05,New Castle,Delaware,10003,180586,1531
+2022-12-05,Sussex,Delaware,10005,74265,934
+2022-12-05,Unknown,Delaware,,1118,0
+2022-12-06,Kent,Delaware,10001,61933,707
+2022-12-06,New Castle,Delaware,10003,180641,1531
+2022-12-06,Sussex,Delaware,10005,74287,934
+2022-12-06,Unknown,Delaware,,1118,0
+2022-12-07,Kent,Delaware,10001,61967,707
+2022-12-07,New Castle,Delaware,10003,180708,1531
+2022-12-07,Sussex,Delaware,10005,74340,934
+2022-12-07,Unknown,Delaware,,1119,0
+2022-12-08,Kent,Delaware,10001,62013,707
+2022-12-08,New Castle,Delaware,10003,180812,1531
+2022-12-08,Sussex,Delaware,10005,74416,934
+2022-12-08,Unknown,Delaware,,1119,0
+2022-12-09,Kent,Delaware,10001,62048,708
+2022-12-09,New Castle,Delaware,10003,180904,1535
+2022-12-09,Sussex,Delaware,10005,74495,941
+2022-12-09,Unknown,Delaware,,1120,0
+2022-12-10,Kent,Delaware,10001,62048,708
+2022-12-10,New Castle,Delaware,10003,180904,1535
+2022-12-10,Sussex,Delaware,10005,74495,941
+2022-12-10,Unknown,Delaware,,1120,0
+2022-12-11,Kent,Delaware,10001,62048,708
+2022-12-11,New Castle,Delaware,10003,180904,1535
+2022-12-11,Sussex,Delaware,10005,74495,941
+2022-12-11,Unknown,Delaware,,1120,0
+2022-12-12,Kent,Delaware,10001,62130,708
+2022-12-12,New Castle,Delaware,10003,181098,1535
+2022-12-12,Sussex,Delaware,10005,74617,941
+2022-12-12,Unknown,Delaware,,1123,0
+2022-12-13,Kent,Delaware,10001,62153,708
+2022-12-13,New Castle,Delaware,10003,181144,1535
+2022-12-13,Sussex,Delaware,10005,74643,941
+2022-12-13,Unknown,Delaware,,1123,0
+2022-12-14,Kent,Delaware,10001,62202,709
+2022-12-14,New Castle,Delaware,10003,181255,1535
+2022-12-14,Sussex,Delaware,10005,74693,941
+2022-12-14,Unknown,Delaware,,1124,0
+2022-12-15,Kent,Delaware,10001,62236,709
+2022-12-15,New Castle,Delaware,10003,181358,1535
+2022-12-15,Sussex,Delaware,10005,74757,941
+2022-12-15,Unknown,Delaware,,1126,0
+2022-12-16,Kent,Delaware,10001,62236,709
+2022-12-16,New Castle,Delaware,10003,181358,1535
+2022-12-16,Sussex,Delaware,10005,74757,941
+2022-12-16,Unknown,Delaware,,1126,0
+2022-12-17,Kent,Delaware,10001,62236,709
+2022-12-17,New Castle,Delaware,10003,181358,1535
+2022-12-17,Sussex,Delaware,10005,74757,941
+2022-12-17,Unknown,Delaware,,1126,0
+2022-12-18,Kent,Delaware,10001,62236,709
+2022-12-18,New Castle,Delaware,10003,181358,1535
+2022-12-18,Sussex,Delaware,10005,74757,941
+2022-12-18,Unknown,Delaware,,1126,0
+2022-12-19,Kent,Delaware,10001,62236,709
+2022-12-19,New Castle,Delaware,10003,181358,1535
+2022-12-19,Sussex,Delaware,10005,74757,941
+2022-12-19,Unknown,Delaware,,1126,0
+2022-12-20,Kent,Delaware,10001,62236,709
+2022-12-20,New Castle,Delaware,10003,181358,1535
+2022-12-20,Sussex,Delaware,10005,74757,941
+2022-12-20,Unknown,Delaware,,1126,0
+2022-12-21,Kent,Delaware,10001,62468,713
+2022-12-21,New Castle,Delaware,10003,181881,1547
+2022-12-21,Sussex,Delaware,10005,75105,945
+2022-12-21,Unknown,Delaware,,1127,0
+2022-12-22,Kent,Delaware,10001,62468,713
+2022-12-22,New Castle,Delaware,10003,181881,1547
+2022-12-22,Sussex,Delaware,10005,75105,945
+2022-12-22,Unknown,Delaware,,1127,0
+2022-12-23,Kent,Delaware,10001,62468,713
+2022-12-23,New Castle,Delaware,10003,181881,1547
+2022-12-23,Sussex,Delaware,10005,75105,945
+2022-12-23,Unknown,Delaware,,1127,0
+2022-12-24,Kent,Delaware,10001,62468,713
+2022-12-24,New Castle,Delaware,10003,181881,1547
+2022-12-24,Sussex,Delaware,10005,75105,945
+2022-12-24,Unknown,Delaware,,1127,0
+2022-12-25,Kent,Delaware,10001,62468,713
+2022-12-25,New Castle,Delaware,10003,181881,1547
+2022-12-25,Sussex,Delaware,10005,75105,945
+2022-12-25,Unknown,Delaware,,1127,0
+2022-12-26,Kent,Delaware,10001,62468,713
+2022-12-26,New Castle,Delaware,10003,181881,1547
+2022-12-26,Sussex,Delaware,10005,75105,945
+2022-12-26,Unknown,Delaware,,1127,0
+2022-12-27,Kent,Delaware,10001,62468,713
+2022-12-27,New Castle,Delaware,10003,181881,1547
+2022-12-27,Sussex,Delaware,10005,75105,945
+2022-12-27,Unknown,Delaware,,1127,0
+2022-12-28,Kent,Delaware,10001,62702,705
+2022-12-28,New Castle,Delaware,10003,182515,1547
+2022-12-28,Sussex,Delaware,10005,75549,954
+2022-12-28,Unknown,Delaware,,1122,0
+2022-12-29,Kent,Delaware,10001,62702,705
+2022-12-29,New Castle,Delaware,10003,182515,1547
+2022-12-29,Sussex,Delaware,10005,75549,954
+2022-12-29,Unknown,Delaware,,1122,0
+2022-12-30,Kent,Delaware,10001,62702,705
+2022-12-30,New Castle,Delaware,10003,182515,1547
+2022-12-30,Sussex,Delaware,10005,75549,954
+2022-12-30,Unknown,Delaware,,1122,0
+2022-12-31,Kent,Delaware,10001,62702,705
+2022-12-31,New Castle,Delaware,10003,182515,1547
+2022-12-31,Sussex,Delaware,10005,75549,954
+2022-12-31,Unknown,Delaware,,1122,0
+2023-01-01,Kent,Delaware,10001,62702,705
+2023-01-01,New Castle,Delaware,10003,182515,1547
+2023-01-01,Sussex,Delaware,10005,75549,954
+2023-01-01,Unknown,Delaware,,1122,0
+2023-01-02,Kent,Delaware,10001,62702,705
+2023-01-02,New Castle,Delaware,10003,182515,1547
+2023-01-02,Sussex,Delaware,10005,75549,954
+2023-01-02,Unknown,Delaware,,1122,0
+2023-01-03,Kent,Delaware,10001,62702,705
+2023-01-03,New Castle,Delaware,10003,182515,1547
+2023-01-03,Sussex,Delaware,10005,75549,954
+2023-01-03,Unknown,Delaware,,1122,0
+2023-01-04,Kent,Delaware,10001,62939,707
+2023-01-04,New Castle,Delaware,10003,183077,1552
+2023-01-04,Sussex,Delaware,10005,76005,959
+2023-01-04,Unknown,Delaware,,1130,0
+2023-01-05,Kent,Delaware,10001,62939,707
+2023-01-05,New Castle,Delaware,10003,183077,1552
+2023-01-05,Sussex,Delaware,10005,76005,959
+2023-01-05,Unknown,Delaware,,1130,0
+2023-01-06,Kent,Delaware,10001,62939,707
+2023-01-06,New Castle,Delaware,10003,183077,1552
+2023-01-06,Sussex,Delaware,10005,76005,959
+2023-01-06,Unknown,Delaware,,1130,0
+2023-01-07,Kent,Delaware,10001,62939,707
+2023-01-07,New Castle,Delaware,10003,183077,1552
+2023-01-07,Sussex,Delaware,10005,76005,959
+2023-01-07,Unknown,Delaware,,1130,0
+2023-01-08,Kent,Delaware,10001,62939,707
+2023-01-08,New Castle,Delaware,10003,183077,1552
+2023-01-08,Sussex,Delaware,10005,76005,959
+2023-01-08,Unknown,Delaware,,1130,0
+2023-01-09,Kent,Delaware,10001,62939,707
+2023-01-09,New Castle,Delaware,10003,183077,1552
+2023-01-09,Sussex,Delaware,10005,76005,959
+2023-01-09,Unknown,Delaware,,1130,0
+2023-01-10,Kent,Delaware,10001,62939,707
+2023-01-10,New Castle,Delaware,10003,183077,1552
+2023-01-10,Sussex,Delaware,10005,76005,959
+2023-01-10,Unknown,Delaware,,1130,0
+2023-01-11,Kent,Delaware,10001,63130,706
+2023-01-11,New Castle,Delaware,10003,183560,1554
+2023-01-11,Sussex,Delaware,10005,76318,960
+2023-01-11,Unknown,Delaware,,1129,0
+2023-01-12,Kent,Delaware,10001,63130,706
+2023-01-12,New Castle,Delaware,10003,183560,1554
+2023-01-12,Sussex,Delaware,10005,76318,960
+2023-01-12,Unknown,Delaware,,1129,0
+2023-01-13,Kent,Delaware,10001,63130,706
+2023-01-13,New Castle,Delaware,10003,183560,1554
+2023-01-13,Sussex,Delaware,10005,76318,960
+2023-01-13,Unknown,Delaware,,1129,0
+2023-01-14,Kent,Delaware,10001,63130,706
+2023-01-14,New Castle,Delaware,10003,183560,1554
+2023-01-14,Sussex,Delaware,10005,76318,960
+2023-01-14,Unknown,Delaware,,1129,0
+2023-01-15,Kent,Delaware,10001,63130,706
+2023-01-15,New Castle,Delaware,10003,183560,1554
+2023-01-15,Sussex,Delaware,10005,76318,960
+2023-01-15,Unknown,Delaware,,1129,0
+2023-01-16,Kent,Delaware,10001,63130,706
+2023-01-16,New Castle,Delaware,10003,183560,1554
+2023-01-16,Sussex,Delaware,10005,76318,960
+2023-01-16,Unknown,Delaware,,1129,0
+2023-01-17,Kent,Delaware,10001,63130,706
+2023-01-17,New Castle,Delaware,10003,183560,1554
+2023-01-17,Sussex,Delaware,10005,76318,960
+2023-01-17,Unknown,Delaware,,1129,0
+2023-01-18,Kent,Delaware,10001,63130,706
+2023-01-18,New Castle,Delaware,10003,183560,1554
+2023-01-18,Sussex,Delaware,10005,76318,960
+2023-01-18,Unknown,Delaware,,1129,0
+2023-01-19,Kent,Delaware,10001,63328,710
+2023-01-19,New Castle,Delaware,10003,183981,1565
+2023-01-19,Sussex,Delaware,10005,76645,968
+2023-01-19,Unknown,Delaware,,1129,0
+2023-01-20,Kent,Delaware,10001,63328,710
+2023-01-20,New Castle,Delaware,10003,183981,1565
+2023-01-20,Sussex,Delaware,10005,76645,968
+2023-01-20,Unknown,Delaware,,1129,0
+2023-01-21,Kent,Delaware,10001,63328,710
+2023-01-21,New Castle,Delaware,10003,183981,1565
+2023-01-21,Sussex,Delaware,10005,76645,968
+2023-01-21,Unknown,Delaware,,1129,0
+2023-01-22,Kent,Delaware,10001,63328,710
+2023-01-22,New Castle,Delaware,10003,183981,1565
+2023-01-22,Sussex,Delaware,10005,76645,968
+2023-01-22,Unknown,Delaware,,1129,0
+2023-01-23,Kent,Delaware,10001,63328,710
+2023-01-23,New Castle,Delaware,10003,183981,1565
+2023-01-23,Sussex,Delaware,10005,76645,968
+2023-01-23,Unknown,Delaware,,1129,0
+2023-01-24,Kent,Delaware,10001,63328,710
+2023-01-24,New Castle,Delaware,10003,183981,1565
+2023-01-24,Sussex,Delaware,10005,76645,968
+2023-01-24,Unknown,Delaware,,1129,0
+2023-01-25,Kent,Delaware,10001,63458,712
+2023-01-25,New Castle,Delaware,10003,184346,1571
+2023-01-25,Sussex,Delaware,10005,76953,971
+2023-01-25,Unknown,Delaware,,1115,0
+2023-01-26,Kent,Delaware,10001,63458,712
+2023-01-26,New Castle,Delaware,10003,184346,1571
+2023-01-26,Sussex,Delaware,10005,76953,971
+2023-01-26,Unknown,Delaware,,1115,0
+2023-01-27,Kent,Delaware,10001,63458,712
+2023-01-27,New Castle,Delaware,10003,184346,1571
+2023-01-27,Sussex,Delaware,10005,76953,971
+2023-01-27,Unknown,Delaware,,1115,0
+2023-01-28,Kent,Delaware,10001,63458,712
+2023-01-28,New Castle,Delaware,10003,184346,1571
+2023-01-28,Sussex,Delaware,10005,76953,971
+2023-01-28,Unknown,Delaware,,1115,0
+2023-01-29,Kent,Delaware,10001,63458,712
+2023-01-29,New Castle,Delaware,10003,184346,1571
+2023-01-29,Sussex,Delaware,10005,76953,971
+2023-01-29,Unknown,Delaware,,1115,0
+2023-01-30,Kent,Delaware,10001,63458,712
+2023-01-30,New Castle,Delaware,10003,184346,1571
+2023-01-30,Sussex,Delaware,10005,76953,971
+2023-01-30,Unknown,Delaware,,1115,0
+2023-01-31,Kent,Delaware,10001,63458,712
+2023-01-31,New Castle,Delaware,10003,184346,1571
+2023-01-31,Sussex,Delaware,10005,76953,971
+2023-01-31,Unknown,Delaware,,1115,0
+2023-02-01,Kent,Delaware,10001,63646,714
+2023-02-01,New Castle,Delaware,10003,184794,1578
+2023-02-01,Sussex,Delaware,10005,77295,973
+2023-02-01,Unknown,Delaware,,1112,0
+2023-02-02,Kent,Delaware,10001,63646,714
+2023-02-02,New Castle,Delaware,10003,184794,1578
+2023-02-02,Sussex,Delaware,10005,77295,973
+2023-02-02,Unknown,Delaware,,1112,0
+2023-02-03,Kent,Delaware,10001,63646,714
+2023-02-03,New Castle,Delaware,10003,184794,1578
+2023-02-03,Sussex,Delaware,10005,77295,973
+2023-02-03,Unknown,Delaware,,1112,0
+2023-02-04,Kent,Delaware,10001,63646,714
+2023-02-04,New Castle,Delaware,10003,184794,1578
+2023-02-04,Sussex,Delaware,10005,77295,973
+2023-02-04,Unknown,Delaware,,1112,0
+2023-02-05,Kent,Delaware,10001,63646,714
+2023-02-05,New Castle,Delaware,10003,184794,1578
+2023-02-05,Sussex,Delaware,10005,77295,973
+2023-02-05,Unknown,Delaware,,1112,0
+2023-02-06,Kent,Delaware,10001,63646,714
+2023-02-06,New Castle,Delaware,10003,184794,1578
+2023-02-06,Sussex,Delaware,10005,77295,973
+2023-02-06,Unknown,Delaware,,1112,0
+2023-02-07,Kent,Delaware,10001,63646,714
+2023-02-07,New Castle,Delaware,10003,184794,1578
+2023-02-07,Sussex,Delaware,10005,77295,973
+2023-02-07,Unknown,Delaware,,1112,0
+2023-02-08,Kent,Delaware,10001,63842,717
+2023-02-08,New Castle,Delaware,10003,185341,1588
+2023-02-08,Sussex,Delaware,10005,77579,983
+2023-02-08,Unknown,Delaware,,1111,0
+2023-02-09,Kent,Delaware,10001,63842,717
+2023-02-09,New Castle,Delaware,10003,185341,1588
+2023-02-09,Sussex,Delaware,10005,77579,983
+2023-02-09,Unknown,Delaware,,1111,0
+2023-02-10,Kent,Delaware,10001,63842,717
+2023-02-10,New Castle,Delaware,10003,185341,1588
+2023-02-10,Sussex,Delaware,10005,77579,983
+2023-02-10,Unknown,Delaware,,1111,0
+2023-02-11,Kent,Delaware,10001,63842,717
+2023-02-11,New Castle,Delaware,10003,185341,1588
+2023-02-11,Sussex,Delaware,10005,77579,983
+2023-02-11,Unknown,Delaware,,1111,0
+2023-02-12,Kent,Delaware,10001,63842,717
+2023-02-12,New Castle,Delaware,10003,185341,1588
+2023-02-12,Sussex,Delaware,10005,77579,983
+2023-02-12,Unknown,Delaware,,1111,0
+2023-02-13,Kent,Delaware,10001,63842,717
+2023-02-13,New Castle,Delaware,10003,185341,1588
+2023-02-13,Sussex,Delaware,10005,77579,983
+2023-02-13,Unknown,Delaware,,1111,0
+2023-02-14,Kent,Delaware,10001,63842,717
+2023-02-14,New Castle,Delaware,10003,185341,1588
+2023-02-14,Sussex,Delaware,10005,77579,983
+2023-02-14,Unknown,Delaware,,1111,0
+2023-02-15,Kent,Delaware,10001,63842,717
+2023-02-15,New Castle,Delaware,10003,185341,1588
+2023-02-15,Sussex,Delaware,10005,77579,983
+2023-02-15,Unknown,Delaware,,1111,0
+2023-02-16,Kent,Delaware,10001,64058,722
+2023-02-16,New Castle,Delaware,10003,185851,1598
+2023-02-16,Sussex,Delaware,10005,77888,988
+2023-02-16,Unknown,Delaware,,1118,0
+2023-02-17,Kent,Delaware,10001,64058,722
+2023-02-17,New Castle,Delaware,10003,185851,1598
+2023-02-17,Sussex,Delaware,10005,77888,988
+2023-02-17,Unknown,Delaware,,1118,0
+2023-02-18,Kent,Delaware,10001,64058,722
+2023-02-18,New Castle,Delaware,10003,185851,1598
+2023-02-18,Sussex,Delaware,10005,77888,988
+2023-02-18,Unknown,Delaware,,1118,0
+2023-02-19,Kent,Delaware,10001,64058,722
+2023-02-19,New Castle,Delaware,10003,185851,1598
+2023-02-19,Sussex,Delaware,10005,77888,988
+2023-02-19,Unknown,Delaware,,1118,0
+2023-02-20,Kent,Delaware,10001,64058,722
+2023-02-20,New Castle,Delaware,10003,185851,1598
+2023-02-20,Sussex,Delaware,10005,77888,988
+2023-02-20,Unknown,Delaware,,1118,0
+2023-02-21,Kent,Delaware,10001,64058,722
+2023-02-21,New Castle,Delaware,10003,185851,1598
+2023-02-21,Sussex,Delaware,10005,77888,988
+2023-02-21,Unknown,Delaware,,1118,0
+2023-02-22,Kent,Delaware,10001,64330,722
+2023-02-22,New Castle,Delaware,10003,186739,1598
+2023-02-22,Sussex,Delaware,10005,78150,989
+2023-02-22,Unknown,Delaware,,1113,0
+2023-02-23,Kent,Delaware,10001,64330,722
+2023-02-23,New Castle,Delaware,10003,186739,1598
+2023-02-23,Sussex,Delaware,10005,78150,989
+2023-02-23,Unknown,Delaware,,1113,0
+2023-02-24,Kent,Delaware,10001,64330,722
+2023-02-24,New Castle,Delaware,10003,186739,1598
+2023-02-24,Sussex,Delaware,10005,78150,989
+2023-02-24,Unknown,Delaware,,1113,0
+2023-02-25,Kent,Delaware,10001,64330,722
+2023-02-25,New Castle,Delaware,10003,186739,1598
+2023-02-25,Sussex,Delaware,10005,78150,989
+2023-02-25,Unknown,Delaware,,1113,0
+2023-02-26,Kent,Delaware,10001,64330,722
+2023-02-26,New Castle,Delaware,10003,186739,1598
+2023-02-26,Sussex,Delaware,10005,78150,989
+2023-02-26,Unknown,Delaware,,1113,0
+2023-02-27,Kent,Delaware,10001,64330,722
+2023-02-27,New Castle,Delaware,10003,186739,1598
+2023-02-27,Sussex,Delaware,10005,78150,989
+2023-02-27,Unknown,Delaware,,1113,0
+2023-02-28,Kent,Delaware,10001,64330,722
+2023-02-28,New Castle,Delaware,10003,186739,1598
+2023-02-28,Sussex,Delaware,10005,78150,989
+2023-02-28,Unknown,Delaware,,1113,0
+2023-03-01,Kent,Delaware,10001,64447,724
+2023-03-01,New Castle,Delaware,10003,186969,1608
+2023-03-01,Sussex,Delaware,10005,78267,992
+2023-03-01,Unknown,Delaware,,1110,0
+2023-03-02,Kent,Delaware,10001,64447,724
+2023-03-02,New Castle,Delaware,10003,186969,1608
+2023-03-02,Sussex,Delaware,10005,78267,992
+2023-03-02,Unknown,Delaware,,1110,0
+2023-03-03,Kent,Delaware,10001,64447,724
+2023-03-03,New Castle,Delaware,10003,186969,1608
+2023-03-03,Sussex,Delaware,10005,78267,992
+2023-03-03,Unknown,Delaware,,1110,0
+2023-03-04,Kent,Delaware,10001,64447,724
+2023-03-04,New Castle,Delaware,10003,186969,1608
+2023-03-04,Sussex,Delaware,10005,78267,992
+2023-03-04,Unknown,Delaware,,1110,0
+2023-03-05,Kent,Delaware,10001,64447,724
+2023-03-05,New Castle,Delaware,10003,186969,1608
+2023-03-05,Sussex,Delaware,10005,78267,992
+2023-03-05,Unknown,Delaware,,1110,0
+2023-03-06,Kent,Delaware,10001,64447,724
+2023-03-06,New Castle,Delaware,10003,186969,1608
+2023-03-06,Sussex,Delaware,10005,78267,992
+2023-03-06,Unknown,Delaware,,1110,0
+2023-03-07,Kent,Delaware,10001,64447,724
+2023-03-07,New Castle,Delaware,10003,186969,1608
+2023-03-07,Sussex,Delaware,10005,78267,992
+2023-03-07,Unknown,Delaware,,1110,0
+2023-03-08,Kent,Delaware,10001,64447,724
+2023-03-08,New Castle,Delaware,10003,186969,1608
+2023-03-08,Sussex,Delaware,10005,78267,992
+2023-03-08,Unknown,Delaware,,1110,0
+2023-03-09,Kent,Delaware,10001,64447,724
+2023-03-09,New Castle,Delaware,10003,186969,1608
+2023-03-09,Sussex,Delaware,10005,78267,992
+2023-03-09,Unknown,Delaware,,1110,0
+2023-03-10,Kent,Delaware,10001,64592,725
+2023-03-10,New Castle,Delaware,10003,188038,1612
+2023-03-10,Sussex,Delaware,10005,78488,993
+2023-03-10,Unknown,Delaware,,1040,0
+2023-03-11,Kent,Delaware,10001,64592,725
+2023-03-11,New Castle,Delaware,10003,188038,1612
+2023-03-11,Sussex,Delaware,10005,78488,993
+2023-03-11,Unknown,Delaware,,1040,0
+2023-03-12,Kent,Delaware,10001,64592,725
+2023-03-12,New Castle,Delaware,10003,188038,1612
+2023-03-12,Sussex,Delaware,10005,78488,993
+2023-03-12,Unknown,Delaware,,1040,0
+2023-03-13,Kent,Delaware,10001,64592,725
+2023-03-13,New Castle,Delaware,10003,188038,1612
+2023-03-13,Sussex,Delaware,10005,78488,993
+2023-03-13,Unknown,Delaware,,1040,0
+2023-03-14,Kent,Delaware,10001,64592,725
+2023-03-14,New Castle,Delaware,10003,188038,1612
+2023-03-14,Sussex,Delaware,10005,78488,993
+2023-03-14,Unknown,Delaware,,1040,0
+2023-03-15,Kent,Delaware,10001,64619,728
+2023-03-15,New Castle,Delaware,10003,188259,1618
+2023-03-15,Sussex,Delaware,10005,78578,996
+2023-03-15,Unknown,Delaware,,1070,0
+2023-03-16,Kent,Delaware,10001,64619,728
+2023-03-16,New Castle,Delaware,10003,188259,1618
+2023-03-16,Sussex,Delaware,10005,78578,996
+2023-03-16,Unknown,Delaware,,1070,0
+2023-03-17,Kent,Delaware,10001,64619,728
+2023-03-17,New Castle,Delaware,10003,188259,1618
+2023-03-17,Sussex,Delaware,10005,78578,996
+2023-03-17,Unknown,Delaware,,1070,0
+2023-03-18,Kent,Delaware,10001,64619,728
+2023-03-18,New Castle,Delaware,10003,188259,1618
+2023-03-18,Sussex,Delaware,10005,78578,996
+2023-03-18,Unknown,Delaware,,1070,0
+2023-03-19,Kent,Delaware,10001,64619,728
+2023-03-19,New Castle,Delaware,10003,188259,1618
+2023-03-19,Sussex,Delaware,10005,78578,996
+2023-03-19,Unknown,Delaware,,1070,0
+2023-03-20,Kent,Delaware,10001,64619,728
+2023-03-20,New Castle,Delaware,10003,188259,1618
+2023-03-20,Sussex,Delaware,10005,78578,996
+2023-03-20,Unknown,Delaware,,1070,0
+2023-03-21,Kent,Delaware,10001,64619,728
+2023-03-21,New Castle,Delaware,10003,188259,1618
+2023-03-21,Sussex,Delaware,10005,78578,996
+2023-03-21,Unknown,Delaware,,1070,0
+2023-03-22,Kent,Delaware,10001,64665,731
+2023-03-22,New Castle,Delaware,10003,188454,1624
+2023-03-22,Sussex,Delaware,10005,78655,997
+2023-03-22,Unknown,Delaware,,1087,0
+2023-03-23,Kent,Delaware,10001,64665,731
+2023-03-23,New Castle,Delaware,10003,188454,1624
+2023-03-23,Sussex,Delaware,10005,78655,997
+2023-03-23,Unknown,Delaware,,1087,0
