@@ -61,6 +61,16 @@ function makeQuantileChoropleth(quantileData) {
   return choropleth;
 }
 
+const formatStats = (
+  region,
+  { cases, casesPerCapita, deaths, deathsPerCapita }
+) =>
+  `${region}\nCases: ${cases}\nCases (% of population): ${casesPerCapita.toFixed(
+    2
+  )}%\nDeaths: ${deaths}\nDeaths (% of population): ${deathsPerCapita.toFixed(
+    3
+  )}%`;
+
 async function showMap() {
   const mapWidth = 975;
   const mapHeight = 610;
@@ -120,8 +130,10 @@ async function showMap() {
       const deaths = values[values.length - 1].deaths - values[0].deaths;
       return {
         ...feature,
-        cases: (cases / statesPopulation[id]) * 100,
-        deaths: (deaths / statesPopulation[id]) * 100,
+        cases,
+        deaths,
+        casesPerCapita: (cases / statesPopulation[id]) * 100,
+        deathsPerCapita: (deaths / statesPopulation[id]) * 100,
       };
     });
   };
@@ -203,11 +215,10 @@ async function showMap() {
   states_g
     .append('path')
     .attr('d', path)
-    // .on('clicked', stateClicked)
     .append('title')
-    .text(({ properties: { name: state }, cases, deaths }) => {
-      return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
-    });
+    .text(({ properties: { name: state }, ...stats }) =>
+      formatStats(state, stats)
+    );
 
   g.append('path')
     .attr('id', 'state-borders')
@@ -289,9 +300,9 @@ async function showMap() {
           .selectChild('path')
           .attr('d', path)
           .selectChild('title')
-          .text(({ properties: { name: state }, cases, deaths }) => {
-            return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
-          });
+          .text(({ properties: { name: state }, ...stats }) =>
+            formatStats(state, stats)
+          );
         gb.select('title').text(
           `${startDate.toDateString()}-${endDate.toDateString()}`
         );
@@ -313,9 +324,9 @@ async function showMap() {
           .selectChild('path')
           .attr('d', path)
           .select('title')
-          .text(({ properties: { name: county }, cases, deaths }) => {
-            return `${county}\nCases: ${cases}\nDeaths: ${deaths}`;
-          });
+          .text(({ properties: { name: county }, ...stats }) =>
+            formatStats(county, stats)
+          );
       }
     }
   }
@@ -417,8 +428,10 @@ async function showMap() {
         return {
           ...feature,
           state,
-          cases: cases / countiesPopulation[id],
-          deaths: deaths / countiesPopulation[id],
+          cases,
+          deaths,
+          casesPerCapita: cases / countiesPopulation[id],
+          deathsPerCapita: deaths / countiesPopulation[id],
         };
       })
       .filter((feature) => feature !== undefined);
@@ -471,9 +484,9 @@ async function showMap() {
       .append('path')
       .attr('d', path)
       .append('title')
-      .text(({ properties: { name: county }, cases, deaths }) => {
-        return `${county}\nCases: ${cases}\nDeaths: ${deaths}`;
-      });
+      .text(({ properties: { name: county }, ...stats }) =>
+        formatStats(county, stats)
+      );
     d3.select(this)
       .append('path')
       .attr('id', 'county-borders')
