@@ -7,6 +7,7 @@ const pageState = {
   selectedStates: ['California', 'Florida'],
   us: undefined,
   geoData: undefined,
+  countyData: new d3.InternMap(),
   mandateData: undefined,
   zoomDateExtent: undefined,
 };
@@ -25,6 +26,39 @@ function pleaseWait(selection, width, height) {
       return (height - bbox.height) / 2;
     })
     .attr('fill', 'white');
+}
+
+function makeQuantileChoropleth(quantileData) {
+  const nQuantile = 5;
+
+  const rawColorScale = d3
+    .scaleDiverging(
+      [0, nQuantile ** 2 / 2, nQuantile ** 2 - 1],
+      ['#22763f', '#f4cf64', '#be2a3e']
+    )
+    .clamp(true);
+
+  const scaleColors = d3.range(nQuantile ** 2).map((q) => rawColorScale(q));
+
+  const casesQuantile = (data) =>
+    d3.scaleQuantile(
+      data.map((d) => d.cases),
+      d3.range(nQuantile)
+    );
+
+  const deathsQuantile = (data) =>
+    d3.scaleQuantile(
+      data.map((d) => d.deaths),
+      d3.range(nQuantile)
+    );
+
+  const choropleth = ({ cases, deaths }) =>
+    scaleColors[
+      casesQuantile(quantileData)(cases) +
+        nQuantile * deathsQuantile(quantileData)(deaths)
+    ];
+
+  return choropleth;
 }
 
 async function showMap() {
@@ -92,79 +126,9 @@ async function showMap() {
     });
   };
 
-  const filterCountyDataToInterval = async (stateId, sd, ed) => {
-    const counties =
-      pageState.geoData.counties || (await loadCovidData(stateId));
-    pageState.geoData.counties = counties;
-
-    const intervalCounties = d3.filter(
-      counties,
-      (d) => d.fips.startsWith(stateId) && d.date >= sd && d.date <= ed
-    );
-
-    const allCountyValues = intervalCounties.sort(
-      (a, b) => a.date.getTime() - b.date.getTime()
-    );
-
-    return topojson
-      .feature(us, us.objects.counties)
-      .features.filter(({ id }) => id.startsWith(stateId))
-      .map((feature) => {
-        const {
-          properties: { name: countyName },
-          id,
-        } = feature;
-        const values = [
-          allCountyValues.find(({ county }) => county.includes(countyName)),
-          allCountyValues.findLast(({ county }) => county.includes(countyName)),
-        ];
-        if (values[0] === undefined || values[1] === undefined) {
-          return undefined;
-        }
-
-        const state = values[0].state;
-        const cases = values[values.length - 1].cases - values[0].cases;
-        const deaths = values[values.length - 1].deaths - values[0].deaths;
-        return {
-          ...feature,
-          state,
-          cases: cases / countiesPopulation[id],
-          deaths: deaths / countiesPopulation[id],
-        };
-      })
-      .filter((feature) => feature !== undefined);
-  };
-
   const quantileData = filterStateDataToInterval(startDate, endDate);
 
-  const nQuantile = 10;
-
-  const rawColorScale = d3
-    .scaleDiverging(
-      [0, nQuantile ** 2 / 2, nQuantile ** 2 - 1],
-      ['#22763f', '#f4cf64', '#be2a3e']
-    )
-    .clamp(true);
-
-  const scaleColors = d3.range(nQuantile ** 2).map((q) => rawColorScale(q));
-
-  const casesQuantile = (data) =>
-    d3.scaleQuantile(
-      data.map((d) => d.cases),
-      d3.range(nQuantile)
-    );
-
-  const deathsQuantile = (data) =>
-    d3.scaleQuantile(
-      data.map((d) => d.deaths),
-      d3.range(nQuantile)
-    );
-
-  const choropleth = ({ cases, deaths }) =>
-    scaleColors[
-      casesQuantile(quantileData)(cases) +
-        nQuantile * deathsQuantile(quantileData)(deaths)
-    ];
+  const choropleth = makeQuantileChoropleth(quantileData);
 
   const borderColor = d3
     .scaleDiverging([0, 25000, 75000], ['lightgrey', '#000', 'lightgrey'])
@@ -313,7 +277,7 @@ async function showMap() {
       gb.call(brush.move, defaultSelection);
     });
 
-  function brushed({ selection }) {
+  async function brushed({ selection }) {
     if (selection) {
       const [startDate, endDate] = (pageState.dateRange = selection.map(
         xScale.invert
@@ -332,14 +296,19 @@ async function showMap() {
           `${startDate.toDateString()}-${endDate.toDateString()}`
         );
       } else {
+        const key = [pageState.zoomedState, startDate, endDate];
+        const quantileData =
+          pageState.countyData.get(key) ||
+          (await filterCountyDataToInterval(
+            pageState.zoomedState,
+            startDate,
+            endDate
+          ));
+        pageState.countyData.set(key, quantileData);
+
+        const choropleth = makeQuantileChoropleth(quantileData);
         pageState.counties_g
-          .data(
-            filterCountyDataToInterval(
-              pageState.zoomedState,
-              startDate,
-              endDate
-            )
-          )
+          .data(quantileData)
           .attr('fill', (d) => choropleth(d))
           .selectChild('path')
           .attr('d', path)
@@ -364,7 +333,7 @@ async function showMap() {
     const {
       properties: { name: stateName },
     } = d;
-    console.log(stateName);
+
     const [[x0, y0], [x1, y1]] = path.bounds(d);
 
     const selection = d3.select(this);
@@ -412,7 +381,50 @@ async function showMap() {
     gb.call(brush.move, pageState.dateRange.map(xScale));
   }
 
-  function stateClicked(event, d) {
+  const filterCountyDataToInterval = async (stateId, sd, ed) => {
+    const counties =
+      pageState.countyData.get(stateId) || (await loadCovidData(stateId));
+    pageState.countyData.set(stateId, counties);
+
+    const intervalCounties = d3.filter(
+      counties,
+      (d) => d.fips.startsWith(stateId) && d.date >= sd && d.date <= ed
+    );
+
+    const allCountyValues = intervalCounties.sort(
+      (a, b) => a.date.getTime() - b.date.getTime()
+    );
+
+    return topojson
+      .feature(us, us.objects.counties)
+      .features.filter(({ id }) => id.startsWith(stateId))
+      .map((feature) => {
+        const {
+          properties: { name: countyName },
+          id,
+        } = feature;
+        const values = [
+          allCountyValues.find(({ county }) => county.includes(countyName)),
+          allCountyValues.findLast(({ county }) => county.includes(countyName)),
+        ];
+        if (values[0] === undefined || values[1] === undefined) {
+          return undefined;
+        }
+
+        const state = values[0].state;
+        const cases = values[values.length - 1].cases - values[0].cases;
+        const deaths = values[values.length - 1].deaths - values[0].deaths;
+        return {
+          ...feature,
+          state,
+          cases: cases / countiesPopulation[id],
+          deaths: deaths / countiesPopulation[id],
+        };
+      })
+      .filter((feature) => feature !== undefined);
+  };
+
+  async function stateClicked(event, d) {
     event.stopPropagation();
 
     const marginWidth = mapWidth / 5;
@@ -424,7 +436,15 @@ async function showMap() {
       cases,
       deaths,
     } = d;
-    console.log(stateName);
+
+    const key = [stateId, startDate, endDate];
+    const quantileData =
+      pageState.countyData.get(key) ||
+      (await filterCountyDataToInterval(stateId, startDate, endDate));
+    pageState.countyData.set(key, quantileData);
+
+    const choropleth = makeQuantileChoropleth(quantileData);
+
     if (
       pageState.zoomedState !== undefined &&
       pageState.zoomedState === stateId
@@ -442,7 +462,7 @@ async function showMap() {
     pageState.counties_g = d3
       .select(this)
       .selectAll('g')
-      .data(filterCountyDataToInterval(stateId, startDate, endDate))
+      .data(quantileData)
       .join('g')
       .attr('fill', (d) => choropleth(d))
       .attr('opacity', 0);
