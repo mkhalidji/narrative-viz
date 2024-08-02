@@ -197,7 +197,7 @@ async function showMap() {
 
   const path = d3.geoPath();
 
-  const g = svg.append('g').call(zoom);
+  const g = svg.append('g');
 
   const states_g = g
     .attr('cursor', 'pointer')
