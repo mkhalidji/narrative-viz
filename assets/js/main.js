@@ -7,8 +7,25 @@ const pageState = {
   selectedStates: ['California', 'Florida'],
   us: undefined,
   geoData: undefined,
+  mandateData: undefined,
   zoomDateExtent: undefined,
 };
+
+function pleaseWait(selection, width, height) {
+  selection
+    .append('text')
+    .text('Loading data... please wait')
+    .style('font-size', '18pt')
+    .attr('x', function () {
+      const bbox = this.getBBox();
+      return (width - bbox.width) / 2;
+    })
+    .attr('y', function () {
+      const bbox = this.getBBox();
+      return (height - bbox.height) / 2;
+    })
+    .attr('fill', 'white');
+}
 
 async function showMap() {
   const mapWidth = 975;
@@ -38,28 +55,13 @@ async function showMap() {
     });
 
   const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
-  svg
-    .append('text')
-    .attr('x', 20)
-    .attr('y', 20)
-    .attr('stroke', 'white')
-    .attr('fill', 'white')
-    .style('font-size', '14pt')
-    .text('Loading data... please wait');
 
-  const data = pageState.geoData || (await prepareGeoData());
+  svg.call(pleaseWait, width, height);
+
+  const data = pageState.geoData || (await loadStatesData());
   pageState.geoData = data;
 
-  const {
-    us,
-    national,
-    states,
-    counties,
-    mandates,
-    restrictions,
-    statesPopulation,
-    countiesPopulation,
-  } = data;
+  const { us, national, states, statesPopulation, countiesPopulation } = data;
 
   const [startDate, endDate] = (pageState.dateRange = d3.extent(
     national,
@@ -626,11 +628,23 @@ async function showGraphs() {
   const height = 810;
   const margin = { bottom: 20, left: 50, right: 5 };
 
-  const data = pageState.geoData || (await prepareGeoData());
+  const svg = d3
+    .select('.viewport svg')
+    .attr('viewBox', [0, 0, width, height])
+    .attr('width', width)
+    .attr('height', height);
+
+  svg.call(pleaseWait, width, height);
+
+  const data = pageState.geoData || (await loadStatesData());
   pageState.geoData = data;
 
+  const mandateData = pageState.mandateData || (await fetchMandateData());
+  pageState.mandateData = mandateData;
+
   const {
-    geoData: { us, states, mandates, restrictions },
+    geoData: { us, states },
+    mandateData: { mandates, restrictions },
     selectedStates,
   } = pageState;
 
@@ -747,12 +761,6 @@ async function showGraphs() {
     .attr('d', geoPath(topojson.mesh(us, us.objects.nation)))
     .attr('stroke', 'whitesmoke')
     .attr('fill', 'none');
-
-  const svg = d3
-    .select('.viewport svg')
-    .attr('viewBox', [0, 0, width, height])
-    .attr('width', width)
-    .attr('height', height);
 
   svg.html('');
 
@@ -1073,15 +1081,12 @@ const runningDiff = (series) => {
 };
 
 function fetchNationalData() {
-  return d3.csv(
-    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv',
-    (d) => ({
-      ...d,
-      date: new Date(d.date),
-      cases: +d.cases,
-      deaths: +d.deaths,
-    })
-  );
+  return d3.csv('data/us.csv', (d) => ({
+    ...d,
+    date: new Date(d.date),
+    cases: +d.cases,
+    deaths: +d.deaths,
+  }));
 }
 
 async function loadPopulationData(filename) {
@@ -1102,39 +1107,33 @@ async function loadPopulationData(filename) {
 }
 
 function fetchStateData() {
-  return d3.csv(
-    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv',
-    (d) => ({
-      ...d,
-      date: new Date(d.date),
-      cases: +d.cases,
-      deaths: +d.deaths,
-    })
-  );
+  return d3.csv('data/us-states.csv', (d) => ({
+    ...d,
+    date: new Date(d.date),
+    cases: +d.cases,
+    deaths: +d.deaths,
+  }));
 }
 
-function fetchCountyData() {
-  return d3.csv(
-    'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv',
-    (d) => ({
-      ...d,
-      date: new Date(d.date),
-      cases: +d.cases,
-      deaths: +d.deaths,
-    })
-  );
+function fetchCountyData(state) {
+  return d3.csv(`data/preprocessed/us-counties-${state}.csv`, (d) => ({
+    ...d,
+    date: new Date(d.date),
+    cases: +d.cases,
+    deaths: +d.deaths,
+  }));
 }
 
-function prepareCovidData() {
-  return Promise.all([
-    fetchNationalData(),
-    fetchStateData(),
-    fetchCountyData(),
-  ]);
+function loadCovidData(forState) {
+  if (forState) {
+    return fetchCountyData(forState);
+  }
+
+  return Promise.all([fetchNationalData(), fetchStateData()]);
 }
 
-function prepareMandateData() {
-  return Promise.all([
+async function fetchMandateData() {
+  const [mandates, restrictions] = await Promise.all([
     d3.csv('data/State-Level_Vaccine_Mandates_-_All_20240723.csv', (d) => ({
       type: 'mandate',
       ...d,
@@ -1151,48 +1150,26 @@ function prepareMandateData() {
       })
     ),
   ]);
+
+  return { mandates, restrictions };
 }
 
-async function prepareGeoData() {
-  const [
-    us,
-    [national, states, counties],
-    [mandates, restrictions],
-    statesPopulation,
-    countiesPopulation,
-  ] = await Promise.all([
-    d3.json('data/counties-albers-10m.json'),
-    prepareCovidData(),
-    prepareMandateData(),
-    loadPopulationData('data/us-population-states.csv'),
-    loadPopulationData('data/us-population-counties.csv'),
-  ]);
+async function loadStatesData() {
+  const [us, [national, states], statesPopulation, countiesPopulation] =
+    await Promise.all([
+      d3.json('data/counties-albers-10m.json'),
+      loadCovidData(),
+      loadPopulationData('data/us-population-states.csv'),
+      loadPopulationData('data/us-population-counties.csv'),
+    ]);
 
   return {
     us,
     national,
     states,
-    counties,
-    mandates,
-    restrictions,
     statesPopulation,
     countiesPopulation,
   };
 }
 
-function movingAverage(values, N) {
-  let i = 0;
-  let sum = 0;
-  const means = new Float64Array(values.length).fill(NaN);
-  for (let n = Math.min(N - 1, values.length); i < n; ++i) {
-    sum += values[i];
-  }
-  for (let n = values.length; i < n; ++i) {
-    sum += values[i];
-    means[i] = sum / N;
-    sum -= values[i - N + 1];
-  }
-  return means;
-}
-
-window.onload = showMap;
+window.onload = showGraphs;
