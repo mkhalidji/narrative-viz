@@ -92,7 +92,11 @@ async function showMap() {
     });
   };
 
-  const filterCountyDataToInterval = (stateId, sd, ed) => {
+  const filterCountyDataToInterval = async (stateId, sd, ed) => {
+    const counties =
+      pageState.geoData.counties || (await loadCovidData(stateId));
+    pageState.geoData.counties = counties;
+
     const intervalCounties = d3.filter(
       counties,
       (d) => d.fips.startsWith(stateId) && d.date >= sd && d.date <= ed
@@ -235,7 +239,7 @@ async function showMap() {
   states_g
     .append('path')
     .attr('d', path)
-    .on('clicked', stateClicked)
+    // .on('clicked', stateClicked)
     .append('title')
     .text(({ properties: { name: state }, cases, deaths }) => {
       return `${state}\nCases: ${cases}\nDeaths: ${deaths}`;
@@ -1115,8 +1119,8 @@ function fetchStateData() {
   }));
 }
 
-function fetchCountyData(state) {
-  return d3.csv(`data/preprocessed/us-counties-${state}.csv`, (d) => ({
+function fetchCountyData(stateId) {
+  return d3.csv(`data/preprocessed/us-counties-${stateId}.csv`, (d) => ({
     ...d,
     date: new Date(d.date),
     cases: +d.cases,
@@ -1124,9 +1128,9 @@ function fetchCountyData(state) {
   }));
 }
 
-function loadCovidData(forState) {
-  if (forState) {
-    return fetchCountyData(forState);
+function loadCovidData(forStateId) {
+  if (forStateId) {
+    return fetchCountyData(forStateId);
   }
 
   return Promise.all([fetchNationalData(), fetchStateData()]);
@@ -1172,4 +1176,4 @@ async function loadStatesData() {
   };
 }
 
-window.onload = showGraphs;
+window.onload = showMap;
