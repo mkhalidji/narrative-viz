@@ -5,11 +5,34 @@ const pageState = {
   counties_g: undefined,
   dateRange: undefined,
   selectedStates: ['California', 'Florida'],
-  us: undefined,
   geoData: undefined,
   countyData: new d3.InternMap(),
   mandateData: undefined,
   zoomDateExtent: undefined,
+};
+
+const constants = {
+  mapWidth: 975,
+  mapHeight: 610,
+  margin: {
+    horizontal: 20,
+    vertical: 10,
+  },
+  spacing: {
+    vertical: 10,
+  },
+  shortChartHeight: 100,
+};
+
+constants.width = constants.mapWidth + constants.margin.horizontal;
+constants.height =
+  constants.mapHeight +
+  constants.margin.vertical +
+  2 * constants.spacing.vertical;
+
+const pageData = {
+  national: undefined,
+  us: undefined,
 };
 
 function pleaseWait(selection, width, height) {
@@ -73,9 +96,116 @@ const formatStats = (
 
 async function showIntroduction() {}
 
-async function showNationalTrends() {}
+async function drawUSMap(selection, fill = 'none') {
+  loadMapData();
+  const us = await pageData.us;
+  const path = d3.geoPath();
 
-async function showStateTrends() {
+  selection
+    .append('path')
+    .attr('id', 'us-border')
+    .attr('fill', fill)
+    .attr('stroke', '#a2a2a2')
+    .attr('d', path(topojson.mesh(us, us.objects.nation)));
+
+  selection
+    .append('path')
+    .attr('id', 'state-borders')
+    .attr('fill', fill)
+    .attr('stroke', '#a2a2a2')
+    .attr('stroke-linejoin', 'round')
+    .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
+}
+
+function chartNationalTrends(
+  selection,
+  national,
+  { x, y },
+  { width, height },
+  { fill }
+) {
+  const dateExtent = d3.extent(national, ({ date }) => date);
+  const xScale = d3
+    .scaleTime()
+    .domain(dateExtent)
+    .range([x, x + width]);
+
+  const yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(national, ({ value }) => value)])
+    .range([y + height, y]);
+
+  const area = (xs, ys) =>
+    d3
+      .area()
+      .x(({ date }) => xs(date))
+      .y0(yScale(0))
+      .y1(({ value }) => ys(value));
+
+  const g = selection.append('g');
+
+  g.append('path')
+    .datum(national)
+    .attr('fill', fill)
+    .attr('stroke', 'whitesmoke')
+    .attr('d', area(xScale, yScale));
+
+  g.append('g')
+    .call(d3.axisBottom(xScale))
+    .attr('transform', `translate(0, ${yScale(0)})`);
+
+  g.append('g')
+    .attr('transform', `translate(${x}, 0)`)
+    .call(d3.axisLeft(yScale).ticks(3));
+}
+
+async function presentNationalTrends() {
+  const { width, height, shortChartHeight, margin, spacing } = constants;
+  const chartMargin = { left: 100, right: margin.horizontal / 2 };
+
+  loadNationalCovidData();
+  const national = await pageData.national;
+
+  const svg = d3.select('.viewport svg').attr('viewBox', [0, 0, width, height]);
+
+  const chartWidth = width - chartMargin.left - chartMargin.right;
+
+  const g = svg.append('g');
+
+  g.call(drawUSMap, '#444444');
+
+  // svg.call(
+  //   chartNationalTrends,
+  //   d3.map(national, ({ date, deaths }) => ({
+  //     date,
+  //     value: deaths,
+  //   })),
+  //   {
+  //     x: chartMargin.left,
+  //     y:
+  //       (margin.vertical + height - 3 * shortChartHeight - spacing.vertical) /
+  //       2,
+  //   },
+  //   { width: chartWidth, height: shortChartHeight },
+  //   { fill: 'red' }
+  // );
+
+  svg.call(
+    chartNationalTrends,
+    d3.map(national, ({ date, cases }) => ({ date, value: cases })),
+    {
+      x: chartMargin.left,
+      y: height - shortChartHeight - margin.vertical / 2,
+    },
+    {
+      width: width - chartMargin.left - chartMargin.right,
+      height: shortChartHeight,
+    },
+    { fill: 'steelblue' }
+  );
+}
+
+async function presentStateData() {
   const mapWidth = 975;
   const mapHeight = 610;
   const mapMargin = { bottom: 20 };
@@ -224,18 +354,7 @@ async function showStateTrends() {
       formatStats(state, stats)
     );
 
-  g.append('path')
-    .attr('id', 'state-borders')
-    .attr('fill', 'none')
-    .attr('stroke', '#a2a2a2')
-    .attr('stroke-linejoin', 'round')
-    .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
-
-  g.append('path')
-    .attr('id', 'us-border')
-    .attr('fill', 'none')
-    .attr('stroke', '#a2a2a2')
-    .attr('d', path(topojson.mesh(us, us.objects.nation)));
+  await g.call(drawUSMap);
 
   const defaultSelection = xScale.range();
   const gb = svg.append('g');
@@ -1134,6 +1253,10 @@ function fetchNationalData() {
   }));
 }
 
+function loadNationalCovidData() {
+  pageData.national ||= fetchNationalData();
+}
+
 async function loadPopulationData(filename) {
   const populations = await d3.csv(
     filename,
@@ -1197,6 +1320,10 @@ async function fetchMandateData() {
   ]);
 
   return { mandates, restrictions };
+}
+
+async function loadMapData() {
+  pageData.us ||= d3.json('data/counties-albers-10m.json');
 }
 
 async function loadStatesData() {
@@ -1263,4 +1390,4 @@ async function showScatter() {
   g.append('title').text(({ state }) => state);
 }
 
-window.onload = showScatter;
+window.onload = presentNationalTrends;
