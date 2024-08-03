@@ -71,7 +71,11 @@ const formatStats = (
     3
   )}%`;
 
-async function showMap() {
+async function introduction() {}
+
+async function nationalTrends() {}
+
+async function statewideTrends() {
   const mapWidth = 975;
   const mapHeight = 610;
   const mapMargin = { bottom: 20 };
@@ -543,6 +547,10 @@ async function showMap() {
     g.attr('transform', transform).attr('stroke-width', 1 / transform.k);
   }
 }
+
+async function stateComparisons() {}
+
+async function conclusion() {}
 
 async function showMandates() {
   const mandates = await d3.csv(
