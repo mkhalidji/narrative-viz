@@ -1209,4 +1209,50 @@ async function loadStatesData() {
   };
 }
 
-window.onload = showMap;
+async function showScatter() {
+  const { states, statesPopulation: pop } = await loadStatesData();
+
+  const width = 800,
+    height = 450;
+  const margin = { left: 10, right: 10, top: 10, bottom: 10 };
+
+  const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
+
+  const compareDates = (a, b) => a.date.getTime() - b.date.getTime();
+  const data = d3.map(
+    d3.group(states, (d) => d.state).values(),
+    function (state) {
+      const first = d3.least(state, compareDates);
+      const last = d3.greatest(state, compareDates);
+
+      return {
+        state: first.state,
+        cases: (last.cases - first.cases) / pop[first.fips],
+        deaths: (last.deaths - first.deaths) / pop[first.fips],
+      };
+    }
+  );
+
+  const xScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(data, (d) => d.cases)])
+    .range([margin.left, width - margin.right]);
+
+  const yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(data, (d) => d.deaths)])
+    .range([height - margin.bottom, margin.top]);
+
+  const g = svg.selectAll('g').data(data).join('g');
+
+  g.append('circle')
+    .attr('fill', 'whitesmoke')
+    .attr('stroke', 'red')
+    .attr('cx', ({ cases }) => xScale(cases))
+    .attr('cy', ({ deaths }) => yScale(deaths))
+    .attr('r', 5);
+
+  g.append('title').text(({ state }) => state);
+}
+
+window.onload = showScatter;
