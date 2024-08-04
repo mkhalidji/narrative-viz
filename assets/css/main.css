@@ -64,7 +64,7 @@ div.pane {
   flex-direction: column;
   box-sizing: content-box;
   left: 100px;
-  width: 350px;
+  width: 380px;
   height: 100%;
   padding: 10px;
   background: darkgray;
@@ -85,6 +85,11 @@ div.pane {
 div.pane h1 {
   width: 100%;
   text-align: center;
+}
+
+.pane  .pane-interior li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
 }
 
 div.viewport svg {

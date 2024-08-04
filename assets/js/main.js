@@ -1,6 +1,12 @@
 const pageState = {
-  currentPage: 0,
-  pages: [],
+  currentPage: 2,
+  pages: [
+    {
+      handler: presentNationalTrends,
+    },
+    { handler: presentStateData },
+    { handler: presentStateComparisons },
+  ],
   zoomedState: undefined,
   counties_g: undefined,
   dateRange: undefined,
@@ -56,6 +62,18 @@ function pleaseWait(selection, width, height) {
     .attr('fill', 'white');
 }
 
+function renderPresentationPoints(points) {
+  const ul = d3
+    .select('.pane .pane-interior')
+    .selectAll('ul')
+    .data([0])
+    .join('ul');
+
+  ul.selectAll('li')
+    .data(points)
+    .join('li')
+    .text((d) => d);
+}
 function makeQuantileChoropleth(quantileData) {
   const nQuantile = 5;
 
@@ -186,7 +204,8 @@ function chartNationalTrends(
       type: d3.annotationCalloutCircle,
       id: 'inauguration',
       note: {
-        label: '',
+        label:
+          'Presidential inauguration; at this point, the administration changes hands. For similar periods before and after this point, more or less similar trends can be observed.',
         bgPadding: 10,
         title: 'Inauguration',
         wrap: 200,
@@ -208,7 +227,8 @@ function chartNationalTrends(
       type: d3.annotationCalloutCircle,
       id: 'slope',
       note: {
-        label: '',
+        label:
+          'The increased slope here means that the number of cases (yellow) has a drastic increase at this point.',
         bgPadding: 10,
         title: 'Change in rate',
         wrap: 200,
@@ -233,20 +253,6 @@ function chartNationalTrends(
   function annotate(selection, annotations) {
     const makeAnnotations = d3
       .annotation()
-      .on('noteover', function (annotation) {
-        if (annotation.id === 'inauguration') {
-          annotation.note.label =
-            'Presidential inauguration; at this point, the administration changes hands. For similar periods before and after this point, more or less similar trends can be observed.';
-        } else if (annotation.id === 'slope') {
-          annotation.note.label =
-            'The increased slope here means that the number of cases (yellow) has a drastic increase at this point.';
-        }
-        makeAnnotations.updateText().update();
-      })
-      .on('noteout', function (annotation) {
-        annotation.note.label = '';
-        makeAnnotations.updateText().update();
-      })
       .notePadding(10)
       .annotations(annotations);
 
@@ -313,6 +319,15 @@ async function presentNationalTrends() {
     },
     { strokes: { cases: 'gold', deaths: 'red' } }
   );
+
+  const points = [
+    'You can see the national data on this slide.',
+    'The graphs show the running number of cases (yellow) and deaths (red).',
+    'You can select regions on the graph and see the numbers reflected on tha map.',
+    'The slope of each graph shows how fast or slow that number is changing. Two interesting points in the graph are marked.',
+  ];
+
+  renderPresentationPoints(points);
 
   const xScale = d3
     .scaleTime()
@@ -400,23 +415,6 @@ async function presentStateData() {
 
   const width = mapWidth;
   const height = mapHeight + mapMargin.bottom + chartHeight;
-
-  d3.select('#left-nav')
-    .classed('enabled', pageState.currentPage > 0)
-    .on('click', function (event) {
-      if (d3.select(this).classed('enabled')) {
-        pageState.currentPage--;
-      }
-    });
-  d3.select('#right-nav')
-    .classed('enabled', pageState.currentPage < 2)
-    .on('click', function (event) {
-      if (d3.select(this).classed('enabled')) {
-        pageState.currentPage++;
-        d3.select('.viewport').html('<svg></svg>');
-        return showGraphs();
-      }
-    });
 
   const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
 
@@ -541,6 +539,14 @@ async function presentStateData() {
     );
 
   await g.call(drawUSMap);
+
+  const points = [
+    'This map shows how each state did in comparison with the others.',
+    'You can select different date ranges to see how the map will change.',
+    'This map also contains county information. To see the counties in each state, click on the state.',
+  ];
+
+  renderPresentationPoints(points);
 
   const defaultSelection = xScale.range();
   const gb = svg.append('g');
@@ -853,127 +859,7 @@ async function presentStateData() {
   }
 }
 
-async function showStateComparisons() {}
-
-async function showConclusion() {}
-
-async function showMandates() {
-  const mandates = await d3.csv(
-    'data/State-Level_Vaccine_Mandates_-_All_20240723.csv',
-    ({ state, effective_date }) => ({
-      state,
-      effective_date: new Date(effective_date),
-    })
-  );
-
-  const dates = mandates.map((d) => d.effective_date);
-
-  const width = 975,
-    height = 610,
-    marginBottom = 100;
-  const xScale = d3
-    .scaleTime()
-    .domain([d3.min(dates), d3.max(dates)])
-    .nice()
-    .range([10, width - 10]);
-
-  const svg = d3
-    .select('svg')
-    .attr('viewBox', [0, 0, width, height])
-    .attr('width', width)
-    .attr('height', height);
-
-  const dots = svg
-    .selectAll('circle')
-    .data(mandates)
-    .join('circle')
-    .attr('cx', ({ effective_date }) => xScale(effective_date))
-    .attr('cy', height / 2)
-    .attr('r', 2.5)
-    .attr('fill', 'whitesmoke');
-
-  dots
-    .append('title')
-    .text(({ state, effective_date }) => `${state} on ${effective_date}`);
-
-  svg
-    .append('g')
-    .attr('transform', `translate(0,${height - marginBottom})`)
-    .call(
-      d3
-        .axisBottom(xScale)
-        .ticks(d3.timeMonth.every(1))
-        .tickFormat((date) => {
-          const month = date.getMonth(),
-            year = date.getFullYear();
-          const monthName = [
-            year,
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-          ];
-
-          return monthName[month];
-        })
-    );
-
-  const parseTime = d3.timeParse('%d-%b-%y');
-  const timeFormat = d3.timeFormat('%d-%b-%y');
-
-  //Skipping setting domains for sake of example
-  const x = d3.scaleTime().range([0, 800]);
-  const y = d3.scaleLinear().range([300, 0]);
-  const type = d3.annotationCallout;
-
-  const annotationGroup = svg
-    .append('g')
-    .attr('class', 'annotation-group')
-    .attr('fill', 'white');
-
-  dots.each(function (d, i) {
-    d3.select(this)
-      .on('click', function () {})
-      .on('mouseover', function () {
-        const makeAnnotations = d3
-          .annotation()
-          .type(type)
-          .accessors({
-            x: ({ effective_date }) => xScale(effective_date),
-            y: () => height / 2,
-          })
-          .accessorsInverse({
-            effective_date: (d) => timeFormat(x.invert(d.x)),
-          })
-          .annotations([
-            {
-              note: {
-                title: `${d3.timeFormat('%B %Y')(d.effective_date)}`,
-                label: `${d.state}`,
-              },
-              data: d,
-              className: 'show-bg',
-              dy: -50,
-              dx: 100,
-            },
-          ]);
-
-        annotationGroup.call(makeAnnotations);
-      })
-      .on('mouseout', function () {
-        annotationGroup.call(d3.annotation().annotations([]));
-      });
-  });
-}
-
-async function showGraphs() {
+async function presentStateComparisons() {
   const width = 960;
   const height = 810;
   const margin = { bottom: 20, left: 50, right: 5 };
@@ -1416,6 +1302,126 @@ async function showGraphs() {
   }
 }
 
+async function showConclusion() {}
+
+async function showMandates() {
+  const mandates = await d3.csv(
+    'data/State-Level_Vaccine_Mandates_-_All_20240723.csv',
+    ({ state, effective_date }) => ({
+      state,
+      effective_date: new Date(effective_date),
+    })
+  );
+
+  const dates = mandates.map((d) => d.effective_date);
+
+  const width = 975,
+    height = 610,
+    marginBottom = 100;
+  const xScale = d3
+    .scaleTime()
+    .domain([d3.min(dates), d3.max(dates)])
+    .nice()
+    .range([10, width - 10]);
+
+  const svg = d3
+    .select('svg')
+    .attr('viewBox', [0, 0, width, height])
+    .attr('width', width)
+    .attr('height', height);
+
+  const dots = svg
+    .selectAll('circle')
+    .data(mandates)
+    .join('circle')
+    .attr('cx', ({ effective_date }) => xScale(effective_date))
+    .attr('cy', height / 2)
+    .attr('r', 2.5)
+    .attr('fill', 'whitesmoke');
+
+  dots
+    .append('title')
+    .text(({ state, effective_date }) => `${state} on ${effective_date}`);
+
+  svg
+    .append('g')
+    .attr('transform', `translate(0,${height - marginBottom})`)
+    .call(
+      d3
+        .axisBottom(xScale)
+        .ticks(d3.timeMonth.every(1))
+        .tickFormat((date) => {
+          const month = date.getMonth(),
+            year = date.getFullYear();
+          const monthName = [
+            year,
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
+          ];
+
+          return monthName[month];
+        })
+    );
+
+  const parseTime = d3.timeParse('%d-%b-%y');
+  const timeFormat = d3.timeFormat('%d-%b-%y');
+
+  //Skipping setting domains for sake of example
+  const x = d3.scaleTime().range([0, 800]);
+  const y = d3.scaleLinear().range([300, 0]);
+  const type = d3.annotationCallout;
+
+  const annotationGroup = svg
+    .append('g')
+    .attr('class', 'annotation-group')
+    .attr('fill', 'white');
+
+  dots.each(function (d, i) {
+    d3.select(this)
+      .on('click', function () {})
+      .on('mouseover', function () {
+        const makeAnnotations = d3
+          .annotation()
+          .type(type)
+          .accessors({
+            x: ({ effective_date }) => xScale(effective_date),
+            y: () => height / 2,
+          })
+          .accessorsInverse({
+            effective_date: (d) => timeFormat(x.invert(d.x)),
+          })
+          .annotations([
+            {
+              note: {
+                title: `${d3.timeFormat('%B %Y')(d.effective_date)}`,
+                label: `${d.state}`,
+              },
+              data: d,
+              className: 'show-bg',
+              dy: -50,
+              dx: 100,
+            },
+          ]);
+
+        annotationGroup.call(makeAnnotations);
+      })
+      .on('mouseout', function () {
+        annotationGroup.call(d3.annotation().annotations([]));
+      });
+  });
+}
+
+async function showGraphs() {}
+
 const runningDiff = (series) => {
   const daily = Array.from(series);
 
@@ -1575,4 +1581,30 @@ async function showScatter() {
   g.append('title').text(({ state }) => state);
 }
 
-window.onload = presentNationalTrends;
+function presentation() {
+  d3.select('#left-nav')
+    .classed('enabled', pageState.currentPage > 0)
+    .on('click', function (event) {
+      if (d3.select(this).classed('enabled')) {
+        clearPage();
+        pageState.pages[--pageState.currentPage].handler();
+      }
+    });
+  d3.select('#right-nav')
+    .classed('enabled', pageState.currentPage < 2)
+    .on('click', function (event) {
+      if (d3.select(this).classed('enabled')) {
+        clearPage();
+        pageState.pages[++pageState.currentPage].handler();
+      }
+    });
+
+  pageState.pages[pageState.currentPage].handler();
+
+  function clearPage() {
+    d3.select('.viewport').html('<svg></svg>');
+    d3.select('.pane .pane-interior').html('');
+  }
+}
+
+window.onload = presentation;
