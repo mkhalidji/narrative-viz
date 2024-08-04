@@ -51,7 +51,7 @@ const compareDates = (a, b) => a.date.getTime() - b.date.getTime();
 function clearPage() {
   d3.select('.viewport').html('<svg></svg>');
   d3.select('.pane h1').html('COVID-19:<br> A Tale of Two States');
-  d3.select('.pane .pane-interior').html('');
+  d3.select('.pane .pane-interior').html('<ul></ul>');
 }
 
 function renderPresentationTitle(selection, width, height) {
