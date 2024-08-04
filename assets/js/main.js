@@ -1,11 +1,13 @@
 const pageState = {
-  currentPage: 2,
+  currentPage: 0,
   pages: [
+    { handler: showIntroduction },
     {
       handler: presentNationalTrends,
     },
     { handler: presentStateData },
     { handler: presentStateComparisons },
+    { handler: showConclusion },
   ],
   zoomedState: undefined,
   counties_g: undefined,
@@ -46,6 +48,44 @@ const pageData = {
 
 const compareDates = (a, b) => a.date.getTime() - b.date.getTime();
 
+function clearPage() {
+  d3.select('.viewport').html('<svg></svg>');
+  d3.select('.pane h1').html('COVID-19:<br> A Tale of Two States');
+  d3.select('.pane .pane-interior').html('');
+}
+
+function renderPresentationTitle(selection, width, height) {
+  selection
+    .append('text')
+    .text('COVID-19: A Tale of Two States')
+    .style('font-size', '32pt')
+    .attr('x', function () {
+      const bbox = this.getBBox();
+      return (width - bbox.width) / 2;
+    })
+    .attr('y', function () {
+      const bbox = this.getBBox();
+      return (height - bbox.height) / 2;
+    })
+    .attr('fill', 'white');
+}
+
+function renderPresentationConclusion(selection, width, height) {
+  selection
+    .append('text')
+    .text('Thank You')
+    .style('font-size', '32pt')
+    .attr('x', function () {
+      const bbox = this.getBBox();
+      return (width - bbox.width) / 2;
+    })
+    .attr('y', function () {
+      const bbox = this.getBBox();
+      return (height - bbox.height) / 2;
+    })
+    .attr('fill', 'white');
+}
+
 function pleaseWait(selection, width, height) {
   selection
     .append('text')
@@ -63,11 +103,7 @@ function pleaseWait(selection, width, height) {
 }
 
 function renderPresentationPoints(points) {
-  const ul = d3
-    .select('.pane .pane-interior')
-    .selectAll('ul')
-    .data([0])
-    .join('ul');
+  const ul = d3.select('.pane .pane-interior > ul');
 
   ul.selectAll('li')
     .data(points)
@@ -117,7 +153,13 @@ const formatStats = (
     3
   )}%`;
 
-async function showIntroduction() {}
+async function showIntroduction() {
+  const svg = d3
+    .select('.viewport svg')
+    .attr('viewBox', [0, 0, constants.mapWidth, constants.mapHeight]);
+
+  svg.call(renderPresentationTitle, constants.mapWidth, constants.mapHeight);
+}
 
 async function drawUSMap(selection, fill = 'none', stroke = '#a2a2a2') {
   loadMapData();
@@ -941,8 +983,6 @@ async function presentStateComparisons() {
     .join('svg')
     .attr('viewBox', [0, 0, mapWidth, mapHeight]);
 
-  pane.html('');
-
   pane
     .on('mouseenter', function () {
       d3.select(this).style('width', '200%');
@@ -951,7 +991,7 @@ async function presentStateComparisons() {
       d3.select(this).style('width', null);
     });
 
-  const g = pane.append('g');
+  const g = pane.insert('g');
 
   g.append('rect')
     .attr('x', 0)
@@ -976,7 +1016,8 @@ async function presentStateComparisons() {
       )
       .on('click', function (_e, { properties: { name } }) {
         pageState.selectedStates[i] = name;
-        showGraphs();
+        clearPage();
+        presentStateComparisons();
       });
   });
 
@@ -997,6 +1038,16 @@ async function presentStateComparisons() {
     .attr('d', geoPath(topojson.mesh(us, us.objects.nation)))
     .attr('stroke', 'whitesmoke')
     .attr('fill', 'none');
+
+  d3.select('.pane .pane-interior').append('ul');
+
+  const points = [
+    'Here, you can see the day-to-day numbers of cases (bottom) and deaths (top) compared between any two states.',
+    'A comparison between California (yellow) and Florida (red) shows that despite the differences, when taking into account the population of each state, the numbers are not significantly different.',
+    'Click on any state on either of the maps to select and compare it with the other selected state.',
+  ];
+
+  renderPresentationPoints(points);
 
   svg.html('');
 
@@ -1090,15 +1141,10 @@ async function presentStateComparisons() {
             Array.from(
               regulations.entries().map(([type, regulation]) => ({
                 note: {
-                  label: Array.from(
-                    d3.union(
-                      type === 'mandate'
-                        ? regulation.map(extractMandateHtml)
-                        : regulation.map(extractRestrictionHtml)
-                    )
-                  ).join(', '),
-                  bgPadding: 20,
+                  label: '',
+                  bgPadding: 5,
                   title: `${type} in ${selectedStates[s]}`,
+                  wrap: 200,
                 },
                 data: { date },
                 className: s === 0 ? 'annotation-first' : 'annotation-second',
@@ -1212,7 +1258,7 @@ async function presentStateComparisons() {
       texts.each(function (_d, t) {
         d3.select(this)
           .attr('text-anchor', x_coord > width - 200 ? 'end' : 'start')
-          .attr('stroke', 'whitesmoke')
+          // .attr('stroke', 'whitesmoke')
           .attr('fill', 'whitesmoke')
           .attr('x', x_coord + (x_coord > width - 200 ? -5 : 5))
           .attr('y', (d) => yScales(d)(now[d].value) - 10)
@@ -1302,7 +1348,18 @@ async function presentStateComparisons() {
   }
 }
 
-async function showConclusion() {}
+async function showConclusion() {
+  const svg = d3
+    .select('.viewport svg')
+    .attr('viewBox', [0, 0, constants.mapWidth, constants.mapHeight]);
+
+  d3.select('.pane h1').html('');
+  svg.call(
+    renderPresentationConclusion,
+    constants.mapWidth,
+    constants.mapHeight
+  );
+}
 
 async function showMandates() {
   const mandates = await d3.csv(
@@ -1419,8 +1476,6 @@ async function showMandates() {
       });
   });
 }
-
-async function showGraphs() {}
 
 const runningDiff = (series) => {
   const daily = Array.from(series);
@@ -1586,25 +1641,32 @@ function presentation() {
     .classed('enabled', pageState.currentPage > 0)
     .on('click', function (event) {
       if (d3.select(this).classed('enabled')) {
+        --pageState.currentPage;
+        d3.select(this).classed('enabled', pageState.currentPage > 0);
+        d3.select('#right-nav').classed(
+          'enabled',
+          pageState.currentPage < pageState.pages.length - 1
+        );
         clearPage();
-        pageState.pages[--pageState.currentPage].handler();
+        pageState.pages[pageState.currentPage].handler();
       }
     });
   d3.select('#right-nav')
-    .classed('enabled', pageState.currentPage < 2)
+    .classed('enabled', pageState.currentPage < pageState.pages.length - 1)
     .on('click', function (event) {
       if (d3.select(this).classed('enabled')) {
+        ++pageState.currentPage;
+        d3.select(this).classed(
+          'enabled',
+          pageState.currentPage < pageState.pages.length - 1
+        );
+        d3.select('#left-nav').classed('enabled', pageState.currentPage > 0);
         clearPage();
-        pageState.pages[++pageState.currentPage].handler();
+        pageState.pages[pageState.currentPage].handler();
       }
     });
 
   pageState.pages[pageState.currentPage].handler();
-
-  function clearPage() {
-    d3.select('.viewport').html('<svg></svg>');
-    d3.select('.pane .pane-interior').html('');
-  }
 }
 
 window.onload = presentation;

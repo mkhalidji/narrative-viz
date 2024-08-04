@@ -75,11 +75,18 @@ div.pane {
 .pane .pane-interior {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .pane .pane-interior svg {
   width: 100%;
-  height: 50%;
+  margin-bottom: 10px;
+}
+
+.pane .pane-interior ul {
+  margin-bottom: 25px;
 }
 
 div.pane h1 {
@@ -87,7 +94,7 @@ div.pane h1 {
   text-align: center;
 }
 
-.pane  .pane-interior li {
+.pane .pane-interior li {
   font-size: 1.2rem;
   margin-bottom: 0.5em;
 }
