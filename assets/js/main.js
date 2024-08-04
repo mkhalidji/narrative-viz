@@ -16,7 +16,8 @@ const constants = {
   mapHeight: 610,
   margin: {
     horizontal: 20,
-    vertical: 10,
+    top: 10,
+    bottom: 20,
   },
   spacing: {
     vertical: 10,
@@ -27,13 +28,17 @@ const constants = {
 constants.width = constants.mapWidth + constants.margin.horizontal;
 constants.height =
   constants.mapHeight +
-  constants.margin.vertical +
-  2 * constants.spacing.vertical;
+  constants.spacing.vertical +
+  constants.shortChartHeight +
+  constants.margin.top +
+  constants.margin.bottom;
 
 const pageData = {
   national: undefined,
   us: undefined,
 };
+
+const compareDates = (a, b) => a.date.getTime() - b.date.getTime();
 
 function pleaseWait(selection, width, height) {
   selection
@@ -96,25 +101,29 @@ const formatStats = (
 
 async function showIntroduction() {}
 
-async function drawUSMap(selection, fill = 'none') {
+async function drawUSMap(selection, fill = 'none', stroke = '#a2a2a2') {
   loadMapData();
   const us = await pageData.us;
   const path = d3.geoPath();
 
   selection
-    .append('path')
+    .selectAll('#us-border')
+    .data([path(topojson.mesh(us, us.objects.nation))])
+    .join('path')
     .attr('id', 'us-border')
     .attr('fill', fill)
-    .attr('stroke', '#a2a2a2')
-    .attr('d', path(topojson.mesh(us, us.objects.nation)));
+    .attr('stroke', stroke)
+    .attr('d', (d) => d);
 
   selection
-    .append('path')
+    .selectAll('#state-borders')
+    .data([path(topojson.mesh(us, us.objects.states, (a, b) => a !== b))])
+    .join('path')
     .attr('id', 'state-borders')
     .attr('fill', fill)
-    .attr('stroke', '#a2a2a2')
+    .attr('stroke', stroke)
     .attr('stroke-linejoin', 'round')
-    .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => a !== b)));
+    .attr('d', (d) => d);
 }
 
 function chartNationalTrends(
@@ -122,49 +131,137 @@ function chartNationalTrends(
   national,
   { x, y },
   { width, height },
-  { fill }
+  { strokes }
 ) {
   const dateExtent = d3.extent(national, ({ date }) => date);
   const xScale = d3
     .scaleTime()
     .domain(dateExtent)
-    .range([x, x + width]);
+    .range([x, x + width])
+    .nice();
 
-  const yScale = d3
+  const casesScale = d3
     .scaleLinear()
-    .domain([0, d3.max(national, ({ value }) => value)])
+    .domain([0, d3.max(national, ({ cases }) => cases)])
     .range([y + height, y]);
 
-  const area = (xs, ys) =>
+  const deathsScale = casesScale
+    .copy()
+    .domain([0, d3.max(national, ({ deaths }) => deaths)]);
+
+  const curve = (field, xs, ys) =>
     d3
-      .area()
+      .line()
       .x(({ date }) => xs(date))
-      .y0(yScale(0))
-      .y1(({ value }) => ys(value));
+      .y((d) => ys(d[field]));
 
   const g = selection.append('g');
 
   g.append('path')
     .datum(national)
-    .attr('fill', fill)
-    .attr('stroke', 'whitesmoke')
-    .attr('d', area(xScale, yScale));
-
-  g.append('g')
-    .call(d3.axisBottom(xScale))
-    .attr('transform', `translate(0, ${yScale(0)})`);
+    .attr('fill', 'none')
+    .attr('stroke', strokes.cases)
+    .attr('d', curve('cases', xScale, casesScale));
 
   g.append('g')
     .attr('transform', `translate(${x}, 0)`)
-    .call(d3.axisLeft(yScale).ticks(3));
+    .call(d3.axisLeft(casesScale).ticks(3));
+
+  g.append('path')
+    .datum(national)
+    .attr('fill', 'none')
+    .attr('stroke', strokes.deaths)
+    .attr('d', curve('deaths', xScale, deathsScale));
+
+  g.append('g')
+    .attr('transform', `translate(${x + width}, 0)`)
+    .call(d3.axisRight(deathsScale).ticks(3));
+
+  g.append('g')
+    .attr('transform', `translate(0, ${y + height})`)
+    .call(d3.axisBottom(xScale));
+
+  const annotations = [
+    {
+      type: d3.annotationCalloutCircle,
+      id: 'inauguration',
+      note: {
+        label: '',
+        bgPadding: 10,
+        title: 'Inauguration',
+        wrap: 200,
+      },
+      x: xScale(new Date('1/21/2021')),
+      y:
+        constants.mapHeight +
+        constants.spacing.vertical +
+        0.75 * constants.shortChartHeight,
+      dx: -150,
+      dy: -100,
+      subject: {
+        radius: 25,
+        raduisPadding: 2,
+      },
+      connector: { end: 'arrow' },
+    },
+    {
+      type: d3.annotationCalloutCircle,
+      id: 'slope',
+      note: {
+        label: '',
+        bgPadding: 10,
+        title: 'Change in rate',
+        wrap: 200,
+      },
+      x: xScale(new Date('1/10/2022')),
+      y:
+        constants.mapHeight +
+        constants.spacing.vertical +
+        0.5 * constants.shortChartHeight,
+      dx: 150,
+      dy: -100,
+      subject: {
+        radius: 25,
+        raduisPadding: 2,
+      },
+      connector: { end: 'arrow' },
+    },
+  ];
+
+  g.call(annotate, annotations);
+
+  function annotate(selection, annotations) {
+    const makeAnnotations = d3
+      .annotation()
+      .on('noteover', function (annotation) {
+        if (annotation.id === 'inauguration') {
+          annotation.note.label =
+            'Presidential inauguration; at this point, the administration changes hands. For similar periods before and after this point, more or less similar trends can be observed.';
+        } else if (annotation.id === 'slope') {
+          annotation.note.label =
+            'The increased slope here means that the number of cases (yellow) has a drastic increase at this point.';
+        }
+        makeAnnotations.updateText().update();
+      })
+      .on('noteout', function (annotation) {
+        annotation.note.label = '';
+        makeAnnotations.updateText().update();
+      })
+      .notePadding(10)
+      .annotations(annotations);
+
+    selection.append('g').attr('class', 'annotation-tip').call(makeAnnotations);
+  }
 }
 
 async function presentNationalTrends() {
-  const { width, height, shortChartHeight, margin, spacing } = constants;
-  const chartMargin = { left: 100, right: margin.horizontal / 2 };
+  const { width, height, shortChartHeight, margin } = constants;
+  const chartMargin = { left: 75, right: 75 };
 
   loadNationalCovidData();
   const national = await pageData.national;
+
+  const wholeDateRange = d3.extent(national, ({ date }) => date);
 
   const svg = d3.select('.viewport svg').attr('viewBox', [0, 0, width, height]);
 
@@ -172,37 +269,126 @@ async function presentNationalTrends() {
 
   const g = svg.append('g');
 
-  g.call(drawUSMap, '#444444');
+  const dataview = (extent) =>
+    d3.filter(
+      national,
+      ({ date }) =>
+        date.getTime() >= extent[0].getTime() &&
+        date.getTime() <= extent[1].getTime()
+    );
 
-  // svg.call(
-  //   chartNationalTrends,
-  //   d3.map(national, ({ date, deaths }) => ({
-  //     date,
-  //     value: deaths,
-  //   })),
-  //   {
-  //     x: chartMargin.left,
-  //     y:
-  //       (margin.vertical + height - 3 * shortChartHeight - spacing.vertical) /
-  //       2,
-  //   },
-  //   { width: chartWidth, height: shortChartHeight },
-  //   { fill: 'red' }
-  // );
+  const colorScale = (low, mid, top) =>
+    d3
+      .scaleDiverging([low, mid, top], ['#22763f', '#f4cf64', '#be2a3e'])
+      .clamp(true);
+
+  const last = d3.greatest(dataview(wholeDateRange), compareDates);
+  const first = d3.least(dataview(wholeDateRange), compareDates);
+
+  const totalCases = last.cases - first.cases;
+  const casesChoropleth = colorScale(0, totalCases / 2, totalCases);
+
+  const totalDeaths = last.deaths - first.deaths;
+  const deathsChoropleth = colorScale(0, totalDeaths / 2, totalDeaths);
+
+  const borderColor = d3
+    .scaleDiverging(
+      [0, totalCases / 2, totalCases],
+      ['lightgrey', 'black', 'lightgrey']
+    )
+    .clamp(true);
+
+  renderMap(wholeDateRange);
 
   svg.call(
     chartNationalTrends,
-    d3.map(national, ({ date, cases }) => ({ date, value: cases })),
+    national,
     {
       x: chartMargin.left,
-      y: height - shortChartHeight - margin.vertical / 2,
+      y: height - shortChartHeight - margin.bottom,
     },
     {
       width: width - chartMargin.left - chartMargin.right,
       height: shortChartHeight,
     },
-    { fill: 'steelblue' }
+    { strokes: { cases: 'gold', deaths: 'red' } }
   );
+
+  const xScale = d3
+    .scaleTime()
+    .domain(wholeDateRange)
+    .range([chartMargin.left, width - chartMargin.right]);
+
+  const brush = d3
+    .brushX()
+    .extent([
+      [chartMargin.left, height - shortChartHeight - margin.bottom],
+      [width - chartMargin.right, height - margin.bottom],
+    ])
+    .on('brush', brushed)
+    .on('end', brushended);
+
+  const brush_g = svg.append('g');
+
+  brush_g.call(brush).call(brush.move, null);
+
+  function brushed({ selection }) {
+    if (selection) {
+      renderMap(selection.map(xScale.invert));
+    }
+  }
+
+  function brushended({ selection }) {
+    if (selection) {
+      renderMap(selection.map(xScale.invert));
+    } else {
+      renderMap(wholeDateRange);
+    }
+  }
+
+  async function renderMap(extent) {
+    const last = d3.greatest(dataview(extent), compareDates);
+    const first = d3.least(dataview(extent), compareDates);
+
+    const totalCases = last.cases - first.cases;
+    const totalDeaths = last.deaths - first.deaths;
+
+    await drawUSMap(g, casesChoropleth(totalCases), borderColor(totalCases));
+
+    const cardWidth = 200,
+      cardHeight = 75;
+
+    const cardX = margin.horizontal + (constants.mapWidth - cardWidth) / 2;
+    const cardY = margin.top + (constants.mapHeight - cardHeight) / 2;
+    g.selectAll('rect')
+      .data([0])
+      .join('rect')
+      .attr('x', cardX)
+      .attr('y', cardY)
+      .attr('width', cardWidth)
+      .attr('height', cardHeight)
+      .attr('fill', '#222222aa');
+    const textCard = g
+      .selectAll('text')
+      .data([{ totalCases, totalDeaths, extent }])
+      .join('text')
+      .attr('x', cardX)
+      .attr('y', cardY)
+      .attr('width', cardWidth)
+      .attr('height', cardHeight)
+      .attr('fill', 'whitesmoke');
+    textCard
+      .selectAll('tspan')
+      .data([
+        `Date: ${extent[0].toLocaleDateString()} - ${extent[1].toLocaleDateString()}`,
+        `Cases: ${totalCases.toLocaleString()}`,
+        `Deaths: ${totalDeaths.toLocaleString()}`,
+      ])
+      .join('tspan')
+      .attr('x', 5 + cardX)
+      .attr('y', (_, i) => cardY + 20 * (i + 1))
+      .text((d) => d);
+  }
 }
 
 async function presentStateData() {
@@ -1353,7 +1539,6 @@ async function showScatter() {
 
   const svg = d3.select('svg').attr('viewBox', [0, 0, width, height]);
 
-  const compareDates = (a, b) => a.date.getTime() - b.date.getTime();
   const data = d3.map(
     d3.group(states, (d) => d.state).values(),
     function (state) {

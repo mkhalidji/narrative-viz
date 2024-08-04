@@ -47,7 +47,7 @@ div.right {
 
 div.viewport {
   position: absolute;
-  left: 350px;
+  left: 400px;
   right: 100px;
   height: 100%;
   margin-top: 0px;
@@ -64,7 +64,7 @@ div.pane {
   flex-direction: column;
   box-sizing: content-box;
   left: 100px;
-  width: 250px;
+  width: 350px;
   height: 100%;
   padding: 10px;
   background: darkgray;
@@ -97,7 +97,7 @@ text {
 }
 
 .annotation-note-label {
-  fill: 'white';
+  fill: white;
 }
 .annotation path {
   fill: none;
@@ -105,19 +105,15 @@ text {
   stroke-width: 2;
 }
 
-.annotation text {
-  fill: #ff8684;
-}
 .annotation tspan {
 }
 
-.annotation-note-title {
-  font-weight: bold;
-}
+
 .annotation-note-bg {
   fill-opacity: 0.8;
   filter: url(#blur-effect);
   border-radius: 5px;
+  fill: darkblue;
 }
 
 .annotation.annotation-first .annotation-note-bg {
@@ -144,9 +140,6 @@ circle.handle.highlight {
 .annotation-tip .annotation path {
   stroke: white;
 }
-.annotation-tip .annotation text {
-  fill: white;
-}
 
 .annotation.annotation-first text {
   fill: #f4cf64;
@@ -154,4 +147,9 @@ circle.handle.highlight {
 
 .annotation.annotation-second text {
   fill: #be2a3e;
+}
+
+.annotation-note-title {
+  fill:#f4cf64 ;
+  font-weight: bold;
 }
